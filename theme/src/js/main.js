@@ -152,7 +152,7 @@ $("a").on('click', function(event) {
       
       scrollTop: $(hash).offset().top - 85
     
-    }, 800, function(){
+    }, 400, function(){
 
     });
   } // End if

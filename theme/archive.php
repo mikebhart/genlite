@@ -25,15 +25,19 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 ?>
 
- <!-- Search Bar -->
+	 <!-- title -->
+	<div class="container">
+
+		<div class="row mt-5 mb-3 justify-content-center">
+			<div class="genlite-archive-title">
+				<h1><?php the_archive_title(); ?></h1>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 
-		<div class="row mt-5 mb-3">
-
-			<div class="col-12 text-center mb-3">
-				<h1><u><?php the_archive_title(); ?></u></h1>
-			</div>
+		<div class="row mb-3">
 			
 			<div class="col-12 col-sm-6">
 				<label><h6>CATEGORY</h6></label>
