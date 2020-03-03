@@ -170,12 +170,21 @@ $("a").on('click', function(event) {
     e.preventDefault();
   });
 
-  // Warap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
-  $( ".page-template-default article" )
-    .find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted")
-    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p" )
-    .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" )
-  ;
+    // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
+    $( "article" )
+      .find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area")
+      .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p" )
+      .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" )
+    ;
+
+    // wrap sections around the rest, keep it all the same
+    $( "article" )
+      .find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button, .wp-block-embed")
+      .wrap( "<section></section>" )
+    ;
+
+
+
 
 
   $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
