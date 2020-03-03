@@ -1,0 +1,67 @@
+
+#genlite-header
+
+    &__navbar
+        padding: 50px 10px
+        transition: 0.4s
+        position: fixed
+        width: 100%
+        top: 0
+        left: 0
+        z-index: 999
+
+        &-right
+            float: right
+            margin-right: 50px
+
+    &__image
+        height: 100px
+   	    transition: all 0.4s
+
+    
+.navbar
+    padding: 0px
+    > li a .dropdown-item
+        //color: red
+.nav
+    a
+        color: white
+        font-size: 14px
+        font-style: normal
+        font-weight: 700
+        letter-spacing: 1.4px
+        text-transform: uppercase
+    
+    .dropdown-menu
+        a
+            color: black
+
+.dropdown-item:hover, 
+.dropdown-item:focus  
+    //background-color: red
+    color: $genlite-primary-color
+    //background: none
+    
+.dropdown-submenu
+  position: relative
+
+
+.dropdown-submenu a::after 
+  transform: rotate(-90deg)
+  position: absolute
+  right: 6px
+  top: .8em
+
+
+.dropdown-submenu .dropdown-menu 
+  top: 0
+  left: 100%
+  margin-left: .1rem
+  margin-right: .1rem
+
+
+
+
+
+
+

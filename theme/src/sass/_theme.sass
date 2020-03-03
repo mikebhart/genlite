@@ -1,0 +1,86 @@
+html
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif
+    font-size: 19px
+    letter-spacing: normal 
+    text-rendering: auto
+    overflow-y: scroll
+    scroll-behavior: smooth
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+body 
+    font: inherit
+    font-style: inherit
+    font-weight: 300
+    font-family: inherit
+    line-height: 1.5
+    word-wrap: break-word
+    overflow-wrap: break-word
+    background-color: white
+    color: black
+    overflow-x: hidden
+    width: 100%
+
+ul.genlite-social 
+    list-style: none
+    display: inline
+    //margin-left: 30px
+    //padding: 0
+    //margin: 0 35px 0 0
+    font-size: 22px
+    //top: 38px
+    li 
+        display: inline
+        margin: 0px 5px 0px 5px
+        
+
+
+
+.genlite
+
+    &__content
+        margin-top: 50px
+    
+    &__fade_in
+        animation: fadein 2s
+        -moz-animation: fadein 2s
+
+        /* Firefox */
+        -webkit-animation: fadein 2s
+
+        /* Safari and Chrome */
+        -o-animation: fadein 2s
+
+        /* Opera*/
+        @keyframes fadein
+            from
+                opacity: 0
+            to
+                opacity: 1
+
+        @-moz-keyframes fadein
+            /* Firefox*/
+            from
+                opacity: 0
+            to
+                opacity: 1
+
+        @-webkit-keyframes fadein
+            /* Safari and Chrome*/
+            from
+                opacity: 0
+            to
+                opacity: 1
+
+        @-o-keyframes fadein
+            /* Opera */
+            from
+                opacity: 0
+
+            to
+                opacity: 1
+
+
+

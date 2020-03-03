@@ -1,0 +1,10 @@
+/html
+/theme/dist
+/theme/node_modules
+*.log
+.env
+.idea
+.project
+.settings
+/plugins
+.editorconfig

@@ -1,0 +1,190 @@
+/* --------------------------------------------------------------------
+
+            Override Default WP Block Styles to GenLite styling
+
+    -------------------------------------------------------------------- */
+    
+// -------------- Button ----------------
+
+.wp-block-button
+    margin: 10px 0px 10px 0px
+    
+    a:hover 
+        text-decoration: none
+        color: white
+        background-position: left bottom
+    
+    &__link
+        display: inline-block
+        min-width: 250px
+        min-height: 55px
+        font-weight: bold
+        color: $genlite-primary-color
+        background: linear-gradient(to right, $genlite-primary-color 50%, white 50%) no-repeat scroll right (bottom / 220%) 100%  $genlite-primary-color
+        border-radius: 40px
+        border-width: 2px
+        border-style: solid
+        border-color: $genlite-primary-color
+        -webkit-transition: all 0.5s ease-in-out
+        -moz-transition: all 0.5s ease-in-out
+        -o-transition: all 0.5s ease-in-out
+        -ms-transition: all 0.5s ease-in-out
+        transition: all 0.5s ease-in-out
+
+// -------------- Seperator ----------------
+
+.wp-block-separator 
+    border-color: $genlite-secondary-color
+    &:not(.is-style-wide):not(.is-style-dots) 
+        max-width: none
+        margin-right: -25rem
+        margin-left: -25rem
+        border-bottom-width: 1px
+
+// -------------- Gallery ----------------
+
+.blocks-gallery-item img:hover
+    -webkit-filter: grayscale(100%)
+    filter: grayscale(100%)
+    transition: all 0.5s ease-in-out
+
+.wp-block-latest-posts.is-grid 
+    display: flex
+    flex-wrap: wrap
+    padding: 15px
+
+.blocks-gallery-item
+    margin: 0px !important
+
+// -------------- Quote ----------------
+
+.wp-block-quote  
+    border-left-color: $genlite-primary-color
+
+// -------------- Cover ----------------
+
+.wp-block-cover 
+    background-attachment: fixed
+
+
+     
+    
+    
+//     .wp-block-pullquote 
+//       margin-bottom: 4rem
+    
+    
+//     .alignwide 
+//       max-width: calc(100vw - 2rem)
+//       margin-right: -1rem
+//       margin-left: -1rem
+    
+    
+//     .alignfull 
+//       max-width: 100vw
+//       margin-right: -2rem
+//       margin-left: -2rem
+    
+    
+    
+    
+// embed, iframe, img, object, video, input, textarea, select 
+//     max-width: 100%
+    
+    
+// strong 
+//     font-weight: 600
+    
+    
+//     img 
+//       &.alignleft 
+//         float: left
+//         margin-right: 10px
+      
+//       &.alignright 
+//         float: right
+//         margin-left: 5px
+      
+    
+    
+//     .wp-block-quote 
+//       border-color: var(--genlite-primary-color) !important
+    
+    
+//     .card 
+//       border: none
+    
+    
+//     .alignright 
+//       float: right
+    
+    
+//     .alignleft 
+//       float: left
+    
+    
+//     .aligncenter 
+//       float: none
+//       display: block
+//       margin-left: auto
+//       margin-right: auto
+    
+    
+//     .wp-caption img 
+//       padding-right: 15px
+    
+    
+//     .wp-caption-text 
+//       text-align: center
+//       margin-top: 1px
+//       color: #000000
+    
+    
+//     .wp-caption 
+//       p.wp-caption-text 
+//         text-align: center
+//         margin-top: 1px
+//         color: #000000
+      
+//       text-align: center
+//       max-width: 100%
+    
+    
+//     .attachment img 
+//       text-align: center
+//       max-width: 100%
+    
+    
+//     .entry 
+//       .attachment, .caption, .gallery-caption 
+//         text-align: center
+      
+    
+    
+//     .bypostauthor .comment-body 
+//       background: #EFEFEF
+    
+    
+//     .sticky 
+//       border: 3px solid #CC0000
+//       padding: 30px
+    
+    
+//     .comment-form-author 
+//       width: 60%
+    
+    
+//     .comment-form-email, .comment-form-url 
+//       width: 45%
+    
+    
+//     .screen-reader-text 
+//       clip: rect(1px, 1px, 1px, 1px)
+//       height: 1px
+//       &:focus 
+//         background-color: #f1f1f1
+//         -webkit-border-radius: 3px
+      
+    
+
+    

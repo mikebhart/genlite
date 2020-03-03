@@ -1,0 +1,43 @@
+
+// buttons
+.btn-outline-primary 
+    color: $genlite-primary-color 
+    border-radius: 25px
+    max-width: 150px 
+    border: 2px solid $genlite-primary-color
+    font-weight: 400
+    transition: all 0.4s
+
+    &:not(:disabled):not(.disabled):active,
+    &:hover,
+    &:focus
+        background-color: white
+        border-color: #000000 
+        color: #000000
+
+
+.genlite-back-to-top 
+    position: fixed
+    bottom: 18px
+    right: 26px
+    z-index: 9999
+    width: 50px
+    height: 50px
+    text-align: center
+    border-width: 2px
+    border-style: solid
+    color: $genlite-primary-color
+    border-color: $genlite-primary-color
+    cursor: pointer
+    border-radius: 25px
+    text-decoration: none
+    transition: opacity 0.5s ease-out
+    opacity: 0
+    padding-top: 7px
+    font-size: 20px
+    transition: 0.4s
+    &:hover 
+        color: black
+        border-color: black  
+    &.show 
+        opacity: 1
