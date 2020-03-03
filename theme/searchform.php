@@ -12,7 +12,7 @@
 
 $s = get_search_query(); ?>
 
-<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>/">
+<form method="GET" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>/">
 	<br>
 	 	<div class="input-group">
 
