@@ -15,7 +15,7 @@ get_header(); ?>
 
 
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('genlite-article'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('genlite__content'); ?>>
 
 			<?php 
 	

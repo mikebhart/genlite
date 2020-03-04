@@ -106,6 +106,8 @@ function scrollFunction() {
         document.getElementById("genlite-header__navbar").style.backgroundColor = "";
         document.getElementById("genlite-header__navbar").style.color = "white";
         document.getElementById("genlite-header__image").style.height = "100px";
+        document.getElementById("genlite-header__navbar").style.boxShadow = "";
+        
 
       }
   }
@@ -123,6 +125,7 @@ if (document.querySelector('.page-template-default') === null) {
 function setHeaderProperties() {
 
   document.getElementById("genlite-header__navbar").style.backgroundColor = "black";
+  document.getElementById("genlite-header__navbar").style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
   document.getElementById("genlite-header__navbar").style.padding = "0px";
   document.getElementById("genlite-header__image").style.height = "50px";
 
@@ -179,7 +182,7 @@ $("a").on('click', function(event) {
 
     // wrap sections around the rest, keep it all the same
     $( "article" )
-      .find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button, .wp-block-embed")
+      .find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button")
       .wrap( "<section></section>" )
     ;
 
