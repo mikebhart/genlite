@@ -28,9 +28,6 @@
 	
 		<footer>
 
-			<hr>
-
-
 				<?php  
 
 						if ( is_active_sidebar( 'genlite_footer_1' ) || 
@@ -72,7 +69,8 @@
 						           		</div>
 								          
 				        <?php     	}
-						        }
+								}
+							  }
 							        ?>
 
 					</div>
@@ -109,8 +107,6 @@
 
 				
 				</div>
-
-			<?php } ?>
 
 			<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
 
