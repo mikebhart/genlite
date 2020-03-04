@@ -132,74 +132,6 @@ function setHeaderProperties() {
 }
 
 
-// Add smooth scrolling to all links
-$("a").on('click', function(event) {
-  
- 
-
-
-
-  
-
-
-
-  // Make sure this.hash has a value before overriding default behavior
-  if (this.hash !== "") {
-    
-
-      // Prevent default anchor click behavior
-    event.preventDefault();
-
-
-
-    var href_value = this.href;
-    var current_path = window.location.pathname;
-  
-    var current_path_cleaned = current_path.replace(/\//g, '');
-
-
-  
-    var n = href_value.indexOf(current_path_cleaned);
-
-    var top_more = 85;
-    
-    if (n === -1 || current_path_cleaned === "") {
-
-       location.assign(href_value);
-      //top_more = 450;
-  //    setTimeout(function(){ window.scrollTo(0, 500);  }, 13000);
-
-      //$(document).ready(function(){
-
-      //document.onload = function(){ window.location.replace(href_value); };
-
-    }
-
-
-
-    // Store hash
-    var hash = this.hash;
-
-    // Add hash (#) to URL when done scrolling (default click behavior)
-    window.location.hash = hash;
-
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-    $('html, body').animate({
-      
-      scrollTop: $(hash).offset().top - top_more
-    
-    }, 400, function(){
-
-    });
-
-
-
-
-
-
-  } // End if
-}); 
 
 
  
@@ -254,6 +186,65 @@ $("a").on('click', function(event) {
 
 
 
+
+var jump=function(e)
+{
+
+   if (e){
+       e.preventDefault();
+       var target = $(this).attr("href");
+   }else{
+       var target = location.hash;
+
+       // different page
+   }
+
+
+   $('html,body').animate(
+   {
+       scrollTop: $(target).offset().top - 85
+   },400,function()
+   {
+      
+   });
+
+
+}
+
+$('html, body').hide();
+
+$(document).ready(function()
+{
+  
+    $('a[href^=#]').bind("click", jump);
+
+  
+
+    if (location.hash){
+
+      setTimeout(function(){
+            $('html, body').scrollTop(0).show();
+           
+            jump(); 
+           
+     
+        }, 400);
+
+        
+    }else{
+
+    
+        $('html, body').show();
+      
+    }
+
+
+
+
+
+   
+
+});
 
 
 
