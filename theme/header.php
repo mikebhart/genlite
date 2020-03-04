@@ -41,37 +41,32 @@
 
 						<div id="genlite-header__navbar">
 
-							<a href ="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+							
 
-								<?php if (has_custom_logo()) { 
-
-									$custom_logo_id = get_theme_mod( 'custom_logo' );
-									$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
-
-									<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
-
-								<?php } else { ?>
-
-									<h2><?php echo bloginfo( 'name' ); ?></h2>
-
-								<?php	}  ?>
-
-							</a>				
-
-							<div id="genlite-header__navbar-right">
+							
 							
 								<nav class="navbar navbar-expand-lg">
 
-									 <!-- Collapse button -->
+										<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
-										<!-- <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right genlite-navbar-button" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="<?php esc_html_e( 'Toggle Navigation', 'genlite' ); ?>">
+										<?php if (has_custom_logo()) { 
 
-											<span><i class="fas fa-bars"></i>&nbsp;<?php esc_attr_e('Menu','genlite'); ?></span>
+											$custom_logo_id = get_theme_mod( 'custom_logo' );
+											$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
 
-										</button> -->
+											<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
+
+										<?php } else { ?>
+
+											<h2><?php echo bloginfo( 'name' ); ?></h2>
+
+										<?php	}  ?>
+
+									</a>				
 
 										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
-  											  <span class="navbar-toggler-icon"></span>
+												<!-- <span class="navbar-toggler-icon"></span> -->
+												Menu
 									  </button>
 
 
@@ -88,28 +83,45 @@
 															'theme_location'    => 'primary',
 															'depth'             => 5,
 															'menu_id'           => 'primary-menu',
-															'menu_class'        => 'nav navbar-nav',
+															'menu_class'        => 'navbar-nav',
 															'container'         => 'div',
 															'container_id'      => 'genlite-navbar',
+															'container_class'   => 'ml-auto',
 															'fallback_cb'       => 'genlite_Walker_Nav_Menu::fallback',
 															'walker'            => new genlite_Walker_Nav_Menu())
 															);		
 
 													} else { 
 
-														echo '<div class="genlite-red text-center">';
+														echo '<div class="text-center">';
 														echo esc_attr_e('You need to add a Menu. Go into Customizer | Menus | Select a Menu | Menu Location - Tick Top Menu checkbox.','genlite');
 														echo '</div>'; 
 
 													}
 													?>
 
-													
-												<ul class="genlite-social">
+												<div class="pt-1 d-none d-lg-block">	
+													<ul class="genlite-social">
 
-													<?php  get_template_part('/template-parts/render-socials'); ?>		
+														<?php  get_template_part('/template-parts/render-socials'); ?>		
 
-												</ul>
+													</ul>
+												</div>
+
+												<form method="get" class="form-horizontal my-2 my-md-0 genlite-header-search-form" action="https://www.hartsoft.co.uk/">
+
+														<div class="input-group">
+
+															
+															<input type="text" value="" name="s" class="form-control" placeholder="Search for blogs and pages">
+															<span class="input-group-btn fa fa-search form-control-feedback genlite-icon"></span>    
+
+														</div>
+
+																
+
+												</form>
+
 
 												<!-- <div class="search-button">
 														<a href="#" class="search-toggle" data-selector="#header-1"></a>
@@ -131,7 +143,7 @@
 
 
 
-							</div>
+					
 
 						
 

@@ -11,32 +11,46 @@
         z-index: 999
         
 
-        &-right
-            float: right
-            margin-right: 50px
+        // &-right
+        //     float: right
+        //     margin-right: 50px
 
     &__image
         height: 100px
    	    transition: all 0.4s
 
+    // &__social-holder
+    //     a
+
+        
+
+
     
-.navbar
+//.navbar
     
-    padding: 0px
-    > li a .dropdown-item
-        //color: red
-.nav
+//     padding: 0px
+//     > li a .dropdown-item
+//         //color: red
+// .nav
+//     a
+//         color: white
+//         font-size: 14px
+//         font-style: normal
+//         font-weight: 700
+//         letter-spacing: 1.4px
+//         text-transform: uppercase
+    
+.dropdown-menu
     a
-        color: white
-        font-size: 14px
-        font-style: normal
-        font-weight: 700
-        letter-spacing: 1.4px
-        text-transform: uppercase
-    
-    .dropdown-menu
-        a
-            color: black
+        color: black
+
+.dropdown-item
+    color: white
+
+.dropdown-item:focus, .dropdown-item:hover
+    background-color: transparent
+
+
 
 .dropdown-item:hover, 
 .dropdown-item:focus  
@@ -64,6 +78,70 @@
 
 
 
+.navbar-toggler,
+.genlite-social a
+    color: white
+    &:hover
+        color: $genlite-primary-color
+
+  
+.genlite-header-search-form .input-group 
+  margin-top: 5px
+  float: right !important
+  transition: all 0.35s, border-radius 0s
+  background-color: #FFFFFF
+  border-radius: 25px
+  border: 1px solid
+  border-color: red
+  z-index: 1000
+  font-size: 14px
+  width: 34px
+  height: 38px
+  input.form-control 
+    border: none
+    background: transparent
+    box-shadow: none
+    display: block
+    padding: 1rem 2rem
+    color: #000000
+    margin-top: 0px
+    &::-webkit-input-placeholder 
+      display: none
+      color: #000000
+    
+    &:-moz-placeholder 
+      /* Firefox 18- */
+      display: none
+      color: #000000
+    
+    &::-moz-placeholder 
+      /* Firefox 19+ */
+      display: none
+      color: #000000
+    
+    &:-ms-input-placeholder 
+      display: none
+      color: #000000
+    
+  
+    &:hover, &.hover 
+        width: 80%
+        border-radius: 25px 25px 25px 25px
+  
+  span.form-control-feedback 
+    position: absolute
+    top: 10px
+    right: -2px
+    display: block
+    width: 34px
+    height: 38px
+    text-align: center
+    left: initial
+    font-size: 14px
+  
 
 
-
+@media (max-width: 991px) 
+    .genlite-header-search-form .input-group 
+        margin-top: -50px
+  
