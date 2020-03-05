@@ -202,7 +202,7 @@ var jump=function(e)
 
    $('html,body').animate(
    {
-       scrollTop: $(target).offset().top - 85
+       scrollTop: $(target).offset().top - 60
    },400,function()
    {
       

@@ -25,14 +25,14 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 ?>
 
-	 <!-- title -->
 	<div class="container">
 
-		<div class="row mt-5 mb-3 justify-content-center">
+		<div class="row genlite__content justify-content-center">
 			<div class="genlite-archive-title">
 				<h1><?php the_archive_title(); ?></h1>
 			</div>
 		</div>
+
 	</div>
 
 	<div class="container">
