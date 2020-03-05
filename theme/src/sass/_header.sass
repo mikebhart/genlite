@@ -9,40 +9,41 @@
         top: 0
         left: 0
         z-index: 999
-        
-
-        // &-right
-        //     float: right
-        //     margin-right: 50px
+        font-size: 16px
+        font-weight: 700
+        letter-spacing: 1.8px
 
     &__image
         height: 100px
    	    transition: all 0.4s
 
-    // &__social-holder
-    //     a
-
-        
+.dropdown-menu .active a 
+    font-weight: 600
 
 
-    
-//.navbar
-    
-//     padding: 0px
-//     > li a .dropdown-item
-//         //color: red
-// .nav
-//     a
-//         color: white
-//         font-size: 14px
-//         font-style: normal
-//         font-weight: 700
-//         letter-spacing: 1.4px
-//         text-transform: uppercase
+.navbar
+    .active a
+        font-weight: 600
+        display: block
+        color: $genlite-primary-color
+  
+
+.dropdown:hover > .dropdown-menu 
+    display: block
+    margin-top: 0px
+
+.navbar-nav 
+    .current-menu-ancestor
+        a.dropdown-toggle 
+            font-weight: 600
+            display: block
+            color: $genlite-primary-color
     
 .dropdown-menu
+    
     a
         color: black
+        font-size: 16px
 
 .dropdown-item
     color: white
@@ -54,9 +55,7 @@
 
 .dropdown-item:hover, 
 .dropdown-item:focus  
-    //background-color: red
     color: $genlite-primary-color
-    //background: none
     
 .dropdown-submenu
   position: relative
@@ -84,64 +83,4 @@
     &:hover
         color: $genlite-primary-color
 
-  
-.genlite-header-search-form .input-group 
-  margin-top: 5px
-  float: right !important
-  transition: all 0.35s, border-radius 0s
-  background-color: #FFFFFF
-  border-radius: 25px
-  border: 1px solid
-  border-color: red
-  z-index: 1000
-  font-size: 14px
-  width: 34px
-  height: 38px
-  input.form-control 
-    border: none
-    background: transparent
-    box-shadow: none
-    display: block
-    padding: 1rem 2rem
-    color: #000000
-    margin-top: 0px
-    &::-webkit-input-placeholder 
-      display: none
-      color: #000000
-    
-    &:-moz-placeholder 
-      /* Firefox 18- */
-      display: none
-      color: #000000
-    
-    &::-moz-placeholder 
-      /* Firefox 19+ */
-      display: none
-      color: #000000
-    
-    &:-ms-input-placeholder 
-      display: none
-      color: #000000
-    
-  
-    &:hover, &.hover 
-        width: 80%
-        border-radius: 25px 25px 25px 25px
-  
-  span.form-control-feedback 
-    position: absolute
-    top: 10px
-    right: -2px
-    display: block
-    width: 34px
-    height: 38px
-    text-align: center
-    left: initial
-    font-size: 14px
-  
-
-
-@media (max-width: 991px) 
-    .genlite-header-search-form .input-group 
-        margin-top: -50px
   

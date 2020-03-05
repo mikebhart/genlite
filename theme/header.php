@@ -28,55 +28,39 @@
 	</head>
 
 	<body <?php body_class('genlite__fade_in'); ?>>
-
-
  	
 		<header>
 
-		
+			<section id="genlite-header__navbar">
 
-				
+				<nav class="navbar navbar-expand-lg">
 
-					
+					<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
-						<div id="genlite-header__navbar">
+						<?php if (has_custom_logo()) { 
 
+								$custom_logo_id = get_theme_mod( 'custom_logo' );
+								$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
+
+								<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
+
+							<?php } else { ?>
+
+								<h2><?php echo bloginfo( 'name' ); ?></h2>
 							
+							<?php	}  ?>
 
-							
-							
-								<nav class="navbar navbar-expand-lg">
+					</a>				
 
-										<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
+						Menu
+					</button>
 
-										<?php if (has_custom_logo()) { 
+					<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">
 
-											$custom_logo_id = get_theme_mod( 'custom_logo' );
-											$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
+								<?php	
 
-											<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
-
-										<?php } else { ?>
-
-											<h2><?php echo bloginfo( 'name' ); ?></h2>
-
-										<?php	}  ?>
-
-									</a>				
-
-										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
-												<!-- <span class="navbar-toggler-icon"></span> -->
-												Menu
-									  </button>
-
-
-										<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">
-
-
-													<?php	
-
-
-													if ( has_nav_menu( 'primary' ) ) {
+									if ( has_nav_menu( 'primary' ) ) {
 
 														wp_nav_menu( array(
 															'menu'              => 'primary',
@@ -91,75 +75,31 @@
 															'walker'            => new genlite_Walker_Nav_Menu())
 															);		
 
-													} else { 
+									} else { 
 
 														echo '<div class="text-center">';
 														echo esc_attr_e('You need to add a Menu. Go into Customizer | Menus | Select a Menu | Menu Location - Tick Top Menu checkbox.','genlite');
 														echo '</div>'; 
 
-													}
-													?>
+									}
+								?>
 
-												<div class="pt-1 d-none d-lg-block">	
-													<ul class="genlite-social">
+						<div class="d-none d-lg-block">
 
-														<?php  get_template_part('/template-parts/render-socials'); ?>		
+							<ul class="genlite-social">
 
-													</ul>
-												</div>
+								<?php  get_template_part('/template-parts/render-socials'); ?>		
 
-												<form method="get" class="form-horizontal my-2 my-md-0 genlite-header-search-form" action="https://www.hartsoft.co.uk/">
-
-														<div class="input-group">
-
-															
-															<input type="text" value="" name="s" class="form-control" placeholder="Search for blogs and pages">
-															<span class="input-group-btn fa fa-search form-control-feedback genlite-icon"></span>    
-
-														</div>
-
-																
-
-												</form>
-
-
-												<!-- <div class="search-button">
-														<a href="#" class="search-toggle" data-selector="#header-1"></a>
-												</div>
-												<section id="header-1">
-												<form method="get" class="search-box" action="<?php echo esc_url(home_url('/')); ?>">
-
-													<input type="text" value="" name="s" class="text search-input" placeholder="Type here to search..." />
-												</form>
-
-
-
-												</section> -->
-
-										</div>
-								
-
-								</nav>
-
-
-
-					
-
-						
-
+							</ul>
 
 						</div>
-
+																						
+					</div>
+								
+				</nav>
 						
-
+			</section>
 					
-						
-					
-
-				
-					
-
-		
 		</header>
 	
 
