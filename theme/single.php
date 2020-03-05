@@ -11,7 +11,12 @@
  * @version 1.4.2
  */
 
-get_header(); ?>
+get_header();
+
+$postLastModified = Date('jS M, Y h:i:s A', get_post_modified_time());
+$postFirstPublished = get_the_date( 'jS M, Y' );
+
+?>
 
 
 
@@ -25,9 +30,8 @@ get_header(); ?>
 
 					<h1 class="entry-title"><u><?php the_title(); ?></u></h1>
 					<div>
-						<?php the_post_thumbnail( 'medium' );  
-							  $postLastModified = Date('jS M, Y h:i:s A', get_post_modified_time());
-							  $postFirstPublished = get_the_date( 'jS M, Y' );
+						<?php //the_post_thumbnail( 'medium' );  
+							  
 					    ?>							  	
 					</div>				
 							
@@ -35,7 +39,8 @@ get_header(); ?>
 
 					<?php the_content(''); ?>
 
-					<div>
+					<div class="container">
+
 						<i class="fas fa-folder-open pl-3" title="<?php esc_attr_e('Categories','genlite'); ?>"></i>&nbsp;<?php the_category( ' ' ); ?>
 						<?php if(has_tag()) { ?>
 						 	<i class="fas fa-tag  pl-3" title="<?php esc_attr_e('Tags','genlite'); ?>"></i>
@@ -74,7 +79,7 @@ get_header(); ?>
 	<div class="container">
 		<div class="row">
 		
-			<div class="col-md-6 text-left">
+			<div class="col-6 text-left">
 			
 					<?php 
 						get_previous_posts_link();
@@ -84,7 +89,7 @@ get_header(); ?>
 						<?php }  ?>
 			</div>
 
-			<div class = "col-md-6 text-right" >
+			<div class = "col-6 text-right" >
 				<br>
 				
 				<?php 
