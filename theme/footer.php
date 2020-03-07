@@ -24,19 +24,33 @@
 		
 	}
 
+
+
+	$found_socials = 0;
+	$genlite_social_links = $GLOBALS[GENLITE_SOCIAL_IDS];
+
+	for($u = 0; $u < count($genlite_social_links); $u++) {
+									
+		$socialId = GENLITE_SOCIAL_PREFIX . $genlite_social_links[$u];
+				
+		if(get_theme_mod($socialId)) {  
+			$found_socials++;
+			break;
+		
+		}
+	}
+	
+
 ?>
 	
-		<footer>
+<footer>
 
-				<?php  
+	<?php  
 
-						if ( is_active_sidebar( 'genlite_footer_1' ) || 
-							 is_active_sidebar( 'genlite_footer_2' ) || 
-						     is_active_sidebar( 'genlite_footer_3' ) || 
-					 		 is_active_sidebar( 'genlite_footer_4' ) ) { 
-
-					 		 	?>
-
+		if ( is_active_sidebar( 'genlite_footer_1' ) || 
+			is_active_sidebar( 'genlite_footer_2' ) || 
+			is_active_sidebar( 'genlite_footer_3' ) || 
+			is_active_sidebar( 'genlite_footer_4' ) ) {  ?>
 
 				<div class="container">	
 
@@ -69,11 +83,25 @@
 						           		</div>
 								          
 				        <?php     	}
-								}
-							  }
-							        ?>
+								} ?>
+
 
 					</div>
+					
+				</div> 
+				
+				
+	<?php
+	
+		}   
+		
+		if ($found_socials > 0) {
+
+		?>
+
+				
+				
+				<div class="container">
 
 					<div class="row">
 
@@ -89,7 +117,12 @@
 						</div>		
 			
 					</div>
+
 				</div>
+
+		<?php }
+		
+		if ( is_active_sidebar( 'genlite_footer_footnote' )) { ?>
 
 				<div class="container-fluid">
 
@@ -104,11 +137,12 @@
 			
 					</div>
 
-
 				
 				</div>
 
-			<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
+		<?php } ?>
+
+				<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
 
 		</footer>	
 	
