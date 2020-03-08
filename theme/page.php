@@ -31,14 +31,19 @@ if ( has_post_thumbnail( $post->ID ) ) {
 		<div class="genlite-page-hero__overlay"></div>
 				
 		<div class="genlite-page-hero__overlay-text"><h1><?php the_title(); ?></h1></div>
-			
-		<div id="genlite-page-hero__scroll-down" class="genlite-page-hero__scroll-down">
-
-			<a href="#genlite-page-content"><span></span><span></span><span></span></a>
-	
-		</div>
 
 	</section>
+
+	<section id="genlite-page-hero__holder">
+		
+		<span id="genlite-page-hero__scroll-down" class="genlite-page-hero__scroll-down">
+		
+			<a href="#genlite-page-content"><span></span><span></span><span></span></a> 
+		
+		</span>
+
+	</section>
+
 
 	<section id="genlite-page-content" class="genlite__content"><span></span></section>
 
