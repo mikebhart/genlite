@@ -53,7 +53,7 @@
 					</a>				
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
-						Menu
+						<span><i class="fas fa-bars"></i>
 					</button>
 
 					<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">

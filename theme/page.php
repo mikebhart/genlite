@@ -26,7 +26,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<section id="genlite-page-hero" class="genlite-page-hero__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
+	<section id="genlite-page-hero" data-script="on" class="genlite-page-hero__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
 			
 		<div class="genlite-page-hero__overlay"></div>
 				
@@ -34,7 +34,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 	</section>
 
-	<section id="genlite-page-hero__holder">
+	<section>
 		
 		<span id="genlite-page-hero__scroll-down" class="genlite-page-hero__scroll-down">
 		
@@ -69,3 +69,17 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 
 <?php get_footer(); ?>
+
+
+<script>
+  echo.init({
+    offset: 100,
+    throttle: 250,
+    unload: false,
+    callback: function (element, op) {
+      console.log(element, 'has been', op + 'ed')
+    }
+  });
+
+ </script>
+

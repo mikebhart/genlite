@@ -46,6 +46,7 @@ module.exports = (env, argv) => {
                 }
             }),
             new CopyPlugin([
+                { from: 'node_modules/echo-js/dist/echo.min.js', to: '../dist/js/echo.js' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: '../dist/webfonts/' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/css/fontawesome.css' }
             ])

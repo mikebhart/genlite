@@ -12,11 +12,31 @@ import "bootstrap/js/dist/collapse";
 //import "bootstrap/js/dist/carousel";
 //import "bootstrap/js/dist/tab";
 
+//import "echo-js/dist/echo";
+// import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+// import "lazysizes/plugins/bgset/ls.bgset"
+// import "lazysizes/plugins/unveilhooks/ls.unveilhooks";
+
+// export default () => {
+
+//   //add simple support for background images:
+//   document.addEventListener('lazybeforeunveil', function(e){
+
+//     var bg = e.target.getAttribute('data-bg');
+//     if(bg){
+//       e.target.style.backgroundImage = 'url(' + bg + ')';
+//     }
+//   });
+
+  
+
+//}
 
 
 
 
 $(document).ready(function() {
+
 
    
    /*  -------------------------------------------------------------------
@@ -96,7 +116,7 @@ function scrollFunction() {
 
   
 
-      if (document.body.scrollTop > 750 || document.documentElement.scrollTop > 750) {
+      if (document.body.scrollTop > 880 || document.documentElement.scrollTop > 880) {
 
         setHeaderProperties();
 
@@ -110,6 +130,8 @@ function scrollFunction() {
         
 
       }
+  } else {
+    setHeaderProperties();
   }
 
 }
@@ -178,16 +200,8 @@ function setHeaderProperties() {
     return false;
   });
 
-  
 
-
-}); // End of ready function
-
-
-
-
-
-var jump=function(e)
+  var jump=function(e)
 {
 
    if (e){
@@ -213,38 +227,41 @@ var jump=function(e)
 
 $('html, body').hide();
 
-$(document).ready(function()
-{
-  
-    $('a[href^=#]').bind("click", jump);
+
+
+
+$('a[href^=#]').bind("click", jump);
 
   
 
-    if (location.hash){
+if (location.hash){
 
-      setTimeout(function(){
-            $('html, body').scrollTop(0).show();
-           
-            jump(); 
-           
-     
-        }, 400);
-
-        
-    }else{
+  setTimeout(function(){
+        $('html, body').scrollTop(0).show();
+       
+        jump(); 
+       
+ 
+    }, 400);
 
     
-        $('html, body').show();
-      
-    }
+}else{
+
+
+    $('html, body').show();
+  
+}
+
+//$("article img").attr("data-echo","on");
+
+$(".wp-block-cover").attr("data-echo","on");
+
+}); // End of ready function
 
 
 
 
 
-   
-
-});
 
 
 
