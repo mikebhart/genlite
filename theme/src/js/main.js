@@ -169,7 +169,7 @@ function setHeaderProperties() {
 
     // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
     $( "article" )
-      .find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area")
+      .find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
       .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p" )
       .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" )
     ;
@@ -255,6 +255,15 @@ if (location.hash){
 //$("article img").attr("data-echo","on");
 
 $(".wp-block-cover").attr("data-echo","on");
+
+
+
+
+// contact form 7 rows
+$(".wpcf7 .row").addClass("text-center");
+
+
+
 
 }); // End of ready function
 
