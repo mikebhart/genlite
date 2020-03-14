@@ -5,7 +5,7 @@
 function genlite_more_post_ajax_handler(){
 
     $args= null;
-    $postsPerPage = (isset($_POST["postsPerPage"])) ? $_POST["postsPerPage"] : 2;
+    $postsPerPage = (isset($_POST["postsPerPage"])) ? $_POST["postsPerPage"] : get_option( 'posts_per_page' );
     $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
     $category = (isset($_POST['category'])) ? $_POST['category'] : 'all-categories';
     $search_text = (isset($_POST['search_text'])) ? $_POST['search_text'] : null;

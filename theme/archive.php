@@ -87,7 +87,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 <script type="text/javascript">
 
-	var postsPerPage = 3;
+	var postsPerPage = "<?php echo get_option( 'posts_per_page' ); ?>";
 	var pageNumber = 1;
 	var category;
 	var search_text;
@@ -128,7 +128,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 		var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 
-		pageNumber++; 
+		pageNumber++;
 
 		var data = {
 					'action': 'genlite_more_post_ajax_handler',

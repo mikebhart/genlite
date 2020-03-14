@@ -1,15 +1,27 @@
 
 // buttons
+  
 .wpcf7-form-control.wpcf7-submit, //  --------- Contact Form 7 Button -----------
 .btn-outline-primary
     background-color: transparent
-    color: $genlite-primary-color 
-    border-radius: 25px
-    min-width: 150px 
-    border: 2px solid $genlite-primary-color
+    color: $genlite-primary-color
+    -webkit-border-radius: 50px
+    -moz-border-radius: 50px
+    -o-border-radius: 50px
+    -ms-border-radius: 50px
+    border-radius: 54px
+    min-width: 200px 
+    border: 1px solid $genlite-primary-color
     font-weight: 400
-    transition: all 0.4s
+    padding: 0
     outline-color: transparent
+    line-height: 2.2
+    font-size: 16px
+    -webkit-transition: all 0.5s ease-in-out
+    -moz-transition: all 0.5s ease-in-out
+    -o-transition: all 0.5s ease-in-out
+    -ms-transition: all 0.5s ease-in-out
+    transition: all 0.5s ease-in-out
 
     &:not(:disabled):not(.disabled):active,
     &:hover,
@@ -17,6 +29,40 @@
         border-color: black 
         color: black
         background-color: transparent
+
+
+// -------------- WP Default Editor Button ----------------
+
+.wp-block-button
+    color: $genlite-primary-color
+    line-height: 1
+    font-weight: 400
+    font-size: 16px
+        
+    a:hover 
+        text-decoration: none
+        color: white
+        background-position: left bottom
+    
+    &__link
+        display: inline-block
+        min-width: 200px
+        font-weight: 400
+        -webkit-border-radius: 50px
+        -moz-border-radius: 50px
+        -o-border-radius: 50px
+        -ms-border-radius: 50px
+        border-radius: 54px
+        color: $genlite-primary-color
+        background: linear-gradient(to right, $genlite-primary-color 50%, white 50%) no-repeat scroll right (bottom / 230%) 100%  $genlite-primary-color
+        border-width: 1.2px
+        border-style: solid
+        border-color: $genlite-primary-color
+        -webkit-transition: all 0.5s ease-in-out
+        -moz-transition: all 0.5s ease-in-out
+        -o-transition: all 0.5s ease-in-out
+        -ms-transition: all 0.5s ease-in-out
+        transition: all 0.5s ease-in-out
 
 
 .genlite-back-to-top 
