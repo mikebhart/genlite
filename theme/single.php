@@ -22,7 +22,7 @@ $postFirstPublished = get_the_date( 'jS M, Y' );
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('genlite__content'); ?>>
 
-			<?php 
+		<?php 
 	
 			while(have_posts()) : the_post(); ?>
 
