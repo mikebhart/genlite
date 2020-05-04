@@ -10,11 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "@wordpress/blocks": "^6.7.2",
     "bootstrap": "^4.3.1",
     "copy-dir": "^1.2.0",
     "echo-js": "^1.7.3",
+    "gsap": "^3.2.6",
     "popper.js": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
