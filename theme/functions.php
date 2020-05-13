@@ -40,6 +40,8 @@ function genlite_styles_and_scripts() {
 	wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/css/main.css' );
 	wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/js/main.js', array( 'jquery' ) );
 	wp_enqueue_script( 'genlite_lazy_loading_images', get_template_directory_uri() . '/dist/js/echo.js' );
+	wp_enqueue_script( 'genlite_gsap', get_template_directory_uri() . '/dist/js/gsap.js' );
+	wp_enqueue_script( 'genlite_barba', get_template_directory_uri() . '/dist/js/barba.js' );
 
 }
 add_action( 'wp_enqueue_scripts', 'genlite_styles_and_scripts' );

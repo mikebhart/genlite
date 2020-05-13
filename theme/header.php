@@ -27,7 +27,16 @@
 
 	</head>
 
-	<body <?php body_class('genlite__fade_in'); ?>>
+	<body data-barba="wrapper">
+  <!-- put here content that will not change
+  between your pages, like <header> or <nav> -->
+
+  <main data-barba="container" data-barba-namespace="home">
+
+  <section id="home">
+    <!-- put here the content you wish to change
+    between your pages, like your main content <h1> or <p> -->
+
  	
 		<header>
 

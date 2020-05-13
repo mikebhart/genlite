@@ -48,7 +48,9 @@ module.exports = (env, argv) => {
             new CopyPlugin([
                 { from: 'node_modules/echo-js/dist/echo.min.js', to: '../dist/js/echo.js' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: '../dist/webfonts/' },
-                { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/css/fontawesome.css' }
+                { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/css/fontawesome.css' },
+                { from: 'node_modules/@barba/core/dist/barba.js', to: '../dist/js/barba.js'},
+                { from: 'node_modules/gsap//dist/gsap.min.js', to: '../dist/js/gsap.js'}
             ])
         ],
         devtool: isDevelopment() ? "cheap-module-source-map" : "source-map",

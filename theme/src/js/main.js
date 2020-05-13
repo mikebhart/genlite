@@ -34,8 +34,15 @@ import "bootstrap/js/dist/collapse";
 
 
 
-
 $(document).ready(function() {
+
+  if (document.querySelector('.type-page') && document.querySelector('.has-post-thumbnail') ) {
+    $('#genlite-header__navbar').css("height", "50px");
+    $('.genlite-page-hero__image').css("margin-top", "-50px");
+  }
+
+
+
 
 
    
@@ -108,50 +115,50 @@ $(document).ready(function() {
      
 
 
- // On Page template When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-window.onscroll = function() {scrollFunction()};
+//  // On Page template When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+// window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.querySelector('.page-template-default') !== null) {
+// function scrollFunction() {
+//   if (document.querySelector('.page-template-default') !== null) {
 
   
 
-      if (document.body.scrollTop > 880 || document.documentElement.scrollTop > 880) {
+//       if (document.body.scrollTop > 880 || document.documentElement.scrollTop > 880) {
 
-        setHeaderProperties();
+//         setHeaderProperties();
 
-      } else {
+//       } else {
 
-        document.getElementById("genlite-header__navbar").style.padding = "50px 10px";
-        document.getElementById("genlite-header__navbar").style.backgroundColor = "";
-        document.getElementById("genlite-header__navbar").style.color = "white";
-        document.getElementById("genlite-header__image").style.height = "100px";
-        document.getElementById("genlite-header__navbar").style.boxShadow = "";
+//         document.getElementById("genlite-header__navbar").style.padding = "50px 10px";
+//         document.getElementById("genlite-header__navbar").style.backgroundColor = "";
+//         document.getElementById("genlite-header__navbar").style.color = "white";
+//         document.getElementById("genlite-header__image").style.height = "100px";
+//         document.getElementById("genlite-header__navbar").style.boxShadow = "";
         
 
-      }
-  } else {
-    setHeaderProperties();
-  }
+//       }
+//   } else {
+//     setHeaderProperties();
+//   }
 
-}
+// }
 
 
-// on non page templates
-if (document.querySelector('.page-template-default') === null) {
+// // on non page templates
+// if (document.querySelector('.page-template-default') === null) {
 
-  setHeaderProperties();
+//   setHeaderProperties();
  
-}
+// }
 
-function setHeaderProperties() {
+// function setHeaderProperties() {
 
-  document.getElementById("genlite-header__navbar").style.backgroundColor = "black";
-  document.getElementById("genlite-header__navbar").style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
-  document.getElementById("genlite-header__navbar").style.padding = "0px";
-  document.getElementById("genlite-header__image").style.height = "50px";
+//   document.getElementById("genlite-header__navbar").style.backgroundColor = "black";
+//   document.getElementById("genlite-header__navbar").style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+//   document.getElementById("genlite-header__navbar").style.padding = "0px";
+//   document.getElementById("genlite-header__image").style.height = "50px";
 
-}
+// }
 
 
 
@@ -216,7 +223,7 @@ function setHeaderProperties() {
 
    $('html,body').animate(
    {
-       scrollTop: $(target).offset().top - 60
+       scrollTop: $(target).offset().top
    },400,function()
    {
       
@@ -261,6 +268,22 @@ $(".wp-block-cover").attr("data-echo","on");
 
 // contact form 7 rows
 $(".wpcf7 .row").addClass("text-center");
+
+
+
+barba.init({
+  transitions: [{
+    name: 'default-transition',
+    leave() {
+      // create your stunning leave animation here
+    },
+    enter() {
+      // create your amazing enter animation here
+    }
+  }]
+});
+
+
 
 
 
