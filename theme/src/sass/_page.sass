@@ -1,18 +1,13 @@
-
 .genlite-page-hero
-  
+    
     &__image
         background-color: black
         background-position: center center
         background-repeat: no-repeat
         background-size: cover
         position: relative
-        min-height: 825px
-        //margin-top: -100px
         z-index: 1
-
-        @include media-breakpoint-up(md)
-            min-height: 1000px
+        height: 1000px
  
     &__overlay
         position: absolute
@@ -36,27 +31,12 @@
             h1
                 color: white
                 position: relative
-                animation-name: page-hero-text-scrollup
-                animation-duration: 1.5s
-                -moz-animation-duration: 3.5s
-                animation-iteration-count: 1
-                animation-timing-function: ease-in-out
                 font-size: 35px
                 line-height: 1.3
                
                 @include media-breakpoint-up(md)
                     font-size: 50px
                     line-height: 1.5
-
-                @keyframes page-hero-text-scrollup
-                    0%
-                        top: 100%
-                        opacity: 0
-
-                    100%
-                        top: 0%
-                        opacity: 1
-
     
     &__scroll-down a
         position: absolute

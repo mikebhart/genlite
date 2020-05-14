@@ -148,7 +148,6 @@
 	
 		<?php wp_footer(); ?>
 
-		</section>
 
 		</main>
 				

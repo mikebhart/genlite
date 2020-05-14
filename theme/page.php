@@ -26,7 +26,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<section id="genlite-page-hero" data-script="on" class="genlite-page-hero__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
+	<section id="genlite-page-hero" data-script="on" class="genlite-page-hero__image lazy" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
 			
 		<div class="genlite-page-hero__overlay"></div>
 				
