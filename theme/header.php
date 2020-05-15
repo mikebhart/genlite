@@ -27,7 +27,7 @@
 
 	</head>
 
-	<body data-barba="wrapper">
+	<body data-barba="wrapper" <?php body_class('genlite__fade_in'); ?>>
 		<div class="load-container">
 			<div class="loading-screen"></div>
 		</div>
@@ -35,7 +35,7 @@
   <!-- put here content that will not change
   between your pages, like <header> or <nav> -->
 
-  <main data-barba="container" data-barba-namespace="home">
+  <main data-barba="container" data-barba-namespace="page-wipe">
 
     <!-- put here the content you wish to change
     between your pages, like your main content <h1> or <p> -->

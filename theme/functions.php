@@ -41,6 +41,7 @@ function genlite_styles_and_scripts() {
 	
 	wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/js/app.js', array( 'jquery' ) );
 
+
 }
 add_action( 'wp_enqueue_scripts', 'genlite_styles_and_scripts' );
 

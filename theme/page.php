@@ -26,24 +26,19 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<section id="genlite-page-hero" data-script="on" class="genlite-page-hero__image lazy" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
+	<section data-script="on" class="genlite-page__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
 			
-		<div class="genlite-page-hero__overlay"></div>
+		<div class="genlite-page__overlay"></div>
 				
-		<div class="genlite-page-hero__overlay-text"><h1><?php the_title(); ?></h1></div>
+		<div class="genlite-page__overlay-text"><h1><?php the_title(); ?></h1></div>
 
 	</section>
 
 	<section>
-		
-		<span id="genlite-page-hero__scroll-down" class="genlite-page-hero__scroll-down">
-		
-			<a href="#genlite-page-content"><span></span><span></span><span></span></a> 
-		
-		</span>
 
+		<a href="#genlite-page-content" class="genlite-page__scroll-down" address="true"></a>
+	
 	</section>
-
 
 	<section id="genlite-page-content" class="genlite__content"><span></span></section>
 
@@ -71,15 +66,4 @@ if ( has_post_thumbnail( $post->ID ) ) {
 <?php get_footer(); ?>
 
 
-<script>
-  echo.init({
-    offset: 100,
-    throttle: 250,
-    unload: false,
-    callback: function (element, op) {
-      console.log(element, 'has been', op + 'ed')
-    }
-  });
-
- </script>
 

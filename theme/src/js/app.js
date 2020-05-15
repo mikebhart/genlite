@@ -7,17 +7,17 @@ import "bootstrap/js/dist/util";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
 
-import gsap from 'gsap';
-
 import barba from '@barba/core';
-//import "bootstrap/js/dist/button";
-//import "bootstrap/js/dist/toast";
-//import "bootstrap/js/dist/modal";
-//import "bootstrap/js/dist/carousel";
-//import "bootstrap/js/dist/tab";
+import gsap from 'gsap';
 
 
 $(document).ready(function() {
+
+
+  
+
+
+
 
   
     // $("article img").removeAttr("src").addClass("genlite-lazy-load-image");
@@ -42,112 +42,23 @@ $(document).ready(function() {
 
 
 
-
-
-// function pageTransition() {
-
-//   var tl = gsap.timeline;
-
-//   tl.to(".loading-screen", {
-//     duration: 1.2,
-//     width: "100%",
-//     left: "0%",
-//     ease: "Expo.easeInOut"
-//   });
-
-//   tl.to(".loading-screen", {
-//     duration: 1,
-//     width: "100%",
-//     left: "100%",
-//     ease: "Expo.easeInOut",
-//     delay: 0.3
-//   });
-
-//   tl.set(".loading-screen", { left: "-100%"});
-
-
-// }
-
-
-// barba.init({
-
-//   sync: true,
-  
-//   transitions: [
-//     {
-//       async leave(data) {
-//         const done = this.async();
-//         pageTransition();
-//         await delay(1000);
-//         done();
-//       }
-//     },
-//   ],
-// });
-
-// const delay = (n) => {
-//   return new Promise((done) => {
-//     setTimeout(() => {
-//       done();
-//     }, n)
-//   })
-// }
-
-
-
-// function pageTransition() {
-//   var tl = gsap.timeline();
-//   tl.to(".loading-screen", {
-//       duration: 1.2,
-//       width: "100%",
-//       left: "0%",
-//       ease: "Expo.easeInOut",
-//   });
-
-//   tl.to(".loading-screen", {
-//       duration: 1,
-//       width: "100%",
-//       left: "100%",
-//       ease: "Expo.easeInOut",
-//       delay: 0.3,
-//   });
-//   tl.set(".loading-screen", { left: "-100%" });
-// }
-
-// barba.init({
-//   sync: true,
-
-//   transitions: [
-//       {
-//           async leave(data) {
-//               const done = this.async();
-
-//               pageTransition();
-            
-//               await delay(1000);
-//               done();
-//               //window.location.href = 'https://www.google.com';
-//           },
-
-        
-//       },
-//   ],
-// });
-
-
   // if using Page Template and has a featured image
-  if ( document.querySelector('.type-page, .has-post-thumbnail') ) {
+    function setup_default_page() { 
+        if ( document.querySelector('.type-page, .has-post-thumbnail') ) {
 
-   let intViewportHeight = window.innerHeight + 'px';
+            let intViewportHeight = window.innerHeight + 'px';
+      
+            $('.genlite-page__image').css("height", intViewportHeight);
+            $('.genlite-page__image').css("margin-top", "-112px");
     
-    $('#genlite-header__navbar').css("height", "50px");
-    $('.genlite-page-hero__image').css("margin-top", "-50px");
-    $('.genlite-page-hero__image').css("height", intViewportHeight);
 
-    var timelinePage = gsap.timeline();
-    timelinePage.fromTo('h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
+            var timelinePage = gsap.timeline();
+            timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
 
-  }
+        }
+    }
+
+    setup_default_page();
 
     // Back to Top button 
 
@@ -171,22 +82,30 @@ $(document).ready(function() {
             e.preventDefault();
             $('html,body').animate({ scrollTop: 0 }, 500);
         });
-    }      
+    } 
+    
+    
+   
+   
+      // $('.scroll-down').click (function() {
+      //   $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
+      //   return false;
+      // });
+    
 
-      
+
+      //alert('a');
 
     // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
-    $( "article" )
-      .find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
+    $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
       .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title" )
-      .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" )
-    ;
+      .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" );
+
+  
 
     // wrap sections around the rest, keep it all the same
-    $( "article" )
-      .find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button")
-      .wrap( "<section></section>" )
-    ;
+    $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
+
 
     // navbar menu fix
     $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
@@ -237,6 +156,85 @@ $(document).ready(function() {
 
     // contact form 7 rows
     $(".wpcf7 .row").addClass("text-center");
+
+
+     // Easit in Out on Page load
+     const delay = (n) => {
+      return new Promise((done) => {
+        setTimeout(() => {
+          done();
+        }, n)
+      })
+    }
+
+    const pageTransition = () => {
+
+      var tl = gsap.timeline();
+
+      tl.to(".loading-screen", {
+          duration: 1.2,
+          width: "100%",
+          left: "0%",
+          ease: "Expo.easeInOut",
+      });
+
+      tl.to(".loading-screen", {
+          duration: 1,
+          width: "100%",
+          left: "100%",
+          ease: "Expo.easeInOut",
+          delay: 0.3,
+      });
+
+      tl.set(".loading-screen", { left: "-100%" });
+
+    }
+
+  
+
+    try {
+
+
+    barba.init({
+      sync: true,
+
+      transitions: [
+          {
+              name: 'page-wipe',
+              async leave(data) {
+
+                  const done = this.async();
+
+                  pageTransition();
+                  await delay(1000);
+                
+                  done();
+
+                 // console.log('in leave11');
+
+                  
+              },
+
+              async enter(data) {
+                setup_default_page();
+                // console.log('in enter');
+              }
+
+            
+          },
+      ],
+    });
+
+
+  }
+  catch(err) {
+    alert(err.message);
+  }
+
+
+
+
+
 
 
 
