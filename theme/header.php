@@ -43,7 +43,7 @@
  	
 		<header>
 
-			<section id="genlite-header__navbar">
+			<section>
 
 				<nav class="navbar navbar-expand-lg">
 

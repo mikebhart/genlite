@@ -30,7 +30,11 @@ if ( has_post_thumbnail( $post->ID ) ) {
 			
 		<div class="genlite-page__overlay"></div>
 				
-		<div class="genlite-page__overlay-text"><h1><?php the_title(); ?></h1></div>
+		<div class="genlite-page__overlay-text">
+
+			<h1><?php the_title(); ?></h1>
+			
+		</div>
 
 	</section>
 

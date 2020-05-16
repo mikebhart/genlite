@@ -15,9 +15,13 @@ const GENLITE = {
 
     initDefaultPage: function() {
 
-        if ( document.querySelector('.type-page, .has-post-thumbnail') ) {
+        if ( document.querySelector('.type-page') && document.querySelector('.has-post-thumbnail') ) {
 
-            $('.genlite-page__image').css("margin-top", "-112px");
+            $('.navbar').css("background-color", "transparent"); 
+            $('.navbar').css("box-shadow", "none");
+
+            $('.depth-0 > a').css("color", "white");
+            $('.navbar .active a').css("color", "#ff4d01");  
 
             var timelinePage = gsap.timeline();
             timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
@@ -48,6 +52,28 @@ const GENLITE = {
                 $('html,body').animate({ scrollTop: 0 }, 500);
             });
         } 
+    },
+
+    fixNavbarSubMenus: function() {
+        $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+            }
+            
+            var $subMenu = $(this).next(".dropdown-menu");
+            $subMenu.toggleClass('show');
+      
+      
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+              $('.dropdown-submenu .show').removeClass("show");
+            });
+      
+      
+            return false;
+        });
+
+
+
     },
 
     makeBootstrapBlocks: function() {
@@ -131,7 +157,7 @@ const GENLITE = {
         GENLITE.initDefaultPage();
         GENLITE.initBackToTopButton();
         GENLITE.makeBootstrapBlocks();
-      
+        GENLITE.fixNavbarSubMenus();    
    
         $(window).resize(function () { });
     }
@@ -213,30 +239,7 @@ $(document).ready(function() {
 
   GENLITE.initialiseAll();
 
-
-    // // navbar menu fix
-    // $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-    //     if (!$(this).next().hasClass('show')) {
-    //         $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-    //     }
-        
-    //     var $subMenu = $(this).next(".dropdown-menu");
-    //     $subMenu.toggleClass('show');
-  
-  
-    //     $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-    //       $('.dropdown-submenu .show').removeClass("show");
-    //     });
-  
-  
-    //     return false;
-    // });
-
-
-
-  
-
-
+ 
     // //$("article img").attr("data-echo","on");
     // //$(".wp-block-cover").attr("data-echo","on");
 
