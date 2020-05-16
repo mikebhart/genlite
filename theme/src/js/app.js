@@ -7,6 +7,8 @@ import "bootstrap/js/dist/util";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
 
+import "regenerator-runtime/runtime";
+
 import barba from '@barba/core';
 import gsap from 'gsap';
 
@@ -55,7 +57,9 @@ const GENLITE = {
     },
 
     fixNavbarSubMenus: function() {
+
         $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+
             if (!$(this).next().hasClass('show')) {
                 $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
             }
@@ -153,7 +157,7 @@ const GENLITE = {
 
     initialiseAll: function () {
 
-        //GENLITE.setupPageSwipes();
+        GENLITE.setupPageSwipes();
         GENLITE.initDefaultPage();
         GENLITE.initBackToTopButton();
         GENLITE.makeBootstrapBlocks();
@@ -163,76 +167,6 @@ const GENLITE = {
     }
 
 };
-
-
-//const { barba } = window;
-
-/*
- * App Class
- */
-// class App {
-//   static start() {
-//     return new App();
-//   }
-
-//   constructor() {
-//     Promise
-//       .all([
-//         App.domReady(),
-//       ])
-//       .then(this.init.bind(this));
-//   }
-
-//   static domReady() {
-//     return new Promise(resolve => {
-//       document.addEventListener('DOMContentLoaded', resolve);
-//     });
-//   }
-
-//   static showPage() {
-//     document.documentElement.classList.add('ready');
-//   }
-
-//   init() {
-//     console.info('🚀App:init');
-
-//     // Avoid "blank page" on JS error
-//     try {
-  
-//       barba.init({
-//         debug: true,
-//         transitions: [
-//           {
-//             name: 'page-wipe',
-//                     async leave(data) {
-                       
-//                         console.log('in leave');
-                    
-//                     },
-
-//                     async enter(data) {
-                      
-
-//                         console.log('in enter');
-                 
-//                     }
-                  
-//                 },
-//         ],
-//       });
-//     } catch (err) {
-//       console.error(err);
-//     }
-
-//     App.showPage();
-//   }
-// }
-
-// App.start();
-
-
-
-
 
 
 $(document).ready(function() {
