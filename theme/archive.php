@@ -24,7 +24,7 @@ $categories = get_terms( array(
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 ?>
-
+<section class="genlite-archive-page">
 	<div class="container">
 
 		<div class="row genlite__content justify-content-center">
@@ -79,7 +79,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		
 	</div>
 
-      
+</section>
 
 
 

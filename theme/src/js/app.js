@@ -17,7 +17,8 @@ const GENLITE = {
 
     initDefaultPage: function() {
 
-        if ( document.querySelector('.type-page') && document.querySelector('.has-post-thumbnail') ) {
+        if ( document.querySelector('.page-template-default') && document.querySelector('.has-post-thumbnail')) {
+  
 
             $('.navbar').css("background-color", "transparent"); 
             $('.navbar').css("box-shadow", "none");
@@ -27,6 +28,7 @@ const GENLITE = {
 
             var timelinePage = gsap.timeline();
             timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
+          
 
         }
     },
@@ -139,7 +141,7 @@ const GENLITE = {
                     async leave(data) {
                         const done = this.async();
                         pageTransition()
-                        await delay(1000);
+                        await delay(1500);
                         done();
                     },
 
@@ -157,14 +159,32 @@ const GENLITE = {
 
     initialiseAll: function () {
 
-        GENLITE.setupPageSwipes();
+      
         GENLITE.initDefaultPage();
         GENLITE.initBackToTopButton();
         GENLITE.makeBootstrapBlocks();
-        GENLITE.fixNavbarSubMenus();    
-   
-        $(window).resize(function () { });
-    }
+        GENLITE.fixNavbarSubMenus();
+        GENLITE.setupPageSwipes();
+              
+   //     if (document.getElementById('#wpadminbar') !== null) {
+
+    //       try {
+
+    //                 if (document.getElementById('#wpadminbar') == null) {
+                      
+                           
+    //                       } else {
+    //                         alert('in admin');
+    //                       }
+                    
+                      
+    //       } catch (err) {
+    //               console.error(err);
+    //             }
+
+    //             $(window).resize(function () { });
+
+      }
 
 };
 
