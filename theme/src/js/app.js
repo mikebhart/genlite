@@ -17,11 +17,7 @@ const GENLITE = {
 
         if ( document.querySelector('.type-page, .has-post-thumbnail') ) {
 
-            let intViewportHeight = window.innerHeight + 'px';
-
-            $('.genlite-page__image').css("height", intViewportHeight);
             $('.genlite-page__image').css("margin-top", "-112px");
-
 
             var timelinePage = gsap.timeline();
             timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
