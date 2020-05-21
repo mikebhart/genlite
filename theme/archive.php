@@ -24,6 +24,9 @@ $categories = get_terms( array(
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 ?>
+
+
+
 <section class="genlite-archive-page">
 	<div class="container">
 
@@ -86,6 +89,17 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 <?php get_footer(); ?>
 
 <script type="text/javascript">
+
+//	
+
+	setTimeout(function() {
+			//alert('fds');
+		//$('.navbar').css("background-color", "black");
+	
+}, 3000);
+
+
+
 
 	var postsPerPage = "<?php echo get_option( 'posts_per_page' ); ?>";
 	var pageNumber = 1;

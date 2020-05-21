@@ -28,6 +28,9 @@
 	</head>
 
 	<body data-barba="wrapper" <?php body_class('genlite__fade_in'); ?>>
+
+	
+
 		<div class="load-container">
 			<div class="loading-screen"></div>
 		</div>

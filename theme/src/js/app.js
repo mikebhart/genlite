@@ -17,21 +17,19 @@ const GENLITE = {
 
     initDefaultPage: function() {
 
-        if ( document.querySelector('.page-template-default') && document.querySelector('.has-post-thumbnail')) {
-  
+        if ( (document.querySelector('article.page-template-default') ||  document.querySelector('article.type-page')) &&
+              (document.querySelector('article.has-post-thumbnail')) ) {
 
-            $('.navbar').css("background-color", "transparent"); 
-            $('.navbar').css("box-shadow", "none");
-
-            $('.depth-0 > a').css("color", "white");
-            $('.navbar .active a').css("color", "#ff4d01");  
-
-            var timelinePage = gsap.timeline();
-            timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
-          
-
+                  var timelinePage = gsap.timeline();
+                  timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
+            
+        } else {
+        
+             $('.navbar').css("background-color", "black"); 
         }
+
     },
+
 
     initBackToTopButton: function() {
 
@@ -133,23 +131,23 @@ const GENLITE = {
 
           
           barba.init({
-            sync: true,
-
-            transitions: [
-                {
-                    name: 'page-wipe',
-                    async leave(data) {
-                        const done = this.async();
-                        pageTransition()
-                        await delay(1500);
-                        done();
-                    },
-
-                    async enter(data) {
+              sync: true,
+              transitions: [
+              {
+                  name: 'page-wipe',
+                  async leave(data) {
+                      const done = this.async();
+                      pageTransition();
+                      await delay(1600);
+                      done();
+                  },
+                  after(data) {
+                     
                       GENLITE.initDefaultPage();
                       GENLITE.makeBootstrapBlocks();
-                    }
-                  
+  
+                    },
+
                 },
             ],
           });
@@ -159,31 +157,16 @@ const GENLITE = {
 
     initialiseAll: function () {
 
-      
+        if (document.body.classList.contains('admin-bar') == false) { 
+            GENLITE.setupPageSwipes();
+        }
+
+  
         GENLITE.initDefaultPage();
         GENLITE.initBackToTopButton();
         GENLITE.makeBootstrapBlocks();
         GENLITE.fixNavbarSubMenus();
-        GENLITE.setupPageSwipes();
-              
-   //     if (document.getElementById('#wpadminbar') !== null) {
-
-    //       try {
-
-    //                 if (document.getElementById('#wpadminbar') == null) {
-                      
-                           
-    //                       } else {
-    //                         alert('in admin');
-    //                       }
-                    
-                      
-    //       } catch (err) {
-    //               console.error(err);
-    //             }
-
-    //             $(window).resize(function () { });
-
+       
       }
 
 };
