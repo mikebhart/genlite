@@ -30,7 +30,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 <section class="genlite-archive-page">
 	<div class="container">
 
-		<div class="row genlite__content justify-content-center">
+		<div class="row genlite__content justify-content-center pt-3">
 			<div class="genlite-archive-title">
 				<h1><?php the_archive_title(); ?></h1>
 			</div>

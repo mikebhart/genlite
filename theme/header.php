@@ -46,7 +46,7 @@
  	
 		<header>
 
-			<section>
+			
 
 				<nav class="navbar navbar-expand-lg">
 
@@ -82,7 +82,7 @@
 															'theme_location'    => 'primary',
 															'depth'             => 5,
 															'menu_id'           => 'primary-menu',
-															'menu_class'        => 'navbar-nav',
+															'menu_class'        => 'navbar-nav pr-lg-3',
 															'container'         => 'div',
 															'container_id'      => 'genlite-navbar',
 															'container_class'   => 'ml-auto',
@@ -99,7 +99,7 @@
 									}
 								?>
 
-						<div class="d-none d-lg-block">
+						<div class="d-none d-lg-block pr-lg-3">
 
 							<ul class="genlite-social">
 
@@ -113,7 +113,7 @@
 								
 				</nav>
 						
-			</section>
+			
 					
 		</header>
 	
