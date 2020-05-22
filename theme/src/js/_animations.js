@@ -1,5 +1,26 @@
-import barba from '@barba/core';
-import gsap from 'gsap';
+//import gsaptTypes from '@types/gsap'
+
+import barba from '@barba/core'
+import gsap from 'gsap'
+
+
+
+//animation.gsap.js
+
+
+//import ScrollMagic from 'scrollmagic'
+
+import ScrollMagicPluginGsap from 'scrollmagic-plugin-gsap'
+
+// import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
+// import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
+// import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
+// ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+
+
+
+
 
 export default {
 
@@ -13,6 +34,49 @@ export default {
 
         initDefaultPage();
         makeBootstrapBlocks();
+        setupMagic();
+
+
+
+        function setupMagic() {
+
+            // var controller = new ScrollMagicPluginGsap.Controller();
+
+            // var scene = new ScrollMagicPluginGsap.Scene({
+            //     triggerElement: ".mike12345"
+            // })
+            // .setTween(".mike12345", 0.5, {backgroundColor: "green", scale: 2.5}) // trigger a TweenMax.to tween
+            // .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
+            // .addTo(controller);
+
+
+
+
+            // const tlServicesScroll = new gsap.timeline();
+
+            // tlServicesScroll.fromTo('.anchor', {x: '100%'} , {x:0});
+
+
+            // const serviceElement = document.querySelector('.anchor');
+
+
+
+            // let homeController = new scrollmagic.Controller();
+
+            // let serviceScene = new scrollmagic.Scene({
+
+            //     triggerElement: '.anchor',
+            //     triggerHook: 1,
+            //     duration: serviceElement.offsetHeight
+            // })
+            // .setTween(tlServicesScroll)
+            // .addTo(homeController);
+
+
+
+            //ScrollMagicPluginGsap
+
+        }
 
         function setupPageSwipes() {
 

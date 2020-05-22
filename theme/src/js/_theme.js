@@ -35,6 +35,8 @@ export default {
 
         function fixNavbarSubMenus() {
 
+            //$('.navbar .depth-0').css("background-color", "black"); 
+
             $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     
                 if (!$(this).next().hasClass('show')) {

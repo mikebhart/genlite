@@ -1,16 +1,10 @@
-.dropdown-menu .active a 
-    font-weight: 600
-
-
 .navbar
     padding-top: 0px
     padding-bottom: 0px
     z-index: 9
-    // padding: 50px 10px
     transition: 0.4s
     background-color: transparent
     color: white
-    //position: absolute
     height: 112px
     width: 100%
     top: 0
@@ -18,9 +12,6 @@
     font-size: 16px
     font-weight: 700
     letter-spacing: 1.8px
-    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    //a
-        //color: white
     
     .active a
         font-weight: 600
@@ -29,16 +20,15 @@
 
 .depth-0 > a
     color: white
+    background-color: black
+
+    @include media-breakpoint-up(lg)
+        background-color: transparent
+
 
 .navbar-brand
     height: 100%
 
-        
-
-.navbar-expand-lg
-    
-
-  
 
 .dropdown:hover > .dropdown-menu 
     display: block
@@ -56,16 +46,12 @@
     a
         font-size: 16px
 
-.dropdown-item
-    //color: white
-    //background-color: black
-
+.dropdown-menu .active a 
+    font-weight: 600
 
 
 .dropdown-item:focus, .dropdown-item:hover
     background-color: transparent
-
-
 
 .dropdown-item:hover, 
 .dropdown-item:focus  
@@ -73,8 +59,6 @@
     
 .dropdown-submenu
   position: relative
-  //color: black
-
 
 .dropdown-submenu a::after 
   transform: rotate(-90deg)
@@ -82,15 +66,11 @@
   right: 6px
   top: .8em
 
-
 .dropdown-submenu .dropdown-menu 
   top: 0
   left: 100%
   margin-left: .1rem
   margin-right: .1rem
-
-
-
 
 .navbar-toggler,
 .genlite-social a
