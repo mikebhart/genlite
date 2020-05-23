@@ -9,8 +9,10 @@ import "bootstrap/js/dist/collapse";
 
 import "regenerator-runtime/runtime";
 
-import genliteTheme from "./_theme";
-import genliteAnimations from "./_animations";
+
+import genliteTheme from "./plugins/theme";
+import genliteAnimations from "./plugins/animations";
+
 
 const GENLITE = {
 
