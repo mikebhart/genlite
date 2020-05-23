@@ -3,8 +3,10 @@ import gsap from 'gsap'
 
 import ScrollMagic from 'scrollmagic'
 import { TweenMax, TimelineMax, Linear } from 'gsap'
+
 import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export default {
@@ -25,16 +27,52 @@ export default {
 
         function setupMagic() {
 
-            var controller = new ScrollMagic.Controller();
 
-            var scene = new ScrollMagic.Scene({
-                triggerElement: ".mike12345"
+            let controller = new ScrollMagic.Controller();
+
+            // FadeInBottom
+            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-image, .wp-block-cover, .wp-block-columns, article h2, article section p, article section ul"));
+            let self = this;
+
+            fadeElem.forEach(function(self) {
+                // build a tween
+                let fadeInBottom = TweenMax.from(self, 1.5, { y: 100, opacity: 0 });
+                // build a scene
+                let scene = new ScrollMagic.Scene({
+                    triggerElement: self,
+                    offset: -200,
+                    reverse: false
+                })
+                .setTween(fadeInBottom)
+                .addTo(controller)
             })
-            .setTween(".mike12345", 0.5, {backgroundColor: "green", scale: 2.5}) // trigger a TweenMax.to tween
-            .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-            .addTo(controller);
+
+
+
+
+            // const tlServicesScroll = new gsap.timeline({
+            //     onUpdate: debudPercentage})
+
+            // function debudPercentage() {
+            //     console.log(tlServicesScroll.progress())
+            // }
+            // tlServicesScroll.fromTo('.wp-block-cover', { x: '100%' } , { x: 0 })
+
+            // const serviceElement = document.querySelector('.wp-block-cover');
+
+            // let homeController = new ScrollMagic.Controller();
+
+            // let servicesScene = new ScrollMagic.Scene({
+            //     triggerElement: ".wp-block-cover",
+            //     triggerHook: 1,
+            //     duration: serviceElement.offsetHeight
+            // })
+            // .setTween(tlServicesScroll) // trigger a TweenMax.to tween
+            // .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
+            // .addTo(homeController);
 
         }
+
 
         function setupPageSwipes() {
 
@@ -86,6 +124,7 @@ export default {
                         
                         initDefaultPage();
                         makeBootstrapBlocks();
+                        setupMagic();
     
                         },
 
