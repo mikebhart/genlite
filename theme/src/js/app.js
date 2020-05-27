@@ -7,7 +7,7 @@ import "bootstrap/js/dist/util";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
 
-import "regenerator-runtime/runtime";
+
 
 
 import genliteTheme from "./plugins/theme";

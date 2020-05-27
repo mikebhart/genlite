@@ -1,5 +1,14 @@
+import 'regenerator-runtime/runtime' // used by barba
+
 import barba from '@barba/core'
 import gsap from 'gsap'
+
+import { CSSPlugin } from 'gsap/CSSPlugin'
+
+
+// Force CSSPlugin to not get dropped during build
+gsap.registerPlugin(CSSPlugin)
+
 
 import ScrollMagic from 'scrollmagic'
 import { TweenMax, TimelineMax, Linear } from 'gsap'
@@ -21,11 +30,11 @@ export default {
 
         initDefaultPage();
         makeBootstrapBlocks();
-        setupScrollMagicPlaceholders();
+        enableScrolls();
 
 
 
-        function setupScrollMagicPlaceholders() {
+        function enableScrolls() {
 
 
             let controller = new ScrollMagic.Controller();
@@ -36,41 +45,32 @@ export default {
 
             fadeElem.forEach(function(self) {
                 // build a tween
-                let fadeInBottom = TweenMax.from(self, 1.5, { y: 100, opacity: 0 });
+                let tlFadeInBottom = TweenMax.from(self, 1.5, { y: 100, opacity: 0 });
                 // build a scene
                 let scene = new ScrollMagic.Scene({
                     triggerElement: self,
                     offset: -200,
                     reverse: false
                 })
-                .setTween(fadeInBottom)
+                .setTween(tlFadeInBottom)
                 .addTo(controller)
             })
 
-
-
-
-            // const tlServicesScroll = new gsap.timeline({
-            //     onUpdate: debudPercentage})
-
-            // function debudPercentage() {
-            //     console.log(tlServicesScroll.progress())
-            // }
-          
-
+            // Swipe from Right
             let swipeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-cover"));
             let selfSwipe = this;
 
             swipeElem.forEach(function(selfSwipe) {
 
-                let tlSwipe = TweenMax.fromTo(selfSwipe, { x: '100%' } , { x: 0 });
+                let tlSwipeFromRight = TweenMax.fromTo(selfSwipe, { x: '100%' } , { x: 0 });
 
                 let servicesScene = new ScrollMagic.Scene({
                     triggerElement: selfSwipe,
                     triggerHook: 1,
-                    duration: tlSwipe.offsetHeight
+                    duration: "100%",
+                    reverse: false
                 })
-                .setTween(tlSwipe) 
+                .setTween(tlSwipeFromRight) 
                 .addTo(controller);
 
 
@@ -131,7 +131,7 @@ export default {
                         
                         initDefaultPage();
                         makeBootstrapBlocks();
-                        setupScrollMagicPlaceholders();
+                        enableScrolls();
     
                         },
 
@@ -160,6 +160,7 @@ export default {
                                 y: 0, 
                                 duration: 2,
                                 opacity: 1 
+                          
                             }
                         );
 
@@ -172,6 +173,7 @@ export default {
                             { 
                                 opacity: 1,
                                 duration: 2
+                              
                             }
                         );
 
@@ -186,6 +188,7 @@ export default {
                                 x: 0,
                                 opacity: 1,
                                 duration: 2
+                              
                             }
                         );
 
@@ -202,6 +205,7 @@ export default {
                                 x: 0,
                                 opacity: 1,
                                 duration: 2
+                             
                             }
                     );
                 
