@@ -146,13 +146,25 @@ export default {
                         tlHeading.fromTo(
                             "article h1",
                             {
-                                y: 900, 
-                                opacity: 0 
+                                y: 900,
+                                opacity: 0
                             }, 
                             { 
                                 y: 0, 
-                                duration: 2, 
-                                opacity: 1
+                                duration: 2,
+                                opacity: 1 
+                            }
+                        );
+
+                    let tlDownButton = gsap.timeline();
+                        tlDownButton.fromTo(
+                            ".genlite-page__scroll-down",
+                            {
+                                opacity: 0
+                            }, 
+                            { 
+                                opacity: 1,
+                                duration: 2
                             }
                         );
 
