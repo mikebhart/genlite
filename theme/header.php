@@ -107,16 +107,7 @@
 
 							</ul>
 
-							<div class="search-button">
-      <a href="#" class="search-toggle" data-selector="#header-2"></a>
-    </div>
-	
-
-							<form action="" class="search-box">
-      							<input type="text" class="text search-input" placeholder="Type here to search..." />
-						    </form>
-
-
+					
 						</div>
 																						
 					</div>
