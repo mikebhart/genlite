@@ -142,8 +142,49 @@ export default {
             if ( (document.querySelector('article.page-template-default') ||  document.querySelector('article.type-page')) &&
                   (document.querySelector('article.has-post-thumbnail')) ) {
     
-                      var timelinePage = gsap.timeline();
-                      timelinePage.fromTo('article h1', { y: 900, opacity: 0 }, { y: 0, duration: 2, opacity: 1});
+                    let tlHeading = gsap.timeline();
+                        tlHeading.fromTo(
+                            "article h1",
+                            {
+                                y: 900, 
+                                opacity: 0 
+                            }, 
+                            { 
+                                y: 0, 
+                                duration: 2, 
+                                opacity: 1
+                            }
+                        );
+
+                    let tlLogo = gsap.timeline();
+                        tlLogo.fromTo(
+                            "#genlite-header__image",
+                            {
+                                x: -200,
+                                opacity: 0
+                            },
+                            {
+                                x: 0,
+                                opacity: 1,
+                                duration: 2
+                            }
+                        );
+
+
+
+                    let tlMenu = gsap.timeline();
+                        tlMenu.fromTo(
+                            "#navbarTogglerHeaderMenu",
+                            {
+                                x: 1200,
+                                opacity: 0
+                            },
+                            {
+                                x: 0,
+                                opacity: 1,
+                                duration: 2
+                            }
+                    );
                 
             } else {
             
