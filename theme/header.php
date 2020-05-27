@@ -44,7 +44,7 @@
     between your pages, like your main content <h1> or <p> -->
 
  	
-		<header>
+		<header id="header-2">
 
 			
 
@@ -106,6 +106,16 @@
 								<?php  get_template_part('/template-parts/render-socials'); ?>		
 
 							</ul>
+
+							<div class="search-button">
+      <a href="#" class="search-toggle" data-selector="#header-2"></a>
+    </div>
+	
+
+							<form action="" class="search-box">
+      							<input type="text" class="text search-input" placeholder="Type here to search..." />
+						    </form>
+
 
 						</div>
 																						

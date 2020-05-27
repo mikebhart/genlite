@@ -21,17 +21,17 @@ export default {
 
         initDefaultPage();
         makeBootstrapBlocks();
-        setupMagic();
+        setupScrollMagicPlaceholders();
 
 
 
-        function setupMagic() {
+        function setupScrollMagicPlaceholders() {
 
 
             let controller = new ScrollMagic.Controller();
 
             // FadeInBottom
-            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-image, .wp-block-cover, .wp-block-columns, article h2, article section p, article section ul"));
+            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-image, .wp-block-columns, article h2, article section p, article section ul"));
             let self = this;
 
             fadeElem.forEach(function(self) {
@@ -56,20 +56,27 @@ export default {
             // function debudPercentage() {
             //     console.log(tlServicesScroll.progress())
             // }
-            // tlServicesScroll.fromTo('.wp-block-cover', { x: '100%' } , { x: 0 })
+          
 
-            // const serviceElement = document.querySelector('.wp-block-cover');
+            let swipeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-cover"));
+            let selfSwipe = this;
 
-            // let homeController = new ScrollMagic.Controller();
+            swipeElem.forEach(function(selfSwipe) {
 
-            // let servicesScene = new ScrollMagic.Scene({
-            //     triggerElement: ".wp-block-cover",
-            //     triggerHook: 1,
-            //     duration: serviceElement.offsetHeight
-            // })
-            // .setTween(tlServicesScroll) // trigger a TweenMax.to tween
-            // .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-            // .addTo(homeController);
+                let tlSwipe = TweenMax.fromTo(selfSwipe, { x: '100%' } , { x: 0 });
+
+                let servicesScene = new ScrollMagic.Scene({
+                    triggerElement: selfSwipe,
+                    triggerHook: 1,
+                    duration: tlSwipe.offsetHeight
+                })
+                .setTween(tlSwipe) 
+                .addTo(controller);
+
+
+            });
+
+
 
         }
 
@@ -186,7 +193,7 @@ export default {
 
                     let tlMenu = gsap.timeline();
                         tlMenu.fromTo(
-                            "#navbarTogglerHeaderMenu",
+                            "#navbarTogglerHeaderMenu, .navbar-toggler",
                             {
                                 x: 1200,
                                 opacity: 0
