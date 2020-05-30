@@ -67,9 +67,10 @@
 
 					</a>				
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
-						<span><i class="fas fa-bars"></i>
-					</button>
+					<button class="navbar-toggler second-button genlite-header-navbar__buttton" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="#navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
+    					<span></span><span></span><span></span><span></span>
+  					</button>
+
 
 					<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">
 

@@ -18,6 +18,7 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
+
 export default {
 
     setup() {
@@ -40,7 +41,7 @@ export default {
             let controller = new ScrollMagic.Controller();
 
             // FadeInBottom
-            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-image, .wp-block-columns, article h2, article section p, article section ul"));
+            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul"));
             let self = this;
 
             fadeElem.forEach(function(self) {
@@ -57,7 +58,7 @@ export default {
             })
 
             // Swipe from Right
-            let swipeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-cover"));
+            let swipeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-cover, article img"));
             let selfSwipe = this;
 
             swipeElem.forEach(function(selfSwipe) {
@@ -228,6 +229,14 @@ export default {
 
                 // // wrap sections around the rest, keep it all the same
                 $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
+
+                $('.genlite-header-navbar__buttton').on('click', function () {
+            
+                    $('.genlite-header-navbar__buttton').toggleClass('open');
+                  });
+
+                  
+                  
 
 
         }
