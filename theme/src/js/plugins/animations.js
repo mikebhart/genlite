@@ -99,7 +99,7 @@ export default {
                 var tl = gsap.timeline();
 
                 tl.to(".loading-screen", {
-                    duration: 1.2,
+                    duration: 2,
                     width: "100%",
                     left: "0%",
                     ease: "Expo.easeInOut",
@@ -110,7 +110,7 @@ export default {
                     width: "100%",
                     left: "100%",
                     ease: "Expo.easeInOut",
-                    delay: 0.3,
+                    delay: 0.3
                 });
 
                 tl.set(".loading-screen", { left: "-100%" });
@@ -122,11 +122,11 @@ export default {
                 sync: true,
                 transitions: [
                 {
-                    name: 'page-wipe',
+                    name: 'genlite-page-wipe',
                     async leave(data) {
                         const done = this.async();
                         pageTransition();
-                        await delay(1600);
+                        await delay(2000);
                         done();
                     },
                     after(data) {
@@ -148,7 +148,6 @@ export default {
 
         function initDefaultPage() {
 
-            // if ( (document.querySelector('article.page-template-default') ||  document.querySelector('article.type-page')) &&
             if  (document.querySelector('article.has-post-thumbnail') ) {
     
                     let tlHeading = gsap.timeline();
