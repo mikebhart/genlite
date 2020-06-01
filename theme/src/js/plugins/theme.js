@@ -68,7 +68,7 @@ export default {
 
                     // // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
                 $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
-                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title" )
+                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes" )
                     .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" );
 
             
@@ -76,7 +76,7 @@ export default {
                 // // wrap sections around the rest, keep it all the same
                 $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
 
-              
+               
 
 
         }

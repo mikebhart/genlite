@@ -148,8 +148,8 @@ export default {
 
         function initDefaultPage() {
 
-            if ( (document.querySelector('article.page-template-default') ||  document.querySelector('article.type-page')) &&
-                  (document.querySelector('article.has-post-thumbnail')) ) {
+            // if ( (document.querySelector('article.page-template-default') ||  document.querySelector('article.type-page')) &&
+            if  (document.querySelector('article.has-post-thumbnail') ) {
     
                     let tlHeading = gsap.timeline();
                         tlHeading.fromTo(

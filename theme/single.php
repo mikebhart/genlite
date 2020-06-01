@@ -16,33 +16,35 @@ get_header();
 $postLastModified = Date('jS M, Y', get_post_modified_time());
 $postFirstPublished = get_the_date( 'jS M, Y' );
 
+if ( has_post_thumbnail( $post->ID ) ) { 
+	$post_hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+}
+
+
+
 ?>
 
 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('genlite__content'); ?>>
 
+	<section class="genlite-single__image mb-4" style="background-image: url('<?php echo esc_url($post_hero_image); ?>')">
+			
+		<div class="genlite-single__overlay"></div>
+				
+		<div class="genlite-single__overlay-text">
+
+			<h1><?php the_title(); ?></h1>
+			
+		</div>
+
+	</section>
+
+
 		<?php 
 	
 			while(have_posts()) : the_post(); ?>
 
-
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-		
-								<div class="date updated"><?php echo esc_attr($postLastModified); ?> by <span class="vcard author"><span class="fn"><?php the_author(); ?></span></span></div>
-
-								<h1 class="entry-title"><?php the_title(); ?></h1>
-								<div class="genlite-post__image">
-									<?php the_post_thumbnail( 'medium' ); ?>							  	
-								</div>	
-
-						</div>
-					</div>
-				</div>			
-										
-					
 
 					<?php the_content(); ?>
 
@@ -116,3 +118,9 @@ $postFirstPublished = get_the_date( 'jS M, Y' );
 	</div>
 
 <?php get_footer(); ?>
+
+
+
+
+
+
