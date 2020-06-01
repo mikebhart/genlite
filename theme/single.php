@@ -28,17 +28,21 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('genlite__content'); ?>>
 
-	<section class="genlite-single__image mb-4" style="background-image: url('<?php echo esc_url($post_hero_image); ?>')">
-			
-		<div class="genlite-single__overlay"></div>
-				
-		<div class="genlite-single__overlay-text">
+	<div class="genlite-single__wrapper">
 
-			<h1><?php the_title(); ?></h1>
+			<section class="genlite-single__image mb-4" style="background-image: url('<?php echo esc_url($post_hero_image); ?>')">
+					
+				<div class="genlite-single__overlay"></div>
 			
-		</div>
+			</section>
 
-	</section>
+
+			<section class="genlite-single__text">
+
+					<h1><?php the_title(); ?></h1>
+
+			</section>
+	</div>
 
 
 		<?php 
