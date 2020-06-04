@@ -1,0 +1,90 @@
+.genlite-card-project
+    overflow: hidden
+    position: relative 
+    box-shadow: 5px 10px 8px #888888
+    margin-bottom: 30px
+
+    &:after, &:before
+        content: ""
+        width: 100%
+        height: 100%
+        background: rgba(11, 33, 47, 0.9)
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        transition: all .5s ease 0s
+
+    &:after
+        background: rgba(255, 255, 255, 0.3)
+        border: 2px solid $genlite-secondary-color
+        top: 0
+        left: 170%
+        opacity: 1
+        z-index: 1
+        transform: skewX(45deg)
+        transition: all 1s ease 0s
+
+    &:hover
+        &:before
+            opacity: 1
+
+        &:after
+            left: -170%
+
+    img
+        width: 100%
+        height: 300px
+
+    .genlite-card-project__box-content
+        width: 100%
+        position: absolute
+        bottom: -100%
+        left: 0
+        transition: all .5s ease 0s
+
+    &:hover .genlite-card-project__box-content
+        bottom: 30%
+
+    .title
+        letter-spacing: 1px
+        display: block
+        font-size: 22px
+        font-weight: 700
+        color: #fff
+        margin: 0 0 10px
+
+    .post
+        display: block
+        font-size: 15px
+        font-weight: 600
+        color: #fff
+        margin-bottom: 10px
+        font-style: italic
+
+    .icon
+        text-align: center
+        padding-inline-start: 0px
+
+        li
+            display: inline-block
+
+            a
+                display: block
+                width: 35px
+                height: 35px
+                line-height: 35px
+                border-radius: 50%
+                background: $genlite-primary-color
+                font-size: 18px
+                color: #fff
+                margin-right: 10px
+                transition: all .5s ease 0s
+
+
+                &:hover
+                    transform: rotate(360deg)
+
+
+
+
