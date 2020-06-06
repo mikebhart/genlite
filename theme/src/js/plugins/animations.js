@@ -1,25 +1,7 @@
 import 'regenerator-runtime/runtime' // used by barba
-
 import barba from '@barba/core'
 import gsap from 'gsap'
-
-import { CSSPlugin } from 'gsap/CSSPlugin'
-
-
-// Force CSSPlugin to not get dropped during build
-gsap.registerPlugin(CSSPlugin)
-
-
-import ScrollMagic from 'scrollmagic'
-import { TweenMax, TimelineMax, Linear } from 'gsap'
-
-import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-
 import genliteTheme from "./theme";
-
 
 export default {
 
@@ -33,54 +15,7 @@ export default {
 
         initDefaultPage();
         enableScrolls();
-
-
-
-        function enableScrolls() {
-
-
-            let controller = new ScrollMagic.Controller();
-
-            // FadeInBottom
-            let fadeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul"));
-            let self = this;
-
-            fadeElem.forEach(function(self) {
-                // build a tween
-                let tlFadeInBottom = TweenMax.from(self, 1.5, { y: 100, opacity: 0 });
-                // build a scene
-                let scene = new ScrollMagic.Scene({
-                    triggerElement: self,
-                    offset: -200,
-                    reverse: false
-                })
-                .setTween(tlFadeInBottom)
-                .addTo(controller)
-            })
-
-            // Swipe from Right
-            let swipeElem = Array.prototype.slice.call(document.querySelectorAll(".wp-block-cover, article img"));
-            let selfSwipe = this;
-
-            swipeElem.forEach(function(selfSwipe) {
-
-                let tlSwipeFromRight = TweenMax.fromTo(selfSwipe, { x: '100%' } , { x: 0 });
-
-                let servicesScene = new ScrollMagic.Scene({
-                    triggerElement: selfSwipe,
-                    triggerHook: 1,
-                    duration: "100%",
-                    reverse: false
-                })
-                .setTween(tlSwipeFromRight) 
-                .addTo(controller);
-
-
-            });
-
-
-
-        }
+        var mikeload;
 
 
         function setupPageSwipes() {
@@ -130,16 +65,152 @@ export default {
                         done();
                     },
                     after(data) {
-                        
+
+
                         initDefaultPage();
                         enableScrolls();
                         genliteTheme.setup();
-    
+
                         },
 
-                    },
+                    beforeLeave(data) {
+//                           alert('about to leave');
+                       //    window.addEventListener('unload',fadeUpTargets);
+                  //     enableScrolls();
+                    }
+
+                },
                 ],
             });
+
+
+        }
+
+        function enableScrolls() {
+
+            function fadeUpTargets(){
+
+                //event.preventDefault();
+       
+                const options = {
+                  rootMargin: "0px",
+                  threshold: 0
+                };
+
+                const moveup = new IntersectionObserver(entries => {
+
+                  entries.forEach(entry => {
+                    
+                    if (entry.intersectionRatio > 0)  {
+                    console.log('inxdasd');
+                      let tlFadeInBottom = gsap.timeline();
+                      tlFadeInBottom.from(entry.target, { y: 100, opacity: 0, duration: 1 });
+                      moveup.unobserve(entry.target);
+                    }
+
+                  });
+                }, options);
+         
+                const targetElements = document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul");
+
+
+                for (let element of targetElements) {
+                    moveup.observe(element);
+                }
+
+         
+              }
+
+          
+
+              
+           
+            // FadeInBottom
+         //   window.removeEventListener('load', fadeUpTargets);
+
+//          var nextButton = document.querySelector(".swipe-button-next"); 
+
+// if(nextButton != null)
+//     nextButton.addEventListener(...);
+
+
+
+              
+                   window.addEventListener('DOMContentLoaded',fadeUpTargets,  {
+                        once: true
+    //                    passive: true,
+    //                    capture: fatrue
+                    });
+              
+
+                // window.addEventListener('load',function() {
+
+                //  alert(mikeload);
+                 
+                // }
+                // );
+
+//                 $('body').click(function(){ alert('test' )})
+
+// var foo = $.data( $('body').get(0), 'events' ).click
+// // you can query $.data( object, 'events' ) and get an object back, then see what events are attached to it.
+
+// $.each( foo, function(i,o) {
+//     alert(i) // guid of the event
+//     alert(o) // the function definition of the event handler
+// });
+
+
+
+
+                //   window.addEventListener('unload',fadeUpTargets) {
+                //     console.log('I am the 3rd one.')
+
+                //   };
+
+
+            //   element.addEventListener('click', myClickHandler, {
+            //     once: true,
+            //     passive: true,
+            //     capture: true
+            //   });
+
+
+
+
+            // Swipe from Right
+            window.addEventListener('load',function(){
+
+              
+                const options = {
+                  rootMargin: "0px",
+                  threshold: 0
+                };
+
+                const swipeleft = new IntersectionObserver(entries => {
+
+                  entries.forEach(entry => {
+                    
+                    if (entry.intersectionRatio > 0) {
+
+                      let tlSwipeFromRight = gsap.timeline();
+                      tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
+
+                      swipeleft.unobserve(entry.target);
+
+                    }
+
+                  });
+                }, options);
+         
+                const targetElements = document.querySelectorAll(".wp-block-cover, article img");
+                for (let element of targetElements) {
+                    swipeleft.observe(element);
+                }
+
+         
+              });
+
 
 
         }

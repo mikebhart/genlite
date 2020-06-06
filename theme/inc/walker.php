@@ -96,7 +96,7 @@ class genlite_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( $args->has_children && $depth === 0 ) {
    				$atts['href'] = ! empty( $item->url ) ? $item->url : ''; // new line
 				$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle';
+//				$atts['class']			= 'dropdown-toggle';
 				$atts['aria-haspopup']  = 'true';
 				
 			} else if ($args->has_children && $depth > 0) {
