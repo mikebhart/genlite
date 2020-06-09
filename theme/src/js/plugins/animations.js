@@ -15,8 +15,6 @@ export default {
 
         initDefaultPage();
         enableScrolls();
-        var mikeload;
-
 
         function setupPageSwipes() {
 
@@ -66,10 +64,12 @@ export default {
                     },
                     after(data) {
 
-
+                        window.scrollTo(0, 0);
+                        
                         initDefaultPage();
                         enableScrolls();
                         genliteTheme.setup();
+                     
 
                         },
 
@@ -90,8 +90,6 @@ export default {
 
             function fadeUpTargets(){
 
-                //event.preventDefault();
-       
                 const options = {
                   rootMargin: "0px",
                   threshold: 0
@@ -102,7 +100,6 @@ export default {
                   entries.forEach(entry => {
                     
                     if (entry.intersectionRatio > 0)  {
-                    console.log('inxdasd');
                       let tlFadeInBottom = gsap.timeline();
                       tlFadeInBottom.from(entry.target, { y: 100, opacity: 0, duration: 1 });
                       moveup.unobserve(entry.target);
@@ -121,20 +118,9 @@ export default {
          
               }
 
-          
-
               
            
             // FadeInBottom
-         //   window.removeEventListener('load', fadeUpTargets);
-
-//          var nextButton = document.querySelector(".swipe-button-next"); 
-
-// if(nextButton != null)
-//     nextButton.addEventListener(...);
-
-
-
               
                    window.addEventListener('DOMContentLoaded',fadeUpTargets,  {
                         once: true
@@ -143,43 +129,8 @@ export default {
                     });
               
 
-                // window.addEventListener('load',function() {
-
-                //  alert(mikeload);
-                 
-                // }
-                // );
-
-//                 $('body').click(function(){ alert('test' )})
-
-// var foo = $.data( $('body').get(0), 'events' ).click
-// // you can query $.data( object, 'events' ) and get an object back, then see what events are attached to it.
-
-// $.each( foo, function(i,o) {
-//     alert(i) // guid of the event
-//     alert(o) // the function definition of the event handler
-// });
-
-
-
-
-                //   window.addEventListener('unload',fadeUpTargets) {
-                //     console.log('I am the 3rd one.')
-
-                //   };
-
-
-            //   element.addEventListener('click', myClickHandler, {
-            //     once: true,
-            //     passive: true,
-            //     capture: true
-            //   });
-
-
-
-
             // Swipe from Right
-            window.addEventListener('load',function(){
+            window.addEventListener('DOMContentLoaded',function(){
 
               
                 const options = {
