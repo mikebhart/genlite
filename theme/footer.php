@@ -91,71 +91,68 @@
 				</div> 
 				
 				
-	<?php
-	
-		}   
-		
-		if ($found_socials > 0) {
-
-		?>
-
-				
-				
-				<div class="container">
-
-					<div class="row">
-
-			   			<div class="col-12 text-center pt-3 pb-5">
-
-						   <ul class="genlite-social">
-
-								<?php get_template_part('/template-parts/render-socials'); ?>		
-
-							</ul>
-
-		
-						</div>		
+			<?php
 			
-					</div>
+				}   
+				
+				if ($found_socials > 0) {
 
+				?>
+
+						
+						
+						<div class="container">
+
+							<div class="row">
+
+								<div class="col-12 text-center pt-3 pb-5">
+
+								<ul class="genlite-social">
+
+										<?php get_template_part('/template-parts/render-socials'); ?>		
+
+									</ul>
+
+				
+								</div>		
+					
+							</div>
+
+						</div>
+
+				<?php }
+		
+					if ( is_active_sidebar( 'genlite_footer_footnote' )) { ?>
+
+							<div class="container-fluid">
+
+
+								<div class="row">
+
+									<div class="col-12 text-center footnote pl-3 pr-3">
+
+										<?php dynamic_sidebar( 'genlite_footer_footnote' ); ?>
+					
+									</div>		
+						
+								</div>
+
+							
+							</div>
+
+						<?php } ?>
+
+						<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
+
+					</footer>	
+	
+				
 				</div>
 
-		<?php }
-		
-		if ( is_active_sidebar( 'genlite_footer_footnote' )) { ?>
-
-				<div class="container-fluid">
-
-
-					<div class="row">
-
-			   			<div class="col-12 text-center footnote pl-3 pr-3">
-
-			   				<?php dynamic_sidebar( 'genlite_footer_footnote' ); ?>
-		
-						</div>		
-			
-					</div>
-
-				
-				</div>
-
-		<?php } ?>
-
-				<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
-
-		</footer>	
-	
-	
-				
-			</div>
-
-		</main>
+			</main>
 
 		<?php wp_footer(); ?>
-
 				
 	</body>
-	
 
 </html>

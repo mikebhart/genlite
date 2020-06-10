@@ -27,117 +27,120 @@
 
 	</head>
 
-	<body>
-
+	<body <?php body_class(); ?>>
 	
   		<main>
-		  <div class="cd-main-content">
-		
 
+		  	<div class="genlite-main-content">
  	
-			<header id="header-2">
+				<header <?php body_class(); ?>>
 
-				<nav class="navbar navbar-expand-lg">
+					<nav class="navbar navbar-expand-lg">
 
-					<a class="navbar-brand" data-type="page-transition" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+						<a class="navbar-brand" data-type="page-transition" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
-						<?php if (has_custom_logo()) { 
+							<?php if (has_custom_logo()) { 
 
-								$custom_logo_id = get_theme_mod( 'custom_logo' );
-								$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
+									$custom_logo_id = get_theme_mod( 'custom_logo' );
+									$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
 
-								<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
+									<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
 
-							<?php } else { ?>
+								<?php } else { ?>
 
-								<h2><?php echo bloginfo( 'name' ); ?></h2>
-							
-							<?php	}  ?>
+									<h2><?php echo bloginfo( 'name' ); ?></h2>
+								
+								<?php	}  ?>
 
-					</a>				
+						</a>				
 
-					<button class="navbar-toggler second-button genlite-header-navbar__buttton" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
-    					<span></span><span></span><span></span><span></span>
-  					</button>
+						<button class="navbar-toggler second-button genlite-header-navbar__buttton" type="button" data-toggle="collapse" data-target="#navbarTogglerHeaderMenu" aria-controls="navbarTogglerHeaderMenu" aria-expanded="false" aria-label="Toggle navigation">
+							<span></span><span></span><span></span><span></span>
+						</button>
 
 
-					<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">
+						<div class="collapse navbar-collapse" id="navbarTogglerHeaderMenu">
 
-								<?php	
+									<?php	
 
-									if ( has_nav_menu( 'primary' ) ) {
+										if ( has_nav_menu( 'primary' ) ) {
 
-														wp_nav_menu( array(
-															'menu'              => 'primary',
-															'theme_location'    => 'primary',
-															'depth'             => 5,
-															'menu_id'           => 'primary-menu',
-															'menu_class'        => 'navbar-nav pr-lg-3',
-															'container'         => 'div',
-															'container_id'      => 'genlite-navbar',
-															'container_class'   => 'ml-auto',
-															'fallback_cb'       => 'genlite_Walker_Nav_Menu::fallback',
-															'walker'            => new genlite_Walker_Nav_Menu())
-															);		
+															wp_nav_menu( array(
+																'menu'              => 'primary',
+																'theme_location'    => 'primary',
+																'depth'             => 5,
+																'menu_id'           => 'primary-menu',
+																'menu_class'        => 'navbar-nav pr-lg-3',
+																'container'         => 'div',
+																'container_id'      => 'genlite-navbar',
+																'container_class'   => 'ml-auto',
+																'fallback_cb'       => 'genlite_Walker_Nav_Menu::fallback',
+																'walker'            => new genlite_Walker_Nav_Menu())
+																);		
 
-									} else { 
+										} else { 
 
-														echo '<div class="text-center">';
-														echo esc_attr_e('You need to add a Menu. Go into Customizer | Menus | Select a Menu | Menu Location - Tick Top Menu checkbox.','genlite');
-														echo '</div>'; 
+															echo '<div class="text-center">';
+															echo esc_attr_e('You need to add a Menu. Go into Customizer | Menus | Select a Menu | Menu Location - Tick Top Menu checkbox.','genlite');
+															echo '</div>'; 
 
-									}
-								?>
+										}
+									?>
 
-						<div class="d-none d-lg-block pr-lg-3">
+							<div class="d-none d-lg-block pr-lg-3">
 
-							<ul class="genlite-social">
+								<ul class="genlite-social">
 
-								<?php  get_template_part('/template-parts/render-socials'); ?>		
+									<?php  get_template_part('/template-parts/render-socials'); ?>		
 
-							</ul>
-
-					
-						</div>
-
-						<?php
-
-							if ( class_exists( 'WooCommerce' ) ) {
-								global $woocommerce; 
-								$genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
-																	
-								<div class="genlite-shop-basket">
-
-									<span class="genlite-icon genlite-hyperlink">
-
-										<a href="<?php echo esc_url(wc_get_cart_url()); ?>">
-
-											<i class="fas fa-shopping-cart genlite-icon"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
-
-													
-														<div class="d-none d-sm-inline">
-															&nbsp;<span class="genlite-main-color">/</span>&nbsp;
-
-															<?php echo $genliteCartTotal; ?>
-														</div>	
-
-										</a> 
-
-									</span>    
-
-								</div> 
-							
-							<?php
-
-							} 	 ?>
+								</ul>
 
 						
-																						
-					</div>
+							</div>
+
+							<?php
+
+								if ( class_exists( 'WooCommerce' ) ) {
+									global $woocommerce; 
+									$genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
+																		
+									<div class="genlite-shop-basket">
+
+										<span class="genlite-icon genlite-hyperlink">
+
+											<a href="<?php echo esc_url(wc_get_cart_url()); ?>">
+
+												<i class="fas fa-shopping-cart genlite-icon"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
+
+														
+															<div class="d-none d-sm-inline">
+																&nbsp;<span class="genlite-main-color">/</span>&nbsp;
+
+																<?php echo $genliteCartTotal; ?>
+															</div>	
+
+											</a> 
+
+										</span>    
+
+									</div> 
 								
-				</nav>
+								<?php
+
+								} 	 ?>
+
+							
+																							
+						</div>
 								
-			</header>
+					</nav>
+								
+				</header>
+
+
+
+
+
 
 
 

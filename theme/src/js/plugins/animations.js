@@ -8,10 +8,12 @@ export default {
 
       
         setupPageSwipes();
-        initDefaultPage();
-        enableScrolls();
+        setupFrontPages();
+        enableScrollActions();
         
-
+        //
+        // CSS swipe animation, that replaces the refresh of the page while the content is updated using Ajax.
+        //
         function setupPageSwipes() {
 
             var isAnimating = false;
@@ -20,9 +22,10 @@ export default {
 
 
             function firePageTransitionClick() {
-            
+
                 //trigger smooth transition from the actual page to the new one 
                 event.preventDefault();
+
                 //detect which page has been selected
                 var newPage = $(this).attr('href');
                 //if the page is not already being animated - trigger animation
@@ -79,10 +82,12 @@ export default {
           
             function loadNewContent(url, bool) {
 
-                var newSection = 'cd-'+url.replace('.html', '');
-                var section = $('<div class="cd-main-content '+newSection+'"></div>');
+                var newSection = 'genlite-'+url.replace('.html', '');
+                var section = $('<div class="genlite-main-content '+newSection+'"></div>');
                       
-                section.load(url+' .cd-main-content > *',function(event) {
+             
+
+                section.load(url+' .genlite-main-content > *',function(event) {
                   
 
                     var delay = 500;
@@ -90,13 +95,15 @@ export default {
                     setTimeout(function() {
 
                         // load new content and replace <main> content with the new one
+
                         $('main').html(section);
 
                         window.scrollTo(0, 0);
                         genliteTheme.setup();
     
-                        initDefaultPage();
-                        enableScrolls();
+                        setupFrontPages();
+                        enableScrollActions();
+
                         
                         $('body').removeClass('page-is-changing');
                       
@@ -127,9 +134,9 @@ export default {
         }
 
         //
-        // Use standard js IntersectionObserver api to detect y position on the page, then fire gsap animation
+        // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
         //
-        function enableScrolls() {
+        function enableScrollActions() {
 
             function fadeUpTargets(){
 
@@ -202,9 +209,9 @@ export default {
         //
         // On posts and pages, fire gsap animations
         //
-        function initDefaultPage() {
+        function setupFrontPages() {
 
-            if  (document.querySelector('article.has-post-thumbnail') ) {
+            if (document.querySelector('article.has-post-thumbnail') ) {
     
                     let tlHeading = gsap.timeline();
                         tlHeading.fromTo(
@@ -221,18 +228,21 @@ export default {
                             }
                         );
 
-                    let tlDownButton = gsap.timeline();
-                        tlDownButton.fromTo(
-                            ".genlite-page__scroll-down",
-                            {
-                                opacity: 0
-                            }, 
-                            { 
-                                opacity: 1,
-                                duration: 2
-                              
-                            }
-                        );
+                    if (document.querySelector('header.page-template-default')) {
+
+                        let tlDownButton = gsap.timeline();
+                            tlDownButton.fromTo(
+                                ".genlite-page__scroll-down",
+                                {
+                                    opacity: 0
+                                }, 
+                                { 
+                                    opacity: 1,
+                                    duration: 2
+                                
+                                }
+                            );
+                    }
 
                     let tlLogo = gsap.timeline();
                         tlLogo.fromTo(
