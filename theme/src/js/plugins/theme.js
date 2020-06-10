@@ -95,7 +95,12 @@ export default {
                     
                     $('article a[href^=#]').bind("click", jump);
 
-
+                    $("#genlite-archive__more-posts-button").bind("click",function(event) { 
+                        genlite_load_posts();
+                    });
+                
+        
+        
 
 
                

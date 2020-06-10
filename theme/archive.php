@@ -75,7 +75,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		<div class="row">
 
 			<div class="mx-auto mt-3 mb-5">
-				<div id="genlite-archive__more-posts-button" class="btn btn-outline-primary">Show More</div>
+				<a id="genlite-archive__more-posts-button" class="btn btn-outline-primary">Show More</a>
 			</div>
 
 		</div>
@@ -199,10 +199,12 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		return false;
 	}
 
-	$("#genlite-archive__more-posts-button").on("click",function() { 
-		genlite_load_posts();
+	
 
-	});
 
+
+
+
+	
 
 </script>
