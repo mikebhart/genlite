@@ -1,5 +1,3 @@
-//import 'regenerator-runtime/runtime' // used by barba
-//import barba from '@barba/core'
 import gsap from 'gsap'
 import genliteTheme from "./theme";
 
@@ -8,144 +6,116 @@ export default {
 
     setup() {
 
-        if (document.body.classList.contains('admin-bar') == false) { 
-
-         //   setupPageSwipes();
-        
-        }
-
+      
+        setupPageSwipes();
         initDefaultPage();
         enableScrolls();
-        newStuff();
-
         
 
-        function newStuff() {
-
-
+        function setupPageSwipes() {
 
             var isAnimating = false;
-            var  newLocation = '';
-            var  firstLoad = false;
-
-            //  console.clear;
-
-            //   $('main a[data-type="page-transition"]').not(".genlite-page__scroll-down").each(function(){
-
-            //     $(this).on('click', function(event){
-            //         event.preventDefault();
-            //         var newPage = $(this).attr('href');
-            //         if( !isAnimating ) changePage(newPage);
-            //         firstLoad = true;
-    
-    
-            //      });
+            var newLocation = '';
+            var firstLoad = false;
 
 
-
-            // //    console.log($(this).attr('data-type'));
-            //     console.log($(this));
-            //  });
-
-
-
-       
+            function firePageTransitionClick() {
             
-            //trigger smooth transition from the actual page to the new one 
-            $("main").on("click", "[data-type='page-transition']", function(event){
-              //alert('in');
-             // console.log($(this));
-
-              event.preventDefault();
-              //detect which page has been selected
-              var newPage = $(this).attr('href');
-              //if the page is not already being animated - trigger animation
-              if( !isAnimating ) changePage(newPage);
-              firstLoad = true;
-
-
-
-
-            });
-
-
-
-
-
-          
-            //detect the 'popstate' event - e.g. user clicking the back button
-            $(window).on('popstate', function() {
-                if( firstLoad ) {
-                /*
-                Safari emits a popstate event on page load - check if firstLoad is true before animating
-                if it's false - the page has just been loaded 
-                */
-                var newPageArray = location.pathname.split('/'),
-                  //this is the url of the page to be loaded 
-                  newPage = newPageArray[newPageArray.length - 1];
-          
-                if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, false);
-              }
-              firstLoad = true;
-              });
-          
-              function changePage(url) {
-              isAnimating = true;
-              // trigger page animation
-              $('body').addClass('page-is-changing');
+                //trigger smooth transition from the actual page to the new one 
+                event.preventDefault();
+                //detect which page has been selected
+                var newPage = $(this).attr('href');
+                //if the page is not already being animated - trigger animation
+                if( !isAnimating ) {
+                   changePage(newPage, true);
+                }
+                firstLoad = true;
             
-                  loadNewContent(url);
-                  
-                newLocation = url;
+            }
 
-                
-              
-              
-              //if browser doesn't support CSS transitions
-              if( !transitionsSupported() ) {
+            $("main").on("click", "[data-type='page-transition']", firePageTransitionClick);
+
+            function changePage(url, bool) {
+
+                isAnimating = true;
+
+                // trigger page animation
+                $('body').addClass('page-is-changing');
                 loadNewContent(url);
                 newLocation = url;
-              }
-              }
+                
+                //if browser doesn't support CSS transitions
+                 if( !transitionsSupported() ) {
+                   loadNewContent(url, bool);
+                   newLocation = url;
+                 }
+
+            }
+
+
+            function detectUserClick() {
+
+                if( firstLoad ) {
+                    /*
+                    Safari emits a popstate event on page load - check if firstLoad is true before animating
+                    if it's false - the page has just been loaded 
+                    */
+                    var newPageArray = location.pathname.split('/'),
+                      //this is the url of the page to be loaded 
+                      newPage = newPageArray[newPageArray.length - 1];
+              
+                      if( !isAnimating  &&  newLocation != newPage ) changePage(newPage, false);
+
+                }
+                
+                firstLoad = true;
+
+            }
+
+            //detect the 'popstate' event - e.g. user clicking the back button
+            $(window).on('popstate', detectUserClick);
+
+            
           
-              function loadNewContent(url, bool) {
+            function loadNewContent(url, bool) {
 
                 var newSection = 'cd-'+url.replace('.html', '');
                 var section = $('<div class="cd-main-content '+newSection+'"></div>');
-                    
-                section.load(url+' .cd-main-content > *', function(event){
-                // load new content and replace <main> content with the new one
-                $('main').html(section);
-               
+                      
+                section.load(url+' .cd-main-content > *',function(event) {
+                  
 
+                    var delay = 500;
+                                          
+                    setTimeout(function() {
 
-                //if browser doesn't support CSS transitions - dont wait for the end of transitions
-                var delay = ( transitionsSupported() ) ? 2000 : 0;
-                setTimeout(function(){
+                        // load new content and replace <main> content with the new one
+                        $('main').html(section);
 
-              
-                  $('body').removeClass('page-is-changing');
+                        window.scrollTo(0, 0);
+                        genliteTheme.setup();
+    
+                        initDefaultPage();
+                        enableScrolls();
+                        
+                        $('body').removeClass('page-is-changing');
+                      
                 
-          
-                  if( !transitionsSupported() ) isAnimating = false;
-                }, delay);
-                
-                if(url!=window.location){
-                  //add the new page to the window.history
-                  //if the new page was triggered by a 'popstate' event, don't add it
-                  window.history.pushState({path: url},'',url);
-                }
+                        if( !transitionsSupported() ) isAnimating = false;
 
-                window.scrollTo(0, 0);
-                genliteTheme.setup();
+                    }, delay);
+                      
+                    if(url!=window.location && bool){
+                      //add the new page to the window.history
+                      //if the new page was triggered by a 'popstate' event, don't add it
+                      window.history.pushState({path: url},'',url);
+                    }
 
-                initDefaultPage();
-                enableScrolls();
-              
+                  
                 
 
-
-                  });
+                });
+             
             }
           
             function transitionsSupported() {
@@ -154,81 +124,11 @@ export default {
           
 
 
-
-
-
         }
 
-        function setupPageSwipes() {
-
-            // Easit in Out on Page load
-            const delay = (n) => {
-                return new Promise((done) => {
-                setTimeout(() => {
-                    done();
-                }, n)
-                })
-            }
-
-            const pageTransition = () => {
-
-                var tl = gsap.timeline();
-
-                tl.to(".loading-screen", {
-                    duration: 2,
-                    width: "100%",
-                    left: "0%",
-                    ease: "Expo.easeInOut",
-                });
-
-                tl.to(".loading-screen", {
-                    duration: 1,
-                    width: "100%",
-                    left: "100%",
-                    ease: "Expo.easeInOut",
-                    delay: 0.3
-                });
-
-                tl.set(".loading-screen", { left: "-100%" });
-
-            }
-
-            
-            barba.init({
-                sync: true,
-                transitions: [
-                {
-                    name: 'genlite-page-wipe',
-                    async leave(data) {
-                        const done = this.async();
-                        pageTransition();
-                        await delay(2000);
-                        done();
-                    },
-                    after(data) {
-
-                        window.scrollTo(0, 0);
-                        
-                        initDefaultPage();
-                        enableScrolls();
-                        genliteTheme.setup();
-                     
-
-                        },
-
-                    beforeLeave(data) {
-//                           alert('about to leave');
-                       //    window.addEventListener('unload',fadeUpTargets);
-                  //     enableScrolls();
-                    }
-
-                },
-                ],
-            });
-
-
-        }
-
+        //
+        // Use standard js IntersectionObserver api to detect y position on the page, then fire gsap animation
+        //
         function enableScrolls() {
 
             function fadeUpTargets(){
@@ -259,63 +159,49 @@ export default {
                 }
 
          
+            }
+
+            window.addEventListener('DOMContentLoaded',fadeUpTargets);
+
+            function swipeLeft() {
+
+               
+              const options = {
+                rootMargin: "0px",
+                threshold: 0
+              };
+
+              const swipeleft = new IntersectionObserver(entries => {
+
+                entries.forEach(entry => {
+                  
+                  if (entry.intersectionRatio > 0) {
+
+                    let tlSwipeFromRight = gsap.timeline();
+                    tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
+
+                    swipeleft.unobserve(entry.target);
+
+                  }
+
+                });
+              }, options);
+       
+              const targetElements = document.querySelectorAll(".wp-block-cover, article img");
+              for (let element of targetElements) {
+                  swipeleft.observe(element);
               }
 
-              
-           
-            // FadeInBottom
 
-
-
-              
-              
-                   window.addEventListener('DOMContentLoaded',fadeUpTargets,  {
-                        once: true
-    //                    passive: true,
-    //                    capture: fatrue
-                    });
-               
-              
-
-            // Swipe from Right
-            window.addEventListener('DOMContentLoaded',function(){
-
-              
-                const options = {
-                  rootMargin: "0px",
-                  threshold: 0
-                };
-
-                const swipeleft = new IntersectionObserver(entries => {
-
-                  entries.forEach(entry => {
-                    
-                    if (entry.intersectionRatio > 0) {
-
-                      let tlSwipeFromRight = gsap.timeline();
-                      tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
-
-                      swipeleft.unobserve(entry.target);
-
-                    }
-
-                  });
-                }, options);
-         
-                const targetElements = document.querySelectorAll(".wp-block-cover, article img");
-                for (let element of targetElements) {
-                    swipeleft.observe(element);
-                }
-
-         
-              });
-
-
-
+            }
+                   
+            window.addEventListener('DOMContentLoaded', swipeLeft);
+            
         }
 
-
-
+        //
+        // On posts and pages, fire gsap animations
+        //
         function initDefaultPage() {
 
             if  (document.querySelector('article.has-post-thumbnail') ) {
@@ -325,7 +211,7 @@ export default {
                             "article h1",
                             {
                                 y: 900,
-                                opacity: 0
+                                opacity: 1
                             }, 
                             { 
                                 y: 0, 
@@ -386,9 +272,6 @@ export default {
             }
     
         }
-
-
-       
 
 
     }

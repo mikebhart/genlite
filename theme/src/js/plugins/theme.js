@@ -5,6 +5,7 @@ export default {
         backToTopButton(); 
         fixNavbarSubMenus();
         makeBootstrapBlocks();
+        createClickableBindings();
 
         function backToTopButton() {
 
@@ -61,6 +62,38 @@ export default {
 
         }
 
+        
+        function createClickableBindings() {
+
+          
+            function jump(e) {
+
+                if (e) {
+
+                    e.preventDefault();
+                    var target = $(this).attr("href");
+
+                } else {
+
+                    var target = location.hash;
+
+                }
+
+
+                $('html,body').animate({scrollTop: $(target).offset().top},400,function() {});
+
+
+            }
+            
+            $('article a[href^=#]').bind("click", jump);
+
+            $("#genlite-archive__more-posts-button").bind("click",function(event) { 
+                genlite_load_posts();
+            });
+
+
+        }
+
 
         function makeBootstrapBlocks() {
 
@@ -74,45 +107,8 @@ export default {
                 // // wrap sections around the rest, keep it all the same
                 $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
 
-                                // Scroll to href anchors
-                    var jump=function(e) {
-
-                        if (e) {
-
-                            e.preventDefault();
-                            var target = $(this).attr("href");
-
-                        } else {
-
-                        var target = location.hash;
-
-                        }
-
-
-                        $('html,body').animate({scrollTop: $(target).offset().top},400,function() {});
-
-                    }
-                    
-                    $('article a[href^=#]').bind("click", jump);
-
-                    $("#genlite-archive__more-posts-button").bind("click",function(event) { 
-                        genlite_load_posts();
-                    });
-                
-        
-        
-
-
-               
-
 
         }
-
-
-
-
-      
-
     
     }
 
