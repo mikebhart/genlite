@@ -120,9 +120,9 @@ class genlite_Walker_Nav_Menu extends Walker_Nav_Menu {
 			//else
 			
 			if ($args->has_children) {
-				$item_output .= '<a class="dropdown-item dropdown-toggle"'. $attributes .'>';					
+				$item_output .= '<a  data-type="page-transition" class="dropdown-item dropdown-toggle"'. $attributes .'>';					
 			} else {
-				$item_output .= '<a class="dropdown-item"'. $attributes .'>';	
+				$item_output .= '<a data-type="page-transition" class="dropdown-item"'. $attributes .'>';	
 			}
 
 

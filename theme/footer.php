@@ -146,10 +146,14 @@
 
 		</footer>	
 	
-		<?php wp_footer(); ?>
-
+	
+				
+			</div>
 
 		</main>
+
+		<?php wp_footer(); ?>
+
 				
 	</body>
 	

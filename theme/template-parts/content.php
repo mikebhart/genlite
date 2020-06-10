@@ -29,7 +29,7 @@ $post_date = get_the_date( 'j M Y' );
       
 	  <h5 class="card-title"><?php the_title(); ?></h5>
       <p class="card-text"><?php echo $excerpt_result; ?></p>
-	  <a href="<?php esc_url(the_permalink()); ?>" class="stretched-link"></a>
+	  <a href="<?php esc_url(the_permalink()); ?>" class="stretched-link" data-type="page-transition"></a>
     
 	</div>
     

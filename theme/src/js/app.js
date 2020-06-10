@@ -6,8 +6,6 @@ import "../../src/sass/app.sass";
 import "bootstrap/js/dist/util";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
-import "bootstrap/js/dist/tooltip";
-
 
 
 
@@ -40,6 +38,9 @@ const GENLITE = {
 $(document).ready(function() {
 
   GENLITE.initialiseAll();
+
+ 
+
 
  
 });

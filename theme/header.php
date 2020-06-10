@@ -27,21 +27,19 @@
 
 	</head>
 
-	<body data-barba="wrapper" <?php body_class('genlite__fade_in'); ?>>
+	<body>
 
-		<div class="load-container">
-			<div class="loading-screen"></div>
-		</div>
-
-
-  		<main data-barba="container" data-barba-namespace="genlite-page-wipe">
+	
+  		<main>
+		  <div class="cd-main-content">
+		
 
  	
 			<header id="header-2">
 
 				<nav class="navbar navbar-expand-lg">
 
-					<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+					<a class="navbar-brand" data-type="page-transition" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
 						<?php if (has_custom_logo()) { 
 
