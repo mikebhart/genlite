@@ -108,6 +108,13 @@ export default {
                 $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
 
 
+                
+                // // contact form 7 rows
+                $(".wpcf7 .row").addClass("text-center");
+
+                $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
+
+
         }
     
     }

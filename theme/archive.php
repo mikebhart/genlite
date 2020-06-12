@@ -90,16 +90,6 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 <script type="text/javascript">
 
-//	
-
-	setTimeout(function() {
-			//alert('fds');
-		//$('.navbar').css("background-color", "black");
-	
-}, 3000);
-
-
-
 
 	var postsPerPage = "<?php echo get_option( 'posts_per_page' ); ?>";
 	var pageNumber = 1;
@@ -203,8 +193,13 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 
 
-
+$("#genlite-archive__more-posts-button").bind("click",function(event) { 
+	genlite_load_posts();
+});
 
 	
 
 </script>
+
+
+

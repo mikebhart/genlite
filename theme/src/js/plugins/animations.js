@@ -7,14 +7,99 @@ export default {
     setup() {
 
       
-        setupPageSwipes();
-        setupFrontPages();
+        setupPageTransitions();
+        buildHeroPages();
         enableScrollActions();
+
+      
+        //
+        // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
+        //
+        function enableScrollActions() {
+
+            //    window.addEventListener("load",  function () {
+            //     console.log("test bug");
+            //    });
+
+            
+            function fadeUpTargets() {
+
+
+                const options = {
+                  rootMargin: "0px",
+                  threshold: 0
+                };
+
+
+                const moveup = new IntersectionObserver(entries => {
+
+                  entries.forEach(entry => {
+
+                    
+                    if (entry.intersectionRatio > 0)  {
+                      let tlFadeInBottom = gsap.timeline();
+                      tlFadeInBottom.from(entry.target, { y: 100, opacity: 0, duration: 1 });
+                      moveup.unobserve(entry.target);
+                    }
+
+                  });
+                }, options);
+         
+                const targetElements = document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul");
+
+
+                for (let element of targetElements) {
+                    moveup.observe(element);
+                }
+
+         
+            }
+
+            window.addEventListener('load',fadeUpTargets);
+
+            function swipeLeft() {
+
+               
+                const options = {
+                    rootMargin: "0px",
+                    threshold: 0
+                };
+
+                const swipeleft = new IntersectionObserver(entries => {
+
+                    entries.forEach(entry => {
+
+                    if (entry.intersectionRatio > 0) {
+                        
+                        let tlSwipeFromRight = gsap.timeline();
+                
+                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
+
+                        swipeleft.unobserve(entry.target);
+
+                    }
+
+                    });
+                }, options);
         
+                const targetElements = document.querySelectorAll(".wp-block-cover, article img");
+                for (let element of targetElements) {
+                    swipeleft.observe(element);
+                }
+
+
+            }
+                   
+            window.addEventListener('load', swipeLeft);
+
+        }
+
+
+
         //
         // CSS swipe animation, that replaces the refresh of the page while the content is updated using Ajax.
         //
-        function setupPageSwipes() {
+        function setupPageTransitions() {
 
             var isAnimating = false;
             var newLocation = '';
@@ -45,6 +130,7 @@ export default {
                 // trigger page animation
                 $('body').addClass('page-is-changing');
                 loadNewContent(url);
+              
                 newLocation = url;
                 
                 //if browser doesn't support CSS transitions
@@ -85,10 +171,7 @@ export default {
                 var newSection = 'genlite-'+url.replace('.html', '');
                 var section = $('<div class="genlite-main-content '+newSection+'"></div>');
                       
-             
-
                 section.load(url+' .genlite-main-content > *',function(event) {
-                  
 
                     var delay = 500;
                                           
@@ -101,10 +184,9 @@ export default {
                         window.scrollTo(0, 0);
                         genliteTheme.setup();
     
-                        setupFrontPages();
+                        buildHeroPages();
                         enableScrollActions();
-
-                        
+                       
                         $('body').removeClass('page-is-changing');
                       
                 
@@ -118,8 +200,6 @@ export default {
                       window.history.pushState({path: url},'',url);
                     }
 
-                  
-                
 
                 });
              
@@ -133,83 +213,12 @@ export default {
 
         }
 
-        //
-        // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
-        //
-        function enableScrollActions() {
 
-            function fadeUpTargets(){
-
-                const options = {
-                  rootMargin: "0px",
-                  threshold: 0
-                };
-
-                const moveup = new IntersectionObserver(entries => {
-
-                  entries.forEach(entry => {
-                    
-                    if (entry.intersectionRatio > 0)  {
-                      let tlFadeInBottom = gsap.timeline();
-                      tlFadeInBottom.from(entry.target, { y: 100, opacity: 0, duration: 1 });
-                      moveup.unobserve(entry.target);
-                    }
-
-                  });
-                }, options);
-         
-                const targetElements = document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul");
-
-
-                for (let element of targetElements) {
-                    moveup.observe(element);
-                }
-
-         
-            }
-
-            window.addEventListener('DOMContentLoaded',fadeUpTargets);
-
-            function swipeLeft() {
-
-               
-              const options = {
-                rootMargin: "0px",
-                threshold: 0
-              };
-
-              const swipeleft = new IntersectionObserver(entries => {
-
-                entries.forEach(entry => {
-                  
-                  if (entry.intersectionRatio > 0) {
-
-                    let tlSwipeFromRight = gsap.timeline();
-                    tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
-
-                    swipeleft.unobserve(entry.target);
-
-                  }
-
-                });
-              }, options);
-       
-              const targetElements = document.querySelectorAll(".wp-block-cover, article img");
-              for (let element of targetElements) {
-                  swipeleft.observe(element);
-              }
-
-
-            }
-                   
-            window.addEventListener('DOMContentLoaded', swipeLeft);
-            
-        }
 
         //
         // On posts and pages, fire gsap animations
         //
-        function setupFrontPages() {
+        function buildHeroPages() {
 
             if (document.querySelector('article.has-post-thumbnail') ) {
     
@@ -286,6 +295,7 @@ export default {
 
     }
 };
+
 
 
 

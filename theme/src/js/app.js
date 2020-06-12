@@ -15,7 +15,7 @@ import genliteAnimations from "./plugins/animations";
 
 const GENLITE = {
 
-    
+     
     handleThemeSetup() {
         genliteTheme.setup();
     },
@@ -27,6 +27,7 @@ const GENLITE = {
 
     initialiseAll: function () {
 
+   
         GENLITE.handleThemeSetup();
         GENLITE.handleAnimationsSetup();
        
