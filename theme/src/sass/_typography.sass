@@ -23,7 +23,7 @@ body
     overflow-x: hidden
     width: 100%
 
-    &::after
+    &:after
         content: ''
         height: 50vh
         width: 100%
@@ -42,7 +42,7 @@ body
         -moz-transition: -moz-transform 0.4s 0.4s
         transition: transform 0.4s 0.4s
 
-    &::before
+    &:before
         content: ''
         height: 50vh
         width: 100%
@@ -67,7 +67,7 @@ body
         -o-transform: translateY(-100%)
         transform: translateY(-100%)
 
-    &::after
+    &:after
         bottom: 0
         -webkit-transform: translateY(100%)
         -moz-transform: translateY(100%)
@@ -76,7 +76,7 @@ body
         transform: translateY(100%)
 
     &.page-is-changing
-        &::after, &::before
+        &:after, &:before
             -webkit-transform: translateY(0)
             -moz-transform: translateY(0)
             -ms-transform: translateY(0)

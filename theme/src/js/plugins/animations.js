@@ -6,21 +6,22 @@ export default {
 
     setup() {
 
-      
+        enableScrollActions();
         setupPageTransitions();
         buildHeroPages();
-        enableScrollActions();
-
+       
       
         //
         // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
         //
         function enableScrollActions() {
 
-            //    window.addEventListener("load",  function () {
-            //     console.log("test bug");
-            //    });
+             window.addEventListener("load",  function () {
+                    console.log("test bug");
+                },false);
 
+                
+            
             
             function fadeUpTargets() {
 
@@ -132,11 +133,13 @@ export default {
                 loadNewContent(url);
               
                 newLocation = url;
+               
                 
                 //if browser doesn't support CSS transitions
                  if( !transitionsSupported() ) {
                    loadNewContent(url, bool);
                    newLocation = url;
+               
                  }
 
             }
@@ -198,12 +201,16 @@ export default {
                       //add the new page to the window.history
                       //if the new page was triggered by a 'popstate' event, don't add it
                       window.history.pushState({path: url},'',url);
+                     
                     }
 
 
                 });
              
             }
+
+            
+
           
             function transitionsSupported() {
               return $('html').hasClass('csstransitions');

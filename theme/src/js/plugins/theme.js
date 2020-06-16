@@ -115,6 +115,14 @@ export default {
                 $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
 
 
+                $('[data-toggle="offcanvas"]').click(function () {
+                    $('#genlite-shop-wrapper').toggleClass('toggled');
+              });  
+
+              
+              
+
+
         }
     
     }

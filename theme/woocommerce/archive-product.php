@@ -48,99 +48,48 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
   <div class="row genlite-archive-header" style="font-size: 16px;">
 
+   <!-- Categories -->
+   <div class="col">
+
+      <div style="margin-top:10px; text-align: center;" class="row justify-content-center genlite-hyperlink">
+            <?php echo woocommerce_breadcrumb(); ?>
+        </div>  
+  </div>   
+
+   
+
+
    <div class="col-12 col-md-6 col-lg-3">
 
-      <form method="get" action="<?php echo esc_url(site_url()) . '/'  ?>">      
+      <a id="genlite-archive__more-posts-button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-bars"></i>&nbsp;Filter</a>
 
-            <?php
-
-            function genlite_get_subcats_from_parent_name($parent_cat_NAME) {
-
-                  $IDbyNAME = get_term_by('name', $parent_cat_NAME, 'product_cat');
-
-                  $product_cat_ID = $IDbyNAME->term_id;
-
-                  $args = array(
-
-                       'hierarchical' => 1,
-                       'show_option_none' => '',
-                       'hide_empty' => 0,
-                       'parent' => $product_cat_ID,
-                       'taxonomy' => 'product_cat'
-                   );
-
-
-                  $subcats = get_categories($args);
-
-                return $subcats;
-
-            }
-            
-                  $args = array(
-                     
-                        'orderby'    => 'name',
-                        'order'      => 'ASC',
-                        'hide_empty' => 'false',
-                        'fields' => 'all',                     
-                        'hierarchical' => true
-
-                    );
-
-                
-                    $product_categories = get_terms( 'product_cat', $args );
-
-                    $count = count($product_categories);
-                    
-                    if ( $count > 0 ) {
-
-                        $actual_link = ((is_ssl()) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; // request_uri returns folder prefix
-                        $homeUrl = site_url() . '/?post_type=product'; 
-
-                        echo '<div class="form-group">';
-                        echo '<select  id="genlite-category" name="genlite-category" class="form-control" onchange="genlite_category();">';   ?>
-
-                        <option value="<?php echo esc_url($homeUrl); ?>">Select Category</option>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-                        <?php  foreach ( $product_categories as $product_category ) { 
-
-                                   if (  $product_category->parent == 0) {  ?> 
 
 
-                                            <option<?php  if (  get_term_link( $product_category ) == $actual_link) echo ' selected="selected"' ?> value="<?php echo esc_url(get_term_link( $product_category )); ?>"><?php echo esc_attr($product_category->name); ?></option>
-                               
 
-                                       <?php $subcats = genlite_get_subcats_from_parent_name($product_category->name);
 
-                                       if ($subcats != NULL) {
 
-                                              foreach($subcats as $element)  {   
-
-                                                  $genlite_term_link = get_term_link( $element );
-                                                
-                                                   if (  $genlite_term_link == $actual_link) {    ?>
-
-                                                        <option selected="selected" value="<?php echo esc_attr(get_term_link( $element )); ?>">&nbsp;&nbsp;&nbsp;<?php echo esc_attr($element->name) . '&nbsp;('. esc_attr($element->count) . ')' ?></option>
-
-                                                   <?php } else { ?> 
-
-                                                        <option value="<?php echo esc_url(get_term_link( $element )); ?>">&nbsp;&nbsp;&nbsp;<?php echo esc_attr($element->name) . '&nbsp;('. esc_attr($element->count) .')' ?></option>
-
-                                                 <?php }  ?> 
-                                         
-
- 
-                                       <?php } } // end for each subcats
-
-                                      } // end if parent theme ?>
-                          <?php  } // end For eaach prod cat 
-
-                           echo '</select>';
-                        echo '</div>';
-
-                    } // END IF   ?>
-
-            </form>
 
 
 
@@ -148,16 +97,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
       
 
         </div>
-       <!-- Categories -->
-       <div class="col">
-
-         <div style="margin-top:10px; text-align: center;" class="row justify-content-center genlite-hyperlink">
-               <?php echo woocommerce_breadcrumb(); ?>
-           </div>  
-         
-
-        </div>    
-
+      
         <div class="d-md-none d-block"><p><br><br></p></div>
        
         <div class="col-12 col-md-6 col-lg-3">
@@ -199,7 +139,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
 <!----------------------------Products Items ------------------------------->    
 
-<div class="container">
+<div class="container-fluid">
     
     <div class="row">
     
