@@ -28,7 +28,28 @@
 	</head>
 
 	<body <?php body_class('genlite__fade_in'); ?>>
-	
+
+	<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form  method="get" ction="<?php echo esc_url(home_url('/')); ?>">
+      <input id="keyword-input" type="text" placeholder="Search.." value="" name="s" >
+      <button type="submit"><i class="fa fa-search"></i></button>
+	  <?php 	if ( class_exists( 'WooCommerce' ) ) { ?>
+
+<input type="hidden" name="post_type" value="product" />
+
+<?php } ?> 	  
+
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
   		<main>
 
 		  	<div class="genlite-main-content">
@@ -36,6 +57,7 @@
 				<header <?php body_class(); ?>>
 
 					<nav class="navbar navbar-expand-lg">
+
 
 						<a class="navbar-brand" data-type="page-transition" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
@@ -91,13 +113,20 @@
 
 								<ul class="genlite-social">
 
-									<?php  get_template_part('/template-parts/render-socials'); ?>		
+									<?php  get_template_part('/template-parts/render-socials'); ?>	
 
-								</ul>
+									 <li>
+			  							<a href="#" title="Search" onclick="openSearch();">
+				 							<i class="fa fa-search"></i>
+										</a>
+								 	</li>	
+
+			 					</ul>
 
 						
 							</div>
 
+						
 							<?php
 
 								if ( class_exists( 'WooCommerce' ) ) {
@@ -132,18 +161,31 @@
 							
 																							
 						</div>
+
+
 								
 					</nav>
+
+					
 								
 				</header>
 
 
 
 
-
-
-
-
+     
+			
 	
 
 	
+				<script>
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+

@@ -244,7 +244,7 @@ export default {
                             }
                         );
 
-                    if (document.querySelector('header.page-template-default')) {
+                    if (document.querySelector('header.page-template-template-scroll-down')) {
 
                         let tlDownButton = gsap.timeline();
                             tlDownButton.fromTo(

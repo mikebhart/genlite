@@ -16,57 +16,42 @@
  * @version 1.4.2
  */
 
-get_header();
+get_header(); ?>
 
-if ( has_post_thumbnail( $post->ID ) ) { 
-	$hero_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-}
+<div class="container">
 
-?>
+	<div class="row genlite__content justify-content-center pt-3">
+			<div class="genlite-archive-title">
+				<h1><?php the_title(); ?></h1>
+			</div>
 
-<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="col-12">
+		
+		<?php
 
-	<section class="genlite-page__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
-			
-		<div class="genlite-page__overlay"></div>
+			while(have_posts()) : the_post(); ?>
+
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+					<div class="genlite-title-row"><h1 hidden><?php the_title(); ?></h1></div>
+
+						<?php the_content(''); ?>	
+
+				</article>
+
+
+
+		<?php endwhile; wp_reset_query();
 				
-		<div class="genlite-page__overlay-text">
-
-			<h1><?php the_title(); ?></h1>
-			
+		if ( get_comments_number() ) {
+				comments_template();
+		}	?>
+				
 		</div>
 
-	</section>
-
-	<section>
-
-		<a id="genlite-page-down__button" href="#genlite-page-start-anchor" class="genlite-page__scroll-down"><i class="fas fa-chevron-down"></i></a>
-
-	
-	</section>
-
-	<section id="genlite-page-start-anchor"><span></span></section>
-
-
-	<?php
-
-			// content editor has its own sections
-			while(have_posts()) : the_post(); 
-
-				the_content();
-
-			endwhile; wp_reset_query();
-					
-			if ( get_comments_number() ) {
-					comments_template();
-			}	
-			
-	?>
-
-
-	
-</article>
-
+	</div>
+		
+</div>					
 
 <?php get_footer(); ?>
 
