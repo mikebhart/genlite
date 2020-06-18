@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import genliteTheme from "./theme";
+import genliteTemplate from "./template";
 
 
 export default {
@@ -8,17 +9,15 @@ export default {
 
         enableScrollActions();
         setupPageTransitions();
-        buildHeroPages();
-       
       
         //
         // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
         //
         function enableScrollActions() {
 
-             window.addEventListener("load",  function () {
-                    console.log("test bug");
-                },false);
+            //  window.addEventListener("load",  function () {
+            //         console.log("test bug");
+            //     },false);
 
                 
             
@@ -185,10 +184,10 @@ export default {
                         $('main').html(section);
 
                         window.scrollTo(0, 0);
-                        genliteTheme.setup();
-    
-                        buildHeroPages();
+                       
                         enableScrollActions();
+                        genliteTheme.setup();   
+                        genliteTemplate.setup();
                        
                         $('body').removeClass('page-is-changing');
                       
@@ -219,85 +218,7 @@ export default {
 
 
         }
-
-
-
-        //
-        // On posts and pages, fire gsap animations
-        //
-        function buildHeroPages() {
-
-            if (document.querySelector('article.has-post-thumbnail') ) {
-    
-                    let tlHeading = gsap.timeline();
-                        tlHeading.fromTo(
-                            "article h1",
-                            {
-                                y: 900,
-                                opacity: 1
-                            }, 
-                            { 
-                                y: 0, 
-                                duration: 2,
-                                opacity: 1 
-                          
-                            }
-                        );
-
-                    if (document.querySelector('header.page-template-template-scroll-down')) {
-
-                        let tlDownButton = gsap.timeline();
-                            tlDownButton.fromTo(
-                                ".genlite-page__scroll-down",
-                                {
-                                    opacity: 0
-                                }, 
-                                { 
-                                    opacity: 1,
-                                    duration: 2
-                                
-                                }
-                            );
-                    }
-
-                    let tlLogo = gsap.timeline();
-                        tlLogo.fromTo(
-                            "#genlite-header__image",
-                            {
-                                x: -200,
-                                opacity: 0
-                            },
-                            {
-                                x: 0,
-                                opacity: 1,
-                                duration: 2
-                              
-                            }
-                        );
-
-
-
-                    let tlMenu = gsap.timeline();
-                        tlMenu.fromTo(
-                            "#navbarTogglerHeaderMenu, .navbar-toggler",
-                            {
-                                x: 1200,
-                                opacity: 0
-                            },
-                            {
-                                x: 0,
-                                opacity: 1,
-                                duration: 2
-                             
-                            }
-                    );
-                
-            } else {
-            
-                 $('.navbar').css("background-color", "black"); 
-            }
-    
-        }
+      
 
 
     }

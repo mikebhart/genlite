@@ -4,7 +4,7 @@ export default {
 
         backToTopButton(); 
         fixNavbarSubMenus();
-        makeBootstrapBlocks();
+        applyBootstrapStyles();
         createClickableBindings();
 
         function backToTopButton() {
@@ -95,7 +95,7 @@ export default {
         }
 
 
-        function makeBootstrapBlocks() {
+        function applyBootstrapStyles() {
 
                     // // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
                 $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
@@ -115,28 +115,11 @@ export default {
                 $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
 
 
-                $('[data-toggle="offcanvas"]').click(function () {
-                    $('#genlite-shop-wrapper').toggleClass('toggled');
-              });  
-
-
-              function openSearch() {
-                document.getElementById("myOverlay").style.display = "block";
-              }
-              
-              function closeSearch() {
-                document.getElementById("myOverlay").style.display = "none";
-              }
-
-
-                         
-
-              
-
 
 
         }
-    
+
+        
     }
 
 };

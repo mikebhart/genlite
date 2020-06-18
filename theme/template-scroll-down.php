@@ -31,11 +31,11 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 <article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<section class="genlite-page__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
+	<section class="genlite-page-scroll-down__image" style="background-image: url('<?php echo esc_url($hero_image); ?>')">
 			
-		<div class="genlite-page__overlay"></div>
+		<div class="genlite-page-scroll-down__overlay"></div>
 				
-		<div class="genlite-page__overlay-text">
+		<div class="genlite-page-scroll-down__overlay-text">
 
 			<h1><?php the_title(); ?></h1>
 			
@@ -45,7 +45,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 	<section>
 
-		<a id="genlite-page-down__button" href="#genlite-page-start-anchor" class="genlite-page__scroll-down"><i class="fas fa-chevron-down"></i></a>
+		<a id="genlite-page-down__button" href="#genlite-page-start-anchor" class="genlite-page-scroll-down__scroll-down"><i class="fas fa-chevron-down"></i></a>
 
 	
 	</section>
