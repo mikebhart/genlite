@@ -44,98 +44,76 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
 <!-- ######################## Header Shop Bar Toolbar ==> Categories | Sort  ######################### -->
   
-<div class="container">
+<div class="container-fluid">
 
-  <div class="row genlite-archive-header" style="font-size: 16px;">
-
-   <!-- Categories -->
-   <div class="col">
-
-      <div style="margin-top:10px; text-align: center;" class="row justify-content-center genlite-hyperlink">
+    <div class="row pt-2">
+   
+        <div class="col-sm-4 mt-2">
             <?php echo woocommerce_breadcrumb(); ?>
         </div>  
-  </div>   
 
-   
-
-
-   <div class="col-12 col-md-6 col-lg-3">
-
-      <a id="genlite-archive__more-posts-button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-bars"></i>&nbsp;Filter</a>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+        <div class="col-sm-4 text-center mt-2">
+              <?php woocommerce_result_count(); ?>
         </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-     
-      
-
-        </div>
-      
-        <div class="d-md-none d-block"><p><br><br></p></div>
        
-        <div class="col-12 col-md-6 col-lg-3">
-         
-           <div style="margin-top:10px;" class="row justify-content-center">
-               <?php woocommerce_result_count(); ?>
-           </div>  
+        <div class="col-sm-2">
+            <div class="genlite-shop__filter">
+                <a data-toggle="modal" data-target="#genlite-shop-filter"><i class="fas fa-bars text-left"></i>&nbsp;Filter</a>
+            </div> 
+        
         </div>
 
-         <div class="col">
+         <div class="col-sm-2">
+            
              <div class="form-group">
 
-            <?php 
-  
-              $paramOrderBy = "";
-  
-              if (isset($_GET['orderby'])) {
-                $paramOrderBy = esc_attr($_GET['orderby']);
-              }          
+                <?php 
+      
+                  $paramOrderBy = "";
+      
+                  if (isset($_GET['orderby'])) {
+                    $paramOrderBy = esc_attr($_GET['orderby']);
+                  }          
 
-             ?>
-              <select  id="genlite-sort" name="genlite-sort" class="form-control" onchange="genlite_sort();">
-                  <option value="<?php echo esc_url($homeUrl); ?>">Default Sorting</option>
-                  <option<?php if ($paramOrderBy == 'popularity') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=popularity' ?>" ><?php esc_attr_e('Sort by popularity','genlite'); ?></option>
-                  <option<?php if ($paramOrderBy == 'rating') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=rating' ?>" ><?php esc_attr_e('Sort by average rating','genlite'); ?></option>
-                  <option <?php if ($paramOrderBy == 'date') echo ' selected="selected"';  ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=date' ?>" ><?php esc_attr_e('Sort by newness','genlite'); ?></option>  
-                  <option <?php if ($paramOrderBy == 'price') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price' ?>" ><?php esc_attr_e('Sort by price: low to high','genlite'); ?></option>                                                
-                  <option <?php if ($paramOrderBy == 'price-desc') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price-desc' ?>" ><?php esc_attr_e('Sort by price: high to low','genlite'); ?></option>  
-              </select>
-          </div>           
-         </div>
+                ?>
+                  <select  id="genlite-sort" name="genlite-sort" class="form-control" onchange="genlite_sort();">
+                      <option value="<?php echo esc_url($homeUrl); ?>">Default Sorting</option>
+                      <option<?php if ($paramOrderBy == 'popularity') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=popularity' ?>" ><?php esc_attr_e('Sort by popularity','genlite'); ?></option>
+                      <option<?php if ($paramOrderBy == 'rating') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=rating' ?>" ><?php esc_attr_e('Sort by average rating','genlite'); ?></option>
+                      <option <?php if ($paramOrderBy == 'date') echo ' selected="selected"';  ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=date' ?>" ><?php esc_attr_e('Sort by newness','genlite'); ?></option>  
+                      <option <?php if ($paramOrderBy == 'price') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price' ?>" ><?php esc_attr_e('Sort by price: low to high','genlite'); ?></option>                                                
+                      <option <?php if ($paramOrderBy == 'price-desc') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price-desc' ?>" ><?php esc_attr_e('Sort by price: high to low','genlite'); ?></option>  
+                  </select>
+              </div>     
 
-
-        
+          </div>
 
       </div>
 
-</div> <!-- End top bar row ----->
+</div> <!-- End container ----->
+
+  <!-- Modal -->
+  <div class="modal fade" id="genlite-shop-filter" tabindex="-1" role="dialog" aria-labelledby="genlite-shop-filter__label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="genlite-shop-filter__label">Shop Filter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary genlite__button-default">Save changes</button>
+                  </div>
+                </div>
+          </div>
+</div>
+
+
 
 <!----------------------------Products Items ------------------------------->    
 
@@ -192,15 +170,15 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
             <div  class="col-6 col-md-6 col-lg-3 col-xl-2">
               
-                 <div class="genlite-product-box">
+                 <div class="genlite-shop__product">
                 
                   <a href="<?php the_permalink(); ?>"> 
                   
                     <?php if ($sale != NULL) { ?> 
-                      <span class="onsale-archive"><?php esc_attr_e('Sale','genlite'); ?></span>
+                      <span class="genlite-shop__product-onsale"><?php esc_attr_e('Sale','genlite'); ?></span>
                     <?php } ?>  
 
-                      <div class="genlite-shop-product-image">
+                      <div class="genlite-shop__product-image">
 
                           <img src='<?php echo esc_url($shop_catalog_image_url); ?>' onmouseover="this.src='<?php echo esc_url($shop_catalog_image2_url); ?>';" onmouseout="this.src='<?php echo esc_url($shop_catalog_image_url); ?>';" alt="<?php the_title(); ?>" />
 
@@ -212,7 +190,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                       <?php
 
                                           echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-                                                sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s genlite-add-to-cart-button">%s</a>',
+                                                sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s genlite-shop__product-add-to-cart">%s</a>',
                                                     esc_url( $product->add_to_cart_url() ),
                                                     esc_attr( $product->get_id() ),
                                                     esc_attr( $product->get_sku() ),
@@ -226,13 +204,13 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
                     <hr>
                 
-                    <div class="genlite-product-shop-title"><?php echo esc_attr($title); ?></div>                      
+                    <div class="genlite-shop__product-title"><?php echo esc_attr($title); ?></div>                      
                                     
                         <?php 
       
-                           if ($product->get_average_rating() > 0) { ?>
+                          // if ($product->get_average_rating() > 0) { ?>
                                    
-                                <div class="genlite-float-center">
+                                <div class="genlite-shop__product-rating">
 
                                       <?php 
                                                
@@ -242,33 +220,30 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                                               $ratingTitle = __('Rated %s out of 5.','genlite');
                                               $ratingByLabel = __('By','genlite');
 
-                                              echo '<div class="star-rating genlite-float-center-child" title="' . esc_attr(sprintf( $ratingTitle, $average)) . ' ' . esc_attr($ratingByLabel)  . ' ' . esc_attr($review_count) . ' ' . esc_attr($reviewedBy) . '."><span style="width:'.( ( esc_attr($average) / 5 ) * 100 ) . '%"><strong itemprop="ratingValue" class="rating">'.esc_attr($average).'</strong></span></div>'; 
+                                              echo '<div class="star-rating genlite-shop__product-rating" title="' . esc_attr(sprintf( $ratingTitle, $average)) . ' ' . esc_attr($ratingByLabel)  . ' ' . esc_attr($review_count) . ' ' . esc_attr($reviewedBy) . '."><span style="width:'.( ( esc_attr($average) / 5 ) * 100 ) . '%"><strong itemprop="ratingValue" class="rating">'.esc_attr($average).'</strong></span></div>'; 
 
                                            endif; ?>
                                 </div>
 
                                 <br>
 
-                          <?php } ?>     
+                        
+                         <?php // } ?>     
 
-                                <div class="genlite-product-shop-price">
+                                <div class="genlite-shop__product-price">
                                 
-                                  <?php if($sale) : ?>
+                                  <?php if($sale) { ?>
                                 
-                                      <p class="product-price-tickr">
-                                          <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
-                                            <?php echo esc_attr($currency); echo esc_attr($sale); ?>
-                                        </p>    
-                                        <?php elseif($price) : ?>
-                                          <p class="product-price-tickr">     
-                                              <?php echo esc_attr($currency); echo esc_attr($price); ?> 
-                                            </p>    
-                                        <?php elseif(!$price) : ?>
-                                          <p class="genlite-red">     
-                                              <?php echo esc_attr('Free'); ?> 
-                                            </p>    
-                                
-                                   <?php endif; ?>
+                                    
+                                       <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
+                                       <?php echo esc_attr($currency); echo esc_attr($sale); ?>
+                                      
+
+                                  <?php } else {
+                                    
+                                          echo $product->get_price_html();
+                                              
+                                      } ?>
 
                                 </div>
                      

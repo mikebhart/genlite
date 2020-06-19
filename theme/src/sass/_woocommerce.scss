@@ -93,18 +93,7 @@
     max-width: unset;
   }
   
-  .genlite-float-center {
-    float: right;
-    position: relative;
-    left: -50%;
-    /* or right 50% */
-    text-align: left;
-    top: 3px;
-    > .genlite-float-center-child {
-      position: relative;
-      left: 50%;
-    }
-  }
+
   
   .woocommerce div.product form.cart .variations select {
     min-width: auto;
@@ -131,38 +120,7 @@
   
   /* --- Product ---- */
   
-  .genlite-shop-product-image {
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
-      transition: all 1.5s ease 0s;
-    }
-    &:hover img {
-      transform: scale(1.2);
-    }
-  }
   
-  .genlite-storefront-product-box-info {
-    font-size: 18px;
-    color: black;
-    font-weight: 300;
-    text-align: center;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-  
-  .genlite-shopfront-box-content {
-    p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    u {
-      border-bottom: 3px solid #ffffff;
-      font-weight: 700;
-    }
-  }
   
   .genlite-footer-widget u {
     border-bottom: 2px solid $genlite-primary-color;
@@ -193,136 +151,4 @@
     float: left;
   }
   
-  /* ----------- Checkout --------------- */
-  
-  .woocommerce-billing-fields__field-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .woocommerce form .form-row {
-    display: inline-block;
-    input.input-text {
-      max-width: 300px;
-    }
-  }
-  
-  #billing_first_name_field {
-    order: 1;
-  }
-  
-  #billing_last_name_field {
-    order: 2;
-  }
-  
-  #billing_company_field {
-    order: 3;
-    width: 100%;
-  }
-  
-  #billing_country_field {
-    order: 4;
-    width: 100%;
-  }
-  
-  #billing_address_1_field {
-    order: 5;
-    width: 100%;
-  }
-  
-  #billing_address_2_field {
-    order: 6;
-    width: 100%;
-  }
-  
-  #billing_city_field {
-    order: 7;
-  }
-  
-  #billing_postcode_field {
-    order: 8;
-  }
-  
-  #billing_state_field {
-    order: 9;
-  }
-  
-  #billing_phone_field {
-    order: 10;
-  }
-  
-  #billing_email_field {
-    order: 11;
-    width: 100%;
-  }
-  
-  .variations {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* ------------------------- Widget Price Slider ---------------------- */
-  
-  .price_slider_wrapper {
-    .price_slider {
-      margin-bottom: 1em;
-    }
-    .price_slider_amount {
-      text-align: left;
-      .button {
-        font-size: 1.15em;
-        float: right;
-      }
-    }
-    .ui-slider {
-      position: relative;
-      text-align: left;
-      .ui-slider-handle {
-        position: absolute;
-        z-index: 2;
-        width: 5px;
-        height: 17px;
-        -webkit-border-radius: 1em;
-        -moz-border-radius: 1em;
-        cursor: pointer;
-        background: $genlite-primary-color;
-        outline: none;
-        top: -5px;
-        &:last-child {
-          margin-left: -0.3em;
-        }
-      }
-      .ui-slider-range {
-        position: absolute;
-        z-index: 1;
-        font-size: .7em;
-        display: block;
-        border: 0;
-        background: $genlite-primary-color;
-        -webkit-border-radius: 1em;
-        -moz-border-radius: 1em;
-        border-radius: 1em;
-      }
-    }
-    .price_slider_wrapper .ui-widget-content {
-      -webkit-border-radius: 1em;
-      -moz-border-radius: 1em;
-      border-radius: 1em;
-      background: $genlite-primary-color;
-    }
-    .ui-slider-horizontal {
-      height: .3em;
-      background: #cc0000;
-      .ui-slider-range {
-        top: 0;
-        height: 100%;
-      }
-      .ui-slider-range-min {
-        left: -1px;
-      }
-      .ui-slider-range-max {
-        right: -1px;
-      }
-    }
-  }
   
