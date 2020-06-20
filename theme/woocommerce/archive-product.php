@@ -192,12 +192,12 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                       </div>    
 
                     
-                    <object id="myScroll">
+                    <object>
 
                       <?php
 
                                           echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-                                                sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s genlite-shop__product-add-to-cart">%s</a>',
+                                                sprintf( '<a id="genlite-shop__product-add-to-cart" href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s">%s</a>',
                                                     esc_url( $product->add_to_cart_url() ),
                                                     esc_attr( $product->get_id() ),
                                                     esc_attr( $product->get_sku() ),

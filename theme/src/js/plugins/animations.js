@@ -64,7 +64,7 @@ export default {
                         
                         let tlSwipeFromRight = gsap.timeline();
                 
-                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0 });
+                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0, duration: 2 });
 
                         swipeleft.unobserve(entry.target);
 
@@ -96,11 +96,11 @@ export default {
                             "article h1",
                             {
                                 y: 900,
-                                opacity: 1
+                                opacity: 0
                             }, 
                             { 
                                 y: 0, 
-                                duration: 2,
+                                duration: 3,
                                 opacity: 1 
                           
                             }
@@ -116,7 +116,9 @@ export default {
                                 }, 
                                 { 
                                     opacity: 1,
-                                    duration: 2
+                                    duration: 2,
+                                    delay: 1
+
                                 
                                 }
                             );
@@ -132,7 +134,8 @@ export default {
                             {
                                 x: 0,
                                 opacity: 1,
-                                duration: 2
+                                duration: 2,
+                                delay: 1
                               
                             }
                         );
@@ -149,7 +152,9 @@ export default {
                             {
                                 x: 0,
                                 opacity: 1,
-                                duration: 2
+                                duration: 2,
+                                delay: 1
+
                              
                             }
                     );

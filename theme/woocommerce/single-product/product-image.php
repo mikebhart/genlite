@@ -41,12 +41,12 @@ global $post, $product;
 		<?php
 			$prev_post = get_previous_post();
 			if (!empty( $prev_post )) { ?>
-			   <a title="<?php echo esc_attr($prev_post->post_title); ?>" class="btn btn-primary genlite-btn-circle" href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>"><i class="fas fa-chevron-left"></i></a>
+			   <a id="genlite-shop__product-prev" title="<?php echo esc_attr($prev_post->post_title); ?>" class="btn btn-primary" href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>"><i class="fas fa-chevron-left"></i></a>
 	  <?php }  
 		
 	   	    $next_post = get_next_post();
 			if (!empty( $next_post )) { ?>
-				 <a title="<?php echo esc_attr($next_post->post_title); ?>" class="btn btn-primary genlite-btn-circle" href="<?php echo esc_url(get_permalink( $next_post->ID )); ?>"><i class="fas fa-chevron-right"></i></a>
+				 <a id="genlite-shop__product-next" title="<?php echo esc_attr($next_post->post_title); ?>" class="btn btn-primary" href="<?php echo esc_url(get_permalink( $next_post->ID )); ?>"><i class="fas fa-chevron-right"></i></a>
 	  <?php } ?>
 
 		

@@ -43,7 +43,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 	</section>
 
-	<section>
+	<section class="text-center">
 
 		<a id="genlite-page-down__button" href="#genlite-page-start-anchor" class="genlite-page-scroll-down__scroll-down"><i class="fas fa-chevron-down"></i></a>
 
