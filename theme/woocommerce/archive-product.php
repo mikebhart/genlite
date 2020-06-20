@@ -48,15 +48,15 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
     <div class="row pt-2">
    
-        <div class="col-sm-4 mt-2">
+        <div class="col-md-4 mt-2">
             <?php echo woocommerce_breadcrumb(); ?>
         </div>  
 
-        <div class="col-sm-4 text-center mt-2">
+        <div class="col-md-4 text-center mt-2">
               <?php woocommerce_result_count(); ?>
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-md-2">
             
             <div class="form-group">
 
@@ -81,67 +81,63 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
          </div>
 
-        <div class="col-sm-2 text-right">
+        <div class="col-md-2 text-right pb-3 pb-sm-0">
+
             <div class="genlite-shop__filter">
-                <a data-toggle="modal" data-target="#genlite-shop-filter"><i class="fas fa-bars text-left"></i>&nbsp;Filter</a>
-                <?php 
-if ( class_exists( 'WooCommerce' ) ) {
-  global $woocommerce; 
-  $genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
-      <span>           
 
-      <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
+                <div class="genlite-shop__filter-link pr-2">
+                
+                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Shop Filter"><i class="fas fa-bars text-left"></i></a>
+                
+                </div>
 
-        <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
+                <?php if ( class_exists( 'WooCommerce' ) ) {
+                          global $woocommerce; ?>
 
-            
-          
-                &nbsp;<span>/</span>&nbsp;
+                          <div class="genlite-shop__basket">           
 
-                <?php echo $genliteCartTotal; ?>
-            
-      </a> 
-      <span>
+                              <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
 
+                                  <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
 
-<?php
+                              </a> 
 
-} 	 ?>
-</div>
+                          </div>
 
 
+                <?php    } 	 ?>
 
             </div>
-          
 
-        
+
+
         </div>
 
-   
-
-
-
-       
-      </div>
-
+    </div> <!-- End Row ----->
 </div> <!-- End container ----->
 
   <!-- Modal -->
   <div class="modal fade" id="genlite-shop-filter" tabindex="-1" role="dialog" aria-labelledby="genlite-shop-filter__label" aria-hidden="true">
+
         <div class="modal-dialog">
+
             <div class="modal-content">
+
                   <div class="modal-header">
                     <h5 class="modal-title" id="genlite-shop-filter__label">Shop Filter</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+
                   <div class="modal-body">
                     <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
                   </div>
-                </div>
+
+              </div>
+
           </div>
-</div>
+  </div>
 
 
 
@@ -149,7 +145,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 <div class="container-fluid">
     
-    <div class="row">
+    <div class="row pb-3">
     
     <?php 
 

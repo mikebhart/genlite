@@ -1,17 +1,11 @@
 // Main Shop Archive
 .genlite-shop
 
-    &__header-basket a
-        color:  white
-        opacity: 0.7
-        background-color: transparent
-        @include media-breakpoint-down(md)
-            background-color: black
-            padding-top: 10px
-            padding-left: 25px
-            opacity: 1
+    &__basket
+        display: inline-block
+        float: right
         
-        &:hover
+        a:hover
             color: $genlite-primary-color
    
             
@@ -83,7 +77,11 @@
             color: $genlite-primary-color
         &-result-count
             display: inline-block
+        &-link
+            display: inline-block
+            width: 50%
 
+            
     
 
         
