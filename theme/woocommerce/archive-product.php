@@ -43,7 +43,8 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
 
 <!-- ######################## Header Shop Bar Toolbar ==> Categories | Sort  ######################### -->
-  
+
+
 <div class="container-fluid">
 
     <div class="row pt-2">
@@ -87,16 +88,17 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
                 <div class="genlite-shop__filter-link pr-2">
                 
-                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Shop Filter"><i class="fas fa-bars text-left"></i></a>
+                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Filter Products"><i class="fas fa-filter"></i></a>
                 
                 </div>
 
                 <?php if ( class_exists( 'WooCommerce' ) ) {
-                          global $woocommerce; ?>
+                          global $woocommerce;
+                          $genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
 
                           <div class="genlite-shop__basket">           
 
-                              <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
+                              <a href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php echo $genliteCartTotal; ?>">
 
                                   <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
 
@@ -116,28 +118,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
     </div> <!-- End Row ----->
 </div> <!-- End container ----->
 
-  <!-- Modal -->
-  <div class="modal fade" id="genlite-shop-filter" tabindex="-1" role="dialog" aria-labelledby="genlite-shop-filter__label" aria-hidden="true">
-
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="genlite-shop-filter__label">Shop Filter</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-
-                  <div class="modal-body">
-                    <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
-                  </div>
-
-              </div>
-
-          </div>
-  </div>
+  
 
 
 
@@ -288,11 +269,44 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
        
 
      <?php   endwhile; wp_reset_query(); ?>
+
+
+
   
    
     </div>  <!-- Container End -->
 
 </div>
+
+
+<!-- Modal Shop Filter -->
+<div class="modal fade" id="genlite-shop-filter" tabindex="-1" role="dialog" aria-labelledby="genlite-shop-filter__label" aria-hidden="true">
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+
+          <div class="modal-header pt-0 pb-0">
+            <h5 class="modal-title" id="genlite-shop-filter__label">Filter Products</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
+          </div>
+
+      </div>
+
+  </div>
+</div>
+
+
+
+
+
+
                 
 <script type="text/javascript">  
 
