@@ -29,33 +29,32 @@
 
 	<body <?php body_class('genlite__fade_in'); ?>>
 
-		<div id="genlite-header-navbar-search" class="genlite-header-navbar__search">
-
-  			<span class="closebtn" onclick="closeSearch()" title="Close Search">×</span>
-
-  			<div class="genlite-header-navbar__search-content">
-
-    			<form  method="get" ction="<?php echo esc_url(home_url('/')); ?>">
-
-					<input id="keyword-input" type="text" placeholder="Search.." value="" name="s" >
-					<button type="submit"><i class="fa fa-search"></i></button>
-					<?php 	if ( class_exists( 'WooCommerce' ) ) { ?>
-
-							<input type="hidden" name="post_type" value="product" />
-
-					<?php } ?> 	  
-
-    			</form>
-
-  			</div>
-
-		</div>
-
+		
   		<main>
 
-		  	<div class="genlite-main-content">
- 	
-				<header <?php body_class(); ?>>
+				<header>
+
+					<div id="genlite-header-navbar-search" class="genlite-header-navbar__search">
+
+						<span class="closebtn" onclick="closeSearch()" title="Close Search">×</span>
+
+						<div class="genlite-header-navbar__search-content">
+
+							<form  method="get" ction="<?php echo esc_url(home_url('/')); ?>">
+
+								<input id="keyword-input" type="text" placeholder="Search.." value="" name="s" >
+								<button type="submit"><i class="fa fa-search"></i></button>
+								<?php 	if ( class_exists( 'WooCommerce' ) ) { ?>
+
+										<input type="hidden" name="post_type" value="product" />
+
+								<?php } ?> 	  
+
+							</form>
+
+						</div>
+
+					</div>
 
 					<nav class="navbar navbar-expand-lg">
 
@@ -110,7 +109,7 @@
 										}
 									?>
 
-							<div class="d-none d-lg-block pr-lg-3">
+							<div class="genlite-header-nabvar__links"> 
 
 								<ul class="genlite-social">
 
@@ -128,38 +127,7 @@
 							</div>
 
 						
-							<?php
-
-								if ( class_exists( 'WooCommerce' ) ) {
-									global $woocommerce; 
-									$genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
-																		
-									<div class="genlite-shop-basket">
-
-										<span class="genlite-icon genlite-hyperlink">
-
-											<a href="<?php echo esc_url(wc_get_cart_url()); ?>">
-
-												<i class="fas fa-shopping-cart genlite-icon"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
-
-														
-															<div class="d-none d-sm-inline">
-																&nbsp;<span class="genlite-main-color">/</span>&nbsp;
-
-																<?php echo $genliteCartTotal; ?>
-															</div>	
-
-											</a> 
-
-										</span>    
-
-									</div> 
-								
-								<?php
-
-								} 	 ?>
-
-							
+													
 																							
 						</div>
 

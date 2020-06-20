@@ -55,39 +55,73 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
         <div class="col-sm-4 text-center mt-2">
               <?php woocommerce_result_count(); ?>
         </div>
-       
+
         <div class="col-sm-2">
+            
+            <div class="form-group">
+
+               <?php 
+     
+                 $paramOrderBy = "";
+     
+                 if (isset($_GET['orderby'])) {
+                   $paramOrderBy = esc_attr($_GET['orderby']);
+                 }          
+
+               ?>
+                 <select  id="genlite-sort" name="genlite-sort" class="form-control" onchange="genlite_sort();">
+                     <option value="<?php echo esc_url($homeUrl); ?>">Default Sorting</option>
+                     <option<?php if ($paramOrderBy == 'popularity') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=popularity' ?>" ><?php esc_attr_e('Sort by popularity','genlite'); ?></option>
+                     <option<?php if ($paramOrderBy == 'rating') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=rating' ?>" ><?php esc_attr_e('Sort by average rating','genlite'); ?></option>
+                     <option <?php if ($paramOrderBy == 'date') echo ' selected="selected"';  ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=date' ?>" ><?php esc_attr_e('Sort by newness','genlite'); ?></option>  
+                     <option <?php if ($paramOrderBy == 'price') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price' ?>" ><?php esc_attr_e('Sort by price: low to high','genlite'); ?></option>                                                
+                     <option <?php if ($paramOrderBy == 'price-desc') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price-desc' ?>" ><?php esc_attr_e('Sort by price: high to low','genlite'); ?></option>  
+                 </select>
+             </div>     
+
+         </div>
+
+        <div class="col-sm-2 text-right">
             <div class="genlite-shop__filter">
                 <a data-toggle="modal" data-target="#genlite-shop-filter"><i class="fas fa-bars text-left"></i>&nbsp;Filter</a>
-            </div> 
+                <?php 
+if ( class_exists( 'WooCommerce' ) ) {
+  global $woocommerce; 
+  $genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
+      <span>           
+
+      <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
+
+        <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
+
+            
+          
+                &nbsp;<span>/</span>&nbsp;
+
+                <?php echo $genliteCartTotal; ?>
+            
+      </a> 
+      <span>
+
+
+<?php
+
+} 	 ?>
+</div>
+
+
+
+            </div>
+          
+
         
         </div>
 
-         <div class="col-sm-2">
-            
-             <div class="form-group">
+   
 
-                <?php 
-      
-                  $paramOrderBy = "";
-      
-                  if (isset($_GET['orderby'])) {
-                    $paramOrderBy = esc_attr($_GET['orderby']);
-                  }          
 
-                ?>
-                  <select  id="genlite-sort" name="genlite-sort" class="form-control" onchange="genlite_sort();">
-                      <option value="<?php echo esc_url($homeUrl); ?>">Default Sorting</option>
-                      <option<?php if ($paramOrderBy == 'popularity') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=popularity' ?>" ><?php esc_attr_e('Sort by popularity','genlite'); ?></option>
-                      <option<?php if ($paramOrderBy == 'rating') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=rating' ?>" ><?php esc_attr_e('Sort by average rating','genlite'); ?></option>
-                      <option <?php if ($paramOrderBy == 'date') echo ' selected="selected"';  ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=date' ?>" ><?php esc_attr_e('Sort by newness','genlite'); ?></option>  
-                      <option <?php if ($paramOrderBy == 'price') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price' ?>" ><?php esc_attr_e('Sort by price: low to high','genlite'); ?></option>                                                
-                      <option <?php if ($paramOrderBy == 'price-desc') echo ' selected="selected"'; ?> value="<?php echo esc_url(site_url()) . '/?post_type=product&orderby=price-desc' ?>" ><?php esc_attr_e('Sort by price: high to low','genlite'); ?></option>  
-                  </select>
-              </div>     
 
-          </div>
-
+       
       </div>
 
 </div> <!-- End container ----->
@@ -104,10 +138,6 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                   </div>
                   <div class="modal-body">
                     <?php  dynamic_sidebar( 'genlite_shop_filters' ); ?>  
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary genlite__button-default">Save changes</button>
                   </div>
                 </div>
           </div>

@@ -1,5 +1,21 @@
 // Main Shop Archive
 .genlite-shop
+
+    &__header-basket a
+        color:  white
+        opacity: 0.7
+        background-color: transparent
+        @include media-breakpoint-down(md)
+            background-color: black
+            padding-top: 10px
+            padding-left: 25px
+            opacity: 1
+        
+        &:hover
+            color: $genlite-primary-color
+   
+            
+        
     
     &__product
         border-style: solid
@@ -103,6 +119,21 @@
     margin: 0 0 0 0
     background-color: white
     font-size: 40px
+    line-height: 1.5
+    &:active,
+    &:hover,
+    &:focus
+        color: $genlite-primary-color
+        border: 0
+
+
+
+
+
+
+
+        
+        
     
 
 

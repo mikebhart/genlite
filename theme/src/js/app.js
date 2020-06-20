@@ -12,7 +12,6 @@ import "bootstrap/js/dist/modal";
 import genliteTheme from "./plugins/theme";
 import genliteAnimations from "./plugins/animations";
 import genliteShop from "./plugins/shop";
-import genliteTemplate from "./plugins/template";
 
 
 const GENLITE = {
@@ -30,17 +29,12 @@ const GENLITE = {
         genliteShop.setup();
     },
 
-    handleTemplateSetup() {
-        genliteTemplate.setup();
-    },
-
     initialiseAll: function () {
 
    
         GENLITE.handleThemeSetup();
         GENLITE.handleAnimationsSetup();
         GENLITE.handleShopSetup();
-        GENLITE.handleTemplateSetup();
        
     }
 
@@ -50,9 +44,6 @@ const GENLITE = {
 $(document).ready(function() {
 
   GENLITE.initialiseAll();
-
- 
-
 
  
 });
