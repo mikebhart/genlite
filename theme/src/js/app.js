@@ -8,6 +8,12 @@ import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/collapse";
 import "bootstrap/js/dist/modal";
 
+import "bootstrap-select/sass/bootstrap-select.scss";
+require('bootstrap-select/dist/js/bootstrap-select');
+import Popper from 'popper.js/dist/umd/popper.js';
+window.Popper = Popper;
+
+
 
 import genliteTheme from "./plugins/theme";
 import genliteAnimations from "./plugins/animations";

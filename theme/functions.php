@@ -41,6 +41,12 @@ function genlite_styles_and_scripts() {
 	
 	wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/js/app.js', array( 'jquery' ) );
 
+	if (get_theme_mod('genlite_general_lightbox') == true) {
+		// Load FancyBox Lighbox used for images
+		wp_enqueue_script( 'genlite_fancybox_script', get_template_directory_uri() . '/dist/js/jquery.fancybox.min.js', array( 'jquery' ) );
+		wp_enqueue_style( 'genlite_fancybox_style', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css');
+	}
+
 
 }
 add_action( 'wp_enqueue_scripts', 'genlite_styles_and_scripts' );

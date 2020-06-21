@@ -83,6 +83,14 @@ export default {
 
                 $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
 
+                 /*  -------------------------------------------------------------------
+                    Add Lightbox to user added Link To Media File images
+        ------------------------------------------------------------------------  */
+
+                $("a[href$='.gif'], a[href$='.jpeg'], a[href$='.png'], a[href$='.jpg']").attr('data-fancybox','genlite-media-gallery').fancybox();
+
+
+
 
 
 

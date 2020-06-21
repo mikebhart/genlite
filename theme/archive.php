@@ -25,8 +25,6 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 ?>
 
-
-
 <section class="genlite-archive-page">
 	<div class="container">
 

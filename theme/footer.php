@@ -72,7 +72,7 @@
 						                   
 					                ?>
 					                	<div class="col-lg-<?php echo esc_attr($footer_col_size); ?> col-md-<?php if($footer_col_size == '3'): echo  esc_attr( '6'); elseif($footer_col_size == '4'): 
-												echo esc_attr( '4'); else : echo  esc_attr( $footer_col_size) ; endif ;?> genlite-top-buffer genlite-footer-widget">
+												echo esc_attr( '4'); else : echo  esc_attr( $footer_col_size) ; endif ;?>">
 
 							                   	<div class="footer-column footer-active-<?php echo  esc_attr($footer_col_count) ;?> role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'genlite' ); ?>">
 						                            

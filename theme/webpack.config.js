@@ -46,6 +46,8 @@ module.exports = (env, argv) => {
                 }
             }),
             new CopyPlugin([
+                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js', to: '../dist/js/' },
+                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css', to: '../dist/css/' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: '../dist/webfonts/' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/css/fontawesome.css' }
            ])
