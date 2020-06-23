@@ -13,6 +13,12 @@
  * @version 1.4.2
  */
 
+$genliteFancyBox = 'genlite__fade_in';
+if (get_theme_mod('genlite_general_lightbox') == true) {
+	$genliteFancyBox = "genlite__fade_in genlite__lightbox";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -27,7 +33,7 @@
 
 	</head>
 
-	<body <?php body_class('genlite__fade_in'); ?>>
+	<body <?php body_class($genliteFancyBox); ?>>
 
 		
   		<main>
@@ -40,7 +46,7 @@
 
 						<div class="genlite-header-navbar__search-content">
 
-							<form  method="get" ction="<?php echo esc_url(home_url('/')); ?>">
+							<form  method="get" action="<?php echo esc_url(home_url('/')); ?>">
 
 								<input id="keyword-input" type="text" placeholder="Search.." value="" name="s" >
 								<button type="submit"><i class="fa fa-search"></i></button>

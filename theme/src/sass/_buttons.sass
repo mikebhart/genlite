@@ -1,7 +1,45 @@
 
-// buttons
+.genlite-back-to-top 
+    position: fixed
+    bottom: 18px
+    right: 26px
+    z-index: 9999
+    width: 32px
+    height: 32px
+    text-align: center
+    border-width: 2px
+    border-style: solid
+    color: $genlite-primary-color
+    border-color: $genlite-primary-color
+    background-color: transparent
+    cursor: pointer
+    border-radius: 25px
+    text-decoration: none
+    transition: opacity 0.5s ease-out
+    opacity: 0
+    font-size: 20px
+    transition: 0.4s
+    i
+        font-size: 16px
+
+    &:hover 
+        color: black
+        border-color: black  
+    &.show 
+        opacity: 1
+
+.genlite__button-default
+    background-color: $genlite-secondary-color
+    border-color: $genlite-secondary-color
+    &:hover
+        background-color: $genlite-primary-color
+        border-color: $genlite-primary-color
+
+
+
+
   
-.wpcf7-form-control.wpcf7-submit, //  --------- Contact Form 7 Button -----------
+.wpcf7-form-control.wpcf7-submit, 
 .btn-outline-primary
     background-color: transparent
     color: $genlite-primary-color
@@ -64,40 +102,6 @@
         -ms-transition: all 0.5s ease-in-out
         transition: all 0.5s ease-in-out
 
-
-.genlite-back-to-top 
-    position: fixed
-    bottom: 18px
-    right: 26px
-    z-index: 9999
-    width: 50px
-    height: 50px
-    text-align: center
-    border-width: 2px
-    border-style: solid
-    color: $genlite-primary-color
-    border-color: $genlite-primary-color
-    background-color: transparent
-    cursor: pointer
-    border-radius: 25px
-    text-decoration: none
-    transition: opacity 0.5s ease-out
-    opacity: 0
-    padding-top: 7px
-    font-size: 20px
-    transition: 0.4s
-    &:hover 
-        color: black
-        border-color: black  
-    &.show 
-        opacity: 1
-
-.genlite__button-default
-    background-color: $genlite-secondary-color
-    border-color: $genlite-secondary-color
-    &:hover
-        background-color: $genlite-primary-color
-        border-color: $genlite-primary-color
 
 
 

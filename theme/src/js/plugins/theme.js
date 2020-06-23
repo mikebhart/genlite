@@ -3,8 +3,9 @@ export default {
     setup() {
 
         backToTopButton(); 
-        fixNavbarSubMenus();
-        applyBootstrapStyles();
+        navbarSubMenus();
+        bootstrapStyles();
+        lightBoxSetup();
 
         function backToTopButton() {
 
@@ -33,7 +34,7 @@ export default {
         }
 
 
-        function fixNavbarSubMenus() {
+        function navbarSubMenus() {
 
             $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     
@@ -64,7 +65,7 @@ export default {
         
      
 
-        function applyBootstrapStyles() {
+        function bootstrapStyles() {
 
                     // // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
                 $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse,.wp-block-columns, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
@@ -83,15 +84,22 @@ export default {
 
                 $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
 
-                 /*  -------------------------------------------------------------------
+                
+
+
+        }
+
+        function lightBoxSetup() {
+
+             /*  -------------------------------------------------------------------
                     Add Lightbox to user added Link To Media File images
-        ------------------------------------------------------------------------  */
+                 ------------------------------------------------------------------------  */
 
-                $("a[href$='.gif'], a[href$='.jpeg'], a[href$='.png'], a[href$='.jpg']").attr('data-fancybox','genlite-media-gallery').fancybox();
+                 if (document.querySelector('body.genlite__lightbox')) {
 
-
-
-
+                    $("a[href$='.gif'], a[href$='.jpeg'], a[href$='.png'], a[href$='.jpg']").attr('data-fancybox','genlite-media-gallery').fancybox();
+                
+                }
 
 
         }
