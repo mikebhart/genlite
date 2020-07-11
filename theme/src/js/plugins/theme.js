@@ -57,7 +57,7 @@ export default {
 
                     // // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
                 $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
-                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes, .genlite-page-scroll-down__overlay-text h1" )
+                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes, .genlite-page-scroll-down__overlay-text h1, .genlite-title-row h1" )
                     .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" );
             
                 $( "article" ).find(".wp-block-columns")
@@ -73,7 +73,7 @@ export default {
                 // // contact form 7 rows
                 $(".wpcf7 .row").addClass("text-center");
 
-                $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea").addClass("form-control");
+                $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea, footer .search-field").addClass("form-control");
 
                 
 

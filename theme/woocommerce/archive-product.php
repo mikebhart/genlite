@@ -82,9 +82,9 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
          </div>
 
-        <div class="col-md-2 text-right pb-3 pb-sm-0">
+        <div class="col-md-1 text-center pb-3 pb-sm-0">
 
-            <div class="genlite-shop__filter">
+            <div class="genlite-shop__filter-basket">
 
                 <div class="genlite-shop__filter-link pr-2">
                 
@@ -92,28 +92,42 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                 
                 </div>
 
-                <?php if ( class_exists( 'WooCommerce' ) ) {
-                          global $woocommerce;
-                          $genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
-
-                          <div class="genlite-shop__basket">           
-
-                              <a href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php echo $genliteCartTotal; ?>">
-
-                                  <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
-
-                              </a> 
-
-                          </div>
-
-
-                <?php    } 	 ?>
-
+               
             </div>
 
 
 
         </div>
+
+        <div class="col-md-1 text-right pb-3 pb-sm-0">
+
+            <div class="genlite-shop__filter-basket">
+
+                  <?php if ( class_exists( 'WooCommerce' ) ) {
+                                global $woocommerce;
+                                $genliteCartTotal  = get_woocommerce_currency_symbol() . number_format($woocommerce->cart->total, 2); ?>
+
+                                <div class="genlite-shop__basket">           
+
+                                    <a href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php echo $genliteCartTotal; ?>">
+
+                                        <i class="fas fa-shopping-cart"></i>&nbsp;<?php echo esc_attr(WC()->cart->get_cart_contents_count()); ?>
+
+                                    </a> 
+
+                                </div>
+
+
+                      <?php    } 	 ?>
+
+
+            </div>
+        
+        </div>
+
+
+
+
 
     </div> <!-- End Row ----->
 </div> <!-- End container ----->

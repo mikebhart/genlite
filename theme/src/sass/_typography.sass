@@ -90,24 +90,14 @@ article
             width: 1em
             margin-left: -1em
 
-.wp-block-latest-posts
-    list-style-type: none
-    li
-        &:before
-            content: ''
-
-.wp-block-gallery 
-    ul
-        list-style-type: none
-        li
-            &:before
-                content: ''
-
                     
 hr 
     color: $genlite-light-gray
 
 
 
+.genlite-archive-title h1
+    padding-left: 20px
 
-    
+    @include media-breakpoint-up(sm)
+        padding-left: 0px
