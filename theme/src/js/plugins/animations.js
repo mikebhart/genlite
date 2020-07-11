@@ -36,7 +36,7 @@ export default {
                   });
                 }, options);
          
-                const targetElements = document.querySelectorAll(".wp-block-button, .wp-block-columns, article h2, article section p, article section ul");
+                const targetElements = document.querySelectorAll("article h2, article h3, article h4, article h5, article h6, article section p, article section ul, .genlite-shop__product");
 
 
                 for (let element of targetElements) {
@@ -73,7 +73,7 @@ export default {
                     });
                 }, options);
         
-                const targetElements = document.querySelectorAll(".wp-block-cover, article img, .wp-block-embed-youtube, figcaption");
+                const targetElements = document.querySelectorAll(".wp-block-cover, article img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button");
                 for (let element of targetElements) {
                     swipeleft.observe(element);
                 }

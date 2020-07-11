@@ -65,7 +65,7 @@ if (get_theme_mod('genlite_general_lightbox') == true) {
 					<nav class="navbar navbar-expand-lg">
 
 
-						<a class="navbar-brand" data-type="page-transition" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+						<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
 							<?php if (has_custom_logo()) { 
 
@@ -122,7 +122,7 @@ if (get_theme_mod('genlite_general_lightbox') == true) {
 									<?php  get_template_part('/template-parts/render-socials'); ?>	
 
 									 <li>
-			  							<a href="#" title="Search" onclick="openSearch();">
+			  							<a href="#" title="Search">
 				 							<i class="fa fa-search"></i>
 										</a>
 								 	</li>	
@@ -146,14 +146,4 @@ if (get_theme_mod('genlite_general_lightbox') == true) {
 				</header>
 
 	
-				<script>
-					function openSearch() {
-						document.getElementById("genlite-header-navbar-search").style.display = "block";
-					}
-
-					function closeSearch() {
-						document.getElementById("genlite-header-navbar-search").style.display = "none";
-					}
-				</script>
-
-
+			

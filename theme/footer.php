@@ -142,7 +142,9 @@
 
 						<?php } ?>
 
-						<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>" data-toggle="tooltip" data-placement="left"><i class="fas fa-chevron-up"></i></a>
+						<a class="genlite-back-to-top" href="#" role="button" title="<?php esc_attr_e('Click to return to top','genlite'); ?>">
+							<i class="fas fa-chevron-up"></i>
+						</a>
 
 					</footer>	
 	
