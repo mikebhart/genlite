@@ -57,6 +57,22 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
               <?php woocommerce_result_count(); ?>
         </div>
 
+        <div class="col-md-1 text-center pb-3 pb-sm-0">
+
+            <div class="genlite-shop__filter-basket">
+
+                <div class="genlite-shop__filter-link pr-2">
+                
+                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Filter Products"><i class="fas fa-filter"></i></a>
+                
+                </div>
+
+               
+            </div>
+
+
+        </div>
+
         <div class="col-md-2">
             
             <div class="form-group">
@@ -82,22 +98,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
          </div>
 
-        <div class="col-md-1 text-center pb-3 pb-sm-0">
-
-            <div class="genlite-shop__filter-basket">
-
-                <div class="genlite-shop__filter-link pr-2">
-                
-                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Filter Products"><i class="fas fa-filter"></i></a>
-                
-                </div>
-
-               
-            </div>
-
-
-
-        </div>
+        
 
         <div class="col-md-1 text-right pb-3 pb-sm-0">
 

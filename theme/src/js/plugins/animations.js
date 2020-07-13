@@ -73,7 +73,7 @@ export default {
                     });
                 }, options);
         
-                const targetElements = document.querySelectorAll(".wp-block-cover, article img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button");
+                const targetElements = document.querySelectorAll(".wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img");
                 for (let element of targetElements) {
                     swipeleft.observe(element);
                 }
