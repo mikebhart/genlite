@@ -59,16 +59,20 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
         <div class="col-md-1 text-center pb-3 pb-sm-0">
 
-            <div class="genlite-shop__filter-basket">
+            <?php if (get_theme_mod('genlite_general_shop_filter') == true) { ?>
 
-                <div class="genlite-shop__filter-link pr-2">
-                
-                    <a data-toggle="modal" data-target="#genlite-shop-filter" title="Filter Products"><i class="fas fa-filter"></i></a>
+                <div class="genlite-shop__filter-basket">
+
+                    <div class="genlite-shop__filter-link pr-2">
+                    
+                        <a data-toggle="modal" data-target="#genlite-shop-filter" title="Filter Products"><i class="fas fa-filter"></i></a>
+                    
+                    </div>
+
                 
                 </div>
 
-               
-            </div>
+            <?php } ?>
 
 
         </div>
@@ -140,8 +144,10 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 <!----------------------------Products Items ------------------------------->    
 
 <div class="container-fluid">
+
+<div class="card-deck">
     
-    <div class="row pb-3">
+    <!-- <div class="row pb-3"> -->
     
     <?php 
 
@@ -190,96 +196,57 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
             <!-- ################################## Product Item Start ####################################### -->
 
-            <div  class="col-6 col-md-6 col-lg-3 col-xl-2">
-              
-                 <div class="genlite-shop__product">
-                
-                  <a href="<?php the_permalink(); ?>"> 
-                  
-                    <?php if ($sale != NULL) { ?> 
-                      <span class="genlite-shop__product-onsale"><?php esc_attr_e('Sale','genlite'); ?></span>
-                    <?php } ?>  
+       
 
-                      <div class="genlite-shop__product-image">
-
-                          <img src='<?php echo esc_url($shop_catalog_image_url); ?>' onmouseover="this.src='<?php echo esc_url($shop_catalog_image2_url); ?>';" onmouseout="this.src='<?php echo esc_url($shop_catalog_image_url); ?>';" alt="<?php the_title(); ?>" />
-
-                      </div>    
-
-                    
-                    <object>
-
-                      <?php
-
-                                          echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-                                                sprintf( '<a id="genlite-shop__product-add-to-cart" href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="button %s product_type_%s">%s</a>',
-                                                    esc_url( $product->add_to_cart_url() ),
-                                                    esc_attr( $product->get_id() ),
-                                                    esc_attr( $product->get_sku() ),
-                                                    $product->is_purchasable() ? '+' : '',
-                                                    esc_attr( $product->get_type()),
-                                                    esc_html( $product->add_to_cart_text() . $cartItemTotal)
-                                                ), $product ); 
-                                    ?>
-
-                    </object>
-
-                    <hr>
-                
-                    <div class="genlite-shop__product-title"><?php echo esc_attr($title); ?></div>                      
-                                    
-                        <?php 
+            <!-- <div class="col-12 col-sm-6 col-lg-3 col-xl-2"> -->
       
-                          // if ($product->get_average_rating() > 0) { ?>
-                                   
-                                <div class="genlite-shop__product-rating">
 
-                                      <?php 
-                                               
-                                        if ($average = $product->get_average_rating()) :
+            
+                <div class="card genlite-card mb-4">
 
-                                            $reviewedBy = __('reviewers', 'genlite');
-                                              $ratingTitle = __('Rated %s out of 5.','genlite');
-                                              $ratingByLabel = __('By','genlite');
+                    <div class="genlite-card__header-placeholder">
 
-                                              echo '<div class="star-rating genlite-shop__product-rating" title="' . esc_attr(sprintf( $ratingTitle, $average)) . ' ' . esc_attr($ratingByLabel)  . ' ' . esc_attr($review_count) . ' ' . esc_attr($reviewedBy) . '."><span style="width:'.( ( esc_attr($average) / 5 ) * 100 ) . '%"><strong itemprop="ratingValue" class="rating">'.esc_attr($average).'</strong></span></div>'; 
+                        <div class="genlite-card__header-placeholder-image" style="background-image: url('<?php echo esc_url($shop_catalog_image_url); ?>');"></div>
 
-                                           endif; ?>
-                                </div>
+                    </div>
 
-                                <br>
+                    <div class="card-body">
 
-                        
-                         <?php // } ?>     
+                        <h5 class="card-title"><?php the_title(); ?></h5>
 
-                                <div class="genlite-shop__product-price">
-                                
-                                  <?php if($sale) { ?>
+                        <a href="<?php esc_url(the_permalink()); ?>" class="stretched-link" data-type="page-transition"></a>
+
+                        <?php if($sale) { ?>
                                 
                                     
-                                       <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
-                                       <?php echo esc_attr($currency); echo esc_attr($sale); ?>
-                                      
+                               <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
+                               <?php echo esc_attr($currency); echo esc_attr($sale); ?>
+                               
 
-                                  <?php } else {
-                                    
-                                          echo $product->get_price_html();
-                                              
-                                      } ?>
+                       <?php } else {
+                             
+          
+                              echo $product->get_price_html();
+                                       
+                       } ?>
 
-                                </div>
-                     
-                          
-                  </a>
-              
+
+                    </div>
+
+                  
+                  
+
                 </div>
 
-             
-           
-            </div>        <!-- end col -->
 
-       
-               
+
+
+           
+          
+
+            <!-- </div> --> 
+
+            
            <!-- ################################## Product Item End #######################################   -->
        
 

@@ -61,6 +61,10 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			
 		</div>
 
+	</div>
+
+	<div class="container-fluid">
+
 		<div class="row">
 
 				<div id="genlite-archive__more-posts-placeholder">

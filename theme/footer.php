@@ -45,6 +45,8 @@
 	
 <footer>
 
+	<hr class="wp-block-separator pb-2">
+
 	<?php  
 
 		if ( is_active_sidebar( 'genlite_footer_1' ) || 

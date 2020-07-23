@@ -39,7 +39,7 @@ $wp_customize->add_control( 'genlite_general_headercode', array(
     'priority' => 5
 ));
 
- // Dont Load Lightbox
+ // Show Load Lightbox
  $wp_customize->add_setting( 'genlite_general_lightbox' , array(
   'type'   => 'theme_mod',
   'sanitize_callback' => 'genlite_sanitize_checkbox'
@@ -51,6 +51,22 @@ $wp_customize->add_control( 'genlite_general_lightbox', array(
  'section' => 'genlite_general_section',
  'priority' => 6
 ));
+
+
+ // Show Shop Filter
+ $wp_customize->add_setting( 'genlite_general_shop_filter' , array(
+  'type'   => 'theme_mod',
+  'sanitize_callback' => 'genlite_sanitize_checkbox'
+));
+
+$wp_customize->add_control( 'genlite_general_shop_filter', array(
+ 'type' => 'checkbox',
+ 'label' =>__('Show Shop Filter','genlite'),
+ 'section' => 'genlite_general_section',
+ 'priority' => 7
+));
+
+
 
 
 

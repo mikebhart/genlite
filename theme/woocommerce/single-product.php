@@ -40,12 +40,11 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20,0)
 
 		<div class="row justify-content-center">
 		
-			<div class="genlite-title-row">
+			<div class="genlite-archive-title">
 
 				<h1 class="text-center"><?php the_title(); ?></h1>
 
 			</div>	
-
 			
 		</div>
 		

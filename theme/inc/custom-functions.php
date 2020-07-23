@@ -59,7 +59,7 @@ function genlite_more_post_ajax_handler(){
 
     if ($loop -> have_posts()) {
 
-        $out .= '<div class="container"><div class="card-deck">';
+        $out .= '<div class="container-fluid"><div class="card-deck">';
 
         while ($loop -> have_posts()) : $loop -> the_post();
 
