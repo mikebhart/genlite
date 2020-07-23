@@ -19,24 +19,24 @@ $post_date = get_the_date( 'j M Y' );
 
 ?>
 
-<div class="card genlite-card mb-4">
 
-  	<div class="genlite-card__header-placeholder">
-		<div class="genlite-card__header-placeholder-image" style="background-image: url('<?php echo esc_url($featured_img_url); ?>');"></div>
-	</div>
 
-    <div class="card-body">
-      
-	  <h5 class="card-title"><?php the_title(); ?></h5>
-      <p class="card-text"><?php echo $excerpt_result; ?></p>
-	  <a href="<?php esc_url(the_permalink()); ?>" class="stretched-link" data-type="page-transition"></a>
-    
-	</div>
-    
-	<div class="card-footer">
+<div class="genlite-archive__card">
 
-		<?php echo esc_attr($post_date); ?>
-    
-	</div>
-	
+	<a href="<?php esc_url(the_permalink()); ?>">
+
+			<div class="genlite-archive__card-header-placeholder">
+				<div class="genlite-archive__card-header-placeholder-image" style="background-image: url('<?php echo esc_url($featured_img_url); ?>');"></div>
+			</div>
+
+			<div class="genlite-archive__card-body">
+				<h5><?php the_title(); ?></h5>
+				<p><?php echo $excerpt_result; ?></p>
+			</div>
+			<div class="genlite-archive__card-footer">
+				<h6><?php echo esc_attr($post_date); ?></h6>
+			</div>
+
+	</a>
+
 </div>

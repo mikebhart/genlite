@@ -3,13 +3,14 @@
 
 .card-deck 
     flex-direction: row
-    justify-content: space-between
+    justify-content: center
     flex-wrap: wrap
-    align-content: space-around
+    //align-content: space-around
+    //flex-flow: row wrap
 
     .card 
         flex-basis: 100%
-        flex-grow: 1
+        //flex-grow: 4
   
         @include media-breakpoint-only(sm)
             flex-basis: 40%
@@ -18,7 +19,7 @@
             flex-basis: 30%
 
         @include media-breakpoint-only(lg)
-            flex-basis: 20%
+            flex-basis: 30%
 
         @include media-breakpoint-only(xl)
             flex-basis: 18%

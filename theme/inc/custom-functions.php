@@ -59,7 +59,7 @@ function genlite_more_post_ajax_handler(){
 
     if ($loop -> have_posts()) {
 
-        $out .= '<div class="container-fluid"><div class="card-deck">';
+        $out .= '<div class="genlite-archive__container">';
 
         while ($loop -> have_posts()) : $loop -> the_post();
 
@@ -81,7 +81,7 @@ function genlite_more_post_ajax_handler(){
         
                 }
 
-                $header_html = '<div class="genlite-card__header-placeholder-image" style="background-image: url(' . $featured_img_url .');"></div>';
+                $header_html = '<div class="genlite-archive__card-header-placeholder-image" style="background-image: url(' . $featured_img_url .');"></div>';
 
             }
 
@@ -92,24 +92,24 @@ function genlite_more_post_ajax_handler(){
 
             $post_date = get_the_date( 'j M Y' );
             $out .= '<input id="genlite_max_pages" type="hidden" value="' . $max_pages . '">';
-            $out .= '<div class="card genlite-card mb-4">';
-            $out .= '<div class="genlite-card__header-placeholder">';
+            $out .= '<div class="genlite-archive__card">';
+            $out .= '<a href="' .  get_post_permalink() . '">';
+            $out .= '<div class="genlite-archive__card-header-placeholder">';
             $out .= $header_html;
             $out .= '</div>';
-            $out .= '<div class="card-body">';
-            $out .= '<h5 class="card-title">' . get_the_title() . '</h5>';
-            $out .= '<p class="card-text">' . $excerpt_result . '</p>';
-            $out .= '<a href="' . get_post_permalink() . '" class="stretched-link"></a>';
+            $out .= '<div class="genlite-archive__card-body">';
+            $out .= '<h5>' . get_the_title() . '</h5>';
+            $out .= '<p>' . $excerpt_result . '</p>';
             $out .= '</div>';
-            $out .= '<div class="card-footer">';
-            $out .=  esc_attr($post_date);
+            $out .= '<div class="genlite-archive__card-footer">';
+            $out .=  '<h6>' . esc_attr($post_date) . '</h6>';
             $out .= '</div>';
+            $out .= '</a>';
             $out .= '</div>';
 
 
         endwhile;
 
-        $out .= '</div>';
         $out .= '</div>';
 
     }
