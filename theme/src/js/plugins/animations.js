@@ -14,25 +14,25 @@ export default {
         buildHeroPages();
       
         //
-        // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
+        
         //
         function enableScrollActions() {
 
-            
-            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-column, .wp-block-button, .wp-block-gallery img, footer";
+            // slide in from right
+            // Use gsap scrolltrigger batch to detect user y scroll position on the page, then fire gsap animation
+            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-column, .wp-block-button, .wp-block-gallery img";
 
             gsap.set(genliteDocElements, {opacity: 0});
 
             ScrollTrigger.batch(genliteDocElements, {
                 interval: 0.2, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
-                batchMax: 5,   // maximum batch size (targets
+                batchMax: 10,   // maximum batch size (targets
                 once: true,
                 onEnter: batch =>  gsap.fromTo(batch, { x: '100%'}, { x: 0, opacity: 1, duration: 1, ease: "sine.out", stagger: 0.2, overwrite: true}) 
             });
 
-               
+            // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
             function fadeUpTargets() {
-
 
                 const options = {
                   rootMargin: "0px",
@@ -54,7 +54,7 @@ export default {
                   });
                 }, options);
          
-                const targetElements = document.querySelectorAll("article h2, article h3, article h4, article h5, article h6, article section p, article section ul, .genlite-shop__product");
+                const targetElements = document.querySelectorAll("article h2, article h3, article h4, article h5, article h6, article section p, article section ul");
 
 
                 for (let element of targetElements) {
