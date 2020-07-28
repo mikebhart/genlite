@@ -1,3 +1,5 @@
+import genliteAnimations from "./animations";
+
 export default {
 
     setup() {
@@ -6,6 +8,7 @@ export default {
         globalEvents();
         bootstrapStyles();
         lightBoxSetup();
+        archiveSetup();
 
         function backToTopButton() {
 
@@ -94,6 +97,137 @@ export default {
 
 
         }
+
+        function archiveSetup() {
+
+            if (document.querySelector('.genlite-archive-page')) {
+                 
+                    var pageNumber = 1;
+                    var category;
+                    var search_text;
+                
+                    function genlite_categories_filter() {
+                
+                        search_text = null;
+                        document.getElementById("keyword-input").value = '';
+                            
+                        pageNumber = 0;
+                        category = document.getElementById("category-select").value;
+                        
+                        $("#genlite-archive__more-posts-placeholder").html("");
+                        genlite_load_posts();
+                
+                    }
+                
+                    $("#keyword-input").keyup(function(event) {
+                
+                
+                        if (event.keyCode === 13) {
+                            
+                            category  = null;
+                            document.getElementById("category-select").value = 'all-categories';
+                            
+                            pageNumber = 0;
+                
+                            search_text = document.getElementById("keyword-input").value;
+                
+                            $("#genlite-archive__more-posts-placeholder").html("");
+                            genlite_load_posts();
+                
+                        }
+                
+                    });
+                
+                    function genlite_load_posts() {
+
+                        pageNumber++;
+                
+                        var data = {
+                                    'action': 'genlite_more_post_ajax_handler',
+                                    'pageNumber': pageNumber, 
+                                    'postsPerPage' : genlite_ajax_object.posts_per_page,
+                                    'category' : category,
+                                    'search_text' : search_text
+                                    };
+                
+                        $.ajax({
+                                
+                                type: "POST",
+                                dataType: "html",
+                                url: genlite_ajax_object.ajax_url,
+                                data: data,
+                                
+                                success: function(data){
+                                
+                                        var more_posts_button = document.getElementById("genlite-archive__more-posts-button");
+                        
+                                        if(data){
+                                        
+                                            $("#genlite-archive__more-posts-placeholder").append(data);
+
+                                        
+
+                                            
+                                        
+                                        } else {
+                        
+                                            $("#genlite-archive__more-posts-placeholder").append('<p>No results to show.</p>');
+                                            more_posts.style.display = "none";
+                        
+                                        }
+                                        
+                                        if (document.getElementById("genlite_max_pages")) {
+                        
+                                            var max_pages = document.getElementById("genlite_max_pages").value;
+                                            
+                                            if (max_pages == pageNumber) {
+                        
+                                                more_posts_button.style.display = "none";
+                        
+                                            } else {
+                        
+                                                more_posts_button.style.display = "block";
+                                            }
+                        
+                                        } 
+                        
+                                },
+                                error : function(jqXHR, textStatus, errorThrown) {
+                                    $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+                                }
+                
+                        }).done(function() {
+                            alert('asd');
+                          });
+                    
+                        return false;
+                    }
+                
+                    
+                
+                
+                
+                    $("#genlite-archive__more-posts-button").bind("click",function(event) { 
+                        genlite_load_posts();
+                       
+                    
+
+                      
+//                        genliteAnimations.enableScrollActions();
+                    });
+
+
+                
+
+
+
+                }
+
+        
+
+        }
+
+
 
         
     }

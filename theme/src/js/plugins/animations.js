@@ -1,4 +1,9 @@
-import gsap from 'gsap'
+import gsap from 'gsap';
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 
 export default {
@@ -12,6 +17,19 @@ export default {
         // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
         //
         function enableScrollActions() {
+
+            
+            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img, footer";
+
+            gsap.set(genliteDocElements, {opacity: 0});
+
+            ScrollTrigger.batch(genliteDocElements, {
+                interval: 0.2, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
+                batchMax: 5,   // maximum batch size (targets
+                once: true,
+                onEnter: batch =>  gsap.fromTo(batch, { x: '100%'}, { x: 0, opacity: 1, duration: 1, ease: "sine.out", stagger: 0.2, overwrite: true}) 
+            });
+
                
             function fadeUpTargets() {
 
@@ -47,41 +65,6 @@ export default {
             }
 
             window.addEventListener('load',fadeUpTargets);
-
-            function swipeLeft() {
-
-               
-                const options = {
-                    rootMargin: "0px",
-                    threshold: 0
-                };
-
-                const swipeleft = new IntersectionObserver(entries => {
-
-                    entries.forEach(entry => {
-
-                    if (entry.intersectionRatio > 0) {
-                        
-                        let tlSwipeFromRight = gsap.timeline();
-                
-                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0, duration: 2, ease: "sine.out" });
-
-                        swipeleft.unobserve(entry.target);
-
-                    }
-
-                    });
-                }, options);
-        
-                const targetElements = document.querySelectorAll(".wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img, footer");
-                for (let element of targetElements) {
-                    swipeleft.observe(element);
-                }
-
-
-            }
-                   
-            window.addEventListener('load', swipeLeft);
 
         }
 

@@ -40,6 +40,9 @@ function genlite_styles_and_scripts() {
 	wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/css/app.css' );
 	
 	wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/js/app.js', array( 'jquery' ) );
+	wp_localize_script( 'genlite_script', 'genlite_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 
+																		'posts_per_page' =>  get_option( 'posts_per_page' )
+																		) );
 
 	if (get_theme_mod('genlite_general_lightbox') == true) {
 		// Load FancyBox Lighbox used for images

@@ -71,35 +71,7 @@ export default {
             // gsap.fromTo(".genlite-archive-shop__card", { x: '100%' } , { stagger: 1, x: 0,  duration: 2, ease: "power2.out" });
               
 
-              
-            //   const options = {
-            //     rootMargin: "0px",
-            //     threshold: 0
-            //   };
-
-
-            //   const moveup = new IntersectionObserver(entries => {
-
-            //     entries.forEach(entry => {
-
-                  
-            //       if (entry.intersectionRatio > 0)  {
-            //           console.log(entry.ta);
-                      
-
-            //     //    gsap.fromTo(entry.target, { x: '100%' } , { stagger: 1, x: 0,  duration: 2, ease: "power2.out" });
-            //         moveup.unobserve(entry.target);
-            //       }
-
-            //     });
-            //   }, options);
-       
-            //   const targetElements = document.querySelectorAll(".genlite-archive-shop__card");
-
-
-            //   for (let element of targetElements) {
-            //       moveup.observe(element);
-            //   }
+        
 
        
 

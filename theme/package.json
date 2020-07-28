@@ -18,7 +18,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-select": "^1.13.17",
     "copy-dir": "^1.2.0",
-    "gsap": "^3.2.6",
+    "gsap": "file:gsap-bonus.tgz",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
