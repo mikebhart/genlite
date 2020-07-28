@@ -143,11 +143,12 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
 <!----------------------------Products Items ------------------------------->    
 
-<div class="container-fluid">
+<div class="container-fluid2">
 
-<div class="card-deck">
-    
-    <!-- <div class="row pb-3"> -->
+<div class="genlite-archive-shop">
+
+    <div class="genlite-archive-shop__container">
+
     
     <?php 
 
@@ -196,55 +197,47 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
             <!-- ################################## Product Item Start ####################################### -->
 
-       
-
-            <!-- <div class="col-12 col-sm-6 col-lg-3 col-xl-2"> -->
-      
-
             
-                <div class="card genlite-card mb-4">
 
-                    <div class="genlite-card__header-placeholder">
+            <div class="genlite-archive-shop__card">
 
-                        <div class="genlite-card__header-placeholder-image" style="background-image: url('<?php echo esc_url($shop_catalog_image_url); ?>');"></div>
+                    <a href="<?php esc_url(the_permalink()); ?>">
 
-                    </div>
+                            <div class="genlite-archive-shop__card-header-placeholder">
+                                <div class="genlite-archive-shop__card-header-placeholder-image" style="background-image: url('<?php echo esc_url($shop_catalog_image_url); ?>');"></div>
+                            </div>
 
-                    <div class="card-body">
+                            <div class="genlite-archive-shop__card-body">
+                                <h5><?php the_title(); ?></h5>
 
-                        <h5 class="card-title"><?php the_title(); ?></h5>
+                            
+                            </div>
 
-                        <a href="<?php esc_url(the_permalink()); ?>" class="stretched-link" data-type="page-transition"></a>
+                            <div class="genlite-archive-shop__card-footer">
 
-                        <?php if($sale) { ?>
-                                
-                                    
-                               <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
-                               <?php echo esc_attr($currency); echo esc_attr($sale); ?>
-                               
-
-                       <?php } else {
-                             
-          
-                              echo $product->get_price_html();
-                                       
-                       } ?>
-
-
-                    </div>
-
-                  
-                  
-
-                </div>
+                            <?php if($sale) { ?>
+                                        
+                                            
+                                        <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
+                                        <?php echo esc_attr($currency); echo esc_attr($sale); ?>
+                                        
+                
+                                    <?php } else {
+                                        
+                
+                                        echo $product->get_price_html();
+                                                
+                                    } ?>
 
 
 
+                            </div>
+                        
 
-           
-          
+                    </a>
 
-            <!-- </div> --> 
+            </div>
+
 
             
            <!-- ################################## Product Item End #######################################   -->
@@ -252,7 +245,7 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
 
      <?php   endwhile; wp_reset_query(); ?>
 
-
+</div>
 
   
    

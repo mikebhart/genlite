@@ -64,7 +64,7 @@ export default {
                         
                         let tlSwipeFromRight = gsap.timeline();
                 
-                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0, duration: 2 });
+                        tlSwipeFromRight.fromTo(entry.target, { x: '100%' } , { x: 0, duration: 2, ease: "sine.out" });
 
                         swipeleft.unobserve(entry.target);
 
@@ -73,7 +73,7 @@ export default {
                     });
                 }, options);
         
-                const targetElements = document.querySelectorAll(".wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img");
+                const targetElements = document.querySelectorAll(".wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img, footer");
                 for (let element of targetElements) {
                     swipeleft.observe(element);
                 }
@@ -101,7 +101,8 @@ export default {
                             { 
                                 y: 0, 
                                 duration: 3,
-                                opacity: 1 
+                                opacity: 1,
+                                ease: "sine.out"
                           
                             }
                         );
@@ -115,11 +116,9 @@ export default {
                                     opacity: 0
                                 }, 
                                 { 
+                                    delay: 1,
                                     opacity: 1,
-                                    duration: 2,
-                                    delay: 1
-
-                                
+                                    duration: 2
                                 }
                             );
                     }
@@ -135,7 +134,7 @@ export default {
                                 x: 0,
                                 opacity: 1,
                                 duration: 2,
-                                delay: 1
+                                ease: "bounce.out"
                               
                             }
                         );
@@ -144,7 +143,7 @@ export default {
 
                     let tlMenu = gsap.timeline();
                         tlMenu.fromTo(
-                            "#navbarTogglerHeaderMenu, .navbar-toggler",
+                            ".navbar-nav .menu-item.depth-0, .genlite-social li a",
                             {
                                 x: 1200,
                                 opacity: 0
@@ -152,10 +151,9 @@ export default {
                             {
                                 x: 0,
                                 opacity: 1,
-                                duration: 2,
-                                delay: 1
-
-                             
+                                duration: 1,
+                                stagger: 0.2,
+                                ease: "sine.out"
                             }
                     );
                 
