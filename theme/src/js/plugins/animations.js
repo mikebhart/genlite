@@ -19,7 +19,7 @@ export default {
         function enableScrollActions() {
 
             
-            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-columns, .wp-block-button, .wp-block-gallery img, footer";
+            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-cover, .wp-block-image img, .wp-block-embed-youtube, figcaption, .wp-block-column, .wp-block-button, .wp-block-gallery img, footer";
 
             gsap.set(genliteDocElements, {opacity: 0});
 

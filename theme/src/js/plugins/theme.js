@@ -63,11 +63,8 @@ export default {
                     .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes, .genlite-page-scroll-down__overlay-text h1, .genlite-title-row h1" )
                     .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" );
             
-                $( "article" ).find(".wp-block-columns")
-                    .wrap("<div class='container'><div class='row'><div class='col-12'></div></div></div>");
-
-                $( "article" ).find(".wp-block-gb-image-service-button").closest(".container").addClass("container-fluid").removeClass("container");
-                
+                $( "article" ).find(".wp-block-columns").wrap("<div class='container-fluid'></div>");
+        
                 // // wrap sections around the rest, keep it all the same
                 $( "article" ).find(".wp-block-gallery, .wp-block-cover, .wp-block-separator, .wp-block-button").wrap( "<section></section>" );
 
@@ -77,8 +74,6 @@ export default {
                 $(".wpcf7 .row").addClass("text-center");
 
                 $(".wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea, footer .search-field").addClass("form-control");
-
-                
 
 
         }
@@ -99,6 +94,7 @@ export default {
         }
 
         function archiveSetup() {
+
 
             if (document.querySelector('.genlite-archive-page')) {
                  
@@ -197,7 +193,7 @@ export default {
                                 }
                 
                         }).done(function() {
-                            alert('asd');
+                          //  alert('asd');
                           });
                     
                         return false;
