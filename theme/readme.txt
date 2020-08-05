@@ -21,6 +21,9 @@ For more information about GenLite please go to https://www.hartsoft.co.uk/wordp
 4. Go to https://www.hartsoft.co.uk/wordpress-themes/genlite/ on videos on how to customize and use this theme.
 5. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
+npm i ./gsap-bonus.tgz
+
+
 == Copyright ==
 
 GenLite WordPress Theme, Copyright 2018 Hartsoft Ltd

@@ -45,6 +45,10 @@
 	
 <footer>
 
+	<div class="container">
+		<div class="row pt-1 pt-sm-2 pt-md-3 pt-lg-4 pt-xl-5"></div>
+	</div>
+
 	<?php  
 
 		if ( is_active_sidebar( 'genlite_footer_1' ) || 
