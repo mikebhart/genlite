@@ -17,16 +17,16 @@ function genlite_setup() {
 	load_theme_textdomain( 'genlite', get_template_directory() . '/languages' );
 
 	// Run init vars
-	require_once get_template_directory() .'/inc/theme-support.php';
-	require_once get_template_directory() .'/inc/custom-functions.php';
-	require_once get_template_directory() .'/inc/walker.php';
+	require_once get_template_directory() . '/inc/theme-support.php';
+	require_once get_template_directory() . '/inc/custom-functions.php';
+	require_once get_template_directory() . '/inc/walker.php';
 	
 	// Register menu
 	register_nav_menu( 'primary', 'Top Menu' );
 
 	// Include customizer admin functions when in Customizer mode
 	if ( is_customize_preview() ) {	
-		require_once get_template_directory() .'/inc/customizer.php';	
+		require_once get_template_directory() . '/inc/customizer.php';	
 	}
 
 
@@ -53,6 +53,3 @@ function genlite_styles_and_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'genlite_styles_and_scripts' );
-
-
-
