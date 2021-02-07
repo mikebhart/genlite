@@ -26,7 +26,7 @@ npm i ./gsap-bonus.tgz
 
 == Copyright ==
 
-GenLite WordPress Theme, Copyright 2018 Hartsoft Ltd
+GenLite WordPress Theme, Copyright 2021 Hartsoft Ltd
 GenLite is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
