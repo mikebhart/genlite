@@ -54,7 +54,7 @@ export default {
                   });
                 }, options);
          
-                const targetElements = document.querySelectorAll("article h2, article h3, article h4, article h5, article h6, article section p, article section ul");
+                const targetElements = document.querySelectorAll("article h2, article section p, article section ul");
 
 
                 for (let element of targetElements) {

@@ -60,7 +60,7 @@ export default {
 
                     // // Wrap a bootstrap fixed-width container around certain blocks - the rest will be fluid as per template
                 $( "article" ).find("h1,h2,h3,h4,h5,h6,p,ul,.wp-block-verse, .wp-block-quote, .wp-block-code, .wp-block-table, .wp-block-preformatted, .wp-caption, .comments-area, .wpcf7-response-output")
-                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes, .genlite-page-scroll-down__overlay-text h1, .genlite-title-row h1, .page-template-default p" )
+                    .not( ".blocks-gallery-grid, .wp-block-column p, .wp-block-quote p, .post-template-default h1.entry-title,.comment-reply-title,.logged-in-as,.comment-notes, .genlite-page-scroll-down__overlay-text h1, .genlite-title-row h1, .page-template-default p, .post-card .post-title, .post-card p" )
                     .wrap( "<section><div class='container'><div class='row'><div class='col-12'></div></div></section>" );
             
                 $( "article" ).find(".wp-block-columns").wrap("<div class='container-fluid'></div>");
