@@ -28,7 +28,7 @@ $wp_customize->add_section( 'genlite_general_section', array(
 // Header Code
 $wp_customize->add_setting( 'genlite_general_headercode', array(
    'type'   => 'theme_mod',
-   'sanitize_callback' => 'genlite_sanitize_headercode'
+   'sanitize_callback' => 'genlite_sanitize_scriptcode'
 ));
 
 $wp_customize->add_control( 'genlite_general_headercode', array(
@@ -38,6 +38,20 @@ $wp_customize->add_control( 'genlite_general_headercode', array(
     'description' => __('Add your Header Code e.g. Google Analytics.','genlite'),
     'priority' => 5
 ));
+
+// Body Code
+$wp_customize->add_setting( 'genlite_general_bodycode', array(
+    'type'   => 'theme_mod',
+    'sanitize_callback' => 'genlite_sanitize_scriptcode'
+ ));
+ 
+ $wp_customize->add_control( 'genlite_general_bodycode', array(
+     'type' => 'textarea',
+     'section' => 'genlite_general_section', // // Add a default or your own section
+     'label' => __('Body Code','genlite'),
+     'description' => __('Add your Body Code e.g. Google Tag Manager.','genlite'),
+     'priority' => 6
+ ));
 
  // Show Load Lightbox
  $wp_customize->add_setting( 'genlite_general_lightbox' , array(
@@ -49,7 +63,7 @@ $wp_customize->add_control( 'genlite_general_lightbox', array(
  'type' => 'checkbox',
  'label' =>__('Load Lightbox','genlite'),
  'section' => 'genlite_general_section',
- 'priority' => 6
+ 'priority' => 7
 ));
 
 
@@ -63,12 +77,8 @@ $wp_customize->add_control( 'genlite_general_shop_filter', array(
  'type' => 'checkbox',
  'label' =>__('Show Shop Filter','genlite'),
  'section' => 'genlite_general_section',
- 'priority' => 7
+ 'priority' => 8
 ));
-
-
-
-
 
   //  =============================
   //  = Social Icons              =
@@ -105,13 +115,11 @@ $wp_customize->add_section( 'genlite_social_section', array(
 
   }
 
-
-
 }
 add_action( 'customize_register', 'genlite_customize_register' );
 
 
-function genlite_sanitize_headercode( $value ) {
+function genlite_sanitize_scriptcode( $value ) {
   return $value;
 }
 

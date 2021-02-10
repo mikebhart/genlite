@@ -249,6 +249,12 @@ function genlite_header_metadata_setup() {
 }
 add_action('wp_head', 'genlite_header_metadata_setup');
 
+// Add Body Code to <body>
+function genlite_body_metadata_setup() {
+    echo get_theme_mod( 'genlite_general_bodycode');
+}
+add_action('wp_body_open', 'genlite_body_metadata_setup');
+
 // Get first embed media item from Custom Post Type
 function genlite_get_first_video_embed($post_id) {
     $post = get_post($post_id);

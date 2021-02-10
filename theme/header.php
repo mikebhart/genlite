@@ -13,9 +13,9 @@
  * @version 1.4.2
  */
 
-$genliteFancyBox = 'genlite__fade_in';
+$genlite_body_class = 'genlite__fade_in';
 if (get_theme_mod('genlite_general_lightbox') == true) {
-	$genliteFancyBox = "genlite__fade_in genlite__lightbox";
+	$genlite_body_class = "genlite__fade_in genlite__lightbox";
 }
 
 
@@ -33,8 +33,9 @@ if (get_theme_mod('genlite_general_lightbox') == true) {
 
 	</head>
 
-	<body <?php body_class($genliteFancyBox); ?>>
+	<body <?php body_class($genlite_body_class); ?>>
 
+        <?php wp_body_open(); ?>
 		
   		<main>
 
