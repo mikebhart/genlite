@@ -53,23 +53,30 @@ if ( has_post_thumbnail( $post->ID ) ) {
 					<?php the_content(); ?>
 
 					<div class="container">
-					<div class="row">
-					<div class="col-12">
-
-
-						<i class="fas fa-folder-open" title="<?php esc_attr_e('Categories','genlite'); ?>"></i>&nbsp;<?php the_category( ' ' ); ?>
-						<?php if(has_tag()) { ?>
-						 	<i class="fas fa-tag" title="<?php esc_attr_e('Tags','genlite'); ?>"></i>
-						 <?php the_tags( '', ', ', '<br />' );
-						 } ?> 
-					
-
+						<div class="row">
+							<div class="col-12 pb-3">
+								<i><?php echo 'Last Updated: ' . $postLastModified . ', Created: ' . $postFirstPublished; ?></i>
+								
+							</div>
+							
+							<div class="col-12">
+		
+		
+								<i class="fas fa-folder-open" title="<?php esc_attr_e('Categories','genlite'); ?>"></i>&nbsp;<?php the_category( ' ' ); ?>
+								<?php if(has_tag()) { ?>
+								 	<i class="fas fa-tag" title="<?php esc_attr_e('Tags','genlite'); ?>"></i>
+								 <?php the_tags( '', ', ', '<br />' );
+								 } ?> 
+								 
+								
+							
+							
+		
+							</div>
+							
+							
+						</div>
 					</div>
-					</div>
-					</div>
-
-			
-
 				
 
 			<?php 
@@ -90,7 +97,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 				<?php comments_template();
 			} ?>		
-				
+
 		</article>
 	
 	<div class="container">
