@@ -10,9 +10,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
+      MYSQL_DATABASE: genlitedb
+      MYSQL_USER: genliteuser
+      MYSQL_PASSWORD: genlitepass
 
   # PHPMyAdmin
   phpmyadmin:
@@ -24,7 +24,7 @@ services:
       - '8080:80'
     environment:
       PMA_HOST: db
-      PMA_PORT: 3306
+      PMA_PORT: 330
       UPLOAD_LIMIT: 1000M
   
   # PHP / WordPress 
@@ -42,9 +42,11 @@ services:
       - ./docker-php.ini:/usr/local/etc/php/conf.d/php-custom.ini
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: exampleuser
-      WORDPRESS_DB_PASSWORD: examplepass
-      WORDPRESS_DB_NAME: exampledb
+      WORDPRESS_DB_USER: genliteuser
+      WORDPRESS_DB_PASSWORD: genlitepass
+      WORDPRESS_DB_NAME: genlitedb
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DEBUG: 1
 
 volumes:
   wordpress:
