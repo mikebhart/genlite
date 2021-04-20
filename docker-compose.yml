@@ -1,10 +1,37 @@
 version: '3'
 
 services:
+
+  # Debian Linux / Apache / PHP / WordPress
+  wordpress:
+    build:
+        context: docker
+        dockerfile: Dockerfile
+    depends_on:
+      - db   
+    ports:
+      - '8030:80'
+    restart: always
+    volumes:
+      - ./theme:/var/www/html/wp-content/themes/genlite
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./docker/php-dev.ini:/usr/local/etc/php/conf.d/php-custom.ini
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: genliteuser
+      WORDPRESS_DB_PASSWORD: genlitepass
+      WORDPRESS_DB_NAME: genlitedb
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_SITEURL', 'http://localhost:8030');
+        define('WP_HOME', 'http://localhost:8030');
+
   # Database
   db:
     image: mysql:5.7
-    command: --max_allowed_packet=32505856
+    command: 
+      --max_allowed_packet=32505856
     volumes:
       - db:/var/lib/mysql
     restart: always
@@ -21,33 +48,12 @@ services:
       - db   
     restart: always
     ports:
-      - '8080:80'
+      - '8031:80'
     environment:
       PMA_HOST: db
-      PMA_PORT: 330
+      PMA_PORT: 3306
       UPLOAD_LIMIT: 1000M
-  
-  # PHP / WordPress 
-  wordpress:
-    image: wordpress:latest
-    depends_on:
-      - db   
-    ports:
-      - '8000:80'
-    restart: always
-    volumes:
-      - ./html:/var/www/html
-      - ./theme:/var/www/html/wp-content/themes/genlite
-      - ./plugins:/var/www/html/wp-content/plugins
-      - ./docker-php.ini:/usr/local/etc/php/conf.d/php-custom.ini
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: genliteuser
-      WORDPRESS_DB_PASSWORD: genlitepass
-      WORDPRESS_DB_NAME: genlitedb
-      WORDPRESS_TABLE_PREFIX: wp_
-      WORDPRESS_DEBUG: 1
-
+      
 volumes:
   wordpress:
   db:
