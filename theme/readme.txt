@@ -13,16 +13,14 @@ GenLite is a clean and simple WordPress theme built based on the Bootstrap frame
 
 For more information about GenLite please go to https://www.hartsoft.co.uk/wordpress-themes/genlite/
 
+
 == Installation ==
-
-1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Type in GenLite in the search form and press the 'Enter' key on your keyboard.
-3. Click on the 'Activate' button to use your new theme right away.
-4. Go to https://www.hartsoft.co.uk/wordpress-themes/genlite/ on videos on how to customize and use this theme.
-5. Navigate to Appearance > Customize in your admin panel and customize to taste.
-
+npm i
 npm i ./gsap-bonus.tgz
 
+To compile sass
+npm run watch
+or npm run build
 
 == Copyright ==
 
