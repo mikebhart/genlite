@@ -13,6 +13,7 @@ services:
       - '8030:80'
     restart: always
     volumes:
+      - ./html:/var/www/html
       - ./theme:/var/www/html/wp-content/themes/genlite
       - ./plugins:/var/www/html/wp-content/plugins
       - ./docker/php-dev.ini:/usr/local/etc/php/conf.d/php-custom.ini
