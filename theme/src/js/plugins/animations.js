@@ -92,15 +92,15 @@ export default {
                 document.querySelector('body.post-template-default') || 
                 document.querySelector('body.work-template-default')) {
 
-                    // Show fancy heading animation
-                    var tl = gsap.timeline(), 
+                   // Show fancy heading animation
+               		var tl = gsap.timeline(), 
                     mySplitText = new SplitText("article h1", {type:"words,chars"}), 
                     chars = mySplitText.chars;
 
                     gsap.set("article h1", {perspective: 400});
 
-                    tl.from(chars, {delay: 1, duration: 1, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=0");
-
+                    tl.from(chars, {delay: 1, duration: 1, opacity:1, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=0");
+					
                     if (document.querySelector('body.page-template-template-scroll-down')) {
 
 

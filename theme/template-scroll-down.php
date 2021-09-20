@@ -37,7 +37,7 @@ if ( has_post_thumbnail( $post->ID ) ) {
 				
 		<div class="genlite-page-scroll-down__overlay-text">
 
-			<h1><?php the_title(); ?></h1>
+			<h1 id="genlite_scroll_down_title"><?php the_title(); ?></h1>
 			
 		</div>
 
@@ -45,12 +45,12 @@ if ( has_post_thumbnail( $post->ID ) ) {
 
 	<section class="text-center">
 
-		<a id="genlite-page-down__button" href="#genlite-page-start-anchor" class="genlite-page-scroll-down__scroll-down"><i class="fas fa-chevron-down"></i></a>
+		<a id="genlite-page-down__button" href="#mainpage" class="genlite-page-scroll-down__scroll-down"><i class="fas fa-chevron-down"></i></a>
 
 	
 	</section>
 
-	<section id="genlite-page-start-anchor"><span></span></section>
+	<section id="mainpage"><span></span></section>
 
 
 	<?php

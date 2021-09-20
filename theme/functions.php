@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * GenLite functions and definitions
@@ -11,45 +11,45 @@
  * @version 1.4.2
  */
 
-function genlite_setup() {
+function genlite_setup()
+{
 
-	// Translation Ready
-	load_theme_textdomain( 'genlite', get_template_directory() . '/languages' );
+    // Translation Ready
+    load_theme_textdomain('genlite', get_template_directory() . '/languages');
 
-	// Run init vars
-	require_once get_template_directory() . '/inc/theme-support.php';
-	require_once get_template_directory() . '/inc/custom-functions.php';
-	require_once get_template_directory() . '/inc/walker.php';
-	
-	// Register menu
-	register_nav_menu( 'primary', 'Top Menu' );
+    // Run init vars
+    require_once get_template_directory() . '/inc/theme-support.php';
+    require_once get_template_directory() . '/inc/custom-functions.php';
+    require_once get_template_directory() . '/inc/walker.php';
 
-	// Include customizer admin functions when in Customizer mode
-	if ( is_customize_preview() ) {	
-		require_once get_template_directory() . '/inc/customizer.php';	
-	}
+    // Register menu
+    register_nav_menu('primary', 'Top Menu');
 
-
-} 
-add_action( 'after_setup_theme', 'genlite_setup' );
-
-function genlite_styles_and_scripts() {
-
-	// Load Styles & Scripts
-	wp_enqueue_style( 'genlite_font_awesome', get_template_directory_uri() . '/dist/css/fontawesome.css' );
-	wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/css/app.css' );
-	
-	wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/js/app.js', array( 'jquery' ) );
-	wp_localize_script( 'genlite_script', 'genlite_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 
-																		'posts_per_page' =>  get_option( 'posts_per_page' )
-																		) );
-
-	if (get_theme_mod('genlite_general_lightbox') == true) {
-		// Load FancyBox Lighbox used for images
-		wp_enqueue_script( 'genlite_fancybox_script', get_template_directory_uri() . '/dist/js/jquery.fancybox.min.js', array( 'jquery' ) );
-		wp_enqueue_style( 'genlite_fancybox_style', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css');
-	}
-
+    // Include customizer admin functions when in Customizer mode
+    if (is_customize_preview()) {
+        require_once get_template_directory() . '/inc/customizer.php';
+    }
 
 }
-add_action( 'wp_enqueue_scripts', 'genlite_styles_and_scripts' );
+add_action('after_setup_theme', 'genlite_setup');
+
+function genlite_styles_and_scripts()
+{
+
+    // Load Styles & Scripts
+    wp_enqueue_style('genlite_font_awesome', get_template_directory_uri() . '/dist/css/fontawesome.css');
+    wp_enqueue_style('genlite_style', get_template_directory_uri() . '/dist/css/app.css');
+
+    wp_enqueue_script('genlite_script', get_template_directory_uri() . '/dist/js/app.js', array('jquery'));
+    wp_localize_script('genlite_script', 'genlite_ajax_object', array('ajax_url' => admin_url('admin-ajax.php'),
+        'posts_per_page' => get_option('posts_per_page'),
+    ));
+
+    if (get_theme_mod('genlite_general_lightbox') == true) {
+        // Load FancyBox Lighbox used for images
+        wp_enqueue_script('genlite_fancybox_script', get_template_directory_uri() . '/dist/js/jquery.fancybox.min.js', array('jquery'));
+        wp_enqueue_style('genlite_fancybox_style', get_template_directory_uri() . '/dist/css/jquery.fancybox.min.css');
+    }
+
+}
+add_action('wp_enqueue_scripts', 'genlite_styles_and_scripts');
