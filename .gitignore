@@ -1,6 +1,7 @@
-/html
 /theme/dist
 /theme/node_modules
+/vendor
+/mu-plugins
 *.log
 .env
 .idea
