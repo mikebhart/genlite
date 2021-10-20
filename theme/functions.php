@@ -10,36 +10,8 @@
  * @version 1.4.2
  */
 
- /**
- * Timber starter-theme
- * https://github.com/timber/starter-theme
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
- */
+$timber = new Timber\Timber();
 
-/**
- * If you are installing Timber as a Composer dependency in your theme, you'll need this block
- * to load your dependencies and initialize Timber. If you are using Timber via the WordPress.org
- * plug-in, you can safely delete this block.
- */
-//$composer_autoload = WP_CONTENT_DIR. '/vendor/autoload.php';
-
-// echo $composer_autoload;
-// exit;
-
-require_once WPMU_PLUGIN_DIR . '/timber-library/timber.php';
-
-// if ( file_exists( $composer_autoload ) ) {
-// 	require_once $composer_autoload;
-	$timber = new Timber\Timber();
-//}
-
-/**
- * This ensures that Timber is loaded and available as a PHP class.
- * If not, it gives an error message to help direct developers on where to activate
- */
 if ( ! class_exists( 'Timber' ) ) {
 
 	echo 'Timber is not activated.';
@@ -47,29 +19,16 @@ if ( ! class_exists( 'Timber' ) ) {
 	
 }
 
-/**
- * Sets the directories (inside your theme) to find .twig files
- */
-Timber::$dirname = array( 'templates', 'views' );
-
-/**
- * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
- * No prob! Just set this value to true
- */
+Timber::$dirname = ['templates'];
 Timber::$autoescape = false;
-
-
 
 
 function genlite_setup()
 {
 
-    // Translation Ready
+
+	// Translation Ready
     load_theme_textdomain('genlite', get_template_directory() . '/languages');
-
-    // Run init vars
-
-	require_once WPMU_PLUGIN_DIR . '/woocommerce/woocommerce.php';
 
     require_once get_template_directory() . '/inc/theme-support.php';
     require_once get_template_directory() . '/inc/custom-functions.php';

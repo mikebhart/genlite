@@ -1,7 +1,8 @@
 /theme/dist
 /theme/node_modules
 /vendor
-/mu-plugins
+mu-plugins/*
+!mu-plugins/loader.php
 *.log
 .env
 .idea
