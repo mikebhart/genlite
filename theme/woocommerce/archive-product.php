@@ -29,10 +29,10 @@ function genlite_custom_woocommerce_product_add_to_cart_text() {
     $product_type = $product->get_type();
     
     switch ( $product_type ) {
-        case 'external': return __('Their site','genlite'); break;
-        case 'grouped':  return __('Group items','genlite'); break;
-        case 'simple': return  '+'; break;
-        case 'variable': return __('Variations','genlite'); break;
+        case 'external': return __('THEIR SITE','genlite'); break;
+        case 'grouped':  return __('GROUP ITEMS','genlite'); break;
+        case 'simple': return  'ADD TO CART'; break;
+        case 'variable': return __('VARIATIONS','genlite'); break;
         default: return __('Read more','genlite');
     }
     
@@ -208,14 +208,8 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                             </div>
 
                             <div class="genlite-archive-shop__card-body">
-                                <h5><?php the_title(); ?></h5>
-
-                            
-                            </div>
-
-                            <div class="genlite-archive-shop__card-footer">
-
-                            <?php if($sale) { ?>
+                                <h6 class="genlite-archive-shop__card-body-heading text-center"><?php the_title(); ?></h6>
+								<div class="genlite-archive-shop__card-body-price text-center"><?php if($sale) { ?>
                                         
                                             
                                         <del><?php echo esc_attr($currency); echo esc_attr($price); ?></del>
@@ -229,6 +223,26 @@ add_filter( 'woocommerce_product_add_to_cart_text' , 'genlite_custom_woocommerce
                                                 
                                     } ?>
 
+								</div>
+
+                            
+                            </div>
+
+                            <div class="genlite-archive-shop__card-footer text-center">
+
+								<!-- <input type="submit" class="text-center genlite-archive-shop__card-footer-button" value="Add to Cart" title="Add to Cart">		 -->
+								<?php
+
+									echo apply_filters( 'woocommerce_loop_add_to_cart_link',
+										sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" class="%s product_type_%s genlite-archive-shop__card-footer-button">%s</a>',
+											esc_url( $product->add_to_cart_url() ),
+											esc_attr( $product->get_id() ),
+											esc_attr( $product->get_sku() ),
+											$product->is_purchasable() ? 'ADD TO CART' : '',
+											esc_attr( $product->get_type()),
+											esc_html( $product->add_to_cart_text())
+										), $product ); 
+									?>
 
 
                             </div>

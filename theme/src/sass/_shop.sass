@@ -2,8 +2,6 @@
 
 .genlite-archive-shop
 
-    //left: 200px
-    
     &__container
         display: flex
         flex-flow: row wrap
@@ -14,14 +12,13 @@
 
 
     &__card
-        border: none
-        border-radius: 0px
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)  
-        width: 300px
+        margin: 30px	
+        border: 1px solid #ddd
+        width: 307px
         height: 100%
-        margin-bottom: 20px
+        margin-bottom: 50px
         color: white
-
+		
         &-header-placeholder
             position: relative
             overflow: hidden
@@ -44,36 +41,54 @@
                 left: 0
                 background-repeat: no-repeat
                 background-position: center
-                background-size: cover
+                background-size: contain
                 max-width: 100%
                 transition: transform 0.3s ease-in-out
 
-
         &-body
-            padding: 10px
+            padding: 2px 10px 2px 10px
             height: 100px
+            &-heading
+                margin: 10px
+            &-price
+                color: black
         &-footer
             padding: 10px
-            height: 60px
+            height: 30px
+
+            &-button
+                border: 1px solid #ddd
+                background-color: white
+                padding: 8px 20px
+                text-align: center
+                letter-spacing: 0.5px
+                text-transform: uppercase
+                font-size: 14px
+                line-height: 1.8em
+                border-radius: 5px
+                &:hover
+                    background-color: black
+                    color: white
 
             iframe
                 width: 100%
-      
+	
+        &:hover
+            border: 1px solid $genlite-primary-color
+
         &:hover .genlite-archive-shop__card-header-placeholder-image
             transform: scale(1.2)
+		
+        // &:hover .genlite-archive-shop__card-footer-button
+        //     background-color: black
+        //     color: white
 
-        &:hover .genlite-archive-shop__card-footer,
-        &:hover .genlite-archive-shop__card-footer h6,
-        &:hover .genlite-archive-shop__card-body,
-        &:hover .genlite-archive-shop__card-body h5,
-            background-color: $genlite-secondary-color
-            color: white
-           
-            
-
-
-
-
+        // &:hover .genlite-archive-shop__card-footer,
+        // &:hover .genlite-archive-shop__card-footer h6,
+        // &:hover .genlite-archive-shop__card-body,
+        // &:hover .genlite-archive-shop__card-body h5,
+        //     background-color: $genlite-secondary-color
+        //     color: white
         
  
 .woocommerce .woocommerce-breadcrumb 
