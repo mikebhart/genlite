@@ -1,9 +1,11 @@
 <?php
 
 $plugins = [
+			'user-role-editor/user-role-editor.php',
 			'timber-library/timber.php', 
 			'duplicate-post/duplicate-post.php', 
-			'woocommerce/woocommerce.php'
+			'woocommerce/woocommerce.php',
+			'advanced-custom-fields-pro/acf.php'
 		];
 
 foreach ( $plugins as $plugin ) {

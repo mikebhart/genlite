@@ -10,12 +10,21 @@
     "wp-config"
   ],
   "repositories": [
-     {
+    {
       "type": "composer",
       "url": "https://wpackagist.org"
-    }
+    },
+	  {
+		"type": "composer",
+		"url": "https://pivvenit.github.io/acf-composer-bridge/composer/v2/wordpress-muplugin/"
+	  }
   ],
   "require": {
+	"php": ">=7.1",
+    "composer/installers": "^1.11",
+    "vlucas/phpdotenv": "^5.3",
+    "oscarotero/env": "^2.1",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
     "wpackagist-plugin/duplicate-post": "^4.1",
     "wpackagist-plugin/post-types-order": "^1.9",
     "wpackagist-plugin/redirection": "^5.1",
@@ -29,6 +38,8 @@
     "palmiak/timber-acf-wp-blocks": "^1.14",
     "wpackagist-plugin/woocommerce": "^5.4",
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
+    "wpackagist-plugin/wp-migrate-db": "^2.0",
+    "wpackagist-plugin/acf-options-for-polylang": "^1.1",
     "wpackagist-plugin/instagram-feed":"2.9.3.1"
   },
   "require-dev": {
@@ -43,7 +54,7 @@
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "./mu-plugins/{$name}/": ["type:wordpress-plugin"]
+      "./mu-plugins/{$name}/": ["type:wordpress-plugin","advanced-custom-fields/advanced-custom-fields-pro"]
     }
   },
   "scripts": {
