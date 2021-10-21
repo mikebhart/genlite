@@ -10,17 +10,17 @@
  * @version 1.4.2
  */
 
-$timber = new Timber\Timber();
+// $timber = new Timber\Timber();
 
-if ( ! class_exists( 'Timber' ) ) {
+// if ( ! class_exists( 'Timber' ) ) {
 
-	echo 'Timber is not activated.';
-	exit;
+// 	echo 'Timber is not activated.';
+// 	exit;
 	
-}
+// }
 
-Timber::$dirname = ['templates'];
-Timber::$autoescape = false;
+// Timber::$dirname = ['templates'];
+// Timber::$autoescape = false;
 
 
 function genlite_setup()

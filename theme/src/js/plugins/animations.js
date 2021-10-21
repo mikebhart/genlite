@@ -69,12 +69,12 @@ export default {
 
             // With images scale up
 
-            var genliteDocImageElements = ".wp-block-image img, .wp-block-cover, .wp-block-gallery img";
+            var genliteDocImageElements = ".wp-block-image img, .wp-block-cover, .wp-block-gallery img, article h1";
 
             gsap.set(genliteDocImageElements, {opacity: 0});
 
             ScrollTrigger.batch(genliteDocImageElements, {
-                interval: 0.2, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
+                interval: 0.5, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
                 batchMax: 10,   // maximum batch size (targets
                 once: true,
                 onEnter: batch => gsap.fromTo(batch, 1, {scale:0}, {scale:1, opacity: 1, repeat:0})
@@ -92,14 +92,14 @@ export default {
                 document.querySelector('body.post-template-default') || 
                 document.querySelector('body.work-template-default')) {
 
-                   // Show fancy heading animation
-               		var tl = gsap.timeline(), 
-                    mySplitText = new SplitText("article h1", {type:"words,chars"}), 
-                    chars = mySplitText.chars;
+                //    // Show fancy heading animation
+               	// 	var tl = gsap.timeline(), 
+                //     mySplitText = new SplitText("article h1", {type:"words,chars"}), 
+                //     chars = mySplitText.chars;
 
-                    gsap.set("article h1", {perspective: 400});
+                //     gsap.set("article h1", {perspective: 400});
 
-                    tl.from(chars, {delay: 1, duration: 1, opacity:1, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=0");
+                //     tl.from(chars, {delay: 1, duration: 1, opacity:1, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=0");
 					
                     if (document.querySelector('body.page-template-template-scroll-down')) {
 
