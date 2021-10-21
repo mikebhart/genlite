@@ -1,28 +1,26 @@
 <div class="genlite-archive__container">
 
-           
-        <?php 
+    <?php 
 
-            $postsPerPage = get_option( 'posts_per_page' );
+        $postsPerPage = get_option( 'posts_per_page' );
 
-            $args = array(
+        $args = [
                     'post_type' => 'post',
-                    'posts_per_page' => $postsPerPage);
+					'ignore_sticky_posts' => 1,
+                    'posts_per_page' => $postsPerPage ];
 
-            $loop = new WP_Query($args);
+        $loop = new WP_Query($args);
 
-            $row_count = $loop->found_posts; 
+        $row_count = $loop->found_posts; 
 
-            while ($loop->have_posts()) : $loop->the_post();
+        while ($loop->have_posts()) : $loop->the_post();
 
-                              
-                get_template_part( '/template-parts/content', get_post_format());
+            get_template_part( '/template-parts/content', get_post_format());
 
-            endwhile;
+        endwhile;
           
-            wp_reset_postdata();
+        wp_reset_postdata();
 
-        ?>
-
+    ?>
 
 </div>

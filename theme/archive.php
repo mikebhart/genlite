@@ -30,7 +30,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 		<div class="row genlite__content justify-content-center pt-3">
 			<div class="genlite-archive-title">
-				<h1><?php the_archive_title(); ?></h1>
+			  <h1><?php the_archive_title(); ?></h1>
 			</div>
 		</div>
 
@@ -76,7 +76,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 		<div class="row">
 
-			<div class="mx-auto mt-3 mb-5">
+			<div class="genlite-archive__more-posts-button">
 				<a id="genlite-archive__more-posts-button" class="btn btn-outline-primary">Show More</a>
 			</div>
 

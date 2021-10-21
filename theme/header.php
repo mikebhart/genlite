@@ -66,14 +66,14 @@ if (get_theme_mod('genlite_general_lightbox') == true) {
 					<nav class="navbar navbar-expand-lg">
 
 
-						<a class="navbar-brand" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
+						<a class="genlite-header__image-wrapper" href="<?php echo esc_url(get_home_url()); ?>" title="<?php echo bloginfo('name'); ?>">
 
 							<?php if (has_custom_logo()) { 
 
 									$custom_logo_id = get_theme_mod( 'custom_logo' );
 									$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' ); ?>
 
-									<img id="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
+									<img class="genlite-header__image"  src="<?php echo esc_url( $logo[0] ) ?>" alt="<?php echo bloginfo('name'); ?>">
 
 								<?php } else { ?>
 

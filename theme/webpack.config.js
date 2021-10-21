@@ -17,6 +17,11 @@ module.exports = (env, argv) => {
         output: {
             filename: "./js/[name].js"
         },
+		performance: {
+			hints: false,
+			maxEntrypointSize: 1512000,
+			maxAssetSize: 1512000
+		},		
         optimization: {
             minimizer: [
                 new TerserPlugin({

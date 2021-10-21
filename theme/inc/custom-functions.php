@@ -17,6 +17,7 @@ function genlite_more_post_ajax_handler(){
         $args = array(
             'suppress_filters' => true,
             'post_type' => 'post',
+			'ignore_sticky_posts' => 1,
             'posts_per_page' => $postsPerPage,
             'paged'    => $page,
         );
@@ -27,6 +28,7 @@ function genlite_more_post_ajax_handler(){
                 'orderby' => 'title',
                 'order'   => 'ASC',
                 'post_type' => 'post',
+				'ignore_sticky_posts' => 1,
                 'posts_per_page' => $postsPerPage,
                 'paged' => $page,
                 'tax_query' => array(
@@ -43,6 +45,7 @@ function genlite_more_post_ajax_handler(){
         $args = array (
             's' => $search_text,
             'orderby' => 'title',
+			'ignore_sticky_posts' => 1,
             'order'   => 'ASC',
             'post_type' => 'post',
             'posts_per_page' => $postsPerPage,

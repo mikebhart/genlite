@@ -101,20 +101,19 @@ export default {
                     var pageNumber = 1;
                     var category;
                     var search_text;
-                
-                    function genlite_categories_filter() {
-                
-                        search_text = null;
+
+					$('#category-select').on('change', function() {
+						search_text = null;
                         document.getElementById("keyword-input").value = '';
-                            
-                        pageNumber = 0;
+						pageNumber = 0;
                         category = document.getElementById("category-select").value;
                         
                         $("#genlite-archive__more-posts-placeholder").html("");
                         genlite_load_posts();
-                
-                    }
-                
+
+
+					});
+
                     $("#keyword-input").keyup(function(event) {
                 
                 
@@ -160,10 +159,6 @@ export default {
                                         if(data){
                                         
                                             $("#genlite-archive__more-posts-placeholder").append(data);
-
-                                        
-
-                                            
                                         
                                         } else {
                         
@@ -193,7 +188,7 @@ export default {
                                 }
                 
                         }).done(function() {
-                          //  alert('asd');
+                          //  do something
                           });
                     
                         return false;
@@ -205,26 +200,10 @@ export default {
                 
                     $("#genlite-archive__more-posts-button").bind("click",function(event) { 
                         genlite_load_posts();
-                       
-                    
-
-                      
-//                        genliteAnimations.enableScrollActions();
                     });
 
-
-                
-
-
-
                 }
-
-        
-
         }
-
-
-
         
     }
 

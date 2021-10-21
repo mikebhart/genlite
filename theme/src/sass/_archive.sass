@@ -1,13 +1,38 @@
- 
-.genlite-archive-title h1:after
-    background: $genlite-primary-color
-    content: ""
-    display: block
-    margin-top: 20px
-    width: 113%
-    height: 4px
-    margin: 0px 0 0 -6.5%
-    mix-blend-mode: multiply
+.genlite-archive-title
+    position: relative
+    padding: 0
+    margin: 0
+    color: #080808
+    transition: all 0.4s ease 0s
+
+    h1
+        text-align: center
+        color:#222
+        letter-spacing: 1px
+        text-transform: uppercase
+        display: grid
+        grid-template-columns: 1fr max-content 1fr
+        grid-template-rows: 27px 0
+        grid-gap: 20px
+        width: 50%
+        margin-left: auto
+        margin-right: auto
+    
+        &:after,
+        &:before 
+            content: none
+            display: block
+            border-bottom: 1px solid  $genlite-primary-color
+            border-top: 1px solid  $genlite-primary-color
+            height: 5px
+            background-color: #f8f8f8
+            margin-top: 25px
+
+            @include media-breakpoint-up(sm)
+                content: " "
+
+        &:after,
+        &:before
 
 .form-control:focus
     border-color: $genlite-primary-color
@@ -45,8 +70,11 @@ select option[hover]
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)  
         width: 350px
         height: 100%
-        margin-bottom: 20px
+        margin: 20px
         color: white
+
+        a
+            text-decoration: none
 
         &-header-placeholder
             position: relative
@@ -94,21 +122,8 @@ select option[hover]
         &:hover .genlite-archive__card-body h5,
             background-color: $genlite-secondary-color
             color: white
-           
-            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.genlite-archive__more-posts-button
+    margin-left: auto
+    margin-right: auto
+    width: max-content
