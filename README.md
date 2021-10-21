@@ -2,7 +2,7 @@
 <p>
 GenLite is a clean and simple WordPress theme built based on the Bootstrap framework. This web template is ideal for any business, blogging and e-commerce. 100% Fully Responsive Smartphone and Tablet compatible.  Generic and Lightweight.  SEO Friendly.  Optimised for Speed.  Super Easy Install & Setup.  Has no external third party plugin dependancy.  Built using all WordPress.org theme standards.  Social Media Link Support.  E-Commerce ready with the popular WooCommerce plugin.  Choose from a selection of colour schemes.  Create your own Buttons and Service Blocks with Font Awesome Icons.  Default full page width using Shortcodes to provide column layouts.  Widget sidebar Left and Right.  Post Type support.  CSS3 Animations.  Built in Slides.  Built in Contact Form.  Image Lightbox enabled.  Translation ready.  Bootstrap Based.  Compatible with all major WordPress plugins like Yoast SEO.  Ready to use with child themes.  Top Level Support.
 
-For more information about GenLite please go to https://www.hartsoft.co.uk/wordpress-themes/genlite/
+For more information about GenLite please go to https://www.hartsoft.co.uk/genlite/
 </p>
 
 <h2>Installation</h2>
