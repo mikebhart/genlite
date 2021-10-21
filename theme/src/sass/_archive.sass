@@ -1,7 +1,7 @@
 .genlite-archive-title
     position: relative
     padding: 0
-    margin: 0
+    margin: 20px 0 20px 0
     color: #080808
     transition: all 0.4s ease 0s
 
@@ -14,25 +14,29 @@
         grid-template-columns: 1fr max-content 1fr
         grid-template-rows: 27px 0
         grid-gap: 20px
-        width: 50%
         margin-left: auto
         margin-right: auto
+        height: 0px
+        line-height: 0
+        font-size: 20px
+
+        @include media-breakpoint-up(sm)
+            font-size: 40px
+
     
         &:after,
         &:before 
-            content: none
+            content: " "
             display: block
             border-bottom: 1px solid  $genlite-primary-color
             border-top: 1px solid  $genlite-primary-color
             height: 5px
             background-color: #f8f8f8
-            margin-top: 25px
+            // margin-top: 25px
 
-            @include media-breakpoint-up(sm)
-                content: " "
+            // @include media-breakpoint-up(sm)
+            //     content: " "
 
-        &:after,
-        &:before
 
 .form-control:focus
     border-color: $genlite-primary-color
@@ -115,7 +119,7 @@ select option[hover]
       
         &:hover .genlite-archive__card-header-placeholder-image
             transform: scale(1.2)
-
+            
         &:hover .genlite-archive__card-footer,
         &:hover .genlite-archive__card-footer h6,
         &:hover .genlite-archive__card-body,

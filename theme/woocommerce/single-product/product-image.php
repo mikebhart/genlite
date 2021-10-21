@@ -32,7 +32,7 @@ global $post, $product;
             $shop_single_image_url = wp_get_attachment_image_src( $productImageId, 'shop_single' )[0];       ?>            
 
             <a class="fancybox-shop-product" href="<?php echo esc_url($shop_single_image_url); ?>" data-fancybox="images" data-fancybox-group="gallery" title="<?php the_title(); ?>">
-            	<img class="genlite-border" src="<?php echo esc_url($shop_catalog_image_url); ?>" alt="<?php the_title(); ?>"  />
+            	<img class="genlite-border" src="<?php echo esc_url($shop_single_image_url); ?>" alt="<?php the_title(); ?>"  />
             </a>
 	</div>
 	

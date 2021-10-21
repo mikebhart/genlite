@@ -18,7 +18,9 @@
         height: 100%
         margin-bottom: 50px
         color: white
-		
+        a
+            text-decoration: none
+        
         &-header-placeholder
             position: relative
             overflow: hidden
@@ -41,7 +43,7 @@
                 left: 0
                 background-repeat: no-repeat
                 background-position: center
-                background-size: contain
+                background-size: cover
                 max-width: 100%
                 transition: transform 0.3s ease-in-out
 
@@ -72,13 +74,13 @@
 
             iframe
                 width: 100%
-	
+    
         &:hover
             border: 1px solid $genlite-primary-color
 
         &:hover .genlite-archive-shop__card-header-placeholder-image
             transform: scale(1.2)
-		
+        
         // &:hover .genlite-archive-shop__card-footer-button
         //     background-color: black
         //     color: white
@@ -95,6 +97,7 @@
     margin: 0px
     a
         color: $genlite-primary-color
+        text-decoration: none
     
     
 input.input-text.qty.text 
@@ -204,10 +207,10 @@ article .cross-sells ul li:before
     &__basket
         display: inline-block
         float: right
-        
-        a:hover
-            color: $genlite-primary-color
-   
+        a
+            text-decoration: none
+            &:hover
+                color: $genlite-primary-color
 
     &__filter-basket
         margin-top: 10px

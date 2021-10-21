@@ -42,6 +42,7 @@ export default {
 
             $('.genlite-header-navbar__buttton').on('click', function () {
                 $('.genlite-header-navbar__buttton').toggleClass('open');
+				$('#navbarTogglerHeaderMenu').toggleClass('show');
             });
 
 

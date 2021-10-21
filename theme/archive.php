@@ -28,7 +28,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 <section class="genlite-archive-page">
 	<div class="container">
 
-		<div class="row genlite__content justify-content-center pt-3">
+		<div class="row genlite__content justify-content-center">
 			<div class="genlite-archive-title">
 			  <h1><?php the_archive_title(); ?></h1>
 			</div>
@@ -40,23 +40,19 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 		<div class="row mb-3">
 			
-			<div class="col-12 col-sm-6">
-				<label><h6>CATEGORY</h6></label>
+			<div class="col-12 col-md-3 offset-md-3">
 				<div class="form-group">
-				<select id="category-select" name="category-select" class="form-control d-inline-block" onchange="genlite_categories_filter()">
-					<option value="all-categories">All Categories</option>
-					<?php foreach ($categories as $category) : ?>
-						<option value="<?php echo $category->slug ?>" ><?php echo $category->name ?></option>
-					<?php endforeach; ?>
-				</select>
+					<select id="category-select" name="category-select" class="form-control d-inline-block" onchange="genlite_categories_filter()">
+						<option value="all-categories">All Categories</option>
+						<?php foreach ($categories as $category) : ?>
+							<option value="<?php echo $category->slug ?>" ><?php echo $category->name ?></option>
+						<?php endforeach; ?>
+					</select>
 				</div>
 			</div>
 			
-			
-			
-			<div class="col-12 col-sm-6">
-				<label><h6>KEYWORD SEARCH</h6></label>
-				<div><input id="keyword-input" name="keyword-input" type="text" class="form-control" placeholder="Enter Keyword"></div>
+			<div class="col-12 col-md-3">
+				<div><input id="keyword-input" name="keyword-input" type="text" class="form-control" placeholder="Keyword Search"></div>
 			</div>
 			
 		</div>
