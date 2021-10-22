@@ -12,10 +12,10 @@ module.exports = (env, argv) => {
     }
     var config = {
         entry: {
-            app: "./src/js/app.js"
+            index: "./assets/scripts/index.js"
         },
         output: {
-            filename: "./js/[name].js"
+            filename: "./scripts/[name].js"
         },
 		performance: {
 			hints: false,
@@ -47,14 +47,14 @@ module.exports = (env, argv) => {
             new MiniCSSExtractPlugin({
                 chunkFilename: "[id].css",
                 filename: chunkData => {
-                    return chunkData.chunk.name === "script" ? "style.css" : "./css/[name].css";
+                    return chunkData.chunk.name === "script" ? "style.css" : "./styles/[name].css";
                 }
             }),
             new CopyPlugin([
-                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js', to: '../dist/js/' },
-                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css', to: '../dist/css/' },
+                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js', to: '../dist/scripts/' },
+                { from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css', to: '../dist/styles/' },
                 { from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: '../dist/webfonts/' },
-                { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/css/fontawesome.css' }
+                { from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/styles/fontawesome.css' }
            ])
         ],
         devtool: isDevelopment() ? "cheap-module-source-map" : "source-map",

@@ -1,7 +1,7 @@
 import $ from "jquery";
 window.$ = window.jQuery = $;
 
-import "../../src/sass/app.sass";
+import "../../assets/styles/index.sass";
 
 // import "bootstrap/js/dist/base-component";
 // import "bootstrap/js/dist/dropdown";
