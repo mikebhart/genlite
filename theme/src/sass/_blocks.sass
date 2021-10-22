@@ -14,7 +14,19 @@
 .wp-block-column
     min-width: 23%
     text-align: center
-    
+    flex-grow: 0
+
+.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column
+    flex-basis: 0
+    flex-grow: 0
+
+.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column:not(:first-child) 
+    @include media-breakpoint-up(md)
+        margin-left: 0
+
+
+
+
 
 .wp-block-separator 
     border-color: black
@@ -62,3 +74,5 @@
         li
             &:before
                 content: ''
+
+

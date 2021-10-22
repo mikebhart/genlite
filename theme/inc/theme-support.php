@@ -34,7 +34,7 @@ function genlite_add_theme_support() {
 	));
 
 	add_theme_support( 'woocommerce', array(
-		'thumbnail_image_width' => 350,
+		'thumbnail_image_width' => 650,
 		'single_image_width'    => 1920,
         'product_grid'          => array(
         'default_rows'    		=> 2,

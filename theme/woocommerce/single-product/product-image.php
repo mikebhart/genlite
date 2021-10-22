@@ -73,7 +73,7 @@ global $post, $product;
 					<div class="genlite-product-box">
 
 						<a data-fancybox="images" class="" href="<?php echo esc_url($shop_single_image_url); ?>" data-fancybox-group="gallery" title="<?php the_title(); ?>">
-							<img src="<?php echo esc_url($shop_catalog_image_url); ?>" alt="<?php the_title(); ?>" />
+							<img src="<?php echo esc_url($shop_single_image_url); ?>" alt="<?php the_title(); ?>" />
 						</a>
 
 					</div>
