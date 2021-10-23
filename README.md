@@ -9,39 +9,16 @@ For more information about GenLite please go to https://www.hartsoft.co.uk/genli
 <h3>Pre-requisites</h3>
 The following package managers need to be installed for your machine. NPM and Composer.
 <h3>Setup</h3>
-<p>1. In the root folder. Run 'composer install'. Then 'npm install ./gsap-bonus.tgz'.</p>
+<p>1. In the root folder. Run 'composer install'.</p>
 <p>2. in theme folder. Run 'npm install'. To compile sass 'npm run watch' or 'npm run build'.</p>
 
-<h2>Copyright</h2>
-<p>GenLite WordPress Theme, Copyright 2021 Hartsoft Ltd
-GenLite is distributed under the terms of the GNU GPL
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-GenLite bundles the following third-party resources:
-
-Bootstrap, Copyright 2011-2018 Twitter
-License: MIT
-Source: https://getbootstrap.com/
-
-Font Awesome icons, Copyright Dave Gandy
-Icons License: CC BY 5.1 
-Fonts License: SIL OFL 1.1 
-Source: http://fontawesome.io/
-
-LightBox FancyBox, Copyright FancyApps
-GenLite Commercial License key: 7e03f58476b725624255db6b2d628ac9
-Source: https://fancyapps.com/fancybox/3/</p>
-
 <h2>Changelog</h2>
+
+= 2.0.0 = 
+* Released: Oct 22, 2021
+
+= 1.4.3 = 
+* Released: Jan 24, 2021
 
 = 1.4.2 = 
 * Released: July 9, 2018

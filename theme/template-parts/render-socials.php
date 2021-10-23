@@ -1,5 +1,18 @@
 <?php 
 
+
+// for( $x = 0; $x < count( $socials_array ); $x++) {
+
+// 	echo $socials_array[$x]->get_name();
+// 	echo $socials_array[$x]->get_description();
+
+
+
+// }
+
+
+
+
 	$maxSocials = 0;
 	$genlite_social_links = $GLOBALS[GENLITE_SOCIAL_IDS];
 

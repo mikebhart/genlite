@@ -103,16 +103,17 @@ class GenLiteSite extends TimberSite {
 		// 	// Translation Ready
 		load_theme_textdomain('genlite', get_template_directory() . '/languages');
 
+		// Include customizer admin functions when in Customizer mode
+		if ( is_customize_preview() ) {
+			require_once get_template_directory() . '/includes/customizer.php';
+		}
+
+		require_once get_template_directory() . '/includes/archive-ajax-handler.php';
 		require_once get_template_directory() . '/includes/custom-functions.php';
-		require_once get_template_directory() . '/includes/walker.php';
+		require_once get_template_directory() . '/includes/nav-walker.php';
 
 		// Register menu
 		register_nav_menu('primary', 'Top Menu');
-
-		// Include customizer admin functions when in Customizer mode
-		if (is_customize_preview()) {
-			require_once get_template_directory() . '/includes/customizer.php';
-		}
 
 		// Add Theme Support 
 		add_theme_support( 'title-tag' );   
@@ -120,91 +121,28 @@ class GenLiteSite extends TimberSite {
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
-
-		add_theme_support( 'custom-logo', array(
-			'height'      => 80,
-			'width'       => 200,
-			'flex-height' => false,
-			'flex-width'  => false
-		));
-
-		add_theme_support(
-			'html5',
-			array(
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
-		);
-
-		add_theme_support(
-			'post-formats',
-			array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
-			)
-		);
+		add_theme_support( 'custom-logo', ['height'=> 80, 'width'=> 200, 'flex-height' => false, 'flex-width'  => false] );
+		add_theme_support( 'html5', ['comment-form', 'comment-list', 'gallery',	'caption'] );
+		add_theme_support( 'post-formats', ['aside','image','video','quote','link',	'gallery','audio'] );
 
 	}
 
-	// Create Widgets area - 1 sidebar widget for left and right side bar pages.  4 widgets for Footer columns.
 	public function setup_widgets() {
 
-		register_sidebar( array(
-			'name'          => 'Footer 1',
-			'id'            => 'genlite_footer_1',
-			'description'   => __('Add widgets here to appear in your footer.','genlite'),
-			'before_widget' => '<section id="%1$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6><u>',
-			'after_title'   => '</u></h6>',
-		) );
+		// 4 widgets for Footer columns.
+		for ( $x = 1; $x <= 4; $x++ ) {
 
-		register_sidebar( array(
-			'name'          => 'Footer 2',
-			'id'            => 'genlite_footer_2',
-			'description'   => __('Add widgets here to appear in your footer.','genlite'),
-			'before_widget' => '<section id="%1$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6><u>',
-			'after_title'   => '</u></h6>',
-		) );
+			register_sidebar( array(
+				'name'          => 'Footer' . $x,
+				'id'            => 'genlite_footer_' . $x,
+				'description'   => __('Add widgets here to appear in your footer.', 'genlite' ),
+				'before_widget' => '<section id="%1$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h6><u>',
+				'after_title'   => '</u></h6>',
+			) );
 
-		register_sidebar( array(
-			'name'          => 'Footer 3',
-			'id'            => 'genlite_footer_3',
-			'description'   => __('Add widgets here to appear in your footer.','genlite'),
-			'before_widget' => '<section id="%1$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6><u>',
-			'after_title'   => '</u></h6>',
-		) );
-
-		register_sidebar( array(
-			'name'          => 'Footer 4',
-			'id'            => 'genlite_footer_4',
-			'description'   => __('Add widgets here to appear in your footer.','genlite'),
-			'before_widget' => '<section id="%1$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6><u>',
-			'after_title'   => '</u></h6>',
-		) );
-
-		register_sidebar( array(
-			'name'          => 'Footer Footnote',
-			'id'            => 'genlite_footer_footnote',
-			'description'   => __('Add widgets here to appear in your footer.','genlite'),
-			'before_widget' => '<section id="%1$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h6><u>',
-			'after_title'   => '</u></h6>',
-		) );
+		}		  
 
 		register_sidebar( array(
 			'name'          => 'Shop Filters',
@@ -228,6 +166,5 @@ class GenLiteSite extends TimberSite {
 	}
 
 }
-
 
 new GenLiteSite();
