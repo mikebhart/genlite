@@ -16,7 +16,7 @@ For more information about GenLite please go to https://www.hartsoft.co.uk/wordp
 
 == Installation ==
 npm i
-npm i ./gsap-bonus.tgz
+
 
 To compile sass
 npm run watch

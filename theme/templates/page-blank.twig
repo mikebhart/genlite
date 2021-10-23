@@ -1,0 +1,21 @@
+{{ language_attributes }}
+{# {{ blog_charset }} #}
+{{ post.title }}
+{# {{ wp_head }} #}
+{# {{body_class}} #}
+{# {{body_open}} #}
+
+{{blog_name}}
+
+{{is_woocommerce}}
+
+{% block content %}
+	{{ post.content }}
+{% endblock %}
+
+
+{{logo}}
+
+{{header_nav_menu}}
+
+{{ post.mike_input }}
