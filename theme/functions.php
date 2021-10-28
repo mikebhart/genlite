@@ -40,17 +40,17 @@ class GenLiteSite extends TimberSite {
 
 	public function load_scripts_and_styles() {
 
-		wp_enqueue_style('genlite_font_awesome', get_template_directory_uri() . '/dist/styles/fontawesome.css');
-		wp_enqueue_style('genlite_style', get_template_directory_uri() . '/dist/styles/index.css');
+		wp_enqueue_style('genlite_font_awesome', get_template_directory_uri() . '/dist/fa/fontawesome.css');
+		wp_enqueue_style('genlite_style', get_template_directory_uri() . '/dist/main.css');
 
-		wp_enqueue_script('genlite_script', get_template_directory_uri() . '/dist/scripts/index.js', array('jquery'));
+		wp_enqueue_script('genlite_script', get_template_directory_uri() . '/dist/main.js', array('jquery'));
 		wp_localize_script('genlite_script', 'genlite_ajax_object', array('ajax_url' => admin_url('admin-ajax.php'),
 			'posts_per_page' => get_option('posts_per_page'),
 		));
 
 		if (get_theme_mod('genlite_general_lightbox') == true) {
-			wp_enqueue_script('genlite_fancybox_script', get_template_directory_uri() . '/dist/scripts/jquery.fancybox.min.js', array('jquery'));
-			wp_enqueue_style('genlite_fancybox_style', get_template_directory_uri() . '/dist/styles/jquery.fancybox.min.css');
+			wp_enqueue_script('genlite_fancybox_script', get_template_directory_uri() . '/dist/jquery.fancybox.min.js', array('jquery'));
+			wp_enqueue_style('genlite_fancybox_style', get_template_directory_uri() . '/dist/jquery.fancybox.min.css');
 		}
 
 	}

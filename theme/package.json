@@ -1,55 +1,49 @@
 {
-  "name": "genlite",
-  "version": "1.4.2",
-  "description": "",
-  "scripts": {
-    "start": "webpack --mode=development --watch",
-    "watch": "webpack --mode=production --watch",
-    "build": "webpack --mode=production"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@babel/polyfill": "^7.8.7",
-    "@fancyapps/fancybox": "^3.5.7",
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@types/gsap": "^1.20.2",
-    "@wordpress/blocks": "^6.16.0",
-    "bootstrap": "^5.1.3",
-    "bootstrap-select": "^1.13.18",
-    "copy-dir": "^1.2.0",
-    "popper.js": "^1.16.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-select": "^3.1.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "@wordpress/browserslist-config": "^2.3.0",
-    "@wordpress/components": "^8.3.2",
-    "@wordpress/editor": "^9.16.0",
-    "autoprefixer": "^9.7.6",
-    "babel-loader": "^8.1.0",
-    "browserslist": "^4.12.0",
-    "clean-webpack-plugin": "^2.0.1",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^2.1.1",
-    "font-awesome": "^4.7.0",
-    "font-awesome-loader": "^1.0.2",
-    "imports-loader": "^0.7.0",
-    "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  },
-  "browserslist": [
-    "extends @wordpress/browserslist-config"
-  ]
+	"name": "genlite",
+	"version": "2.0.0",
+	"description": "A webpack config",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"watch": "webpack --mode=production --watch"
+	},
+	"keywords": [
+		"webpack",
+		"html",
+		"vanilla"
+	],
+	"author": "Mike Hart",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-eslint": "^10.1.0",
+		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^6.2.1",
+		"css-loader": "^4.3.0",
+		"eslint": "^7.11.0",
+		"eslint-config-alloy": "^3.8.0",
+		"html-webpack-plugin": "^4.5.0",
+		"http-server": "^0.12.3",
+		"jsdom": "^16.4.0",
+		"mini-css-extract-plugin": "^1.0.0",
+		"prettier": "^2.1.2",
+		"reload": "^3.1.1",
+		"surge": "^0.21.6",
+		"webpack": "^5.0.0",
+		"webpack-cli": "^4.0.0"
+	},
+	"dependencies": {
+		"sass": "^1.43.4",
+		"sass-loader": "^12.3.0",
+		"@fancyapps/fancybox": "^3.5.7",
+		"@fortawesome/fontawesome-free": "^5.15.4",
+		"@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+		"@types/gsap": "^1.20.2",
+		"autoprefixer": "^10.4.0",
+		"babel-loader": "^8.2.3",
+		"bootstrap": "^5.1.3",
+		"gsap": "^3.8.0",
+		"postcss-loader": "^6.2.0",
+		"react-refresh-webpack-plugin": "^0.1.0",
+		"style-loader": "^3.3.1"
+	}
 }
