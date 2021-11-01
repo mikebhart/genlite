@@ -2,7 +2,7 @@
   "name": "hartsoft/genlite",
   "type": "project",
   "license": "MIT",
-  "description": "My WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
+  "description": "My Genlite boilerplate with modern development tools, easier configuration, and an improved folder structure",
   "keywords": [
     "composer",
     "wordpress",
