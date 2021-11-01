@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e96057e8edb786a0a794a25591ba5218",
+    "content-hash": "9ba2b940b51f7e2f70a795f45b44cbd1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -38,6 +38,51 @@
                 "docs": "https://www.advancedcustomfields.com/resources/",
                 "forum": "https://support.advancedcustomfields.com/topics/"
             }
+        },
+        {
+            "name": "angry-creative/ldap-login",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Angrycreative/ldap-login.git",
+                "reference": "610c91c395345fba472ba19f4f3e472fd1d04bc4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Angrycreative/ldap-login/zipball/610c91c395345fba472ba19f4f3e472fd1d04bc4",
+                "reference": "610c91c395345fba472ba19f4f3e472fd1d04bc4",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Clif Griffin",
+                    "homepage": "http://cgd.io"
+                },
+                {
+                    "name": "Angry Creative"
+                }
+            ],
+            "description": "Simple LDAP Login",
+            "homepage": "http://cgd.io",
+            "keywords": [
+                "active directory",
+                "ldap",
+                "login",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Angrycreative/ldap-login/issues",
+                "source": "https://github.com/Angrycreative/ldap-login/tree/2.0.1"
+            },
+            "time": "2018-10-23T07:24:18+00:00"
         },
         {
             "name": "composer/installers",
@@ -1384,5 +1429,5 @@
         "php": ">=7.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

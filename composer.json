@@ -30,7 +30,8 @@
     "wpackagist-plugin/wordpress-seo": "^16.3",
     "wpackagist-plugin/wordfence": "^7.5",
     "palmiak/timber-acf-wp-blocks": "^1.14",
-    "wpackagist-plugin/woocommerce": "^5.4"
+    "wpackagist-plugin/woocommerce": "^5.4",
+    "angry-creative/ldap-login": "^2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
