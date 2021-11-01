@@ -5,6 +5,7 @@ $plugins = [
 			// 'duplicate-post/duplicate-post.php', 
 			// 'woocommerce/woocommerce.php',
 			 'advanced-custom-fields-pro/acf.php',
+			 'ldap-login/LDAP-Login.php',
 //			'wordfence/wordfence.php',
 			// 'wordpress-seo/wp-seo.php'
 		];
