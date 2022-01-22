@@ -7,6 +7,7 @@ function genlite_more_post_ajax_handler(){
     $page = (isset($_POST['pageNumber'])) ? $_POST['pageNumber'] : 0;
     $category = (isset($_POST['category'])) ? $_POST['category'] : 'all-categories';
     $search_text = (isset($_POST['search_text'])) ? $_POST['search_text'] : null;
+
   
     header("Content-Type: text/html");
 
@@ -17,26 +18,38 @@ function genlite_more_post_ajax_handler(){
 
 	$myquery = "";
 
-	if ($catid!=0) {
+	if ($catid==0) {
+
+		$myquery = "SELECT *
+		FROM wp_posts
+		WHERE post_content LIKE '%" . $search_text . "%' and post_status = 'publish' LIMIT 0, 19";
+
+	} else {
 
 		$myquery = "SELECT *
 		FROM wp_posts
 		LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id)
 		LEFT JOIN wp_term_taxonomy ON (wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id)
-		WHERE wp_term_taxonomy.term_id IN (" . $catid . ") AND post_content LIKE '%" . $search_text . "%' and post_status = 'publish'";
-	} else {
-		$myquery = "SELECT * FROM wp_posts WHERE post_content LIKE '%" . $search_text . "%' and post_status = 'publish'";
-	}
+		WHERE wp_term_taxonomy.term_id IN (" . $catid . ") AND post_content LIKE '%" . $search_text . "%' and post_status = 'publish' LIMIT 0, 19";
+
+	} 
+	
+//	else {
+//		$myquery = "SELECT * FROM wp_posts WHERE post_content LIKE '%" . $search_text . "%' and post_status = 'publish'  LIMIT 0, 19";
+//	}
 
 
 
 	$result = $wpdb->get_results( $myquery );
 
+	// var_dump($result);
+	// exit;
+
 	echo $wpdb->num_rows;
 
 	if ($result){
 		foreach($result as $pageThing){
-		echo $pageThing->ID . ' = ' . $pageThing->post_title . '<br>';
+		echo $pageThing->ID . ' = ' . $pageThing->post_title . '<a href="' . get_permalink( $pageThing->ID ) . '">Link</a><br>';
 		}
 	}
 

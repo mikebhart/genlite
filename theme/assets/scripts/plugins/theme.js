@@ -112,7 +112,11 @@ export default {
                         category = document.getElementById("category-select").value;
 						search_text = document.getElementById("genlite-keyword-input").value;
                         
-                        genlite_load_posts();
+						//setTimeout(function(){
+							genlite_load_posts();
+						// }, 500);
+
+                      
 
 
 					});
@@ -126,15 +130,24 @@ export default {
 
 						category = document.getElementById("category-select").value;
 						search_text = document.getElementById("genlite-keyword-input").value;
-			
-						genlite_load_posts();
-                
+
+						
+				//	setTimeout(function(){
+					
+							genlite_load_posts();
+				//	 }, 250);
+							
                 
                     });
+
+					var xhr = null;
                 
                     function genlite_load_posts() {
 
-                        pageNumber++;
+						
+						
+    
+					    pageNumber++;
 						
 				        var data = {
                                     'action': 'genlite_more_post_ajax_handler',
@@ -143,12 +156,18 @@ export default {
                                     'category' : category,
                                     'search_text' : search_text
                                     };
-                
-                        $.ajax({
+
+						if( xhr ) { //&& search_text.length !=0 
+							xhr.abort();
+						}
+
+						
+						xhr = $.ajax({
                                 
                                 type: "POST",
                                 dataType: "html",
                                 url: genlite_ajax_object.ajax_url,
+								async : false,
                                 data: data,
                                 
                                 success: function(data){
@@ -198,9 +217,9 @@ export default {
                 
                 
                 
-                    $("#genlite-archive__more-posts-button").bind("click",function(event) { 
-                        genlite_load_posts();
-                    });
+                    // $("#genlite-archive__more-posts-button").bind("click",function(event) { 
+                    //     genlite_load_posts();
+                    // });
 
                 }
         }
