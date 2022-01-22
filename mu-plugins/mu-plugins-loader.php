@@ -2,12 +2,12 @@
 
 $plugins = [
 			'timber-library/timber.php',
-			 'duplicate-post/duplicate-post.php', 
+			// 'duplicate-post/duplicate-post.php', 
 			 'woocommerce/woocommerce.php',
 			 'advanced-custom-fields-pro/acf.php',
-			 'ldap-login/LDAP-Login.php',
+			// 'ldap-login/LDAP-Login.php',
 //			'wordfence/wordfence.php',
-			 'wordpress-seo/wp-seo.php'
+		//	 'wordpress-seo/wp-seo.php'
 		];
 
 foreach ( $plugins as $plugin ) {

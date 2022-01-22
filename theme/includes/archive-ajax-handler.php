@@ -10,50 +10,52 @@ function genlite_more_post_ajax_handler(){
   
     header("Content-Type: text/html");
 
-    if ($category == 'all-categories' && $month == null && $search_text == null) {
+	global $wpdb;
 
-        $args = array(
-            'suppress_filters' => true,
-            'post_type' => 'post',
-			'ignore_sticky_posts' => 1,
-            'posts_per_page' => $postsPerPage,
-            'paged'    => $page,
-        );
 
-    } else if ($category != 'all-categories' && $month == null && $search_text == null) {
+	$catid = get_cat_ID ( $category );
 
-        $args = array (
-                'orderby' => 'title',
-                'order'   => 'ASC',
-                'post_type' => 'post',
-				'ignore_sticky_posts' => 1,
-                'posts_per_page' => $postsPerPage,
-                'paged' => $page,
-                'tax_query' => array(
-                  array (
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $category
-                  )          
-                )
-              );
+	$myquery = "";
 
-    } else if ($search_text != null) {
+	if ($catid!=0) {
 
-        $args = array (
-            's' => $search_text,
-            'orderby' => 'title',
-			'ignore_sticky_posts' => 1,
-            'order'   => 'ASC',
-            'post_type' => 'post',
-            'posts_per_page' => $postsPerPage,
-            'paged' => $page
-        );
+		$myquery = "SELECT *
+		FROM wp_posts
+		LEFT JOIN wp_term_relationships ON (wp_posts.ID = wp_term_relationships.object_id)
+		LEFT JOIN wp_term_taxonomy ON (wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id)
+		WHERE wp_term_taxonomy.term_id IN (" . $catid . ") AND post_content LIKE '%" . $search_text . "%' and post_status = 'publish'";
+	} else {
+		$myquery = "SELECT * FROM wp_posts WHERE post_content LIKE '%" . $search_text . "%' and post_status = 'publish'";
+	}
 
-    }
 
-    $loop = new WP_Query($args);
-    $row_count = $loop->found_posts; 
+
+	$result = $wpdb->get_results( $myquery );
+
+	echo $wpdb->num_rows;
+
+	if ($result){
+		foreach($result as $pageThing){
+		echo $pageThing->ID . ' = ' . $pageThing->post_title . '<br>';
+		}
+	}
+
+
+exit;
+
+
+//$result->post_count = count( $result->posts );
+
+
+
+    //$loop = new WP_Query($args);
+    // $row_count = $loop->found_posts; 
+
+	// echo $row_count;
+	// exit;
+
+	//$row_count = count($result->posts );
+
     $max_pages = ceil($row_count / $postsPerPage);
 
     $out = '';

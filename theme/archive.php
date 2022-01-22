@@ -52,7 +52,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			</div>
 			
 			<div class="col-12 col-md-3">
-				<div><input id="keyword-input" name="keyword-input" type="text" class="form-control" placeholder="Keyword Search"></div>
+				<div><input id="genlite-keyword-input" name="genlite-keyword-input" type="text" class="form-control" placeholder="Keyword Search"></div>
 			</div>
 			
 		</div>

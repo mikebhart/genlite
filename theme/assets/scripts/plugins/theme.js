@@ -103,42 +103,40 @@ export default {
                     var category;
                     var search_text;
 
+				
 					$('#category-select').on('change', function() {
-						search_text = null;
-                        document.getElementById("keyword-input").value = '';
+						
+						//search_text = null;
+                        //document.getElementById("keyword-input").value = '';
 						pageNumber = 0;
                         category = document.getElementById("category-select").value;
+						search_text = document.getElementById("genlite-keyword-input").value;
                         
-                        $("#genlite-archive__more-posts-placeholder").html("");
                         genlite_load_posts();
 
 
 					});
 
-                    $("#keyword-input").keyup(function(event) {
+                    $("#genlite-keyword-input").keyup(function() {
                 
+						//category  = null;
+						//document.getElementById("category-select").value = 'all-categories';
+						
+						pageNumber = 0;
+
+						category = document.getElementById("category-select").value;
+						search_text = document.getElementById("genlite-keyword-input").value;
+			
+						genlite_load_posts();
                 
-                        if (event.keyCode === 13) {
-                            
-                            category  = null;
-                            document.getElementById("category-select").value = 'all-categories';
-                            
-                            pageNumber = 0;
-                
-                            search_text = document.getElementById("keyword-input").value;
-                
-                            $("#genlite-archive__more-posts-placeholder").html("");
-                            genlite_load_posts();
-                
-                        }
                 
                     });
                 
                     function genlite_load_posts() {
 
                         pageNumber++;
-                
-                        var data = {
+						
+				        var data = {
                                     'action': 'genlite_more_post_ajax_handler',
                                     'pageNumber': pageNumber, 
                                     'postsPerPage' : genlite_ajax_object.posts_per_page,
@@ -159,6 +157,7 @@ export default {
                         
                                         if(data){
                                         
+											$("#genlite-archive__more-posts-placeholder").html("");
                                             $("#genlite-archive__more-posts-placeholder").append(data);
                                         
                                         } else {
