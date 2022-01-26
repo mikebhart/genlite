@@ -132,10 +132,10 @@ export default {
 						search_text = document.getElementById("genlite-keyword-input").value;
 
 						
-				//	setTimeout(function(){
+					// setTimeout(function(){
 					
 							genlite_load_posts();
-				//	 }, 250);
+					//  }, 4200);
 							
                 
                     });
@@ -157,11 +157,11 @@ export default {
                                     'search_text' : search_text
                                     };
 
-						if(xhr && xhr.readystate != 4 && search_text.length < 1 ){
+						if(xhr && xhr.readystate != 4 && search_text.length != 0 ){
 							xhr.abort();
 						}
 
-						
+						console.log(search_text.length);
 						
 						xhr = $.ajax({
                                 
@@ -203,12 +203,12 @@ export default {
                         
                                 },
                                 error : function(jqXHR, textStatus, errorThrown) {
-                                    $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+                              //      $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
                                 }
                 
                         }).done(function() {
                           //  do something
-						  xhr = null;
+						//  xhr = null;
                           });
                     
                         return false;
