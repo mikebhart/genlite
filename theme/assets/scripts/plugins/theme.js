@@ -157,7 +157,7 @@ export default {
                                     'search_text' : search_text
                                     };
 
-						if(xhr && xhr.readystate != 4){
+						if(xhr && xhr.readystate != 4 && search_text.length < 1 ){
 							xhr.abort();
 						}
 
