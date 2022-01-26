@@ -140,7 +140,7 @@ export default {
                 
                     });
 
-					var xhr = null;
+					var xhr = false;
                 
                     function genlite_load_posts() {
 
@@ -157,17 +157,17 @@ export default {
                                     'search_text' : search_text
                                     };
 
-						if( xhr ) { //&& search_text.length !=0 
+						if(xhr && xhr.readystate != 4){
 							xhr.abort();
 						}
 
+						
 						
 						xhr = $.ajax({
                                 
                                 type: "POST",
                                 dataType: "html",
                                 url: genlite_ajax_object.ajax_url,
-								async : false,
                                 data: data,
                                 
                                 success: function(data){
@@ -208,6 +208,7 @@ export default {
                 
                         }).done(function() {
                           //  do something
+						  xhr = null;
                           });
                     
                         return false;
