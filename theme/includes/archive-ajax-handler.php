@@ -49,9 +49,44 @@ function genlite_more_post_ajax_handler(){
 
 	if ($result){
 		foreach($result as $pageThing){
+
+
+			$cars = [ $pageThing->ID, $pageThing->post_title, get_permalink( $pageThing->ID ) ];
+	//echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+
 		echo $pageThing->ID . ' = ' . $pageThing->post_title . '<a href="' . get_permalink( $pageThing->ID ) . '">Link</a><br>';
 		}
 	}
+
+	global $post;
+
+    $context = Timber::get_context();
+    $context['get_page'] = empty($_POST['get_page']) ? 1 : $_POST['get_page'];
+
+    $category = get_the_category($post->ID);
+    $category = $category[0]->cat_ID;
+
+    $context['posts'] = Timber::get_posts(array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'category__in' => array($category),
+        'posts_per_page' => 10,
+        'paged' => $context['get_page'],
+        'has_password' => FALSE
+    ));
+    $count = count(Timber::get_posts(array(
+        'post_type' => 'post',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'category__in' => array($category)
+    )));
+
+    if($count <= $context['get_page'] * 10) $context['ended'] = 'ended';
+
+    Timber::render( 'bloc_news.twig', $context );
+
+    die();
+	
 
 
 exit;
