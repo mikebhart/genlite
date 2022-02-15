@@ -1,6 +1,7 @@
 /theme/dist
 /theme/node_modules
 /vendor
+/html
 mu-plugins/*
 !mu-plugins/mu-plugins-loader.php
 *.log

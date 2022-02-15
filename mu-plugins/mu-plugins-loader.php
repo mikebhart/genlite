@@ -2,7 +2,7 @@
 
 $plugins = [
 			'timber-library/timber.php',
-			// 'duplicate-post/duplicate-post.php', 
+		//	// 'duplicate-post/duplicate-post.php', 
 			 'woocommerce/woocommerce.php',
 			 'advanced-custom-fields-pro/acf.php',
 			// 'ldap-login/LDAP-Login.php',
