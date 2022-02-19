@@ -25,39 +25,54 @@
 // -H "Authorization: Bearer __token__" \
 // -d '{"market_centers": ["string"], "sub_market_centers": ["string"], "symbols": ["AAPL"]}'
 
-$yesterday = date("Y-m-d", strtotime("-1 day"));
-$today = date("Y-m-d");
 
-$url = "https://api.nasdaq.com/api/quote/KRSTX/historical?assetclass=mutualfunds&fromdate=" . $yesterday . '&' . 'todate=' . $today;
+function get_nav_price( $ticker ) {
 
-$ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, $url );
-curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false );
-
-$result = curl_exec( $ch );
-$err = curl_error( $ch );
-
-curl_close( $ch );
-
-if ( $err ) {
-
-    error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err, 0 );
-
-  } else {
-
-    $result_decoded = json_decode( $result, true );
-    var_dump( $result_decoded );    
-
-    $err_message = $result_decoded["status"]["bCodeMessage"][0]["errorMessage"];
-
-    if ( strlen( $err_message) > 0 )  {
-
-        error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err_message, 0 );
-        
-    }
+    $yesterday = date("Y-m-d", strtotime("-1 day"));
+    $today = date("Y-m-d");
     
-    echo 'Complete';
+    $url = "https://api.nasdaq.com/api/quote/" . $ticker . "/historical?assetclass=mutualfunds&fromdate=" . $yesterday . '&' . 'todate=' . $today;
+    
+    $ch = curl_init();
+    curl_setopt( $ch, CURLOPT_URL, $url );
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
+    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false );
+    
+    $result = curl_exec( $ch );
+    $err = curl_error( $ch );
+    
+    curl_close( $ch );
+    
+    if ( $err ) {
+    
+        error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err, 0 );
+    
+      } else {
+    
+        $result_decoded = json_decode( $result, true );
+
+        $err_message = $result_decoded["status"]["bCodeMessage"][0]["errorMessage"];
+    
+        if ( strlen( $err_message) > 0 )  {
+    
+            error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err_message, 0 );
+
+            return;
+    
+        }
+        
+        return $result_decoded;
+    
+    }
+
+    return;
 
 }
+
+$aa = get_nav_price( "KRSTX" );
+var_dump( $aa );
+
+$aa = get_nav_price( "KRSOX" );
+var_dump( $aa );
+
