@@ -4,86 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba2b940b51f7e2f70a795f45b44cbd1",
+    "content-hash": "30b07551767000c21183f3d2b1032267",
     "packages": [
-        {
-            "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.10.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.10.2"
-            },
-            "require": {
-                "pivvenit/acf-pro-installer": "^2.4.0 || ^3.0"
-            },
-            "type": "wordpress-muplugin",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Elliot Condon",
-                    "homepage": "http://www.elliotcondon.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "PivvenIT",
-                    "homepage": "https://pivvenit.nl",
-                    "role": "Composer Repository maintainer"
-                }
-            ],
-            "description": "Advanced Custom Fields PRO",
-            "homepage": "https://www.advancedcustomfields.com/",
-            "support": {
-                "docs": "https://www.advancedcustomfields.com/resources/",
-                "forum": "https://support.advancedcustomfields.com/topics/"
-            }
-        },
-        {
-            "name": "angry-creative/ldap-login",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Angrycreative/ldap-login.git",
-                "reference": "610c91c395345fba472ba19f4f3e472fd1d04bc4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Angrycreative/ldap-login/zipball/610c91c395345fba472ba19f4f3e472fd1d04bc4",
-                "reference": "610c91c395345fba472ba19f4f3e472fd1d04bc4",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Clif Griffin",
-                    "homepage": "http://cgd.io"
-                },
-                {
-                    "name": "Angry Creative"
-                }
-            ],
-            "description": "Simple LDAP Login",
-            "homepage": "http://cgd.io",
-            "keywords": [
-                "active directory",
-                "ldap",
-                "login",
-                "wordpress"
-            ],
-            "support": {
-                "issues": "https://github.com/Angrycreative/ldap-login/issues",
-                "source": "https://github.com/Angrycreative/ldap-login/tree/2.0.1"
-            },
-            "time": "2018-10-23T07:24:18+00:00"
-        },
         {
             "name": "composer/installers",
             "version": "v1.12.0",
@@ -352,62 +274,6 @@
             "time": "2020-06-11T10:59:27+00:00"
         },
         {
-            "name": "palmiak/timber-acf-wp-blocks",
-            "version": "1.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/palmiak/timber-acf-wp-blocks.git",
-                "reference": "4d3ecfc31ba5c90964a4f0e7e10b97cb3a2ceb7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/palmiak/timber-acf-wp-blocks/zipball/4d3ecfc31ba5c90964a4f0e7e10b97cb3a2ceb7e",
-                "reference": "4d3ecfc31ba5c90964a4f0e7e10b97cb3a2ceb7e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "0.5.0",
-                "wp-coding-standards/wpcs": "2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "timber-acf-wp-blocks.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maciej Palmowski",
-                    "email": "m.palmowski@freshpixels.pl"
-                },
-                {
-                    "name": "Michael W. Delaney",
-                    "email": "michael@michaeldelaney.me"
-                },
-                {
-                    "name": "Nico Prat"
-                }
-            ],
-            "description": "Create Gutenberg blocks from Twig templates and ACF fields.",
-            "keywords": [
-                "advanced custom fields",
-                "gutenberg",
-                "wordpress"
-            ],
-            "support": {
-                "issues": "https://github.com/palmiak/timber-acf-wp-blocks/issues",
-                "source": "https://github.com/palmiak/timber-acf-wp-blocks/tree/1.15"
-            },
-            "time": "2021-08-27T09:09:45+00:00"
-        },
-        {
             "name": "phpoption/phpoption",
             "version": "1.8.0",
             "source": {
@@ -475,74 +341,6 @@
                 }
             ],
             "time": "2021-08-28T21:27:29+00:00"
-        },
-        {
-            "name": "pivvenit/acf-pro-installer",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pivvenit/acf-pro-installer.git",
-                "reference": "abf40927ed6f4596700ca35450d1d16e49426222"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pivvenit/acf-pro-installer/zipball/abf40927ed6f4596700ca35450d1d16e49426222",
-                "reference": "abf40927ed6f4596700ca35450d1d16e49426222",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1||^2.0",
-                "ext-json": "*",
-                "php": "^7.3||^8.0",
-                "vlucas/phpdotenv": "^3.0 || ^4.0 || ^5.0"
-            },
-            "replace": {
-                "philippbaschke/acf-pro-installer": "1.0.2"
-            },
-            "require-dev": {
-                "composer/composer": "^1.0|| ^2.0",
-                "php-parallel-lint/php-parallel-lint": "^1.2.0",
-                "phpstan/phpstan": "^0.12.14",
-                "phpunit/phpunit": "^9.0",
-                "rregeer/phpunit-coverage-check": "^0.3.1",
-                "squizlabs/php_codesniffer": "^3.4",
-                "symfony/process": "^5.1"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PivvenIT\\Composer\\Installers\\ACFPro\\ACFProInstallerPlugin",
-                "plugin-modifies-downloads": true
-            },
-            "autoload": {
-                "psr-4": {
-                    "PivvenIT\\Composer\\Installers\\ACFPro\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PivvenIT",
-                    "homepage": "https://pivvenit.nl"
-                }
-            ],
-            "description": "A modern maintained install helper for Advanced Custom Fields PRO",
-            "keywords": [
-                "acf",
-                "composer",
-                "env",
-                "plugin",
-                "pro",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "issues": "https://github.com/pivvenit/acf-pro-installer/issues",
-                "source": "https://github.com/pivvenit/acf-pro-installer/tree/3.0.0"
-            },
-            "time": "2020-11-21T14:21:09+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -865,6 +663,24 @@
             "time": "2021-10-02T19:24:42+00:00"
         },
         {
+            "name": "wpackagist-plugin/advanced-cron-manager",
+            "version": "2.4.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/advanced-cron-manager/",
+                "reference": "tags/2.4.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/advanced-cron-manager.2.4.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/advanced-cron-manager/"
+        },
+        {
             "name": "wpackagist-plugin/duplicate-post",
             "version": "4.1.2",
             "source": {
@@ -881,6 +697,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/duplicate-post/"
+        },
+        {
+            "name": "wpackagist-plugin/svg-support",
+            "version": "2.4.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/svg-support/",
+                "reference": "tags/2.4.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/svg-support.2.4.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/svg-support/"
         },
         {
             "name": "wpackagist-plugin/timber-library",
@@ -917,42 +751,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/woocommerce/"
-        },
-        {
-            "name": "wpackagist-plugin/wordfence",
-            "version": "7.5.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/7.5.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.7.5.6.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0 || ~2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordfence/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "16.9",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/16.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.16.9.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0 || ~2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         }
     ],
     "packages-dev": [
@@ -1429,5 +1227,5 @@
         "php": ">=7.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

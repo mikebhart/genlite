@@ -28,10 +28,10 @@
 
 function get_nav_price( $ticker ) {
 
-    $yesterday = date("Y-m-d", strtotime("-1 day"));
-    $today = date("Y-m-d");
-    
-    $url = "https://api.nasdaq.com/api/quote/" . $ticker . "/historical?assetclass=mutualfunds&fromdate=" . $yesterday . '&' . 'todate=' . $today;
+    $from_date = date( "Y-m-d", strtotime( "-7 day" ) );
+    $to_date = date( "Y-m-d" );
+   
+    $url = "https://api.nasdaq.com/api/quote/" . $ticker . "/historical?assetclass=mutualfunds&limit=10&fromdate=" . $from_date . '&' . 'todate=' . $to_date;
     
     $ch = curl_init();
     curl_setopt( $ch, CURLOPT_URL, $url );
@@ -47,32 +47,38 @@ function get_nav_price( $ticker ) {
     if ( $err ) {
     
         error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err, 0 );
-    
-      } else {
-    
-        $result_decoded = json_decode( $result, true );
 
-        $err_message = $result_decoded["status"]["bCodeMessage"][0]["errorMessage"];
+        return false;
+    }
     
-        if ( strlen( $err_message) > 0 )  {
-    
-            error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err_message, 0 );
+    $result_decoded = json_decode( $result, true );
 
-            return;
-    
-        }
-        
-        return $result_decoded;
+    $err_message = $result_decoded["status"]["bCodeMessage"][0]["errorMessage"];
+
+    if ( $err_message !== NULL )  {
+
+        error_log( 'KREST PRICE UPDATE ERROR URL=' . $url . ' Error=' . $err_message, 0 );
+
+        return false;
     
     }
 
-    return;
+    return $result_decoded;
 
 }
 
 $aa = get_nav_price( "KRSTX" );
-var_dump( $aa );
+if ( $aa ) {
 
-$aa = get_nav_price( "KRSOX" );
-var_dump( $aa );
+    var_dump( $aa );
+}
+
+
+$ab = get_nav_price( "KRSOX" );
+if ( $ab ) {
+
+    var_dump( $ab );
+}
+
+
 
