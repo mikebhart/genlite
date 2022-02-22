@@ -1,31 +1,5 @@
 <?php
 
-//$API_KEY = "1KF99C7HM8CBVDZU";
-
-//$curl_url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=" . $API_KEY;
-
-// curl_setopt_array($curl, array(
-//   CURLOPT_URL => $curl_url,
-//   CURLOPT_RETURNTRANSFER => true,
-//   CURLOPT_ENCODING => "",
-//   CURLOPT_MAXREDIRS => 10,
-//   CURLOPT_TIMEOUT => 30,
-//   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//   CURLOPT_CUSTOMREQUEST => "POST",
-//   CURLOPT_HTTPHEADER => array(
-//     "cache-control: no-cache",
-//     "cookie: $cookie",
-//     "x-csrf-token: $token"
-//   ),
-// ));
-
-// curl -X POST "https://dataondemand.nasdaq.com/api/v1/trades/recurring" \
-// -H "accept: application/json" \
-// -H "Content-Type: application/json" \
-// -H "Authorization: Bearer __token__" \
-// -d '{"market_centers": ["string"], "sub_market_centers": ["string"], "symbols": ["AAPL"]}'
-
-
 function get_nav_price( $ticker ) {
 
     $from_date = date( "Y-m-d", strtotime( "-7 day" ) );
@@ -74,11 +48,11 @@ if ( $aa ) {
 }
 
 
-$ab = get_nav_price( "KRSOX" );
-if ( $ab ) {
+// $ab = get_nav_price( "KRSOX" );
+// if ( $ab ) {
 
-    var_dump( $ab );
-}
+//     var_dump( $ab );
+// }
 
 
 
