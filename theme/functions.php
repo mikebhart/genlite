@@ -23,6 +23,7 @@ Timber::$dirname = ['templates'];
 Timber::$autoescape = false;
 
 
+
 class GenLiteSite extends TimberSite {
 
 	public function __construct() {
@@ -33,6 +34,8 @@ class GenLiteSite extends TimberSite {
 		add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets'] );
 		add_action( 'widgets_init', [ $this, 'setup_widgets'] );	
+        add_action( 'admin_init', [ $this, 'add_editor_user_role'] );
+
 
 		parent::__construct();
 	
@@ -55,10 +58,45 @@ class GenLiteSite extends TimberSite {
 
 	}
   
+    public function add_editor_user_role() {
+
+        if ( !is_a( get_role('editor_user'), 'WP_Role')) {
+
+            $privilegedCapabilities = [
+                'read'         => true,
+                'edit_posts'   => true,
+                'delete_posts' => true,
+                'delete_users' => true,
+                'create_users' => true,
+                'manage_categories'  => true,
+                'manage_links' => true,
+                'edit_others_posts' => true,
+                'edit_pages' => true,
+                'edit_users' => true, 
+                'list_users' => true,
+                'promote_users' => true,
+                'remove_users' => true,
+                'edit_others_pages' => true,
+                'edit_published_pages' => true,
+                'publish_pages' => true,
+                'delete_pages' => true,
+                'delete_others_pages' => true,
+                'delete_published_pages' => true,
+                'delete_others_posts' => true,
+                'delete_private_posts' => true,
+                'edit_private_posts' => true,
+                'read_private_posts' => true,
+                'delete_private_pages' => true,
+                'edit_private_pages' => true,
+                'read_private_pages' => true ];
+
+            add_role('editor_user', __('Editor User'), $privilegedCapabilities );
+        }
+    }
+
 	public function add_to_context( $context ) {
 
 		$context['site']  = $this;
-		$context['miketest']  = 'hello 123mike was erte';
 		$context['language_attributes'] = language_attributes(); 
 		$context['blog_charset'] = bloginfo( 'charset' );
 		$context['blog_name'] = bloginfo( 'name' ); 	
@@ -168,3 +206,12 @@ class GenLiteSite extends TimberSite {
 }
 
 new GenLiteSite();
+
+ 
+// if ( null !== $result ) {
+//     echo "Success: {$result->name} user role created.";
+// }
+// else {
+//     echo 'Failure: user role already exists.';
+// }
+

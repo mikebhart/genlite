@@ -26,6 +26,7 @@
     "oscarotero/env": "^2.1",
     "wpackagist-plugin/duplicate-post": "^4.1",
     "wpackagist-plugin/timber-library": "^1.18",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
     "wpackagist-plugin/woocommerce": "^5.4",
     "wpackagist-plugin/advanced-cron-manager": "^2.4",
     "wpackagist-plugin/svg-support": "^2.4"
@@ -38,14 +39,15 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "allow-plugins": {
-      "composer/installers": true
+      "composer/installers": true,
+      "pivvenit/acf-pro-installer": true
     }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "./mu-plugins/{$name}/": ["type:wordpress-plugin"]
+      "./mu-plugins/{$name}/": ["type:wordpress-plugin","advanced-custom-fields/advanced-custom-fields-pro"]
     }
   },
   "scripts": {
