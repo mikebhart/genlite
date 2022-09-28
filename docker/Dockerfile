@@ -1,4 +1,4 @@
 #
 # Base image https://hub.docker.com/_/wordpress
 #
-FROM wordpress:latest
+FROM wordpress:beta-php8.0-apache
