@@ -1,0 +1,44 @@
+{
+    "key": "group_63f91c4815369",
+    "title": "test",
+    "fields": [
+        {
+            "key": "field_63f91c5648949",
+            "label": "test",
+            "name": "test",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<h3>dfsgfg dfdfgdfgfd<\/h3>\r\ndfgdfg\r\ndfg\r\ndfgfdfg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1677270187
+}

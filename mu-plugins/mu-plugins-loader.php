@@ -2,10 +2,7 @@
 
 $plugins = [
 			'timber-library/timber.php',
-//			 'duplicate-post/duplicate-post.php', 
-			 'woocommerce/woocommerce.php',
-    //         'svg-support/svg-support.php',
-  //           'advanced-cron-manager/advanced-cron-manager.php'
+  'advanced-custom-fields-pro/acf.php'
 		];
 
 foreach ( $plugins as $plugin ) {
