@@ -1,5 +1,4 @@
 <?php
-//echo 'in archive work.php';
 
 $context = Timber::context();
 

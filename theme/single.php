@@ -6,4 +6,4 @@ $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 
 
-Timber::render( [ 'archive.twig' ], $context );
+Timber::render( [ 'single.twig' ], $context );
