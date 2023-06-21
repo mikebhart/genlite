@@ -12,17 +12,17 @@ export const handleBackToTopButton = function () {
 
         if (document.body.scrollTop > showScrollTopPosition || document.documentElement.scrollTop > showScrollTopPosition) {
 
-            $('#kkr-back-to-top').addClass('show');
+            $('#genlite-back-to-top').addClass('show');
 
         } else {
 
-            $('#kkr-back-to-top').removeClass('show');
+            $('#genlite-back-to-top').removeClass('show');
 
         }
     }
 
     // Go Back to Top
-    $('#kkr-back-to-top').on('click', function (e) {
+    $('#genlite-back-to-top').on('click', function (e) {
 
         e.preventDefault();
 

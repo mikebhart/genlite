@@ -63,14 +63,12 @@ class RegisterBlocks {
 
         register_block('banner');
         register_block('contact-us');
-        register_block('current-job-openings');
         register_block('hero-image');
         register_block('five-column-table');        
         register_block('four-icon-boxes');
         register_block('four-image');
         register_block('icons-left-image-right');
         register_block('image-text');
-        register_block('join-our-team');
         register_block('leadership');        
         register_block('nav-sections');
         register_block('news-insights');
@@ -97,7 +95,6 @@ class RegisterBlocks {
                     'acf/banner',
                     'acf/four-image',
                     'acf/three-image-boxes',
-                    'acf/join-our-team',
                     'acf/four-icon-boxes',
                     'acf/nav-sections',
                     'acf/text-left-background-image',
@@ -108,7 +105,6 @@ class RegisterBlocks {
                     'acf/news-insights',
                     'acf/what-you-see',
                     'acf/contact-us',
-                    'acf/current-job-openings',
                     'acf/five-column-table',
                     'core/heading',
                     'core/paragraph',

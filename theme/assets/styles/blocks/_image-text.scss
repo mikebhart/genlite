@@ -3,7 +3,7 @@
     &__container {
         display: flex;
         flex-wrap: wrap;
-        background-color: $kkr-light-gray;
+        background-color: $genlite-light-gray;
 
         .column-item {
           
@@ -51,7 +51,7 @@
      
 
         &-no {
-            color: $kkr-gold;
+            color: black;
             display: inline-block;
 
             @include media-breakpoint-up(lg) { 

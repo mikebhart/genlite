@@ -36,7 +36,7 @@ export const handleAnimations = function () {
 
     // if ( document.querySelector('article p') ) { 
       
-        var animationUpElements = "h1, h2, h3, h4, h5, h6, p, .wp-block-cover, article ul li, .wp-block-button, .wp-block-image, .fade-in-up";
+        var animationUpElements = "h1, h2, h3, h4, h5, h6, p, article ul li, .wp-block-button, .fade-in-up";
 
         gsap.set( animationUpElements, { opacity: 0 } );
 
@@ -98,14 +98,14 @@ export const handleAnimations = function () {
 
     // if ( document.querySelector('.fade-in-zoom') ) { 
 
-    //     var animationZoomElements = ".fade-in-zoom";
+        var animationZoomElements = ".wp-block-image, .wp-block-cover";
 
-    //     gsap.set( animationZoomElements, { opacity: 0 } );
+        gsap.set( animationZoomElements, { opacity: 0 } );
 
-    //     ScrollTrigger.batch( animationZoomElements, {
-    //         once: true,
-    //         onEnter: batch => gsap.fromTo(batch, 1, {scale:0}, {scale:1, opacity: 1, repeat:0, stagger: anim_stagger })
-    //     });
+        ScrollTrigger.batch( animationZoomElements, {
+            once: true,
+            onEnter: batch => gsap.fromTo(batch, 1, {scale:0}, {scale:1, opacity: 1, repeat:0, stagger: anim_stagger })
+        });
 
 
     // }

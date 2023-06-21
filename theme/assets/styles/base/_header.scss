@@ -3,7 +3,7 @@
     position: relative;
     z-index: 2;
     display: none;
-    background-color: $kkr-gold;
+    background-color: black;
 
     @include media-breakpoint-up(lg) {
         display: block;
@@ -67,7 +67,7 @@
     display: block;
     position: relative;
     z-index: 2;
-    background-color: $kkr-gold;
+    background-color: black;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -82,7 +82,7 @@
 }
   
 .topnav #mobile-links {
-    background-color: $kkr-black;
+    background-color: black;
     display: none;
 }
   
@@ -119,14 +119,14 @@
 
 .mobile-links-wrapper {
     margin-top: 20px;
-    background-color: $kkr-gold;
+    background-color: black;
     
     a {
         text-align: center;
         padding-top: 15px;
         padding-bottom: 15px;
         font-size: 1.125rem;
-        color: $kkr-black;   
+        color: black;   
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
@@ -144,7 +144,7 @@
 
 .topnav .mobile-container a:hover,
 .mobile-links-wrapper .parent-menu.active-menu {
-    background-color: $kkr-gold-2;
-    color: $kkr-black;
+    background-color: $genlite-light-gray;
+    color: black;
 }
 

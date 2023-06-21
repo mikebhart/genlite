@@ -16,20 +16,6 @@
     .text-right {
         text-align: right;
     }
-
-    // ol, ul {
-    //     margin-left: 50px;
-    // }
-
-    // ol li {
-    //     padding-top: 10px;
-    //     padding-bottom: 10px;
-    // }
-
-    // ul li {
-    //     margin-top: 10px;
-    //     margin-bottom: 10px;
-    // }
     
     .spacer-top--small {
         padding-top: 20px
@@ -130,13 +116,6 @@
     }
 
 
-    // hr {
-    //     border-top: 2px solid $kkr-gold;
-    //     margin: 10px 0 24px 0;
-    //     width: 100px;
-       
-    // }
-
     .white,
     .white p,
     .white a {
@@ -146,12 +125,6 @@
     .white a:hover {
         opacity: 0.5;
     }
-
-    // button:hover,
-    // a:hover {
-    //     transition: opacity 0.5s ease-in-out;
-    //     cursor: pointer;
-    // }
 
     sup { 
         vertical-align: top; 
@@ -169,7 +142,7 @@
 
     .large-text {
         font-size: 3.125rem;
-        color: $kkr-black;
+        color: black;
 
         @include media-breakpoint-up(md) {
             font-size: 6.25rem;
@@ -177,17 +150,8 @@
        
     }
 
-    // a {
-    //     color: $kkr-gold;
-    //     text-decoration: none;
-
-    //     &:hover {
-    //         opacity: 0.5;
-    //     }
-    // }
-
     .text-gold {
-        color: $kkr-gold;
+        color: black;
     }
 
     .inline-block {
@@ -206,11 +170,11 @@
     }
 
     .text-alert {
-        color: $kkr-alert;
+        color: $genlite-red;
     }
 
     .text-divider {
-        border-bottom: 1px solid $kkr-light-gray-5;
+        border-bottom: 1px solid $genlite-light-gray;
         margin: 10px 0 10px 0;
         width: 100%;
 
@@ -219,10 +183,4 @@
             margin: 0;
         }
     }
-
-      
-    
-
-
 }
-

@@ -14,7 +14,7 @@
 
     &__divider {
         margin: 50px 0 50px 0;
-        border-bottom: 1px solid $kkr-light-gray-4;
+        border-bottom: 1px solid $genlite-light-gray;
 
         &:last-child {
             border-bottom: none;
@@ -24,7 +24,7 @@
 
     a {
         text-decoration: none;
-        color: $kkr-gold;
+        color: black;
         
         &:hover {
             text-decoration: underline;

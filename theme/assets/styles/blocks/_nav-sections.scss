@@ -1,11 +1,11 @@
 .block-nav-sections {
-    background: $kkr-light-gray-2;
+    background: $genlite-light-gray;
     position: sticky;
     top: 0;
     z-index: 1;
 
     nav .nav-container {
-        background-color: $kkr-light-gray-2;
+        background-color: $genlite-light-gray;
         overflow-x: auto;
         white-space: nowrap;
     }
@@ -32,19 +32,19 @@
         display: inline-block;
         text-decoration: none;
         padding: 19px 20px;
-        color: $kkr-black;
+        color: black;
         height: 100%;
 
         @include media-breakpoint-up(md) { 
 
             &:hover {
-                background-color: $kkr-light-gray-3;
+                background-color: $genlite-light-gray;
             }
         }
     }
 
     nav .nav-container ul li.active {
-        background-color: $kkr-light-gray-3;
+        background-color: $genlite-light-gray;
     }
 
 

@@ -25,7 +25,7 @@
         line-height: 1.625rem;
         font-size: 1.25rem;
         padding-top: 7px;
-        color: $kkr-black;
+        color: black;
         padding-bottom: 7px;
         
         &.text-white {
@@ -47,7 +47,6 @@
             color: #fff;
         }
 
-
         &:after,
         &:before { 
             content: " ";
@@ -65,7 +64,6 @@
         line-height: 2.25rem;
         font-stretch: normal;
         font-style: normal;
-     //   padding-top: 10px;
 
         &.white {
             color: #fff;
@@ -103,7 +101,7 @@
     }
 
     h5 {
-        color: $kkr-black;
+        color: black;
         font-size: 1rem;
         line-height: 1.25rem;
         letter-spacing: 0.016rem;
@@ -114,7 +112,7 @@
     }
 
     h6 {
-        color: $kkr-black;
+        color: black;
         font-size: 0.75rem;
         font-weight: 400;
         font-stretch: normal;
@@ -131,24 +129,6 @@
         line-height: 6.25rem;
         font-size: 6.25rem;
     }
-
-    // a {
-    //     transition: all 0.4s;
-    //     color: rgb(114, 114, 114);
-    //     &:hover {
-    //         text-decoration: none;
-    //         color: $genlite-primary-color;
-    //     }
-    // }
-
-    // article a {
-    //     color: $genlite-primary-color;
-    //     text-decoration: none;
-    //     &:hover {
-    //         color: black;
-    //     }
-    // }
-
 
     article {
         a {
@@ -191,16 +171,9 @@
     }
                         
     hr {
-//        color: $genlite-light-gray;
         border-top: 2px solid $genlite-primary-color;
         margin: 10px 0 24px 0;
         width: 100px;
-
     }
-
-   
-
-
-    
 
 }
