@@ -1,0 +1,86 @@
+<section id="{{ fields.team_employee_anchor_id }}" class="block-team {% if fields.team_background_color == 'blue' %} block-team__background-color--blue {% else %} block-team__background-color--white {% endif %}">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h2>{{ fields.team_employee_heading }}</h2>
+                <div class="margin-bottom-2">
+                    {{ fields.team_employee_body }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% set counter = 1 %}
+
+            {% for item in fields.team_employee %}
+
+                <div class="col-12 col-md-6 col-lg-3 margin-bottom-2">
+                
+                    <div class="block-team__card">
+
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#team-employee-{{ block.id }}-{{ counter }}" aria-label="{{ item.team_employee_name }} {{ item.team_employee_job_title }}">
+
+                            <div class="block-team__image-placeholder">
+                                
+                                <div class="block-team__image-placeholder-wrapper">
+
+                                    {% if item.team_employee_image.url is empty %}
+                                        <div class="block-team__no-image"></div>
+                                    {% else %}
+                                        <img src="{{ item.team_employee_image.url }}" alt="{{ item.team_employee_name }} {{ item.team_employee_job_title }}">
+                                    {% endif %}
+
+                                </div>
+                            
+                            </div>
+
+                            <div class="block-team__text-wrapper">
+                                <h4 class="text-center">{{ item.team_employee_name }}</h4>
+                                <h6 class="text-center text-purple margin-top-reduce-2 block-team__job-title">{{ item.team_employee_job_title }}</h6>
+                            </div>
+                            
+                        </a>
+                    </div>
+                                    
+                </div>
+
+                <div class="modal fade" id="team-employee-{{ block.id }}-{{ counter }}" tabindex="-1" aria-hidden="true">
+
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <h4 class="text-purple padding-bottom-0">{{ item.team_employee_name }}</h4>
+                                <h3 class="margin-bottom-2 capitalize">{{ item.team_employee_job_title }}</h5>
+                                <h3 class="margin-top-1 padding-bottom-0">WHY I LOVE CAPSTONE</h3>
+                                <p>{{ item.team_employee_why_i_love_capstone }}</p>
+                                <h3 class="margin-top-1 padding-bottom-0">JOINED KKR CAPSTONE</h3>
+                                <p>{{ item.team_employee_year_joined }}</p>
+                                <h3 class="margin-top-1 padding-bottom-0">BACKGROUND</h3>                                
+                                <p>{{ item.team_employee_background }}</p>
+                                <h3 class="margin-top-1 padding-bottom-0">EXPERIENCE</h3>                                
+                                <p>{{ item.team_employee_experience }}</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {% set counter = counter + 1 %}
+
+            {% endfor %}
+        
+        </div>
+
+    </div>
+
+</section>

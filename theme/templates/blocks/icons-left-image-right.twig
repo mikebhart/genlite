@@ -1,0 +1,52 @@
+<section class="block-icons-left-image-right">
+
+    <div class="block-icons-left-image-right__star animation-section fade-in-zoom" style="background-image: url('{{ theme.link }}/dist/images/kstar-star.png')"></div>
+    
+    <div class="block-icons-left-image-right__container">
+
+        <div class="container">
+
+            <div class="row h-100">
+
+                <div class="col-md-6 my-auto block-icons-left-image-right__icon-section">
+
+                    {% for item in fields.icons_left_image_right_icons %}
+
+                        <div class="icon-item animation-section fade-in-up">
+
+                            <div class="block-icons-left-image-right__circle-wrapper my-auto">
+
+                                <div class="block-icons-left-image-right__circle">
+                                    <img class="block-icons-left-image-right__icon" src="{{ item.icon_image.url }}" alt="{{ item.icon_title }}">
+                                </div>
+
+                            </div>
+
+                            <div class="my-auto">
+
+                                <div class="icon-text">
+                                    <h4 class="padding-top-0 padding-bottom-0">{{ item.icon_title }}</h4>
+                                    <p>{{ item.icon_body }}</p>
+                                </div> 
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="col-md-6 text-right my-auto animation-section fade-in-zoom">
+
+                    <img class="block-icons-left-image-right__image" src="{{ fields.icons_left_image_right_image.url }}" alt="{{ fields.icons_left_image_right_image.alt }}">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

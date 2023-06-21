@@ -1,0 +1,67 @@
+.block-banner {
+
+    &__image {
+        background-color: black;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        top: 0;
+        height: 378px;
+    }  
+
+    &__overlay {
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: -1;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+
+    &__quote {
+        height: 47px;
+        width: 53px;
+        margin-bottom: 16px;  
+    }
+
+    &__body {
+      
+        color: white;
+    }
+
+    &__author {
+        font-size: 1rem;
+        font-weight: 500;
+        color: white;    
+        margin-top: 16px;  
+    }
+
+    &__text-wrapper {
+        padding-left: 5vw;
+        padding-right: 5vw;       
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
+        @include media-breakpoint-up(lg) {
+            padding-left: 25vw;
+            padding-right: 25vw;
+        }
+
+        p {
+            font-size: 1.375rem;
+        }
+
+    }
+
+   
+}

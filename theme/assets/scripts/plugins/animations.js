@@ -1,173 +1,114 @@
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
-//import SplitText from "gsap/SplitText";
 
-//gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger);
+export const handleAnimations = function () {
 
+    let anim_duration = 1;
+    let anim_stagger = 0.3;
 
+    gsap.registerPlugin( ScrollTrigger );
 
-export default {
+    if ( document.querySelector('.block-hero-image .slidetext') ) { 
 
-    setup() {
+        var sliderTween = function() {
 
-        enableScrollActions();
-        buildHeroPages();
-      
-        
-        //
-        function enableScrollActions() {
+            var heroTextSlidesTimeline = gsap.timeline( { repeat: -1 } );
 
-            // slide in from right
-            // Use gsap scrolltrigger batch to detect user y scroll position on the page, then fire gsap animation
-            var genliteDocElements = ".genlite-archive-shop__card, .genlite-archive__card, .wp-block-embed-youtube, figcaption, .wp-block-column, .wp-block-button";
+            var slide_elements = document.querySelectorAll( ".slidetext" );
 
-            gsap.set(genliteDocElements, {opacity: 0});
+            for ( let i = 0; i < slide_elements.length; i++ ) {
 
-            ScrollTrigger.batch(genliteDocElements, {
-                interval: 0.2, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
-                batchMax: 10,   // maximum batch size (targets
-                once: true,
-                onEnter: batch =>  gsap.fromTo(batch, { x: '100%'}, { x: 0, opacity: 1, duration: 1, ease: "sine.out", stagger: 0.2, overwrite: true}) 
-            });
+                let current_slide = '.' + slide_elements[i].classList[2];
 
-            // Use standard js IntersectionObserver to detect user y scroll position on the page, then fire gsap animation
-            function fadeUpTargets() {
+                heroTextSlidesTimeline.to(current_slide, { opacity: 1, duration: 2, ease: "power2.inOut" } )
+                                    .to(current_slide, { opacity: 0, duration: 2, ease: "power2.inOut", delay: 5 } );
 
-                const options = {
-                  rootMargin: "0px",
-                  threshold: 0
-                };
-
-
-                const moveup = new IntersectionObserver(entries => {
-
-                  entries.forEach(entry => {
-
-                    
-                    if (entry.intersectionRatio > 0)  {
-                      let tlFadeInBottom = gsap.timeline();
-                      tlFadeInBottom.from(entry.target, { y: 100, opacity: 0, duration: 1 });
-                      moveup.unobserve(entry.target);
-                    }
-
-                  });
-                }, options);
-         
-                const targetElements = document.querySelectorAll("article h2, article section p, article section ul");
-
-
-                for (let element of targetElements) {
-                    moveup.observe(element);
-                }
-
-         
             }
 
-            window.addEventListener('load',fadeUpTargets);
+        };
 
-
-            // With images scale up
-
-            var genliteDocImageElements = ".wp-block-image img, .wp-block-cover, .wp-block-gallery img, article h1";
-
-            gsap.set(genliteDocImageElements, {opacity: 0});
-
-            ScrollTrigger.batch(genliteDocImageElements, {
-                interval: 0.5, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
-                batchMax: 10,   // maximum batch size (targets
-                once: true,
-                onEnter: batch => gsap.fromTo(batch, 1, {scale:0}, {scale:1, opacity: 1, repeat:0})
-            });
-
-
-
-
-
-        }
-
-        function buildHeroPages() {
-
-            if (document.querySelector('body.page-template-template-scroll-down') || 
-                document.querySelector('body.post-template-default') || 
-                document.querySelector('body.work-template-default')) {
-
-                //    // Show fancy heading animation
-               	// 	var tl = gsap.timeline(), 
-                //     mySplitText = new SplitText("article h1", {type:"words,chars"}), 
-                //     chars = mySplitText.chars;
-
-                //     gsap.set("article h1", {perspective: 400});
-
-                //     tl.from(chars, {delay: 1, duration: 1, opacity:1, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=0");
-					
-                    if (document.querySelector('body.page-template-template-scroll-down')) {
-
-
-                        let tlDownButton = gsap.timeline();
-                            tlDownButton.fromTo(
-                                ".genlite-page-scroll-down__scroll-down",
-                                {
-                                    opacity: 0
-                                }, 
-                                { 
-                                    delay: 1,
-                                    opacity: 1,
-                                    duration: 2
-                                }
-                            );
-                    }
-
-                    let tlLogo = gsap.timeline();
-                        tlLogo.fromTo(
-                            "#genlite-header__image",
-                            {
-                                x: -200,
-                                opacity: 0
-                            },
-                            {
-                                x: 0,
-                                opacity: 1,
-                                duration: 2,
-                                ease: "bounce.out"
-                              
-                            }
-                        );
-
-
-
-                    let tlMenu = gsap.timeline();
-                        tlMenu.fromTo(
-                            ".navbar-nav .menu-item.depth-0, .genlite-social li a",
-                            {
-                                x: 1200,
-                                opacity: 0
-                            },
-                            {
-                                x: 0,
-                                opacity: 1,
-                                duration: 1,
-                                stagger: 0.2,
-                                ease: "sine.out"
-                            }
-                    );
-                
-            } else {
-            
-                 $('.navbar').css("background-color", "black"); 
-            }
-
-               
-    
-        }
-
-
-
+        sliderTween();
 
     }
+
+
+    // Move up
+
+    // if ( document.querySelector('article p') ) { 
+      
+        var animationUpElements = "h1, h2, h3, h4, h5, h6, p, .wp-block-cover, article ul li, .wp-block-button, .wp-block-image, .fade-in-up";
+
+        gsap.set( animationUpElements, { opacity: 0 } );
+
+        ScrollTrigger.batch( animationUpElements, {
+            once: true,
+            onEnter: batch =>  gsap.fromTo( batch, { y: '50%'}, { y: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true }) 
+        });
+
+    // }
+
+    // // Move Down
+
+    // if ( document.querySelector('.fade-in-down') ) { 
+
+    //     var animationDownElements = ".fade-in-down";
+
+    //     gsap.set( animationDownElements, { opacity: 0 } );
+
+    //     ScrollTrigger.batch( animationDownElements, {
+    //         once: true,
+    //         onEnter: batch =>  gsap.fromTo( batch, { y: '-50%'}, { y: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true, clearProps: "transform" }) 
+    //     });
+
+    // }
+
+
+    // // Move From Left
+
+    // if ( document.querySelector('.fade-in-left') ) { 
+
+    //     var animationLeftElements = ".fade-in-left";
+
+    //     gsap.set( animationLeftElements, { opacity: 0 } );
+
+    //     ScrollTrigger.batch( animationLeftElements, {
+    //         once: true,
+    //         onEnter: batch =>  gsap.fromTo( batch, { x: '-50%'}, { x: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true }) 
+    //     });
+
+    // }
+
+        
+    // // // Move From Right
+
+    // if ( document.querySelector('.fade-in-right') ) { 
+
+    //     var animationRightElements = ".fade-in-right";
+    
+    //     gsap.set( animationRightElements, { opacity: 0 } );
+
+    //     ScrollTrigger.batch( animationRightElements, {
+    //         once: true,
+    //         onEnter: batch =>  gsap.fromTo( batch, { x: '50%'}, { x: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true }) 
+    //     });
+
+    // }
+
+    // // Zoom
+
+    // if ( document.querySelector('.fade-in-zoom') ) { 
+
+    //     var animationZoomElements = ".fade-in-zoom";
+
+    //     gsap.set( animationZoomElements, { opacity: 0 } );
+
+    //     ScrollTrigger.batch( animationZoomElements, {
+    //         once: true,
+    //         onEnter: batch => gsap.fromTo(batch, 1, {scale:0}, {scale:1, opacity: 1, repeat:0, stagger: anim_stagger })
+    //     });
+
+
+    // }
+
+
 };
-
-
-
-
-

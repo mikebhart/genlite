@@ -1,0 +1,35 @@
+<section class="block-image-text">
+
+    <div class="block-image-text__container">
+
+        <div class="column-item {% if fields.image_text_image_left_order != "1" %} block-image-text__image-order-right {% endif %} animation-section fade-in-up">
+
+            <div class="block-image-text__image" style="background-image: url('{{ fields.image_text_image.url }}');"></div>
+
+        </div>
+
+        <div class="column-item my-auto {% if fields.image_text_image_left_order != "1" %} block-image-text__text-order-right {% endif %}">
+
+            <div class="block-image-text__box">
+
+                <div class="big-text block-image-text__box-no animation-section fade-in-up">{{ fields.image_text_text_no }}</div>
+                <h1 class="block-image-text__box-title animation-section fade-in-up">{{ fields.image_text_text_title }}</h1>
+                <div class="block-image-text__box-body animation-section fade-in-up">{{ fields.image_text_text_body }}</div>
+
+                {% if fields.image_text_text_button_1.title is not empty %}
+                   
+                    <a href="{{ fields.image_text_text_button_1.url }}" target="{{ fields.image_text_text_button_1.target }}" class="animation-section fade-in-up button primary-button" aria-label="{{ fields.image_text_text_title }}">{{ fields.image_text_text_button_1.title }}</a>
+
+                    {% if fields.image_text_text_button_2.title is not empty %}
+                            <a href="{{ fields.image_text_text_button_2.url }}" target="{{ fields.image_text_text_button_2.target }}" aria-label="{{ fields.image_text_text_title }} {{ fields.image_text_text_button_2.title }}" class="animation-section fade-in-up button secondary-button animation-section fade-in-up">{{ fields.image_text_text_button_2.title }}</a>
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

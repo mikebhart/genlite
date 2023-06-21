@@ -1,0 +1,20 @@
+.block-text-left-image-right {
+    padding: 120px 0 120px 0;
+
+    &__image {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        position: relative;
+        height: 350px;
+    }
+
+    &__background-color--gray {
+        background-color: $kkr-light-gray;
+    }
+
+    &__background-color--white {
+        background-color: white;
+    }
+
+}

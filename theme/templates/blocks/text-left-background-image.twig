@@ -1,0 +1,19 @@
+<section {% if fields.text_left_background_image_anchor_id is not empty %} id="{{ fields.text_left_background_image_anchor_id }}" {% endif %} class="block-text-left-background-image">
+
+    <div class="block-text-left-background-image__image" style="background-image: url('{{ fields.text_left_background_image_image.url }}')">
+    
+        <div class="block-text-left-background-image__overlay"></div>
+
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-12 col-lg-6 my-auto animation-section fade-in-up">
+                    <div class="block-text-left-background-image__body">
+                        {{ fields.text_left_background_image_body }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,206 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+
+    overflow-x: hidden; // cover block shunts over margin
+
+    font-family: Karla, sans-serif;
+
+    h1,h2,h3,h4,h5,h6 {
+        color: black;
+        margin: 20px 0px 0px 0px;
+        font-family: Rubik, sans-serif;
+        line-height: 1.2;
+    }
+  
+    
+    p {
+        font-family: Karla, sans-serif;
+        line-height: 1.625rem;
+        font-size: 1.25rem;
+        padding-top: 7px;
+        color: $kkr-black;
+        padding-bottom: 7px;
+        
+        &.text-white {
+            color: white;
+        }
+
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+        &.white {
+            color: #fff;
+        }
+
+
+        &:after,
+        &:before { 
+            content: " ";
+            display: block;
+            border-bottom: 1px solid  $genlite-primary-color;
+            border-top: 1px solid  $genlite-primary-color;
+            height: 5px;
+            background-color: #f8f8f8;
+
+        }
+    }
+        
+    h2 {
+        font-size: 1.375rem;
+        line-height: 2.25rem;
+        font-stretch: normal;
+        font-style: normal;
+     //   padding-top: 10px;
+
+        &.white {
+            color: #fff;
+        }
+    }
+    
+    h3 {
+        font-size: 1.375rem;
+        line-height: 2.25rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        &.white {
+            color: #fff;
+        }
+        
+    }
+
+
+    h4 {
+        font-size: 1rem;
+        line-height: 26px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        &.white {
+            color: #fff;
+        }
+
+
+    }
+
+    h5 {
+        color: $kkr-black;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.016rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        padding-bottom: 5px;
+    }
+
+    h6 {
+        color: $kkr-black;
+        font-size: 0.75rem;
+        font-weight: 400;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.6px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+    }
+
+    .big-text {
+        letter-spacing: -0.02px;
+        line-height: 6.25rem;
+        font-size: 6.25rem;
+    }
+
+    // a {
+    //     transition: all 0.4s;
+    //     color: rgb(114, 114, 114);
+    //     &:hover {
+    //         text-decoration: none;
+    //         color: $genlite-primary-color;
+    //     }
+    // }
+
+    // article a {
+    //     color: $genlite-primary-color;
+    //     text-decoration: none;
+    //     &:hover {
+    //         color: black;
+    //     }
+    // }
+
+
+    article {
+        a {
+           color: $genlite-primary-color;
+           text-decoration: none;
+
+            &:hover {
+             text-decoration: underline;
+
+            }
+        }
+
+
+        ul { 
+            margin-left: 30px;
+            list-style-type: none;
+            color: $genlite-primary-color;
+            line-height: 1.625rem;
+            font-size: 1.25rem;
+            margin-top: 5px;
+            margin-bottom: 10px;
+
+
+            li {
+                color: black;
+                text-align: left;
+            }
+            
+            
+            li::before {
+                content: '\25A0';
+                color: $genlite-primary-color;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+        }
+
+    }
+                        
+    hr {
+//        color: $genlite-light-gray;
+        border-top: 2px solid $genlite-primary-color;
+        margin: 10px 0 24px 0;
+        width: 100px;
+
+    }
+
+   
+
+
+    
+
+}

@@ -1,0 +1,101 @@
+<footer>
+
+    <section class="footer">
+    
+        <div class="container">
+
+            <div class="row footer__row">
+
+                <div class="my-auto footer__container">
+
+                    <div class="col-12 col-md-4 animation-section fade-in-up">
+
+                        {% set row_count = 1 %}
+
+                        {% for item in header_menu.items %}
+
+                            {% if row_count < 4 %}
+
+                                <a id="{{ item.slug }}" {% if item.current %} class="footer__link footer__active-menu" {% else %} class="footer__link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                            {% endif %}
+
+                            {% set row_count = row_count + 1 %}
+
+                        {% endfor %} 
+
+                    </div>
+
+                    <div class="col-12 col-md-4 animation-section fade-in-up">
+
+                        {% set row_count = 1 %}
+
+                        {% for item in header_menu.items %}
+
+                            {% if row_count > 3 %}
+
+                                <a id="{{ item.slug }}" {% if item.current %} class="footer__link footer__active-menu" {% else %} class="footer__link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                            {% endif %}
+
+                            {% set row_count = row_count + 1 %}
+
+                        {% endfor %} 
+
+                    </div>
+
+                    <div class="col-12 col-md-4 footer__col3-text animation-section fade-in-up">
+
+                        {{ footer_column_3 }}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+       
+    <section class="footer-footnote">
+
+        <div class="container">
+
+            <div class="row footer-footnote__row">
+
+                <div class="col-12 col-md-9 my-auto animation-section fade-in-up">
+
+                    <div class="footer-footnote__links">
+
+                        <nav aria-label="Footer Navigation Links">
+
+                            <ul>
+                                {% for item in footer_footnote_links %}
+                                    <li><a href="{{ item.footer_link.url }}" aria-label="{{ item.footer_link.title }}">{{ item.footer_link.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            
+                        </nav>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-3 my-auto text-right animation-section fade-in-up">
+
+                    <div class="footer-footnote__copyright">&copy;&nbsp;{{ now|date('Y') }}&nbsp;{{ footer_footnote }}</div>
+
+                </div>
+
+            </div>
+
+        </div>
+   
+    </section>
+
+    <button id="kkr-back-to-top" title="Go to top">
+        <img src="{{ theme.link }}/dist/images/chevron-up-solid.svg" alt="Go to the top of page">
+    </button>
+
+</footer>

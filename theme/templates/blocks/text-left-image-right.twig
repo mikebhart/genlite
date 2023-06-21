@@ -1,0 +1,33 @@
+<section id="{{ fields.text_left_image_right_image_anchor_id }}" class="block-text-left-image-right {% if fields.text_left_image_right_background_color == 'gray' %} block-text-left-image-right__background-color--gray {% else %} block-text-left-image-right__background-color--white {% endif %}">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-md-6 my-auto">
+
+                <div class="animation-section fade-in-up">{{ fields.text_left_image_right_body }}</div>
+                
+                {% if fields.text_left_image_right_button is not empty %}
+
+                    <div class="animation-section fade-in-up">
+
+                        <a href="{{ fields.text_left_image_right_button.url }}" target="{{ fields.text_left_image_right_button.target }}" class="button primary-button" aria-label="{{ fields.text_left_image_right_button.title }}">
+                            {{ fields.text_left_image_right_button.title }}
+                            <img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="{{ fields.text_left_image_right_button.title }} image">
+                        </a>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+            <div class="col-12 col-md-5 offset-md-1 my-auto animation-section fade-in-up">
+
+                <div class="block-text-left-image-right__image" style="background-image: url('{{ fields.text_left_image_right_image.url }}');"></div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

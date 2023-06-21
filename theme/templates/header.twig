@@ -1,0 +1,81 @@
+{% block header %}
+
+    <header>
+
+        <div class="desktop-container">
+
+            <nav id="genlite-navbar" class="navbar" aria-label="Desktop Header Navigation Links">
+
+                <div class="container-fluid">	
+                    <div class="row">
+
+                        <div class="col-2 offset-xxl-1 my-auto">
+                            <a class="navbar-logo" href="{{ site.url }}" aria-label="Go to homepage">
+                                <img src="{{ header_logo.url }}" alt="Desktop Header Logo">
+                            </a>                
+                        </div>
+
+                        <div class="col-10 col-lg-8 offset-lg-1 offset-xl-1 offset-xxl-0 desktop-menu-container my-auto">
+
+                            {% for item in header_menu.items %}
+
+                                <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu" {% else %} class="parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                            {% endfor %} 
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </nav>
+
+        </div>
+
+        <div class="mobile-container">
+
+            <nav class="topnav" aria-label="Mobile Header Navigation Links">
+
+                <div class="container">	
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <a class="navbar-logo--mobile" href="{{ site.url }}" aria-label="Go to homepage">
+                                <img class="menu-logo--mobile" src="{{ header_logo.url }}" alt="Mobile Header Logo">
+                            </a>      
+
+                            <a id="mobile-menu-button" class="icon">
+                                <img src="{{ theme.link }}/dist/images/bars-solid.svg" alt="Show Mobile Menu">
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="mobile-links">
+                
+                    <div class="mobile-links-wrapper">
+
+                        {% set subMenuIndex = 0 %}
+
+                        {% for item in header_menu.items %}
+
+                            <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                    
+                        {% endfor %} 
+
+                    </div>
+
+                </div>
+            
+            </nav>
+
+        </div>
+    
+    </header>
+
+{% endblock %}

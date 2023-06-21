@@ -1,0 +1,126 @@
+.footer {
+    background-color: $kkr-charcoal;
+
+    &__link {
+        display: block;
+        color: white;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1rem;
+        line-height: 2.5rem;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__active-menu {
+        color: $genlite-primary-color;
+    }
+
+    &__row {
+        @include media-breakpoint-up(md) {
+           height: 260px;
+        }
+    }
+
+    &__container {
+        @include media-breakpoint-up(md) {
+            display: inline-flex;
+        }
+    }
+
+    &__col3-text p {
+        
+        display: block;
+        color: white;
+        // margin-top: 10px;
+        // margin-bottom: 10px;
+        // font-weight: 500;
+        // font-size: 1rem;
+        // text-decoration: none;
+
+        // &:first-child {
+        //     padding-top: 11px;
+        // }
+
+        // &:nth-child(2) {
+        //     a {
+        //         color: $kkr-gold;
+        //         text-decoration: none;
+                
+        //         &:hover {
+        //             text-decoration: underline;
+        //         }
+        //     }
+        // }
+
+        // &:last-child a {
+        //     color: $kkr-gold;         
+        //     text-decoration: none;
+
+        //     &:hover {
+        //         text-decoration: underline;
+        //     }
+        // }
+
+
+    }
+
+
+}
+
+.footer-footnote {
+    background-color: black;
+
+    nav ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    nav li {
+        display: inline-block;
+        padding-right: 8px;
+        border-right: 1px solid white;
+
+        @include media-breakpoint-up(md) {
+            padding-left: 5px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+            border-right: none;
+
+        }
+    }
+
+    a {
+        font-size: 1rem;
+        color: white;
+        text-decoration: none;
+        line-height: 1.2rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__links {
+        line-height: 0.8;
+    }
+
+    &__copyright {
+        font-size: 1rem;
+        color: white;
+    }
+
+    &__row {
+        height: 80px;
+    }
+
+}

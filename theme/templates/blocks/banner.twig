@@ -1,0 +1,29 @@
+<section class="block-banner">
+
+    <div class="block-banner__image" style="background-image: url('{{ fields.banner_background_image.url }}')">
+        <div class="block-banner__overlay"></div>
+
+        <div class="container">
+            <div class="row h-100">
+                
+                <div class="col-12 text-center my-auto">
+
+                    <div class="block-banner__text-wrapper animation-section fade-in-up">
+
+                        <div>
+                            <img class="block-banner__quote text-center" src="{{ theme.link }}/dist/images/quotemarks.png" alt="Quote Mark">
+                        </div>
+
+                        <p class="block-banner__body text-white">{{ fields.banner_body_text }}</p>
+                        <div class="block-banner__author text-white">— {{ fields.banner_body_author }}</div>
+
+                    </div>
+
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+
+</section>

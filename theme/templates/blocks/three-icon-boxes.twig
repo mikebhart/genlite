@@ -1,0 +1,68 @@
+{% set three_icons_box_1 = fields.three_icons_box_1 %}
+{% set three_icons_box_2 = fields.three_icons_box_2 %}
+{% set three_icons_box_3 = fields.three_icons_box_3 %}
+
+<section id="{{ fields.three_icons_anchor_id }}" class="block-three-icon-boxes">
+
+    <div class="block-three-icon-boxes__star animation-section fade-in-zoom" style="background-image: url('{{ theme.link }}/dist/images/kstar-star.png')">
+
+    <div class="block-three-icon-boxes__container">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 text-center animation-section fade-in-up">
+                    <h2>{{ fields.three_boxes_title }}</h2>
+                    <hr>
+                    <p>{{ fields.three_boxes_sub_title }}</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 block-three-icon-boxes__box-holder animation-section fade-in-up">
+                    <div class="block-three-icon-boxes__box">
+                        <div class="block-three-icon-boxes__circle-wrapper">
+
+                            <div class="block-three-icon-boxes__circle">
+                                <img class="block-three-icon-boxes__icon" src="{{ three_icons_box_1.three_icons_box_1_icon.url }}" alt="{{ three_icons_box_1.three_icons_box_1_heading }}">
+                            </div>
+
+                        </div>
+                        <h4 class="text-center margin-top-1">{{ three_icons_box_1.three_icons_box_1_heading }}</h4>                    
+                        <p class="icon-text">{{ three_icons_box_1.three_icons_box_1_text }}</p>               
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 block-three-icon-boxes__box-holder animation-section fade-in-up">
+                    <div class="block-three-icon-boxes__box">
+                        <div class="block-three-icon-boxes__circle-wrapper">
+
+                            <div class="block-three-icon-boxes__circle">
+                                <img class="block-three-icon-boxes__icon" src="{{ three_icons_box_2.three_icons_box_2_icon.url }}" alt="{{ three_icons_box_2.three_icons_box_2_heading }}">
+                            </div>
+                        
+                        </div>
+                        <h4 class="text-center margin-top-1">{{ three_icons_box_2.three_icons_box_2_heading }}</h4>
+                        <p class="icon-text">{{ three_icons_box_2.three_icons_box_2_text }}</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 block-three-icon-boxes__box-holder animation-section fade-in-up">
+                    <div class="block-three-icon-boxes__box">
+
+                        <div class="block-three-icon-boxes__circle-wrapper">
+                            <div class="block-three-icon-boxes__circle">
+                                <img class="block-three-icon-boxes__icon" src="{{ three_icons_box_3.three_icons_box_3_icon.url }}" alt="{{ three_icons_box_3.three_icons_box_3_heading }}">
+                            </div>
+                        </div>
+
+                        <h4 class="text-center margin-top-1">{{ three_icons_box_3.three_icons_box_3_heading }}</h4>
+                        <p class="icon-text">{{ three_icons_box_3.three_icons_box_3_text }}</p>
+                    </div>
+                </div>
+            
+            </div>
+                
+        </div>
+
+    </div>
+
+</section>

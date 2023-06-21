@@ -1,0 +1,61 @@
+<section class="block-hero-image">
+
+    <div class="block-hero-image__image {% if fields.hero_image_size == 'large' %} block-hero-image__image--large {% endif %}" style="background-image: url('{{ fields.hero_image_image.url }}')">
+
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12">
+
+                    {% if fields.hero_image_slide_text is not empty %}
+
+                        {% set slide_count = 1 %}
+
+                        {% for item in fields.hero_image_slide_text %}
+
+                            <div class="block-hero-image__text-wrapper slidetext slidetext{{ slide_count }}">
+                                <h1 class="white">{{ item.hero_image_slide_text_text }}</h1>
+                            </div>
+
+                            {% set slide_count = slide_count + 1 %}
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="block-hero-image__text-wrapper">
+
+                            <h1 class="white animation-section fade-in-up">{{ fields.hero_image_title }}</h1> 
+
+                            {% if fields.hero_image_subtitle is not empty %}
+                                <div class="block-hero-image__sub-text-wrapper animation-section fade-in-up">
+                                <p>{{ fields.hero_image_subtitle }}</p>
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                    {% endif %}
+
+                    {# {% if fields.hero_image_size == 'large' %}
+                        <div class="text-center block-hero-image__mobile-button-container">
+
+                            <a href="#kstar-page-body" class="block-hero-image__button-down">
+                                <img src="{{ theme.link }}/dist/images/arrow-down-solid.svg" class="block-hero-image__button-arrow">
+                            </a>
+
+                        </div>
+                     {% endif %} #}
+                       
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{# {% if fields.hero_image_size == 'large' %}
+    <section id="kstar-page-body"></section>
+{% endif %} #}

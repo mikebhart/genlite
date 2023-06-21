@@ -1,0 +1,29 @@
+<section class="block-news-insights">
+
+    <div class="container">
+        <div class="row h-100">
+
+            {% for item in fields.news_insights %}
+
+                <div class="col-12 col-xl-5 animation-section fade-in-up">
+
+                    <img class="block-news-insights__image" src="{{ item.news_insights_image.url }}" alt="{{ item.news_insights_image.alt }}">
+
+                </div>
+
+                <div class="col-12 col-xl-6 offset-xl-1 animation-section fade-in-up">
+
+                    {{ item.news_insights_body }}
+
+                </div>
+
+                <div class="block-news-insights__divider"></div>
+
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>

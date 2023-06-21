@@ -1,0 +1,55 @@
+.block-nav-sections {
+    background: $kkr-light-gray-2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    nav .nav-container {
+        background-color: $kkr-light-gray-2;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav .nav-container ul {
+        height: 56px;
+    }
+
+    nav .nav-container ul li {
+        display: inline-block;
+        height: 100%;
+        margin-right: 10px;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+
+        @include media-breakpoint-up(md) { 
+            margin-right: 32px;
+        }
+    }
+
+    nav .nav-container ul li a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 19px 20px;
+        color: $kkr-black;
+        height: 100%;
+
+        @include media-breakpoint-up(md) { 
+
+            &:hover {
+                background-color: $kkr-light-gray-3;
+            }
+        }
+    }
+
+    nav .nav-container ul li.active {
+        background-color: $kkr-light-gray-3;
+    }
+
+
+}
+
+section[id] {
+    scroll-margin-top: 56px;
+}

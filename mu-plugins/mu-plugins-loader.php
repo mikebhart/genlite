@@ -2,7 +2,7 @@
 
 $plugins = [
 			'timber-library/timber.php',
-  'advanced-custom-fields-pro/acf.php'
+            'advanced-custom-fields-pro/acf.php'
 		];
 
 foreach ( $plugins as $plugin ) {

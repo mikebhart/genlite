@@ -1,0 +1,11 @@
+.team-employees-data .acf-repeater {
+    overflow-x: scroll;
+}
+
+.team-employees-data .acf-field .acf-input {
+    width: 300px;
+}
+
+.team-employees-data .acf-field-image .acf-input {
+    width: 100px;
+}

@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03fcde655cb3d5283441efab9f9966b8",
+    "content-hash": "e04eb696f2ebbc8ab970ecc1076563af",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.12",
+            "version": "6.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.12"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=6.0.4"
             },
             "require": {
                 "pivvenit/acf-pro-installer": "^2.4.0 || ^3.0"
@@ -775,70 +775,16 @@
             "time": "2021-12-12T23:22:04+00:00"
         },
         {
-            "name": "wpackagist-plugin/advanced-cron-manager",
-            "version": "2.4.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/advanced-cron-manager/",
-                "reference": "tags/2.4.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-cron-manager.2.4.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-cron-manager/"
-        },
-        {
-            "name": "wpackagist-plugin/duplicate-post",
-            "version": "4.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/duplicate-post/",
-                "reference": "tags/4.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/duplicate-post.4.4.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/duplicate-post/"
-        },
-        {
-            "name": "wpackagist-plugin/svg-support",
-            "version": "2.4.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/svg-support/",
-                "reference": "tags/2.4.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/svg-support.2.4.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/svg-support/"
-        },
-        {
             "name": "wpackagist-plugin/timber-library",
-            "version": "1.19.1",
+            "version": "1.22.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.19.1"
+                "reference": "tags/1.22.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.19.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.22.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

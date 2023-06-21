@@ -1,0 +1,35 @@
+<section id="{{ fields.three_image_boxes_anchor_id }}" class="block-three-image-boxes">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 text-center animation-section fade-in-up">
+                <h2>{{ fields.three_image_boxes_title }}</h2>
+                <hr>
+                <p class="margin-bottom-2">{{ fields.three_image_boxes_sub_title}}</p>
+            </div>
+
+            {% for item in fields.three_image_boxes_items %}
+
+                <div class="col-12 col-md-4 block-three-image-boxes__card animation-section fade-in-up">
+
+                    <div class="block-three-image-boxes__image-wrapper">
+
+                        <div class="block-three-image-boxes__image" style="background-image: url('{{ item.three_image_boxes_item_image.url }}');"></div>
+
+                    </div>
+
+                    
+                    <h4 class="text-center margin-top-1">{{ item.three_image_boxes_item_title }}</h4>
+                    <p class="text-center">{{ item.three_image_boxes_item_body }}</p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+
+</section>

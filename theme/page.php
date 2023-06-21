@@ -1,59 +1,30 @@
-<?php 
-
+<?php
 /**
- * The template for displaying all pages
+ * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
+ * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * To generate specific templates for your pages you can use:
+ * /mytheme/templates/page-mypage.twig
+ * (which will still route through this PHP file)
+ * OR
+ * /mytheme/page-mypage.php
+ * (in which case you'll want to duplicate this file and save to the above path)
  *
- * @package Hartsoft
- * @subpackage GenLite
- * @since 1.4.2
- * @version 1.4.2
+ * Methods for TimberHelper can be found in the /lib sub-directory
+ *
+ * @package  WordPress
+ * @subpackage  Timber
+ * @since    Timber 0.1
  */
 
-get_header(); ?>
+$context = Timber::context();
 
-<div class="container">
-
-	<div class="row genlite__content justify-content-center pt-3">
-			<div class="genlite-archive-title">
-				<h1><?php the_title(); ?></h1>
-			</div>
-
-		<div class="col-12">
-		
-		<?php
-
-			while(have_posts()) : the_post(); ?>
-
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-					<div class="genlite-title-row"><h1 hidden><?php the_title(); ?></h1></div>
-
-						<?php the_content(''); ?>	
-
-				</article>
+$timber_post     = new Timber\Post();
+$context['post'] = $timber_post;
 
 
-
-		<?php endwhile; wp_reset_query();
-				
-		if ( get_comments_number() ) {
-				comments_template();
-		}	?>
-				
-		</div>
-
-	</div>
-		
-</div>					
-
-<?php get_footer(); ?>
-
-
-
+Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );

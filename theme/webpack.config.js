@@ -9,12 +9,9 @@ let target = "web";
 const plugins = [
   	new CleanWebpackPlugin(),
   	new MiniCssExtractPlugin(),
-  	new CopyPlugin({
+	new CopyPlugin({
 		patterns: [
-	  		{ from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js', to: '../dist/' },
-	  		{ from: 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css', to: '../dist/' },
-	  		{ from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: '../dist/webfonts/' },
-	  		{ from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css', to: '../dist/fa/fontawesome.css' },
+            { from: 'assets/images/', to: '../dist/images/' },
 		],
   	}),
 ];
@@ -61,6 +58,17 @@ module.exports = {
           			},
         		},
       		},
+            {
+                test: /\.(svg|eot|woff|ttf|svg|woff2|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: "[path][name].[ext]"
+                        }
+                    }
+                ]
+            }
     	],
   	},
   	plugins: plugins,

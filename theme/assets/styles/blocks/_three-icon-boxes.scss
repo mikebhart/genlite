@@ -1,0 +1,71 @@
+.block-three-icon-boxes {
+    background-color: $kkr-light-gray;
+
+    &__box-holder {
+        display: flex;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__container {
+        padding: 120px 0 120px 0;
+    }
+
+    hr {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__box {
+        padding: 2rem;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    p.icon-text {
+        text-align: center;
+    }
+
+    &__circle-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    &__circle {
+        background: $kkr-light-green;
+        height: 56px;
+        width: 56px;
+        text-align: center;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    &__icon {
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+    }
+
+    &__star {
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+       
+        @include media-breakpoint-up(lg) {
+            background-size: contain;
+        }
+
+    }  
+
+
+
+
+}

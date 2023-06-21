@@ -1,0 +1,79 @@
+.block-icons-left-image-right {
+    position: relative;
+
+    background-color: $kkr-light-gray;
+
+    &__container {
+        padding: 120px 0 120px 0;
+    }
+
+    &__star {
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+       
+        @include media-breakpoint-up(md) {
+            background-size: contain;
+        }
+
+    }  
+
+
+    &__circle-wrapper {
+        position: relative;
+    }
+
+    &__circle {
+        background: $kkr-light-green;
+        height: 56px;
+        width: 56px;
+        text-align: center;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+    &__icon {
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+    }
+
+    .icon-item {
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
+        margin-bottom: 35px;
+    }
+
+    .icon-text {
+        margin-left: 15px;
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+        @include media-breakpoint-up(lg) {
+            height: 628px;
+        }
+
+    }
+
+    &__icon-section {
+        padding-right: 0;
+
+        @include media-breakpoint-up(md) {
+            padding-right: 48px;
+        }
+    }
+
+
+}

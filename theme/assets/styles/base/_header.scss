@@ -1,0 +1,150 @@
+// ----------------------- Desktop Menu ---------------------
+.desktop-container {
+    position: relative;
+    z-index: 2;
+    display: none;
+    background-color: $kkr-gold;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+
+.navbar {
+    overflow: hidden;
+    min-height: 120px;
+}
+
+.navbar-logo {
+
+    // img {
+
+    //     @include media-breakpoint-up(lg) {
+    //         height: 56px; 
+    //         width: 221px;
+    //     }
+    // }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+}
+  
+.navbar .desktop-menu-container a {
+    float: left;
+    font-size: 1.125rem;
+    color:white;   
+    text-align: center;
+    text-decoration: none;
+    //text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 50px 10px 50px 10px;
+
+    @include media-breakpoint-up(xl) {
+        padding: 50px 25px 50px 25px;
+    }
+}
+
+.navbar .desktop-menu-container a:hover,
+.desktop-menu-container .parent-menu.active-menu {
+   // background-color: $kkr-gold-2;
+    color: $genlite-primary-color;
+    letter-spacing: 0.1em;
+}
+
+.desktop-menu-container {
+    display: flex;
+    justify-content: end;
+}
+
+// ----------------------- Mobile Menu ---------------------
+
+.mobile-container {
+    margin: auto;
+    color: white;
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-color: $kkr-gold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+  }
+  
+.topnav {
+    position: relative;
+}
+  
+.topnav #mobile-links {
+    background-color: $kkr-black;
+    display: none;
+}
+  
+.topnav a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+}
+  
+.topnav a.icon { 
+    display: block;
+    position: absolute;
+    top: 0;
+    margin-top: 9px;
+    right: 0;
+}
+  
+.topnav a:hover {
+    color: #fff;
+}
+
+.navbar-logo--mobile {
+    width: fit-content;
+}
+
+.menu-logo--mobile {
+    // width: 99.6px;
+    // height: 24px;
+    margin-top: 5px;
+}
+
+.mobile-links-wrapper {
+    margin-top: 20px;
+    background-color: $kkr-gold;
+    
+    a {
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1.125rem;
+        color: $kkr-black;   
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        
+    }
+}
+
+.topnav a.icon img {
+    position: absolute;
+    right: 15px;
+    height: 20px;
+}
+
+.topnav .mobile-container a:hover,
+.mobile-links-wrapper .parent-menu.active-menu {
+    background-color: $kkr-gold-2;
+    color: $kkr-black;
+}
+

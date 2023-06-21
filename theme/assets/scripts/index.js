@@ -1,57 +1,34 @@
 import $ from "jquery";
 window.$ = window.jQuery = $;
 
-import "../../assets/styles/index.sass";
+import "../../assets/styles/index.scss";
+import "bootstrap/js/dist/modal";
 
-// import "bootstrap/js/dist/base-component";
-// import "bootstrap/js/dist/dropdown";
-// import "bootstrap/js/dist/collapse";
-// import "bootstrap/js/dist/modal";
-// import "bootstrap/js/dist/button";
+import { handleBackToTopButton } from './plugins/back-to-top';
+import { handleHeaderMenu } from './plugins/header-menu';
+import { handleNavSections } from './plugins/nav-sections';
+import { handleAnimations } from './plugins/animations';
+import { handleContactUsForm } from './plugins/contact-us';
 
-import "bootstrap/dist/js/bootstrap";
+var app = function() {
 
-import genliteTheme from "./plugins/theme";
-import genliteAnimations from "./plugins/animations";
-import genliteShop from "./plugins/shop";
+    return {               
 
+        init: function() {
 
-const GENLITE = {
-
-     
-    handleThemeSetup() {
-        genliteTheme.setup();
-    },
-
-    handleAnimationsSetup() {
-        genliteAnimations.setup();
-    },
-
-    handleShopSetup() {
-        genliteShop.setup();
-    },
-
-    initialiseAll: function () {
-
-   
-        GENLITE.handleThemeSetup();
-        GENLITE.handleAnimationsSetup();
-        GENLITE.handleShopSetup();
-       
+            handleBackToTopButton();
+            handleHeaderMenu();
+            handleNavSections();
+            handleAnimations();
+            handleContactUsForm();
+          
+        }
     }
 
-};
+}();
 
+$( window ).on("load", function() {
 
-$(document).ready(function() {
+    app.init();
 
-  GENLITE.initialiseAll();
-
- 
 });
-
-
-
-
-
-

@@ -1,0 +1,87 @@
+<section class="block-nsro-ratings">
+
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12 text-center margin-bottom-3 animation-section fade-in-up">
+
+                <h2>NSRO Ratings</h2>
+                <hr>
+
+            </div>
+
+            {# Desktop View #}
+            <div id="desktop-nsro-ratings" class="col-12 animation-section fade-in-up">
+
+                <div class="table-responsive">
+                    <table class="table">
+                    
+                        <thead>
+                            <tr>
+                                <th>RATING AGENCY</th>
+                                <th>SPECIAL SERVICING</th>
+                                <th>DATE</th>
+                                <th>SERVICER REPORT</th>
+                            </tr>
+                        </thead>
+                            
+                        <tbody>
+
+                            {% for item in fields.nsro_ratings_table %}
+                                <tr>
+                                    <td><p class="padding-top-2">{{ item.nsro_ratings_ratings_agency }}</p></td>
+                                    <td><p class="padding-top-2">{{ item.nsro_ratings_special_servicing }}</p></td>
+                                    <td><p class="padding-top-2">{{ item.nsro_ratings_date }}</p></td>
+                                    <td><p class="padding-top-2">
+
+                                        {% if  item.nsro_ratings_servicer_report is not empty %}
+                                            <a class="text-gold block-nsro-ratings__view-report" target="{{ item.nsro_ratings_servicer_report.target }}" href="{{ item.nsro_ratings_servicer_report.url }}" aria-label="View Report">View Report</a>
+                                        {% else %}
+                                            N/A
+                                        {% endif %}
+                                        
+                                    </p></td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            {# Mobile View #}
+            <div id="mobile-nsro-ratings" class="col-12 animation-section fade-in-up">
+
+                <div class="block-nsro-ratings__mobile-container">
+
+
+
+                    {% for item in fields.nsro_ratings_table %}
+
+                        <div><div class="block-nsro-ratings__mobile-heading">RATING AGENCY</div><div class="block-nsro-ratings__mobile-data"><p>{{ item.nsro_ratings_ratings_agency }}</p></div></div>
+                        <div><div class="block-nsro-ratings__mobile-heading">SPECIAL SERVICING</div><div class="block-nsro-ratings__mobile-data"><p>{{ item.nsro_ratings_special_servicing }}</p></div></div>                    
+                        <div><div class="block-nsro-ratings__mobile-heading">DATE</div><div class="block-nsro-ratings__mobile-data"><p>{{ item.nsro_ratings_date }}</p></div></div>
+                        <div><div class="block-nsro-ratings__mobile-heading">SERVICER REPORT</div><div class="block-nsro-ratings__mobile-data"><p> 
+                            {% if  item.nsro_ratings_servicer_report is not empty %}
+                                <a class="text-gold block-nsro-ratings__view-report" target="{{ item.nsro_ratings_servicer_report.target }}" href="{{ item.nsro_ratings_servicer_report.url }}">View Report</a>
+                            {% else %}
+                                N/A
+                            {% endif %}
+                            </p>
+                            </div>
+                        </div>
+
+                        <div class="text-divider"></div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

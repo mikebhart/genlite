@@ -1,0 +1,35 @@
+.block-text-left-background-image {
+
+    &__image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        height: 600px;
+        top: 0;
+            
+    }  
+
+    &__body {
+        position: relative;
+    }
+
+    &__overlay {
+
+        @include media-breakpoint-down(lg) {
+            background-blend-mode: multiply;
+            background-color: rgba( 255, 255, 255, 0.7);
+            z-index: -1;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+
+    }
+
+}

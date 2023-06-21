@@ -1,0 +1,62 @@
+{% set four_icons_box_1 = fields.four_icons_box_1 %}
+{% set four_icons_box_2 = fields.four_icons_box_2 %}
+{% set four_icons_box_3 = fields.four_icons_box_3 %}
+{% set four_icons_box_4 = fields.four_icons_box_4 %}
+
+<section id="{{ fields.four_icon_boxes_anchor_id }}" class="block-four-icon-boxes">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 text-center">
+                <h2>{{ fields.four_boxes_title }}</h2>
+                <hr>
+                <p>{{ fields.four_boxes_sub_title }}</p>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 block-four-icon-boxes__box-holder">
+                <div class="block-four-icon-boxes__box">
+                    <div class="block-four-icon-boxes__icon-wrapper">
+                        <img src="{{ four_icons_box_1.four_icons_box_1_icon.url }}" alt="{{ four_icons_box_1.four_icons_box_1_heading }}">
+                    </div>
+                    <h4 class="text-center">{{ four_icons_box_1.four_icons_box_1_heading }}</h4>                    
+                    <p class="icon-text">{{ four_icons_box_1.four_icons_box_1_text }}</p>               
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 block-four-icon-boxes__box-holder">
+                <div class="block-four-icon-boxes__box">
+                    <div class="block-four-icon-boxes__icon-wrapper">
+                        <img src="{{ four_icons_box_2.four_icons_box_2_icon.url }}" alt="{{ four_icons_box_2.four_icons_box_2_heading }}">
+                    </div>
+                    <h4 class="text-center">{{ four_icons_box_2.four_icons_box_2_heading }}</h4>
+                    <p class="icon-text">{{ four_icons_box_2.four_icons_box_2_text }}</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 block-four-icon-boxes__box-holder">
+                <div class="block-four-icon-boxes__box">
+                    <div class="block-four-icon-boxes__icon-wrapper">
+                        <img src="{{ four_icons_box_3.four_icons_box_3_icon.url }}" alt="{{ four_icons_box_3.four_icons_box_3_heading }}">
+                    </div>
+                    <h4 class="text-center">{{ four_icons_box_3.four_icons_box_3_heading }}</h4>
+                    <p class="icon-text">{{ four_icons_box_3.four_icons_box_3_text }}</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 block-four-icon-boxes__box-holder">
+                <div class="block-four-icon-boxes__box">
+                    <div class="block-four-icon-boxes__icon-wrapper">
+                        <img src="{{ four_icons_box_4.four_icons_box_4_icon.url }}" alt="{{ four_icons_box_4.four_icons_box_4_heading }}">
+                    </div>
+                    <h4 class="text-center">{{ four_icons_box_4.four_icons_box_4_heading }}</h4>
+                    <p class="icon-text">{{ four_icons_box_4.four_icons_box_4_text }}</p>
+                </div>
+            </div>
+
+        
+        </div>
+            
+    </div>
+
+</section>

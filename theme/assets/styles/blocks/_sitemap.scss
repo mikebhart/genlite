@@ -1,0 +1,20 @@
+.block-sitemap {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    li {
+        a {
+            color: $kkr-black;
+            text-decoration: none;
+
+            &:hover {
+                color: $kkr-black;
+                text-decoration: underline;
+            }
+        }
+   }
+
+   ul.children {
+        margin-bottom: 0;
+   }
+}

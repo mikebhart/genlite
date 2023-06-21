@@ -1,0 +1,19 @@
+<section class="block-nav-sections">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="Page Navigation Links">
+                    <div class="nav-container">
+                        <ul>
+                            {% for item in fields.nav_section_fields %}
+                                <li class="{{ item.nav_sections_fields_link }}" ><a href="#{{ item.nav_sections_fields_link }}" aria-label="{{ item.nav_section_fields_name }}">{{ item.nav_section_fields_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>           
+            </div>
+        </div>
+    </div>
+
+</section>

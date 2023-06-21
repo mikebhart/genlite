@@ -10,11 +10,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Hartsoft
- * @subpackage GenLite
- * @since 1.4.2
- * @version 1.4.2
  */
 
-get_template_part('archive', get_post_type());
+//get_template_part('archive', get_post_type());
 
+echo 'in Genlite index';
