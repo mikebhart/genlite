@@ -12,6 +12,6 @@
  *
  */
 
-//get_template_part('archive', get_post_type());
+get_template_part('archive', get_post_type());
 
-echo 'in Genlite index';
+//echo 'in Genlite index';
