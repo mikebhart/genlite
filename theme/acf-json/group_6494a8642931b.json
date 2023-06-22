@@ -236,6 +236,26 @@
                     "append": ""
                 },
                 {
+                    "key": "field_6494c02c2efb9",
+                    "label": "Recaptcha Public key",
+                    "name": "recaptcha_public_key",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_6492eb0a58178",
                     "label": "Recaptcha Secret key",
                     "name": "recapthca_secret_key",
@@ -351,5 +371,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687467500
+    "modified": 1687470155
 }
