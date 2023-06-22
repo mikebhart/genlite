@@ -32,6 +32,7 @@ class GenLiteSite extends TimberSite {
         add_filter( 'wp_mail_from_name', [ $this, 'mail_sender_name' ] );
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
+        
 
 		parent::__construct();
 	
@@ -134,22 +135,26 @@ class GenLiteSite extends TimberSite {
         }
 	
 	}
+
+    function document_title_separator( $sep ) {
+
+		$sep = " | ";
+
+		return $sep;
+
+	}
+
 	
 	function modify_title_format( $title ) {
 
 		if ( !is_front_page() ) {
 
 			$title_parts['site'] = $title['title'];
-			//$title_parts['title'] = $title['site'];
+			$title_parts['title'] = $title['site'];
 		
 		} else {
-		
-            // global $post;
-
-            // $post_data = get_post( $post );
-        	// $post_title = isset( $post_data->post_title ) ? $post_data->post_title : '';
           
-			$title_parts['title'] = $title['title'];
+			$title_parts['title'] = 'Freelance WordPress Developer | Mike Hart';
 
 		}
 		
