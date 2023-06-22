@@ -44,8 +44,6 @@ class GenLiteSite extends TimberSite {
 
 		wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/main.css', array(), $app_version );
         wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/main.js', array('jquery'), $app_version );
-//        wp_localize_script( 'genlite_script', 'app_info', [ 'contact_recaptcha_public_key' => get_field('contact_recapthca_public_key', 'options'] ] );
-
 
 	}
   
@@ -65,6 +63,8 @@ class GenLiteSite extends TimberSite {
 	        $context['footer_footnote'] = $option_fields['footer_footnote'];
             $context['header_favicon'] = $option_fields['header_favicon'];
 	        $context['header_logo'] = $option_fields['header_logo'];
+            $context['google_analytics'] = $option_fields['google_analytics'];
+
         }
 
         return $context;
@@ -114,6 +114,23 @@ class GenLiteSite extends TimberSite {
                 'redirect'      => false
             ]);
 
+            acf_add_options_page([
+                'page_title'    => 'GTA Settings',
+                'menu_title'    => 'GTA',
+                'menu_slug'     => 'genlite-gta-settings',
+                'capability'    => 'edit_posts',
+                'redirect'      => false
+            ]);
+
+            acf_add_options_page([
+                'page_title'    => 'General Settings',
+                'menu_title'    => 'General',
+                'menu_slug'     => 'genlite-general-settings',
+                'capability'    => 'edit_posts',
+                'redirect'      => false
+            ]);
+
+
         }
 	
 	}
@@ -123,12 +140,17 @@ class GenLiteSite extends TimberSite {
 		if ( !is_front_page() ) {
 
 			$title_parts['site'] = $title['title'];
-			$title_parts['title'] = $title['site'];
+			//$title_parts['title'] = $title['site'];
 		
 		} else {
 		
-			$title_parts['title'] =  'Home | Hartsoft';
-		
+            // global $post;
+
+            // $post_data = get_post( $post );
+        	// $post_title = isset( $post_data->post_title ) ? $post_data->post_title : '';
+          
+			$title_parts['title'] = $title['title'];
+
 		}
 		
 		return $title_parts;

@@ -18,3 +18,12 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
     {{function('wp_head')}}
+
+     {% if google_analytics.code_head is not empty %}
+
+        <!-- Google Tag Manager -->
+        <script>{{ google_analytics.code_head }}</script>
+        <!-- End Google Tag Manager -->
+
+    {% endif %}
+

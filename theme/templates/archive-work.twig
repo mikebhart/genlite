@@ -13,51 +13,25 @@
 
     {% for work in posts %}
 
-        <div class="archive-work-card__layout">
-            <article class="archive-work-card" style="background-image: url( {{ work.thumbnail.src }} );">
-                <div class="archive-work-card__overlay">
-                    <div class="archive-work-card__overlay-content">
-                        <h3 class="archive-work-title">{{ work.title }}</h3>
-                            <p> 
-							    {# <?php 
-	                    		
-                                    $work_categories = wp_get_object_terms( $work->ID, 'work_category' );
-                                    $work_cat_count = 0;
+        {% if work.post_status == 'publish' %}
 
-                                    foreach( $work_categories as $c ) {
+            <div class="archive-work-card__layout">
+                <article class="archive-work-card" style="background-image: url( {{ work.thumbnail.src }} );">
+                    <div class="archive-work-card__overlay">
+                        <div class="archive-work-card__overlay-content">
+                            
+                            <h3 class="archive-work-title">{{ work.title }}</h3>
+                            <p class="white">{{ work.terms('work_category') | join(', ') }}</p>
 
-                                        $cat = get_category( $c );
-                                            
-                                        if ( $work_cat_count > 0 ) {
-                                            echo ', ' . esc_attr( $cat->name );
-                                        } else {	
-                                            echo esc_attr( $cat->name );
-                                        }
-                
-                                        $work_cat_count++;
-
-                                    }
-
-		                        ?> #}
-
-                                cats go here
-
-							</p>
-
-                            {# <a href="{{ work.permalink }}" title="{{ work.title }}">View Project <i class="fas fa-angle-double-right" aria-hidden="true"></i></a> #}
-
-
-                            <a href="{{ work.link }}" class="" aria-label="{{ work.title }}">
-                               VIEW PROJECT
-                                <img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image">
-                            </a>
-
-
-
+                            <div class="margin-top-1">
+                                <a href="{{ work.link }}" class="" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </div>
+                </article>
+            </div>
+
+        {% endif %}
 
 
     {% endfor %}

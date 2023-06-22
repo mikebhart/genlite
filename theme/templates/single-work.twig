@@ -2,15 +2,14 @@
 
 {% block content %}
 
-
 <article id="post-{{ post.id }}">
 
 	<div class="single-work__wrapper">
 
         <section class="single-work__image" style="background-image: url('{{ post.thumbnail.src }}')">
-                
+
             <div class="single-work__overlay"></div>
-        
+
         </section>
 
         <section class="single-work__text">
@@ -33,71 +32,45 @@
 		
 		<div class="row">
 
-			<div class="col-6 pt-3 pb-4">
-
-				{# <?php if (!empty($website_value)) {?> #}
-					
-						<div class="wp-block-button margin-top-2 margin-bottom-2"><a class="wp-block-button__link" href="#">Visit Website</a></div>
-				
-
-				{# <?php } ?> #}
-
-			</div>
-
-			<div class= "col-6 text-right" >
-			
-           
-				{# <?php 
-                    get_next_posts_link();
-                    $next_post = get_next_post();
-                    if (!empty( $next_post )) { ?>
-                        <a href="<?php echo esc_url( get_permalink( $next_post->ID )); ?>"><i class="fas fa-angle-double-left"></i></a>
-				<?php } ?>
-
-                <?php 
-					get_previous_posts_link();
-					$prev_post = get_previous_post();
-					if (!empty( $prev_post )) { ?>
-						<a href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>"><i class="fas fa-angle-double-right"></i></a>
-				<?php }  ?> #}
-
-			</div>	
-		
 			<div class="col-12">
 
-					<div id="work-{{post.id}}">
-
-						 {{ post.content }}
-
-					</div>						
-			
-				<br>
+                {% if post.project_website is not empty %}
+					
+						<div class="wp-block-button margin-top-2 margin-bottom-3"><a class="wp-block-button__link" href="{{ post.project_website }}">Visit Website</a></div>
+                
+                {% endif %}
 
 			</div>
 
-            <div class="col-12">
-                <p><i>Categories: 
-		    		{# <?php 
-	                    		
-		                $post_categories = wp_get_object_terms( $post->ID, 'work_category' );
-		                $post_cat_count = 0;
-						foreach( $post_categories as $c ) {
+			{# <div class= "col-6 text-right" > #}
 
-							$cat = get_category( $c );
-									  
-							if ( $post_cat_count > 0 ) {
-								echo ', ' . esc_attr( $cat->name );
-							} else {	
-								echo esc_attr( $cat->name );
-							}
+                {# Wont filter publish 
+
+                {% if post.next('work_category').link is not empty %}
+
+                   <a href="{{ post.next('work_category').link }}">left</a>
+
+                {% endif %}
+
+                  {% if post.prev('work_category').link is not empty %}
+
+                   <a href="{{ post.prev('work_category').link }}">righ</a>
+
+                {% endif %} #}
+
+			{# </div>	 #}
 		
-							$post_cat_count++;
-						}
+			<div class="col-12 margin-bottom-3">
 
-		            ?> #}
-                    </i>
-				</p>
-            </div>
+                <div id="work-{{ post.id }}">
+
+                        {{ post.content }}
+
+                </div>						
+			
+				<p><i>Categories: {{ post.terms('work_category') | join(', ') }}</i></p>
+
+			</div>
 
 		</div>
 			
