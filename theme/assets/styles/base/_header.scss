@@ -126,7 +126,7 @@
         padding-top: 15px;
         padding-bottom: 15px;
         font-size: 1.125rem;
-        color: black;   
+        color: white;   
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
@@ -144,7 +144,7 @@
 
 .topnav .mobile-container a:hover,
 .mobile-links-wrapper .parent-menu.active-menu {
-    background-color: $genlite-light-gray;
-    color: black;
+    background-color: $genlite-primary-color;
+//    color: black;
 }
 
