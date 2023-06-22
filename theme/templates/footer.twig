@@ -8,7 +8,7 @@
 
                 <div class="my-auto footer__container">
 
-                    <div class="col-12 col-md-4 fade-in-up my-auto">
+                    <div class="col-12 col-md-4 my-auto">
 
                         {% set row_count = 1 %}
                         
@@ -31,7 +31,7 @@
 
                     </div>
 
-                    <div class="col-12 col-md-4 fade-in-up">
+                    <div class="col-12 col-md-4">
 
                         {% set row_count = 1 %}
 
@@ -49,9 +49,9 @@
 
                     </div>
 
-                    <div class="col-12 col-md-4 footer__col3-text fade-in-up my-auto">
+                    <div class="col-12 col-md-4 footer__col3-text my-auto">
 
-                        {{ footer_column_3 }}
+                        {{ footer.column_3 }}
 
                     </div>
 
@@ -69,16 +69,16 @@
 
             <div class="row">
 
-                <div class="col-12 col-md-4 margin-top-3 margin-bottom-3 my-auto fade-in-up">
+                <div class="col-12 col-md-4 margin-top-3 margin-bottom-3 my-auto">
                     <a href="{{ site.url }}" aria-label="Go to homepage">
-                        <img src="{{ header_logo.url }}" alt="Footer Logo">
+                        <img src="{{ general.logo.url }}" alt="Footer Logo">
                     </a>
                 </div>
 
-                <div class="col-12 col-md-8 margin-top-3 margin-bottom-3 my-auto fade-in-up">
+                <div class="col-12 col-md-8 margin-top-3 margin-bottom-3 my-auto">
 
                     <p class="white"><span>Copyright &copy;&nbsp;2016-{{ now|date('Y') }}&nbsp;Hartsoft Limited</span></p>
-                    {{ footer_footnote }}
+                    {{ footer.footnote }}
 
                 </div>
 

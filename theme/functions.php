@@ -59,10 +59,9 @@ class GenLiteSite extends TimberSite {
 
 		if ( $option_fields != null ) {
            
-            $context['footer_column_3'] = $option_fields['footer_column_3'];
-	        $context['footer_footnote'] = $option_fields['footer_footnote'];
-            $context['header_favicon'] = $option_fields['header_favicon'];
-	        $context['header_logo'] = $option_fields['header_logo'];
+	        $context['footer'] = $option_fields['footer'];
+            $context['contact_form'] = $option_fields['contact_form'];
+            $context['general'] = $option_fields['general'];
             $context['google_analytics'] = $option_fields['google_analytics'];
 
         }
@@ -91,44 +90,14 @@ class GenLiteSite extends TimberSite {
         if( function_exists('acf_add_options_page') ) {
 
             acf_add_options_page([
-                'page_title'    => 'Contact Form Settings',
-                'menu_title'    => 'Contact Form',
-                'menu_slug'     => 'genlite-contact-settings',
+                'page_title'    => 'Theme Settings',
+                'menu_title'    => 'Theme Settings',
+                'menu_slug'     => 'genlite-theme-settings',
                 'capability'    => 'edit_posts',
                 'redirect'      => false
             ]);
 
-            acf_add_options_page([
-                'page_title'    => 'Header Settings',
-                'menu_title'    => 'Header',
-                'menu_slug'     => 'genlite-header-settings',
-                'capability'    => 'edit_posts',
-                'redirect'      => false
-            ]);
 
-            acf_add_options_page([
-                'page_title'    => 'Footer Settings',
-                'menu_title'    => 'Footer',
-                'menu_slug'     => 'genlite-footer-settings',
-                'capability'    => 'edit_posts',
-                'redirect'      => false
-            ]);
-
-            acf_add_options_page([
-                'page_title'    => 'GTA Settings',
-                'menu_title'    => 'GTA',
-                'menu_slug'     => 'genlite-gta-settings',
-                'capability'    => 'edit_posts',
-                'redirect'      => false
-            ]);
-
-            acf_add_options_page([
-                'page_title'    => 'General Settings',
-                'menu_title'    => 'General',
-                'menu_slug'     => 'genlite-general-settings',
-                'capability'    => 'edit_posts',
-                'redirect'      => false
-            ]);
 
 
         }
