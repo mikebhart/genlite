@@ -71,18 +71,18 @@ export const handleAnimations = function () {
 
     // // Move Down
 
-    // if ( document.querySelector('.fade-in-down') ) { 
+    if ( document.querySelector('.fade-in-down') ) { 
 
-    //     var animationDownElements = ".fade-in-down";
+        var animationDownElements = ".fade-in-down";
 
-    //     gsap.set( animationDownElements, { opacity: 0 } );
+        gsap.set( animationDownElements, { opacity: 0 } );
 
-    //     ScrollTrigger.batch( animationDownElements, {
-    //         once: true,
-    //         onEnter: batch =>  gsap.fromTo( batch, { y: '-50%'}, { y: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true, clearProps: "transform" }) 
-    //     });
+        ScrollTrigger.batch( animationDownElements, {
+            once: true,
+            onEnter: batch =>  gsap.fromTo( batch, { y: '-50%'}, { y: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true, clearProps: "transform" }) 
+        });
 
-    // }
+    }
 
 
     // // Move From Left
@@ -103,18 +103,18 @@ export const handleAnimations = function () {
         
     // // // Move From Right
 
-    // if ( document.querySelector('.fade-in-right') ) { 
+    if ( document.querySelector('.fade-in-right') ) { 
 
-    //     var animationRightElements = ".fade-in-right";
+        var animationRightElements = ".fade-in-right";
     
-    //     gsap.set( animationRightElements, { opacity: 0 } );
+        gsap.set( animationRightElements, { opacity: 0 } );
 
-    //     ScrollTrigger.batch( animationRightElements, {
-    //         once: true,
-    //         onEnter: batch =>  gsap.fromTo( batch, { x: '50%'}, { x: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true }) 
-    //     });
+        ScrollTrigger.batch( animationRightElements, {
+            once: true,
+            onEnter: batch =>  gsap.fromTo( batch, { x: '50%'}, { x: 0, opacity: 1, duration: anim_duration, ease: "sine.out", stagger: anim_stagger, overwrite: true }) 
+        });
 
-    // }
+    }
 
     // // Zoom
 

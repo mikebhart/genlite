@@ -9,7 +9,7 @@
                 <div class="container-fluid">	
                     <div class="row">
 
-                        <div class="col-2 offset-xxl-1 my-auto">
+                        <div class="col-2 offset-xxl-1 my-auto fade-in-down">
                             <a class="navbar-logo" href="{{ site.url }}" aria-label="Go to homepage">
                                 <img src="{{ header_logo.url }}" alt="Desktop Header Logo">
                             </a>                
@@ -19,7 +19,7 @@
 
                             {% for item in header_menu.items %}
 
-                                <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu" {% else %} class="parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu fade-in-right" {% else %} class="parent-menu fade-in-right" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
 
                             {% endfor %} 
 
