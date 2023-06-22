@@ -6,6 +6,7 @@ Template Name: Contact Response
 */
 
 
+
 function isValid() {
 
     if ( $_POST['your_name'] != "" && $_POST['email_address'] != "" && $_POST['your_message'] != "" && filter_var($_POST['email_address'], FILTER_VALIDATE_EMAIL) ) {
@@ -19,25 +20,33 @@ function isValid() {
 
 }
 
-function send_email( $body ) {
-
-    $from = get_field( 'contact_from_email', 'options' );
+function send_email( $from, $to, $body ) {
 
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: " . $from . "\r\n";
 
-    $to = get_field( 'contact_to_email', 'options' );
-
     $subject = 'Contact Form';
 
     wp_mail( $to, $subject, $body, $headers );
-
     
 }
 
 
 if ( !empty( $_POST )) {
+
+    $contact_form = get_field( 'contact_form', 'options' );
+    $from = $contact_form['from_email'];
+    $to = $contact_form['to_email'];
+    $recaptcha = $contact_form['recapthca_secret_key'];
+
+    // echo $from;
+    // echo $to;
+    // echo $recaptcha;
+
+    // exit;
+
+
 
     $email_body = '';
 
@@ -89,17 +98,20 @@ if ( !empty( $_POST )) {
     $error_output = '';
     $success_output = '';
 
+//    send_email( $from, $to, $email_body );
+
+
     if ( isValid() ) {
 
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-        $recaptcha_secret = get_field('contact_recapthca_secret_key', 'options');
+        $recaptcha_secret = $recaptcha;
         $recaptcha_response = $_POST['recaptcha_response'];
-        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-        $recaptcha = json_decode($recaptcha);
+        $recaptcha = file_get_contents( $recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response );
+        $recaptcha = json_decode( $recaptcha );
 
-        if ($recaptcha->success == true && $recaptcha->score >= 0.5 && $recaptcha->action == 'contact') {
+        if ( $recaptcha->success == true && $recaptcha->score >= 0.5 && $recaptcha->action == 'contact' ) {
 
-            send_email( $email_body );
+            send_email( $from, $to, $email_body );
 
             $success_output = "Thank you. Your details have been submitted.";
             

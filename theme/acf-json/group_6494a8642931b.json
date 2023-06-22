@@ -36,9 +36,9 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6492bf3ceb825",
-                    "label": "Favicon",
-                    "name": "favicon",
+                    "key": "field_6492b8c0836cf",
+                    "label": "Logo",
+                    "name": "logo",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -61,9 +61,9 @@
                     "preview_size": "medium"
                 },
                 {
-                    "key": "field_6492b8c0836cf",
-                    "label": "Logo",
-                    "name": "logo",
+                    "key": "field_6492bf3ceb825",
+                    "label": "Favicon",
+                    "name": "favicon",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
@@ -88,8 +88,8 @@
             ]
         },
         {
-            "key": "field_6494a9d5e712a",
-            "label": "GTA",
+            "key": "field_64008c274d0b0",
+            "label": "Footer",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -105,9 +105,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_649422f90c460",
-            "label": "Google Analyrics",
-            "name": "google_analytics",
+            "key": "field_6494ab1226477",
+            "label": "Footer",
+            "name": "footer",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -121,11 +121,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_6494225b5e86a",
-                    "label": "Head Code",
-                    "name": "code_head",
+                    "key": "field_64410ed9c1056",
+                    "label": "Column 3",
+                    "name": "column_3",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -135,17 +135,17 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
                 },
                 {
-                    "key": "field_649422ad5e86b",
-                    "label": "Body Code",
-                    "name": "code_body",
+                    "key": "field_63188cc34bd32",
+                    "label": "Footnote",
+                    "name": "footnote",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -155,10 +155,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
                 }
             ]
         },
@@ -258,8 +258,8 @@
             ]
         },
         {
-            "key": "field_64008c274d0b0",
-            "label": "Footer",
+            "key": "field_6494a9d5e712a",
+            "label": "Google Analytics",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -275,9 +275,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_6494ab1226477",
-            "label": "Footer",
-            "name": "footer",
+            "key": "field_649422f90c460",
+            "label": "Google Analytics",
+            "name": "google_analytics",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -291,11 +291,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_64410ed9c1056",
-                    "label": "Column 3",
-                    "name": "column_3",
+                    "key": "field_6494225b5e86a",
+                    "label": "Head Code",
+                    "name": "code_head",
                     "aria-label": "",
-                    "type": "wysiwyg",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -305,17 +305,17 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 },
                 {
-                    "key": "field_63188cc34bd32",
-                    "label": "Footnote",
-                    "name": "footnote",
+                    "key": "field_649422ad5e86b",
+                    "label": "Body Code",
+                    "name": "code_body",
                     "aria-label": "",
-                    "type": "wysiwyg",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -325,10 +325,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         }
@@ -351,5 +351,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687465464
+    "modified": 1687467500
 }

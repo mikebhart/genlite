@@ -58,12 +58,11 @@ class GenLiteSite extends TimberSite {
 		$option_fields = get_fields('options');
 
 		if ( $option_fields != null ) {
-           
+            
+            $context['general'] = $option_fields['general'];
 	        $context['footer'] = $option_fields['footer'];
             $context['contact_form'] = $option_fields['contact_form'];
-            $context['general'] = $option_fields['general'];
             $context['google_analytics'] = $option_fields['google_analytics'];
-
         }
 
         return $context;
