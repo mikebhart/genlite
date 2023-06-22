@@ -8,35 +8,44 @@ export const handleAnimations = function () {
 
     gsap.registerPlugin( ScrollTrigger );
 
-    if ( document.querySelector('.block-hero-image .slidetext') ) { 
+    // if ( document.querySelector('.block-hero-image .slidetext') ) { 
 
-        var sliderTween = function() {
+    //     var sliderTween = function() {
 
-            var heroTextSlidesTimeline = gsap.timeline( { repeat: -1 } );
+    //         var heroTextSlidesTimeline = gsap.timeline( { repeat: -1 } );
 
-            var slide_elements = document.querySelectorAll( ".slidetext" );
+    //         var slide_elements = document.querySelectorAll( ".slidetext" );
 
-            for ( let i = 0; i < slide_elements.length; i++ ) {
+    //         for ( let i = 0; i < slide_elements.length; i++ ) {
 
-                let current_slide = '.' + slide_elements[i].classList[2];
+    //             let current_slide = '.' + slide_elements[i].classList[2];
 
-                heroTextSlidesTimeline.to(current_slide, { opacity: 1, duration: 2, ease: "power2.inOut" } )
-                                    .to(current_slide, { opacity: 0, duration: 2, ease: "power2.inOut", delay: 5 } );
+    //             heroTextSlidesTimeline.to(current_slide, { opacity: 1, duration: 2, ease: "power2.inOut" } )
+    //                                 .to(current_slide, { opacity: 0, duration: 2, ease: "power2.inOut", delay: 5 } );
 
-            }
+    //         }
 
-        };
+    //     };
 
-        sliderTween();
+    //     sliderTween();
 
-    }
+    // }
 
 
     // Move up
 
     // if ( document.querySelector('article p') ) { 
       
-        var animationUpElements = "h1, h2, h3, h4, h5, h6, p, article ul li, .wp-block-button, .fade-in-up";
+        var animationUpElements = '.page-template-default h1,' +
+                                '.page-template-default h2,' +
+                                '.page-template-default h3,' +
+                                '.page-template-default h4,' +
+                                '.page-template-default h5,' +
+                                '.page-template-default h6,' +
+                                '.page-template-default p,' +
+                                '.page-template-default article ul li,' +
+                                '.page-template-default .wp-block-button,' +
+                                '.page-template-default .fade-in-up';
 
         gsap.set( animationUpElements, { opacity: 0 } );
 
@@ -98,7 +107,8 @@ export const handleAnimations = function () {
 
     // if ( document.querySelector('.fade-in-zoom') ) { 
 
-        var animationZoomElements = ".wp-block-image, .wp-block-cover";
+        var animationZoomElements = '.page-template-default .wp-block-image,' +
+                                    '.page-template-default .wp-block-cover';
 
         gsap.set( animationZoomElements, { opacity: 0 } );
 
