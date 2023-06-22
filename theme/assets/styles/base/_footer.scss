@@ -75,7 +75,20 @@
 }
 
 .footer-footnote {
+
     background-color: black;
+
+    p {
+        color: white;
+        padding-bottom: 0;
+        line-height: 1;
+    }
+
+
+    &__body {
+        width: 60%;
+        vertical-align: middle;
+    }
 
     nav ul {
         margin: 0px;
@@ -117,10 +130,6 @@
     &__copyright {
         font-size: 1rem;
         color: white;
-    }
-
-    &__row {
-        height: 80px;
     }
 
 }

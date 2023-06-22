@@ -8,11 +8,16 @@
 
                 <div class="my-auto footer__container">
 
-                    <div class="col-12 col-md-4 fade-in-up">
+                    <div class="col-12 col-md-4 fade-in-up my-auto">
 
                         {% set row_count = 1 %}
+                        
+                          {# {{ header_menu.items|length }}  #}
+
+                          {# {% if loop.index is divisible by(3) %} #}
 
                         {% for item in header_menu.items %}
+                     
 
                             {% if row_count < 4 %}
 
@@ -44,7 +49,7 @@
 
                     </div>
 
-                    <div class="col-12 col-md-4 footer__col3-text fade-in-up">
+                    <div class="col-12 col-md-4 footer__col3-text fade-in-up my-auto">
 
                         {{ footer_column_3 }}
 
@@ -62,29 +67,18 @@
 
         <div class="container">
 
-            <div class="row footer-footnote__row">
+            <div class="row">
 
-                <div class="col-12 col-md-9 my-auto fade-in-up">
-
-                    <div class="footer-footnote__links">
-
-                        <nav aria-label="Footer Navigation Links">
-
-                            <ul>
-                                {% for item in footer_footnote_links %}
-                                    <li><a href="{{ item.footer_link.url }}" aria-label="{{ item.footer_link.title }}">{{ item.footer_link.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-                            
-                        </nav>
-
-                    </div>
-
+                <div class="col-12 col-md-4 margin-top-3 margin-bottom-3 my-auto">
+                    <a href="{{ site.url }}" aria-label="Go to homepage">
+                        <img src="{{ header_logo.url }}" alt="Footer Logo">
+                    </a>
                 </div>
 
-                <div class="col-12 col-md-3 my-auto text-right fade-in-up">
+                <div class="col-12 col-md-8 margin-top-3 margin-bottom-3 my-auto">
 
-                    <div class="footer-footnote__copyright">&copy;&nbsp;{{ now|date('Y') }}&nbsp;{{ footer_footnote }}</div>
+                    <p class="white"><span>Copyright &copy;&nbsp;2016-{{ now|date('Y') }}&nbsp;Hartsoft Ltd</span></p>
+                    {{ footer_footnote }}
 
                 </div>
 

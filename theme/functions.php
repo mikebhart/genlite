@@ -60,7 +60,6 @@ class GenLiteSite extends TimberSite {
 		if ( $option_fields != null ) {
            
             $context['footer_column_3'] = $option_fields['footer_column_3'];
-            $context['footer_footnote_links'] = $option_fields['footer_footnote_links'];
 	        $context['footer_footnote'] = $option_fields['footer_footnote'];
             $context['header_favicon'] = $option_fields['header_favicon'];
 	        $context['header_logo'] = $option_fields['header_logo'];

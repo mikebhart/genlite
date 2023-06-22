@@ -3,8 +3,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 export const handleAnimations = function () {
 
-    let anim_duration = 1;
-    let anim_stagger = 0.3;
+    let anim_duration = 0.3;
+    let anim_stagger = 0.2;
 
     gsap.registerPlugin( ScrollTrigger );
 
@@ -45,7 +45,20 @@ export const handleAnimations = function () {
                                 '.page-template-default p,' +
                                 '.page-template-default article ul li,' +
                                 '.page-template-default .wp-block-button,' +
-                                '.page-template-default .fade-in-up';
+                                '.fade-in-up,' +
+                                '.work-template-default h1,' +
+                                '.work-template-default h2,' +
+                                '.work-template-default h3,' +
+                                '.work-template-default h4,' +
+                                '.work-template-default h5,' +
+                                '.work-template-default h6,' +
+                                '.work-template-default p,' +
+                                '.work-template-default article ul li,' +
+                                '.work-template-default .wp-block-button';
+
+                               
+
+    
 
         gsap.set( animationUpElements, { opacity: 0 } );
 
@@ -108,7 +121,8 @@ export const handleAnimations = function () {
     // if ( document.querySelector('.fade-in-zoom') ) { 
 
         var animationZoomElements = '.page-template-default .wp-block-image,' +
-                                    '.page-template-default .wp-block-cover';
+                                    '.page-template-default .wp-block-cover,' +
+                                    '.fade-in-zoom';
 
         gsap.set( animationZoomElements, { opacity: 0 } );
 

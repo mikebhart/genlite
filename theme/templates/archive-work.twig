@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1>My Portfolio</h1>
-                <p class="margin-bottom-3">I’m proud to have worked on some amazing projects.  Below shows some of my latest and best work.</p>
+                <h1 class="animation-section fade-in-up">My Portfolio</h1>
+                <p class="margin-bottom-3 animation-section fade-in-up">I’m proud to have worked on some amazing projects.  Below shows some of my latest and best work.</p>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
 
         {% if work.post_status == 'publish' %}
 
-            <div class="archive-work-card__layout">
+            <div class="archive-work-card__layout animation-section fade-in-up">
                 <article class="archive-work-card" style="background-image: url( {{ work.thumbnail.src }} );">
                     <div class="archive-work-card__overlay">
                         <div class="archive-work-card__overlay-content">
@@ -24,7 +24,7 @@
                             <p class="white">{{ work.terms('work_category') | join(', ') }}</p>
 
                             <div class="margin-top-1">
-                                <a href="{{ work.link }}" class="" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
+                                <a href="{{ work.link }}" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
                             </div>
                         </div>
                     </div>
