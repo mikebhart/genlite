@@ -1,1 +1,44 @@
-in archive.twig
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="fade-in-up">My Archives</h1>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+
+    {% for post in posts %}
+
+        {# {% if post.post_status == 'publish' %} #}
+
+            <div class="archive-work-card__layout fade-in-up">
+                <article class="archive-work-card" style="background-image: url( {{ post.thumbnail.src }} );">
+                    <div class="archive-work-card__overlay">
+                        <div class="archive-work-card__overlay-content">
+                            
+                            <h3 class="archive-work-title">{{ post.title }}</h3>
+
+                            <div class="margin-top-1">
+                                <a href="{{ post.link }}" aria-label="{{ post.title }}">VIEW BLOG POST<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        {# {% endif %} #}
+
+
+    {% endfor %}
+
+    <div class="clearfix"></div>
+
+{% endblock %}
+
+

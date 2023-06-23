@@ -1,1 +1,52 @@
-in single.twig
+{% extends "base.twig" %}
+
+{% block content %}
+
+<article id="post-{{ post.id }}">
+
+	<div class="single-work__wrapper">
+
+        <section class="single-work__image fade-in-zoom" style="background-image: url('{{ post.thumbnail.src }}')">
+
+            <div class="single-work__overlay"></div>
+
+        </section>
+
+        <section class="single-work__text">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        <h1>{{ post.title }}</h1>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+	</div>
+
+	<div class="container">
+		
+		<div class="row">
+		
+			<div class="col-12 margin-bottom-3">
+
+                <div id="post-{{ post.id }}">
+
+                        {{ post.content }}
+
+                </div>						
+			
+			</div>
+
+		</div>
+			
+	</div>
+		
+</article>
+
+{% endblock %}
+
