@@ -38,6 +38,9 @@
 
                         {{ post.content }}
 
+                        <p><i>Categories: {{ post.terms('category') | join(', ') }}</i></p>
+
+
                 </div>						
 			
 			</div>
