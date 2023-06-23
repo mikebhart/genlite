@@ -24,17 +24,16 @@ class GenLiteSite extends TimberSite {
 
 		add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
-		add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
-		add_filter( 'site_transient_update_plugins', [ $this, 'disable_update_default_plugins' ] );
+	    add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
 		add_filter( 'document_title_parts', [ $this, 'modify_title_format'] );
 		add_action( 'login_enqueue_scripts', [ $this, 'admin_login_logo' ] );
         add_filter( 'wp_mail_from_name', [ $this, 'mail_sender_name' ] );
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
-        
+        add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
 
-		parent::__construct();
+        parent::__construct();
 	
 	}
 
@@ -95,10 +94,6 @@ class GenLiteSite extends TimberSite {
                 'capability'    => 'edit_posts',
                 'redirect'      => false
             ]);
-
-
-
-
         }
 	
 	}
@@ -135,17 +130,9 @@ class GenLiteSite extends TimberSite {
 
 
 	function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
 		$twig->addFunction( new Timber\Twig_Function( 'wp_list_pages', 'wp_list_pages' ) );
 
 		return $twig;
-	}
-
-	function disable_update_default_plugins( $value ) {
-		unset( $value->response['akismet/akismet.php'] );
-		unset( $value->response['hello.php'] );
-		return $value;
 	}
 
 	function admin_login_logo() { 
@@ -176,6 +163,11 @@ class GenLiteSite extends TimberSite {
         $sep = "|";
 
         return $sep;
+    }
+
+    function setup_robots_follow( $robots ) {
+        $robots['follow'] = true;
+        return $robots;
     }
 
     

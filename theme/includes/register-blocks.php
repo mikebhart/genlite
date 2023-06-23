@@ -69,10 +69,7 @@ class RegisterBlocks {
         register_block('four-image');
         register_block('icons-left-image-right');
         register_block('image-text');
-        register_block('leadership');        
         register_block('nav-sections');
-        register_block('news-insights');
-        register_block('nsro-ratings');
         register_block('text-left-image-right');
         register_block('text-left-background-image');
         register_block('three-icon-boxes');
@@ -98,11 +95,8 @@ class RegisterBlocks {
                     'acf/four-icon-boxes',
                     'acf/nav-sections',
                     'acf/text-left-background-image',
-                    'acf/leadership',
                     'acf/icons-left-image-right',
-                    'acf/nsro-ratings',
                     'acf/wide-image',
-                    'acf/news-insights',
                     'acf/what-you-see',
                     'acf/contact-us',
                     'acf/five-column-table',
