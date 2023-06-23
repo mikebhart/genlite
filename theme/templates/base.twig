@@ -14,10 +14,8 @@
 	<body id="site-wrapper" class="{{ body_class }} app" data-template="base.twig">
 
         {% if google_analytics.code_body is not empty %}
-
-            <!-- Google Tag Manager -->
-            <script>{{ google_analytics.code_body }}</script>
-            <!-- End Google Tag Manager -->
+           
+            {{ google_analytics.code_body }}
 
         {% endif %}
 

@@ -21,9 +21,7 @@
 
      {% if google_analytics.code_head is not empty %}
 
-        <!-- Google Tag Manager -->
-        <script>{{ google_analytics.code_head }}</script>
-        <!-- End Google Tag Manager -->
+        {{ google_analytics.code_head }}
 
     {% endif %}
 

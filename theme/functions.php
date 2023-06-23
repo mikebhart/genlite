@@ -150,7 +150,8 @@ class GenLiteSite extends TimberSite {
 
 	function admin_login_logo() { 
 
-        $login_form_logo = get_template_directory_uri() . '/dist/images/login-logo.svg';
+        $general = get_field( 'general', 'options' );
+        $login_form_logo = $general['logo']['url'];
 
 		?>
 

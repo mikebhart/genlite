@@ -16,13 +16,13 @@
 
             <div class="row margin-bottom-2">
 
-                <div class="col-12 col-md-6 fade-in-up">
+                <div class="col-12 col-md-6">
                     <label class="form-label" for="your_name"><span>Your Name <i>(required)</i></span></label>
                     <input id="your_name" type="text" class="form-control block-contact-us__input-field" name="your_name" required>
                     <div class="invalid-feedback">Your Name is empty.</div>
                 </div>
 
-                <div class="col-12 col-md-6 fade-in-up">
+                <div class="col-12 col-md-6">
                     <label class="form-label" for="email_address">Your Email <i>(required)</i></label></label>
                     <input id="email_address" type="email" class="form-control block-contact-us__input-field" name="email_address" required>
                     <div class="invalid-feedback">Email is empty or not valid.</div>
@@ -32,14 +32,14 @@
 
             <div class="row margin-bottom-2">
 
-                <div class="col-12 fade-in-up">
+                <div class="col-12">
                     <label for="subject">Subject</label>
                     <input id="subject" type="text" class="form-control block-contact-us__input-field" name="subject">
                 </div>
             
             </div>
 
-            <div class="row margin-bottom-2 fade-in-up">
+            <div class="row margin-bottom-2">
 
                 <div class="col-12">
                     <label for="your_message">Message <i>(required)</i></label>
@@ -55,7 +55,7 @@
 
                     <div id="genlite-contact-alert" class="text-alert"></div>
                     <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-                    <button id="genlite-contact-submit-button" class="button primary-button fade-in-up" type="submit" name="submit" value="SUBMIT">Send Your Message</button>
+                    <button id="genlite-contact-submit-button" class="button primary-button" type="submit" name="submit" value="SUBMIT">Send Your Message</button>
 
                 </div>
 
@@ -69,14 +69,19 @@
 </section>
 
 
-<script id="render_call" async src=""></script>
+{# <script id="render_call" async src=""></script> #}
 
-<script> let publicKey = document.getElementById("recaptcha-public-key").getAttribute('data-contact-recaptcha-public-key'); 
+{# <script> let publicKey = document.getElementById("recaptcha-public-key").getAttribute('data-contact-recaptcha-public-key'); 
          let renderCall = "https://www.google.com/recaptcha/api.js?render=" + publicKey;
+
+        // alert(renderCall);
 
          document.getElementById('render_call').src = renderCall;
 
-</script>
+</script> #}
+
+
+<script async src="https://www.google.com/recaptcha/api.js?render={{ contact_form.recaptcha_public_key }}"></script>
 
 
 <script>

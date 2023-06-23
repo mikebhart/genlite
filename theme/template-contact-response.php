@@ -35,6 +35,7 @@ function send_email( $from, $to, $body ) {
 
 if ( !empty( $_POST )) {
 
+
     $contact_form = get_field( 'contact_form', 'options' );
     $from = $contact_form['from_email'];
     $to = $contact_form['to_email'];
@@ -97,9 +98,6 @@ if ( !empty( $_POST )) {
 
     $error_output = '';
     $success_output = '';
-
-//    send_email( $from, $to, $email_body );
-
 
     if ( isValid() ) {
 
