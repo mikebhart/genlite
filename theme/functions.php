@@ -32,10 +32,12 @@ class GenLiteSite extends TimberSite {
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
+        add_action( 'init', [ $this, 'remove_jquery'] );
 
         parent::__construct();
 	
 	}
+
 
 	function load_scripts_and_styles() {
 
@@ -169,7 +171,15 @@ class GenLiteSite extends TimberSite {
         $robots['follow'] = true;
         return $robots;
     }
+    
+    function remove_jquery() {
 
+        if ( !is_admin() ) {
+            wp_deregister_script( 'jquery' );
+            wp_register_script( 'jquery', false );
+        }
+        
+    }
     
 }
 
