@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="{{ site.charset }}" />
-     {% if post.genlite_seo_description is not empty %}
+
+    <link rel='preload' href='{{ theme.link }}/dist/assets/fonts/karla-v30-latin-regular.woff2' as='font' type='font/woff2' crossorigin>
+    <link rel='preload' href='{{ theme.link }}/dist/assets/fonts/rubik-v26-latin-regular.woff2' as='font' type='font/woff2' crossorigin>
+
+    {% if post.genlite_seo_description is not empty %}
         <meta name="description" content="{{ post.genlite_seo_description }}">        
     {% endif %} 
 
