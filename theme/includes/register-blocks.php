@@ -15,8 +15,8 @@ class RegisterBlocks {
 	}
 
 	public function genlite_acf_init() {
-		// Bail out if function doesn’t exist.
-		if ( ! function_exists( 'acf_register_block' ) ) {
+
+        if ( ! function_exists( 'acf_register_block' ) ) {
 			return;
 		}
 	
@@ -25,8 +25,8 @@ class RegisterBlocks {
 	
 			acf_register_block( array(
 				'name'            => str_replace('-', ' ', $name),
-				'title'           => __( str_replace('-', ' ', ucwords( $name, '-' )), 'krest' ),
-				'description'     => __( str_replace('-', ' ', ucwords( $name, '-' )) . ' block.', 'krest' ),
+				'title'           => __( str_replace('-', ' ', ucwords( $name, '-' )), 'genlite' ),
+				'description'     => __( str_replace('-', ' ', ucwords( $name, '-' )) . ' block.', 'genlite' ),
 				'render_callback' => function( $block, $content = '', $is_preview = false ) {
 					$context = Timber::context();
 				
@@ -38,18 +38,6 @@ class RegisterBlocks {
 				
 					// Store $is_preview value.
 					$context['is_preview'] = $is_preview;
-
-                    	// Get extra context for specific blocks
-					switch ( $block['name'] ) {
-
-						case "acf/sitemap":
-							global $post;
-							$context['post_id'] =  $post->ID;
-							break;
-                        
-						default:
-					}
-
 
 					// Render the block.
 					Timber::render( 'templates/blocks/' . str_replace(' ', '-', strtolower( $block['title'] )) . '.twig', $context );
@@ -74,7 +62,6 @@ class RegisterBlocks {
         register_block('text-left-background-image');
         register_block('three-icon-boxes');
         register_block('three-image-boxes');
-        register_block('sitemap');
         register_block('wide-image');
         register_block('what-you-see');
 
@@ -84,7 +71,6 @@ class RegisterBlocks {
 
 		if ( ! empty( $editor_context->post ) ) {
 			return [ 
-                    'acf/sitemap',
                     'acf/hero-image',
                     'acf/image-text',
                     'acf/text-left-image-right',
@@ -119,7 +105,7 @@ class RegisterBlocks {
 
 	public function genlite_blocks_category( $categories, $post ) {
 
-		return array_merge( $categories, [ [ 'slug' => 'genlite-blocks', 'title' => 'GenLite' ] ] );
+		return array_merge( $categories, [ [ 'slug' => 'genlite-blocks', 'title' => 'Theme' ] ] );
 		
 	}
 

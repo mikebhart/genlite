@@ -1,7 +1,5 @@
 <section class="block-contact-us">
 
-    <div id="recaptcha-public-key" data-contact-recaptcha-public-key="{{ contact_form.recaptcha_public_key }}"></div>
-
     <div class="col-12 text-center margin-bottom-3 fade-in-up">
 
         <h2>{{ fields.contact_us_heading }}</h2>
@@ -9,9 +7,8 @@
 
     </div>
 
-
     <div class="col-12">
-                {# action="contact-response" #}
+                                    {# action="contact-response" #}
         <form id="genlite-contact-form" method="POST" class="needs-contact-validation" data-toggle="validator" role="form" novalidate>
 
             <div class="row margin-bottom-2">
@@ -68,33 +65,23 @@
 
 </section>
 
+<div id="recaptcha-public-key" data-contact-recaptcha-public-key="{{ contact_form.recaptcha_public_key }}"></div>
 
-{# <script id="render_call" async src=""></script> #}
-
-{# <script> let publicKey = document.getElementById("recaptcha-public-key").getAttribute('data-contact-recaptcha-public-key'); 
-         let renderCall = "https://www.google.com/recaptcha/api.js?render=" + publicKey;
-
-        // alert(renderCall);
-
-         document.getElementById('render_call').src = renderCall;
-
-</script> #}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script async src="https://www.google.com/recaptcha/api.js?render={{ contact_form.recaptcha_public_key }}"></script>
 
-
 <script>
     
-    $('#genlite-contact-form').submit(function(event) {
+    $('#genlite-contact-form').submit( function( event ) {
     
-        event.preventDefault(); // Prevent direct form submission
-        $('#genlite-contact-alert').text('Processing...').fadeIn(0);
+        event.preventDefault();
+        $('#genlite-contact-alert').text('Processing...');
         
         let publicKey = document.getElementById("recaptcha-public-key").getAttribute('data-contact-recaptcha-public-key'); 
         
-        grecaptcha.ready(function () {
-            grecaptcha.execute(publicKey, { action: 'contact' }).then(function (token) {
+        grecaptcha.ready( function () {
+            grecaptcha.execute( publicKey, { action: 'contact' }).then( function ( token ) {
 
                 var recaptchaResponse = document.getElementById('recaptchaResponse');
                 recaptchaResponse.value = token;

@@ -24,7 +24,6 @@ class GenLiteSite extends TimberSite {
 
 		add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
 		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
-	    add_filter( 'timber/twig', [ $this, 'add_to_twig' ] );
 		add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
 		add_filter( 'document_title_parts', [ $this, 'modify_title_format'] );
 		add_action( 'login_enqueue_scripts', [ $this, 'admin_login_logo' ] );
@@ -32,21 +31,32 @@ class GenLiteSite extends TimberSite {
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
-        add_action( 'init', [ $this, 'remove_jquery'] );
+        
+        remove_action('wp_head', 'print_emoji_detection_script', 7);
+        remove_action('wp_print_styles', 'print_emoji_styles');
+        remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+        remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
         parent::__construct();
 	
 	}
 
-
-	function load_scripts_and_styles() {
+    function load_scripts_and_styles() {
 
 		$theme = wp_get_theme();
 		$app_version = $theme->Version;
 
 		wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/main.css', array(), $app_version );
-        wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/main.js', array('jquery'), $app_version );
+        wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/main.js', array(), $app_version );
 
+        if ( !is_user_logged_in() ) {
+
+            wp_dequeue_script( 'jquery' );
+            wp_deregister_script( 'jquery' ); 
+            wp_dequeue_style( 'classic-theme-styles' );
+
+        }
+ 
 	}
   
 	function add_to_context( $context ) {
@@ -130,13 +140,6 @@ class GenLiteSite extends TimberSite {
         wp_enqueue_style('genlite_editor_style', get_template_directory_uri() . '/editor-styles.css' );
     }
 
-
-	function add_to_twig( $twig ) {
-		$twig->addFunction( new Timber\Twig_Function( 'wp_list_pages', 'wp_list_pages' ) );
-
-		return $twig;
-	}
-
 	function admin_login_logo() { 
 
         $general = get_field( 'general', 'options' );
@@ -172,15 +175,7 @@ class GenLiteSite extends TimberSite {
         return $robots;
     }
     
-    function remove_jquery() {
-
-        if ( !is_admin() ) {
-            wp_deregister_script( 'jquery' );
-            wp_register_script( 'jquery', false );
-        }
-        
-    }
-    
+   
 }
 
 new GenLiteSite();
