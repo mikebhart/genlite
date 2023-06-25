@@ -73,7 +73,7 @@ class GenLiteSite extends TimberSite {
             $context['general'] = $option_fields['general'];
 	        $context['footer'] = $option_fields['footer'];
             $context['contact_form'] = $option_fields['contact_form'];
-            $context['google_analytics'] = $option_fields['google_analytics'];
+            $context['script_code'] = $option_fields['script_code'];
         }
 
         return $context;

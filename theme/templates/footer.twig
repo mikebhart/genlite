@@ -88,8 +88,17 @@
    
     </section>
 
+
+
     <button id="genlite-back-to-top" title="Go to top">
         <img src="{{ theme.link }}/dist/images/chevron-up-solid.svg" alt="Go to the top of page">
     </button>
+
+  
+    {% if script_code.code_footer is not empty %}
+
+        {{ script_code.code_footer }}
+
+    {% endif %}
 
 </footer>

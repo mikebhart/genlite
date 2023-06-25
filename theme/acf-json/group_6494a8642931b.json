@@ -279,7 +279,7 @@
         },
         {
             "key": "field_6494a9d5e712a",
-            "label": "Google Analytics",
+            "label": "Script Code",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -296,8 +296,8 @@
         },
         {
             "key": "field_649422f90c460",
-            "label": "Google Analytics",
-            "name": "google_analytics",
+            "label": "Script Code",
+            "name": "script_code",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -349,6 +349,26 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_6498754e35b6f",
+                    "label": "Footer Code",
+                    "name": "code_footer",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
                 }
             ]
         }
@@ -371,5 +391,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687470155
+    "modified": 1687713131
 }
