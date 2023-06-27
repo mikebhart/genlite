@@ -70,7 +70,7 @@ class RegisterBlocks {
 	public function genlite_filter_allowed_blocks( $allowed_block_types, $editor_context ) {
 
 		if ( ! empty( $editor_context->post ) ) {
-			return [ 
+			return [                  
                     'acf/hero-image',
                     'acf/image-text',
                     'acf/text-left-image-right',
@@ -89,14 +89,15 @@ class RegisterBlocks {
                     'core/heading',
                     'core/paragraph',
                     'core/image',
-                    'core/list',
                     'core/seperator',
                     'core/columns',
                     'core/spacer',
                     'core/buttons',
                     'core/code',
                     'core/table',
-                    'core/cover'
+                    'core/cover',
+                    'core/list',
+                    'core/list-item'
                 ];
 		}
 	
