@@ -1,0 +1,25 @@
+.archive {
+    padding-bottom: 80px;
+
+    h2 {
+        text-decoration: underline;
+
+        &:hover {
+            color: $genlite-primary-color;
+        }
+
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+        
+            h2 {
+                color: $genlite-primary-color;
+            }
+        }
+
+    }
+
+}

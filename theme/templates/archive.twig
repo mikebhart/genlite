@@ -11,31 +11,38 @@
         </div>
     </div>
 
-    {% for post in posts %}
+    <section class="archive">
 
-        {% if post.post_status == 'publish' %}
+        <div class="container">
+            <div class="row">
+    
+                {% for post in posts %}
 
-            <div class="archive-work-card__layout">
-                <article class="archive-work-card" style="background-image: url( {{ post.thumbnail.src }} );">
-                    <div class="archive-work-card__overlay">
-                        <div class="archive-work-card__overlay-content">
-                            
-                            <h3 class="archive-work-title">{{ post.title }}</h3>
-                            <p class="white">{{ post.terms('category') | join(', ') }}</p>
+                    {% if post.post_status == 'publish' and post.title is not empty %}
 
-                            <div class="margin-top-1">
-                                <a href="{{ post.link }}" aria-label="{{ post.title }}">VIEW BLOG POST<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
-                            </div>
+                        <div class="col-12 col-sm-6 col-md-4">
+
+                            <article>
+
+                                <a href="{{ post.link }}" aria-label="{{ post.title }}">
+                                    
+                                    <h2>{{ post.title }}</h2>
+
+                                </a>
+
+                                <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p>
+
+                            </article>
+
                         </div>
-                    </div>
-                </article>
+
+                    {% endif %}
+
+                {% endfor %}
+
             </div>
+        </div>
 
-        {% endif %}
-
-
-    {% endfor %}
-
-    <div class="clearfix"></div>
+    </section>
 
 {% endblock %}
