@@ -97,7 +97,9 @@ class RegisterBlocks {
                     'core/table',
                     'core/cover',
                     'core/list',
-                    'core/list-item'
+                    'core/list-item',
+                    'core/archives',
+                    'core/latest-posts'
                 ];
 		}
 	
