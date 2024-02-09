@@ -4,31 +4,31 @@
 
         <div class="desktop-container">
 
-            <nav id="genlite-navbar" class="navbar" aria-label="Desktop Header Navigation Links">
+            {# <nav id="genlite-navbar" class="navbar" aria-label="Desktop Header Navigation Links"> #}
 
                 <div class="container-fluid">	
                     <div class="row">
-
-                        <div class="col-2 offset-xxl-1 my-auto">
+{# offset-xxl-1 my-auto #}
+                        <div class="col-2">
                             <a class="navbar-logo" href="{{ site.url }}" aria-label="Go to homepage">
                                 <img src="{{ general.logo.url }}" alt="Desktop Header Logo">
                             </a>                
                         </div>
-
-                        <div class="col-10 col-lg-8 offset-lg-1 offset-xl-1 offset-xxl-0 desktop-menu-container my-auto">
-
+{# col-lg-8 offset-lg-1 offset-xl-1 offset-xxl-0 desktop-menu-container my-auto" #}
+                        <div class="col-10 text-right my-auto desktop-menu-container">
+                            <nav>
                             {% for item in header_menu.items %}
-
-                                <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu fade-in-right" {% else %} class="parent-menu fade-in-right" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-
+                                
+                                    <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu fade-in-right" {% else %} class="parent-menu fade-in-right" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
                             {% endfor %} 
 
+                            </nav>
                         </div>
 
                     </div>
                 </div>
 
-            </nav>
+            {# </nav> #}
 
         </div>
 

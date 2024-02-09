@@ -1,7 +1,9 @@
+// Import our custom CSS
+import '../scss/styles.scss';
+
 import $ from "jquery";
 window.$ = window.jQuery = $;
 
-import "../../assets/styles/index.scss";
 import "bootstrap/js/dist/modal";
 
 import { handleBackToTopButton } from './plugins/back-to-top';
