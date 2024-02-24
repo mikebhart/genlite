@@ -31,7 +31,9 @@ class GenLiteSite extends TimberSite {
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
-        
+        add_filter( 'wp_sitemaps_add_provider', [ $this, 'remove_users_from_sitemap'], 10, 2 );
+        add_filter( 'wp_sitemaps_posts_query_args', [ $this, 'remove_pages_from_sitemap'], 10, 2);
+       
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -174,7 +176,25 @@ class GenLiteSite extends TimberSite {
         $robots['follow'] = true;
         return $robots;
     }
-    
+
+    function remove_users_from_sitemap( $provider, $name ) {
+
+        if ( 'users' === $name ) {
+            return false;
+        }
+ 
+        return $provider;
+    }
+
+    function remove_pages_from_sitemap( $args, $post_type ) {
+
+        if ( 'page' !== $post_type ) return $args;
+
+        $args['post__not_in'] = isset( $args['post__not_in'] ) ? $args['post__not_in'] : array();
+        $args['post__not_in'][] = 819; // contact-response1
+
+        return $args;
+    }
    
 }
 
