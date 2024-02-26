@@ -2,7 +2,6 @@
 
 
 $plugins = [
-			//'timber-library/timber.php',
             'advanced-custom-fields-pro/acf.php'
 		];
 

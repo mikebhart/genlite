@@ -19,11 +19,11 @@ if ( ! class_exists( 'Timber' ) ) {
 	
 }
 
-if ( !class_exists('ACF')) {
+// if ( !class_exists('ACF')) {
     
-    echo 'ACF is not activated.';
-	exit;
-}
+//     echo 'ACF is not activated.';
+// 	exit;
+// }
 
 
 require_once __DIR__ . '/src/GenLiteSite.php';
