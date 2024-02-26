@@ -70,7 +70,7 @@
 
                 </div>						
 			
-				<p><i>Categories: {{ post.terms('work_category') | join(', ') }}</i></p>
+				<p><i>Categories: {{ post.terms( { taxonomy: 'work_category' } ) | join(', ') }}</i></p>
 
 			</div>
 
