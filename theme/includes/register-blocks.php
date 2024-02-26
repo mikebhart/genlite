@@ -99,7 +99,8 @@ class RegisterBlocks {
                     'core/list',
                     'core/list-item',
                     'core/archives',
-                    'core/latest-posts'
+                    'core/latest-posts',
+                    'core/editor'
                 ];
 		}
 	

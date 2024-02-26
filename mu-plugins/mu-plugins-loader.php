@@ -1,7 +1,8 @@
 <?php
 
+
 $plugins = [
-			'timber-library/timber.php',
+			//'timber-library/timber.php',
             'advanced-custom-fields-pro/acf.php'
 		];
 
@@ -13,3 +14,4 @@ foreach ( $plugins as $plugin ) {
     include $path;
 
 }
+

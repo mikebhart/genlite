@@ -1,5 +1,6 @@
 /theme/dist
 /theme/node_modules
+/theme/vendor
 /vendor
 /html
 mu-plugins/*
