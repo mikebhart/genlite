@@ -15,7 +15,7 @@ Timber\Timber::init();
 if ( !class_exists( 'Timber' ) ) {
 
 	echo 'Timber is not activated.';
-	exit;
+    return;
 	
 }
 
@@ -110,6 +110,7 @@ class GenLiteSite extends Site {
         add_theme_support( 'post-formats', ['aside','image','video','quote','link',	'gallery','audio'] );
         add_theme_support( 'editor-styles' );
         add_theme_support( 'wp-block-styles' );
+        
 
         if( function_exists('acf_add_options_page') ) {
 
