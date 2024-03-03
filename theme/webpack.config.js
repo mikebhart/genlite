@@ -9,18 +9,26 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: './src/js/main.js',
+  stats: {
+    children: true,
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 1512000,
+    maxAssetSize: 1512000
+  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devServer:{
-    static: path.resolve(__dirname, 'dist'),
-    port: 8080,
-    hot: true
-  },
   plugins: [ new HtmlWebpackPlugin(), 
              new miniCssExtractPlugin(), 
-             new CopyPlugin( { patterns: [ { from: 'images/', to: '../dist/images/' }, { from: 'src/fonts/', to: '../dist/fonts/' } ] })
+             new CopyPlugin( {
+                 patterns: [ 
+                    { from: 'images/', to: '../dist/images/' }, 
+                    { from: 'src/fonts/', to: '../dist/fonts/' } 
+                ] 
+            })
             ],
   module: {
     rules: [
