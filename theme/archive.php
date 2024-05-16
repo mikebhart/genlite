@@ -3,4 +3,4 @@
 $context = Timber::context();
 $context['post'] = Timber::get_posts();
 
-Timber::render( [ 'archive.twig' ], $context, 600, Timber\Loader::CACHE_OBJECT );
+Timber::render( [ 'archive.twig' ], $context, 3600, Timber\Loader::CACHE_TRANSIENT );

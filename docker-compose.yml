@@ -1,5 +1,3 @@
-version: '3'
-
 services:
 
   # Debian Linux / Apache / PHP / WordPress
@@ -53,6 +51,15 @@ services:
       PMA_HOST: db
       PMA_PORT: 3306
       UPLOAD_LIMIT: 1000M
+      
+  typesense:
+    image: typesense/typesense:26.0
+    restart: on-failure
+    ports:
+      - "8108:8108"
+    volumes:
+      - ./typesense-data:/data
+    command: '--data-dir /data --api-key=xyz --enable-cors'
       
 volumes:
   wordpress:

@@ -12,3 +12,4 @@ mu-plugins/*
 .settings
 /plugins
 .editorconfig
+/typesense-data

@@ -7,6 +7,7 @@
  */
 
 
+
 // Load Composer dependencies.
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -40,7 +41,7 @@ class GenLiteSite extends Site {
         add_filter( 'wp_sitemaps_add_provider', [ $this, 'remove_users_from_sitemap'], 10, 2 );
         add_filter( 'wp_sitemaps_posts_query_args', [ $this, 'remove_pages_from_sitemap'], 11, 2);
 
-        apply_filters( 'timber/cache/mode', function () { return Timber\Loader::CACHE_OBJECT; } );
+        apply_filters( 'timber/cache/mode', function () { return Timber\Loader::CACHE_TRANSIENT; } );
     
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
