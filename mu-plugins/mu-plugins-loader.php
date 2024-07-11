@@ -2,7 +2,7 @@
 
 
 $plugins = [
-            'advanced-custom-fields-pro/acf.php'
+         //   'advanced-custom-fields-pro/acf.php'
 		];
 
 foreach ( $plugins as $plugin ) {
