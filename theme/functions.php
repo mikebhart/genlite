@@ -45,6 +45,7 @@ class GenLiteSite extends Site {
 
         add_action('upload_mimes', [ $this, 'add_svg_to_media_library' ] );
         add_action('mime_types', [ $this, 'extend_mime_types' ] );
+        add_filter( 'woocommerce_enqueue_styles', '__return_false' );
     
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');

@@ -1,0 +1,40 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+             {% for post in posts %}
+
+                {% if post.post_status == 'publish' and post.title is not empty %}
+
+                    <div class="col-12 col-sm-6 col-md-4">
+
+                        <article>
+                        
+                            {% if post.thumbnail %}
+                                <img style="width:100%;" src="{{ post.thumbnail.src }}" />
+                            {% endif %}
+
+                            <a href="{{ post.link }}" aria-label="{{ post.title }}">
+                                
+                                <h2>{{ post.title }}</h2>
+
+                            </a>
+
+                            <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p>
+
+                        </article>
+
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+    
+    
+{% endblock  %}
