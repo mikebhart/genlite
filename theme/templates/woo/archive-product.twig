@@ -2,6 +2,8 @@
 
 {% block content %}
 
+
+
     <section class="woo-archive">
 
         <div class="container">
@@ -23,12 +25,15 @@
 
                                 <div class="woo-archive__text-holder">
                                   
-                                    <h3>{{ item.meta('_price') }}</h3>
+                                    <h3>{{ woocommerce_currency }}{{ item.meta('_price') }}</h3>
 
                                 
                                     <div class="title">
                                     <p>{{ item.title }}</p>
                                     </div>
+
+                                     {# {{ dump(item.meta) }} #}
+
 
                                 </div>
 

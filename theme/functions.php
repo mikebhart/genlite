@@ -102,6 +102,9 @@ class GenLiteSite extends Site {
             $context['footer'] = $option_fields['footer'];
             $context['contact_form'] = $option_fields['contact_form'];
             $context['script_code'] = $option_fields['script_code'];
+
+            $context['woocommerce_currency'] = get_woocommerce_currency_symbol();
+
         }
 
         return $context;
