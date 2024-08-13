@@ -2,44 +2,30 @@
 
 {% block content %}
 
-    {% do action('woocommerce_before_main_content') %}
-    {% do action('woocommerce_before_single_product') %}
+    <article id="product-{{ post.id }}">
+       
+        <div class="container">
+            <div class="row">
 
-    {% if fn('post_password_required') %}
+                <div class="col-12">
 
-        {{ fn('get_the_password_form') }}
+                    {# {{ dump(product) }} #}
 
-    {% else %}
+                    {# {{ dump(post.meta()) }} #}
 
-     <div class="container">
-        <div class="row">
+                    <h1>{{ post.title }}</h1>
+                    {{ post.content }}
+                   <img style="height: 100px; width: 100px;" src="{{ post.thumbnail.src }}"/>
 
-            <div class="col-12">
+                    <p>{{ post.meta('_price') }}</p>
 
 
-                <article id="product-{{ post.id }}" {{ fn('wc_product_class', '', product) }}>
-                
-                    {% do action('woocommerce_before_single_product_summary') %}
 
-                    <div class="summary entry-summary">
 
-                        {% do action('woocommerce_single_product_summary') %}
-                    
-                    </div>
-
-                    {% do action('woocommerce_after_single_product_summary') %}
-                
-                </article>
-
+                </div>
             </div>
         </div>
-    </div>
 
-        {% do action('woocommerce_after_single_product') %}
-
-    {% endif %}
-
-    {% do action('woocommerce_after_main_content') %}
-    {% do action('woocommerce_sidebar') %}
+    </article>
 
 {% endblock %}
