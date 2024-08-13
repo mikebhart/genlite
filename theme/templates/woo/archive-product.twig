@@ -2,23 +2,56 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="row">
+    <section class="woo-archive">
 
-            <div class="col-12">
+        <div class="container">
+
+            <div class="row">
 
                 {% for item in products %}
 
-                    <img style="height: 100px; width: 100px;" src="{{ item.thumbnail.src }}"/>
-                    <a href="{{ item.link }}">{{ item.title }}</a>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2 mb-md-5">
 
+                        <a href="{{ item.link }}">
+
+                            <div class="woo-archive__card">
+
+                                <div class="woo-archive__image-wrapper">
+                                    <div class="woo-archive__tag">Stabilized Real Estate</div>
+                                    <div class="woo-archive__image" style="background-image: url('{{ item.thumbnail.src }}');"></div>
+                                </div>
+
+                                <div class="woo-archive__text-holder">
+                                  
+                                    <h3>{{ item.meta('_price') }}</h3>
+
+                                
+                                    <div class="title">
+                                    <p>{{ item.title }}</p>
+                                    </div>
+
+                                </div>
+
+                                {# <div class="wp-block-buttons text-center">
+                                    <div class="wp-block-button">
+                                        <a href="{{ item.link }}" class="wp-block-button__link wp-element-button">View Details</a>
+                                    </div>
+                                </div> #}
+
+                            </div>
+
+                        </a>
+
+                    </div>
+                
                 {% endfor %}
 
-                {# {{ dump(products) }} #}
-               
             </div>
 
         </div>
-    </div>
+
+    </section>
 
 {% endblock %}
+
+
