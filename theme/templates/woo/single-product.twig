@@ -15,7 +15,7 @@
                
                     
                     <h1>{{ post.title }}</h1>
-                    <h3>{{ post.meta('_price') }}</h3>
+                    <h3>{{ woocommerce_currency }}{{ post.meta('_price') }}</h3>
 
                     {{ post.content }}
 
