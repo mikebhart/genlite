@@ -4,41 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea24e3c17c79ad2bdcded54121ba0a50",
+    "content-hash": "21d3ecd693dbc74edc571a7af9379fd8",
     "packages": [
-        {
-            "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "6.2.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=6.2.1"
-            },
-            "require": {
-                "pivvenit/acf-pro-installer": "^2.4.0 || ^3.0"
-            },
-            "type": "wordpress-muplugin",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Elliot Condon",
-                    "homepage": "http://www.elliotcondon.com",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "PivvenIT",
-                    "homepage": "https://pivvenit.nl",
-                    "role": "Composer Repository maintainer"
-                }
-            ],
-            "description": "Advanced Custom Fields PRO",
-            "homepage": "https://www.advancedcustomfields.com/",
-            "support": {
-                "docs": "https://www.advancedcustomfields.com/resources/",
-                "forum": "https://support.advancedcustomfields.com/topics/"
-            }
-        },
         {
             "name": "composer/installers",
             "version": "v2.2.0",
@@ -247,6 +214,55 @@
             "time": "2023-11-12T22:16:48+00:00"
         },
         {
+            "name": "mindkomm/timber-integration-woocommerce",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mindkomm/timber-integration-woocommerce.git",
+                "reference": "bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mindkomm/timber-integration-woocommerce/zipball/bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57",
+                "reference": "bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "timber/timber": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Timber\\Integrations\\WooCommerce\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Gächter",
+                    "email": "lukas.gaechter@mind.ch",
+                    "homepage": "https://www.mind.ch"
+                }
+            ],
+            "description": "WooCommerce integration for Timber.",
+            "keywords": [
+                "integration",
+                "timber",
+                "twig",
+                "woocommerce"
+            ],
+            "support": {
+                "docs": "https://github.com/mindkomm/timber-integration-woocommerce#documentation",
+                "issues": "https://github.com/mindkomm/timber-integration-woocommerce/issues",
+                "source": "https://github.com/mindkomm/timber-integration-woocommerce"
+            },
+            "time": "2024-05-08T09:54:00+00:00"
+        },
+        {
             "name": "oscarotero/env",
             "version": "v2.1.0",
             "source": {
@@ -375,74 +391,6 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
-        },
-        {
-            "name": "pivvenit/acf-pro-installer",
-            "version": "3.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pivvenit/acf-pro-installer.git",
-                "reference": "e14e56c23f5596573c01dd87edd4ca890ef2a56a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pivvenit/acf-pro-installer/zipball/e14e56c23f5596573c01dd87edd4ca890ef2a56a",
-                "reference": "e14e56c23f5596573c01dd87edd4ca890ef2a56a",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1||^2.0",
-                "ext-json": "*",
-                "php": "^7.3||^8.0",
-                "vlucas/phpdotenv": "^2.0 || ^3.0 || ^4.0 || ^5.0"
-            },
-            "replace": {
-                "philippbaschke/acf-pro-installer": "1.0.2"
-            },
-            "require-dev": {
-                "composer/composer": "^1.0|| ^2.0",
-                "php-parallel-lint/php-parallel-lint": "^1.2.0",
-                "phpstan/phpstan": "^1.1.2",
-                "phpunit/phpunit": "^9.0",
-                "rregeer/phpunit-coverage-check": "^0.3.1",
-                "squizlabs/php_codesniffer": "^3.4",
-                "symfony/process": "^5.1"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PivvenIT\\Composer\\Installers\\ACFPro\\ACFProInstallerPlugin",
-                "plugin-modifies-downloads": true
-            },
-            "autoload": {
-                "psr-4": {
-                    "PivvenIT\\Composer\\Installers\\ACFPro\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PivvenIT",
-                    "homepage": "https://pivvenit.nl"
-                }
-            ],
-            "description": "A modern maintained install helper for Advanced Custom Fields PRO",
-            "keywords": [
-                "acf",
-                "composer",
-                "env",
-                "plugin",
-                "pro",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "issues": "https://github.com/pivvenit/acf-pro-installer/issues",
-                "source": "https://github.com/pivvenit/acf-pro-installer/tree/3.2.0"
-            },
-            "time": "2022-08-26T07:12:57+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

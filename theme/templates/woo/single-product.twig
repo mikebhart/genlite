@@ -1,26 +1,45 @@
-{% extends "base.twig" %}
+{% extends 'base.twig' %}
 
 {% block content %}
 
-    <article>
+    {% do action('woocommerce_before_main_content') %}
+    {% do action('woocommerce_before_single_product') %}
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 margin-bottom-3">
+    {% if fn('post_password_required') %}
 
-                    {% if post.thumbnail %}
-                        <img style="height: 100px; width:100px;" src="{{ post.thumbnail.src }}" />
-                    {% endif %}
+        {{ fn('get_the_password_form') }}
 
-                    <h1 class="text-center">{{ post.title }}</h1>
+    {% else %}
 
-                    {{ post.content }}
+     <div class="container">
+        <div class="row">
 
-                </div>
+            <div class="col-12">
+
+
+                <article id="product-{{ post.id }}" {{ fn('wc_product_class', '', product) }}>
+                
+                    {% do action('woocommerce_before_single_product_summary') %}
+
+                    <div class="summary entry-summary">
+
+                        {% do action('woocommerce_single_product_summary') %}
+                    
+                    </div>
+
+                    {% do action('woocommerce_after_single_product_summary') %}
+                
+                </article>
+
             </div>
         </div>
+    </div>
 
-    </article>
+        {% do action('woocommerce_after_single_product') %}
 
+    {% endif %}
+
+    {% do action('woocommerce_after_main_content') %}
+    {% do action('woocommerce_sidebar') %}
 
 {% endblock %}

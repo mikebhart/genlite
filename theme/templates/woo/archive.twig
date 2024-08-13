@@ -5,36 +5,55 @@
     <div class="container">
         <div class="row">
 
-             {% for post in posts %}
+            <div class="col-12">
 
-                {% if post.post_status == 'publish' and post.title is not empty %}
+                {% do action('woocommerce_before_main_content') %}
 
-                    <div class="col-12 col-sm-6 col-md-4">
+                <header class="woocommerce-products-header">
 
-                        <article>
-                        
-                            {% if post.thumbnail %}
-                                <img style="width:100%;" src="{{ post.thumbnail.src }}" />
+                    {% if fn('apply_filters', 'woocommerce_show_page_title', true) %}
+                        <h1 class="woocommerce-products-header__title page-title">{{ title }}</h1>
+                    {% endif %}
+
+                    {% do action('woocommerce_archive_description') %}
+
+                </header>
+
+                {% if fn('woocommerce_product_loop') %}
+
+                    {% do action('woocommerce_before_shop_loop') %}
+
+                    {{ fn('woocommerce_product_loop_start') }}
+
+                    {% if fn('wc_get_loop_prop', 'total') %}
+
+                        {% for post in posts %}
+                    
+                            {% if fn('have_posts') %}
+                    
+                                {{ fn('wc_get_template_part', 'content', 'product' ) }}
+                    
                             {% endif %}
+                    
+                        {% endfor %}
+                    
+                    {% endif %}
 
-                            <a href="{{ post.link }}" aria-label="{{ post.title }}">
-                                
-                                <h2>{{ post.title }}</h2>
+                    {{ fn('woocommerce_product_loop_end') }}
 
-                            </a>
+                    {% do action('woocommerce_after_shop_loop') %}
 
-                            <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p>
+                {% else %}
 
-                        </article>
-
-                    </div>
+                    {% do action( 'woocommerce_no_products_found' ) %}
 
                 {% endif %}
 
-            {% endfor %}
+                {% do action('woocommerce_after_main_content') %}
+                {% do action('woocommerce_sidebar') %}
 
+            </div>
         </div>
     </div>
-    
-    
-{% endblock  %}
+
+{% endblock %}

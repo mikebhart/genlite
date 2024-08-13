@@ -52,7 +52,18 @@ class GenLiteSite extends Site {
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
+        // add_filter( 'timber/integrations', function ( array $integrations ): array {
+        //     $integrations[] = new \Timber\Integrations\WooCommerce\WooCommerceIntegration();
+        
+        //     return $integrations;
+        // } );
+
+
+
+        
         parent::__construct();
+
+
 
     }
 
@@ -71,21 +82,17 @@ class GenLiteSite extends Site {
             wp_dequeue_style( 'classic-theme-styles' );
 
         }
+        
 
     }
 
-   
 
     function add_to_context( $context ) {
 
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class());
-       
-        // $context['header_menu'] = new TimberMenu('header menu');
-
         $context['header_menu'] = Timber::get_menu('header menu');
-
-    
+   
         // Options
         $option_fields = get_fields('options');
 
