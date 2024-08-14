@@ -1,0 +1,180 @@
+{% block home %}
+
+    <div class="blog-home">
+
+        <div id="home-sticky-category-filter" class="blog-home__sticky-filters blog-home__sticky-category-filter-hide">
+
+            <div class="container">
+                <div class="row blog-home__categories-section"> 
+                    <div class="col-12 col-md-9">
+                        <div class="col">
+                            <div id="filters-sticky">
+
+                                {% for cat in categories %}
+                                    <span class="category-filter-sticky" data-filter="{{ cat.term_id }}">{{ cat.name }}</span>
+                                {% endfor %}  
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 my-auto">
+                        <div class="blog-home__search">
+                            <i class="blog-home__search-icon fa fa-search"></i>
+                            <input id="search-input-sticky" name="search-input-sticky" type="text" class="form-control blog-home__search-input" placeholder="Search">
+                        </div>
+                    </div>
+
+
+                  
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="blog_posts_loader">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+
+        <div id="blog-home-banner"> 
+        
+            <div class="container">
+
+               
+
+                <div class="row blog-home__hero">
+                    <div class="col-12 col-lg-8">
+                        <div class="blog-home__sticky-wrapper">
+                            
+                            <h3 class="purple no-top-spacing">ENGINEERING</h3>
+
+                            <div class="blog-home__sticky-image-wrapper">
+                                <div class="blog-home__sticky-image" style="background-image: url('{{ sticky.image_url }}');"></div>
+                            </div>
+
+                            <div class="blog-home__sticky-info">
+                                <h2>{{ sticky.title }}</h2>
+                                <h6>By {{ sticky.author }} • <span class="blog-home__categories-info">{{ sticky.categories }}</span> • {{ sticky.date }}</h6>
+                                <p>{{ sticky.excerpt }}</p>
+                                <a class="kkr-read-more" href="{{ sticky.link }}">Read More</a>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-lg-4 blog-home__intro">
+
+                        <div class="blog-home__intro-wrapper">
+
+                            <div class="blog-home__intro-details">
+
+                                <div class="blog-home__intro-details-image">
+                                    <img src="{{ welcome_author_image }}"/>
+                                </div>
+
+                                <div class="blog-home__intro-details-name-job-wrapper">
+
+                                    <h4 class="blog-home__intro-details-name">{{ welcome_author_first_name }}&nbsp;{{ welcome_author_last_name }}</h4>
+                                    
+                                    <div class="blog-home__intro-details-job-title"><p>{{ welcome_author_job_title }}<p></div>
+
+                                </div>
+
+                                <h5>{{ welcome_title }}</h5>
+
+                                <div class="blog-home__intro-details-content">
+                                    <p>{{ welcome_excerpt }}</p>
+                                </div>
+
+                                <div class="pb-4">
+                                    <a class="kkr-read-more" href="{{ welcome_link }}">Read More</a>
+                                </div>
+                            
+                            </div>
+
+                            <div class="blog-home__job">
+
+                                <div class="blog-home__job-text-wrapper">
+                                    <div class="blog-home__job-text">Are you looking for a new opportunity?</div>
+                                    <div class="blog-home__job-button-wrapper"><a href="{{ homepage_jobs_link }}" target="_blank" class="blog-home__job-button">See Openings</a></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+
+        
+
+            <div class="container">
+
+                <div class="row blog-home__categories-section blog-home__categories-section-header">
+
+                    <div class="col-12 col-md-7 offset-md-1">
+
+                        <div class="col">
+                            <div id="filters">
+
+                            {% for cat in categories %}
+                                    <span class="category-filter" data-filter="{{ cat.term_id }}">{{ cat.name }}</span>
+                                {% endfor %}  
+
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                    <div class="col-12 col-md-3 my-auto">
+
+                        <div class="blog-home__search">
+                            <i class="blog-home__search-icon fa fa-search"></i>
+                            <input id="search-input" name="search-input" type="text" class="form-control blog-home__search-input" placeholder="Search">
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        
+        </div> <!-- end of hero banner -->
+    
+
+        <!-- Posts -->
+                
+        <div class="container">
+
+            <div class="blog-home__search-results pb-5">
+                <div id="blog-home__search-results-ajax-posts" class="blog-home__search-results-ajax-posts"></div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div id="no_rows_message" class="text-center"></div>
+
+                <div class="blog-home__more-posts-button-wrapper">
+                    <a id="blog-home__more-posts-button" class="btn">Show More</a>
+                </div>
+
+		    </div>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

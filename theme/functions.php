@@ -73,7 +73,12 @@ class GenLiteSite extends Site {
         $app_version = $theme->Version;
 
         wp_enqueue_style( 'genlite_style', get_template_directory_uri() . '/dist/main.css', array(), $app_version );
-        wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/main.js', array(), $app_version );
+        wp_enqueue_script( 'genlite_script', get_template_directory_uri() . '/dist/main.js',  array(), $app_version );
+        wp_localize_script( 'genlite_script', 'genlite_settings_object', [ 
+                'ajax_url' => admin_url('admin-ajax.php'), 
+                'posts_per_page' => get_option('posts_per_page') ]);
+
+
 
         if ( !is_user_logged_in() ) {
 
@@ -92,9 +97,15 @@ class GenLiteSite extends Site {
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class());
         $context['header_menu'] = Timber::get_menu('header menu');
+
+        $context['woo_currency'] = get_woocommerce_currency_symbol();
    
         // Options
         $option_fields = get_fields('options');
+
+        // var_dump($option_fields);
+
+        // exit;
 
         if ( $option_fields != null ) {
             
@@ -102,8 +113,6 @@ class GenLiteSite extends Site {
             $context['footer'] = $option_fields['footer'];
             $context['contact_form'] = $option_fields['contact_form'];
             $context['script_code'] = $option_fields['script_code'];
-
-            $context['woocommerce_currency'] = get_woocommerce_currency_symbol();
 
         }
 

@@ -16,7 +16,7 @@ class RegisterBlocks {
 
 	public function genlite_acf_init() {
 
-        if ( ! function_exists( 'acf_register_block' ) ) {
+                if ( ! function_exists( 'acf_register_block' ) ) {
 			return;
 		}
 	
@@ -49,21 +49,21 @@ class RegisterBlocks {
 			) );	
 		}
 
-        register_block('banner');
-        register_block('contact-us');
-        register_block('hero-image');
-        register_block('five-column-table');        
-        register_block('four-icon-boxes');
-        register_block('four-image');
-        register_block('icons-left-image-right');
-        register_block('image-text');
-        register_block('nav-sections');
-        register_block('text-left-image-right');
-        register_block('text-left-background-image');
-        register_block('three-icon-boxes');
-        register_block('three-image-boxes');
-        register_block('wide-image');
-        register_block('what-you-see');
+                register_block('banner');
+                register_block('contact-us');
+                register_block('hero-image');
+                register_block('five-column-table');        
+                register_block('four-icon-boxes');
+                register_block('four-image');
+                register_block('icons-left-image-right');
+                register_block('image-text');
+                register_block('nav-sections');
+                register_block('text-left-image-right');
+                register_block('text-left-background-image');
+                register_block('three-icon-boxes');
+                register_block('three-image-boxes');
+                register_block('wide-image');
+                register_block('what-you-see');
 
 	}
 
