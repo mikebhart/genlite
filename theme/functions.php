@@ -46,11 +46,14 @@ class GenLiteSite extends Site {
         add_action('upload_mimes', [ $this, 'add_svg_to_media_library' ] );
         add_action('mime_types', [ $this, 'extend_mime_types' ] );
         add_filter( 'woocommerce_enqueue_styles', '__return_false' );
-    
-        remove_action('wp_head', 'print_emoji_detection_script', 7);
-        remove_action('wp_print_styles', 'print_emoji_styles');
+
+           
+        remove_action( 'wp_head', 'print_emoji_detection_script', 7);
+        remove_action( 'wp_print_styles', 'print_emoji_styles');
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+        //add_action( 'woocommerce_breadcrumb_defaults', 'woocommerce_show_page_title', 10, 2 );
 
         // add_filter( 'timber/integrations', function ( array $integrations ): array {
         //     $integrations[] = new \Timber\Integrations\WooCommerce\WooCommerceIntegration();
@@ -98,7 +101,7 @@ class GenLiteSite extends Site {
         $context['body_class'] = implode(' ', get_body_class());
         $context['header_menu'] = Timber::get_menu('header menu');
 
-        $context['woo_currency'] = get_woocommerce_currency_symbol();
+      //  $context['woo_currency'] = get_woocommerce_currency_symbol();
    
         // Options
         $option_fields = get_fields('options');

@@ -2,7 +2,7 @@
 
 {% block content %}
 
- {% do action('woocommerce_before_single_product') %}
+    {% do action('woocommerce_before_single_product') %}
 
     <article id="product-{{ post.id }}" class="woo-single">
        
@@ -10,31 +10,30 @@
             <div class="row">
 
                 <div class="col-12 col-md-5">
-                    <img style="width:100%; height:100%;" src="{{ post.thumbnail.src }}"/>
+                    {{ breadcrumb }}
+                    <div style="width:80%;">
+                        <img style="width:100%; height:100%;" src="{{ post.thumbnail.src }}"/>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-7">
-               
-                    
-                    {# <h1>{{ post.title }}</h1>
-                    <h3>{{ woo_currency }}{{ post.meta('_price') }}</h3> #}
-
                  
-   {# {% do action('woocommerce_single_product_summary') %} #}
                     {% do action('woocommerce_single_product_summary') %}
-                      {# {% do action('woocommerce_after_single_product_summary') %} #}
-
-  
-   {# {{ post.content }} #}
-                    <span>By</span><a href="{{ post.author.path }}"> {{ post.author.name }} </a><span>&bull;</span>
-                    <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-
+                    {% do action('woocommerce_after_single_product_summary') %}
+ 
                 </div>
-
 
             </div>
         </div>
 
     </article>
+      
+    {% do action('woocommerce_after_single_product') %}
+
+{# {% do action('woocommerce_before_single_product') %}
+{% do action('woocommerce_before_single_product_summary') %}
+{% do action('woocommerce_single_product_summary') %}
+{% do action('woocommerce_after_single_product_summary') %}
+{% do action('woocommerce_after_single_product') %} #}
 
 {% endblock %}

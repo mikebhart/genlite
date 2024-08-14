@@ -8,6 +8,19 @@
 
             <div class="row">
 
+                {{ breadcrumb }}
+
+                {{ result_count }}
+
+                {% for item in categories %}
+
+                    <a href="{{ item.link }}">{{ item.name }}</a>
+
+                {% endfor %}
+
+                {% include 'searchform.twig' %}
+                 
+
                 {% for item in products %}
 
                     <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2 mb-md-5">
@@ -39,6 +52,40 @@
                 
                 {% endfor %}
 
+                <div class="tool-pagination">
+
+                	{% if posts.pagination.prev %}
+	                    <a href="{{ posts.pagination.prev.link }}" class="prev {{ posts.pagination.prev.link|length ? '' : 'invisible' }}">Previous</a>
+                    {% endif %}
+
+	                <ul class="pages">
+                        
+                        {% for page in posts.pagination.pages %}
+                            
+                            <li>
+                                
+                                {% if page.link %}
+        
+                                    <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                                
+                                {% else %}
+                                    
+                                    <span class="{{ page.class }}">{{ page.title }}</span>
+                                
+                                {% endif %}
+                            
+                            </li>
+                        
+                        {% endfor %}
+                    
+                    </ul>
+
+                    {% if posts.pagination.next %}
+                        <a href="{{ posts.pagination.next.link }}" class="next {{ posts.pagination.next.link|length ? '' : 'invisible' }}">Next</a>
+                    {% endif %}
+                
+                </div>
+
             </div>
 
         </div>
@@ -46,5 +93,3 @@
     </section>
 
 {% endblock %}
-
-

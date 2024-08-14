@@ -6,13 +6,7 @@ class AdminCleanupSetup {
 	 */
 	public function __construct() {
 		
-		// add_action( 'init', [ $this, 'genlite_unregister_tags' ] );
-		// add_action( 'init', [ $this, 'genlite_unregister_categories' ] );
-		// add_action( 'admin_menu', [ $this, 'genlite_remove_admin_posts_menu' ] );
-		// add_action( 'admin_bar_menu', [ $this, 'genlite_remove_default_post_type_menu_bar' ], 999 );
 		add_action( 'wp_dashboard_setup', [ $this, 'genlite_remove_draft_widget' ], 999 );
-		// add_action( 'admin_init', [ $this, 'genlite_remove_page_admin_items' ] );
-		add_action( 'admin_init', [ $this, 'genlite_remove_comment_menu' ]);
 		add_action( 'wp_before_admin_bar_render', [ $this, 'genlite_remove_comments_bar' ] );
 		add_action( 'wp_before_admin_bar_render', [ $this, 'genlite_remove_customize_bar' ] ); 
 
