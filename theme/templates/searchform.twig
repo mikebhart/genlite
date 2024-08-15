@@ -1,8 +1,13 @@
 <form role="search" method="get" id="searchform" class="searchform" action="{{ site.link }}">
+
     <div>
         <label class="screen-reader-text" for="s">Search for:</label>
         <input type="text" value="{{ function('get_search_query') }}" name="s" id="s" />
         <input type="submit" id="searchsubmit" value="Search" />
     </div>
-    <input type="hidden" name="post_type" value="product">
+   
+    {% if post_type == 'product' %}
+        <input type="hidden" name="post_type" value="{{ post_type }}"/>
+    {% endif %}
+
 </form>

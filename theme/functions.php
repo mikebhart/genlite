@@ -122,12 +122,6 @@ class GenLiteSite extends Site {
 
         }
 
-        if ( class_exists( 'WooCommerce' ) ) {
-
-            $context['woo_currency'] = get_woocommerce_currency_symbol();
-
-        }
-
         return $context;
 
     }
@@ -141,14 +135,9 @@ class GenLiteSite extends Site {
         add_theme_support( 'title-tag' );   
         add_theme_support( 'automatic-feed-links' );
 
-        if (class_exists('Woocommerce')){
+        if ( class_exists('Woocommerce') ) {
         
              add_theme_support( 'woocommerce' );
-        //     add_theme_support( 'wc-product-gallery-zoom' );
-        //     add_theme_support( 'wc-product-gallery-slider' );
-        //     add_theme_support( 'wc-product-gallery-lightbox' );
-
-
         }
 
         //add_theme_support( 'woocommerce' );
