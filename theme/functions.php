@@ -61,7 +61,23 @@ class GenLiteSite extends Site {
         //     return $integrations;
         // } );
 
-
+        add_filter('woocommerce_get_catalog_ordering_args', function ($args) {
+            $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+        
+            if ('price' == $orderby_value) {
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'ASC';
+                $args['meta_key'] = '_price';
+            }
+        
+            if ('price-desc' == $orderby_value) {
+                $args['orderby'] = 'meta_value_num';
+                $args['order'] = 'DESC';
+                $args['meta_key'] = '_price';
+            }
+        
+            return $args;
+        });
 
         
         parent::__construct();
@@ -69,6 +85,8 @@ class GenLiteSite extends Site {
 
 
     }
+
+    
 
     function load_scripts_and_styles() {
 
@@ -101,7 +119,7 @@ class GenLiteSite extends Site {
         $context['body_class'] = implode(' ', get_body_class());
         $context['header_menu'] = Timber::get_menu('header menu');
 
-      //  $context['woo_currency'] = get_woocommerce_currency_symbol();
+      
    
         // Options
         $option_fields = get_fields('options');

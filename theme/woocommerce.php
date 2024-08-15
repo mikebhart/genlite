@@ -9,6 +9,8 @@ if ( !class_exists('Timber') ) {
 
 $context = Timber::context();
 
+$context['woo_currency'] = get_woocommerce_currency_symbol();
+
 if ( is_singular('product') ) {
 
 
@@ -33,6 +35,10 @@ if ( is_singular('product') ) {
     $context[ 'breadcrumb' ] = new Timber\FunctionWrapper('woocommerce_breadcrumb');
     $context[ 'result_count' ] = new Timber\FunctionWrapper('woocommerce_result_count');
     $context[ 'categories' ] = Timber::get_terms([ 'taxonomy' => 'product_cat' ]);
+
+    // $price = esc_attr(get_post_meta( get_the_ID(), '_regular_price', true));
+    // $sale = esc_attr(get_post_meta( get_the_ID(), '_sale_price', true));      
+    
 
     if ( is_product_category() ) {
 

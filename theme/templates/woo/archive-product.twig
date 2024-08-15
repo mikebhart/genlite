@@ -23,6 +23,10 @@
 
                 {% for item in products %}
 
+                    {% set sale_price = item.meta('_sale_price') %}
+                    {% set regular_price = item.meta('_regular_price') %}
+                    {% set price = item.meta('_price') %}
+
                     <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2 mb-md-5">
 
                         <a href="{{ item.link }}">
@@ -38,9 +42,21 @@
                                 
                                     <div class="title">
                                         <p>{{ item.title }}</p>
+
                                     </div>
 
-                                    <h3>{{ woo_currency }}{{ item.meta('_price') }}</h3>
+                                    <h3>
+                                        {% if sale_price is not empty %}
+
+                                            <del>{{ woo_currency }}{{ regular_price }}</del>&nbsp;{{ woo_currency }}{{ sale_price }}</h3>
+
+                                        {% else %}
+
+                                            {{ woo_currency }}{{ price }}
+
+                                        {% endif %}
+                                    </h3>
+
 
                                 </div>
 
