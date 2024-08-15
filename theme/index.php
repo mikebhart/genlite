@@ -15,5 +15,5 @@
  * @since   Timber 0.1
  */
 
- get_template_part( 'archive', get_post_type() );
-
+ get_template_part( 'archive', 'post' );
+ 

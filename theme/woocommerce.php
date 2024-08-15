@@ -33,7 +33,15 @@ if ( is_singular('product') ) {
     $context['products'] = $posts;
     $context[ 'breadcrumb' ] = new Timber\FunctionWrapper('woocommerce_breadcrumb');
     $context[ 'result_count' ] = new Timber\FunctionWrapper('woocommerce_result_count');
-    $context[ 'categories' ] = Timber::get_terms([ 'taxonomy' => 'product_cat' ]);
+    $context[ 'categories' ] = wp_list_categories( array(
+        'taxonomy' => 'product_cat',
+        'echo' => false,
+        'show_count' => true,
+        'title_li' => '<h2>' . __( 'Categories', 'genlite' ) . '</h2>'
+    ) );
+
+        
+    //Timber::get_terms([ 'taxonomy' => 'product_cat' ]);
 
     if ( is_product_category() ) {
 

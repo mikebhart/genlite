@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {% do action('woocommerce_before_single_product') %}
+   
 
     <article id="product-{{ post.id }}">
 
@@ -11,6 +11,10 @@
             
             <div class="container">
                 <div class="row">
+
+                    <div class="col-12">
+                        {% do action('woocommerce_before_single_product') %}
+                    </div>
 
                     <div class="col-12 col-md-5">
                         {{ breadcrumb }}

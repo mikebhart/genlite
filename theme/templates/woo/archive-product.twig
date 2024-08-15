@@ -8,103 +8,78 @@
 
             <div class="row">
 
-                {{ breadcrumb }}
+                <div class="col-md-3">
 
-                {{ result_count }}
+                    <div>{{ breadcrumb }}</div>
+                    <div>{{ categories }}</div>
+                    
+                </div>
 
-                {% for item in categories %}
+                <div class="col-md-9">
+                    
+                    <div class="row">
 
-                    <a href="{{ item.link }}">{{ item.name }}</a>
+                        <div class="col-12">
+                         
+                            {% include 'searchform.twig' %}
+                            {{ result_count }}
+                            {% include 'parts/pagination.twig' %} 
 
-                {% endfor %}
+                        </div>
 
-                {% include 'searchform.twig' %}
-                 
+                        {% for item in products %}
 
-                {% for item in products %}
+                            {% set sale_price = item.meta('_sale_price') %}
+                            {% set regular_price = item.meta('_regular_price') %}
+                            {% set price = item.meta('_price') %}
 
-                    {% set sale_price = item.meta('_sale_price') %}
-                    {% set regular_price = item.meta('_regular_price') %}
-                    {% set price = item.meta('_price') %}
+                            <div class="col-md-4">
 
-                    {# {% fn('get_price_html', item.id) %} #}
+                                <a href="{{ item.link }}">
 
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2 mb-md-5">
+                                    <div class="woo-archive__card">
 
-                        <a href="{{ item.link }}">
+                                        <div class="woo-archive__image-wrapper">
+                                            <div class="woo-archive__tag">Stabilized Real Estate</div>
+                                            <div class="woo-archive__image" style="background-image: url('{{ item.thumbnail.src }}');"></div>
+                                        </div>
 
-                            <div class="woo-archive__card">
+                                        <div class="woo-archive__text-holder">
+                                        
+                                            <div class="title">
+                                                <p>{{ item.title }}</p>
 
-                                <div class="woo-archive__image-wrapper">
-                                    <div class="woo-archive__tag">Stabilized Real Estate</div>
-                                    <div class="woo-archive__image" style="background-image: url('{{ item.thumbnail.src }}');"></div>
-                                </div>
+                                            </div>
 
-                                <div class="woo-archive__text-holder">
-                                
-                                    <div class="title">
-                                        <p>{{ item.title }}</p>
+                                            <h3>
+                                                {% if sale_price is not empty %}
+
+                                                    <del>{{ woo_currency }}{{ regular_price }}</del>&nbsp;{{ woo_currency }}{{ sale_price }}</h3>
+
+                                                {% else %}
+
+                                                    {{ woo_currency }}{{ price }}
+
+                                                    {# $product->get_price_html(); #}
+
+                                                {% endif %}
+                                            </h3>
+
+
+                                        </div>
 
                                     </div>
 
-                                    <h3>
-                                        {% if sale_price is not empty %}
-
-                                            <del>{{ woo_currency }}{{ regular_price }}</del>&nbsp;{{ woo_currency }}{{ sale_price }}</h3>
-
-                                        {% else %}
-
-                                            {{ woo_currency }}{{ price }}
-
-                                            {# $product->get_price_html(); #}
-
-                                        {% endif %}
-                                    </h3>
-
-
-                                </div>
+                                </a>
 
                             </div>
-
-                        </a>
-
-                    </div>
-                
-                {% endfor %}
-
-                <div class="tool-pagination">
-
-                	{% if posts.pagination.prev %}
-	                    <a href="{{ posts.pagination.prev.link }}" class="prev {{ posts.pagination.prev.link|length ? '' : 'invisible' }}">Previous</a>
-                    {% endif %}
-
-	                <ul class="pages">
-                        
-                        {% for page in posts.pagination.pages %}
-                            
-                            <li>
-                                
-                                {% if page.link %}
-        
-                                    <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
-                                
-                                {% else %}
-                                    
-                                    <span class="{{ page.class }}">{{ page.title }}</span>
-                                
-                                {% endif %}
-                            
-                            </li>
                         
                         {% endfor %}
-                    
-                    </ul>
 
-                    {% if posts.pagination.next %}
-                        <a href="{{ posts.pagination.next.link }}" class="next {{ posts.pagination.next.link|length ? '' : 'invisible' }}">Next</a>
-                    {% endif %}
-                
+                    </div>
+
                 </div>
+
 
             </div>
 
