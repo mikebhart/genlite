@@ -4,38 +4,45 @@
 
     {% do action('woocommerce_before_single_product') %}
 
-    <article id="product-{{ post.id }}" class="woo-single">
+    <article id="product-{{ post.id }}">
 
-    {# {{ dump(post.meta) }} #}
-       
-        <div class="container">
-            <div class="row">
+        <div class="woo-single product">
 
-                <div class="col-12 col-md-5">
-                    {{ breadcrumb }}
-                    <div style="width:80%;">
-                        <img style="width:100%; height:100%;" src="{{ post.thumbnail.src }}"/>
+            
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 col-md-5">
+                        {{ breadcrumb }}
+                        <div style="width:80%;">
+                            <img style="width:100%; height:100%;" src="{{ post.thumbnail.src }}"/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-12 col-md-7">
-                 
-                    {% do action('woocommerce_single_product_summary') %}
-                    {% do action('woocommerce_after_single_product_summary') %}
- 
-                </div>
+                    <div class="col-12 col-md-7">
+                    
+                        {% do action('woocommerce_single_product_summary') %}
+                   
+    
+                    </div>
 
+                    <div class="col-12">
+     {% do action('woocommerce_after_single_product_summary') %}
+                    </div>
+
+                </div>
             </div>
+
         </div>
 
     </article>
       
-    {% do action('woocommerce_after_single_product') %}
+    {# {% do action('woocommerce_after_single_product') %} #}
 
-{# {% do action('woocommerce_before_single_product') %}
-{% do action('woocommerce_before_single_product_summary') %}
-{% do action('woocommerce_single_product_summary') %}
-{% do action('woocommerce_after_single_product_summary') %}
-{% do action('woocommerce_after_single_product') %} #}
+    {# {% do action('woocommerce_before_single_product') %}
+    {% do action('woocommerce_before_single_product_summary') %}
+    {% do action('woocommerce_single_product_summary') %}
+    {% do action('woocommerce_after_single_product_summary') %}
+    {% do action('woocommerce_after_single_product') %} #}
 
 {% endblock %}

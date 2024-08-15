@@ -27,6 +27,8 @@
                     {% set regular_price = item.meta('_regular_price') %}
                     {% set price = item.meta('_price') %}
 
+                    {# {% fn('get_price_html', item.id) %} #}
+
                     <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2 mb-md-5">
 
                         <a href="{{ item.link }}">
@@ -53,6 +55,8 @@
                                         {% else %}
 
                                             {{ woo_currency }}{{ price }}
+
+                                            {# $product->get_price_html(); #}
 
                                         {% endif %}
                                     </h3>

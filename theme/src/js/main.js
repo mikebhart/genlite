@@ -10,7 +10,7 @@ import { handleBackToTopButton } from './plugins/back-to-top';
 import { handleHeaderMenu } from './plugins/header-menu';
 import { handleNavSections } from './plugins/nav-sections';
 import { handleContactUsForm } from './plugins/contact-us';
-import { handleWooAjaxHandler } from './plugins/woo-ajax-handler';
+//import { handleWooAjaxHandler } from './plugins/woo-ajax-handler';
 
 var app = function() {
 
@@ -22,7 +22,7 @@ var app = function() {
             handleHeaderMenu();
             handleNavSections();
             handleContactUsForm();
-            handleWooAjaxHandler();
+       //     handleWooAjaxHandler();
           
         }
     }

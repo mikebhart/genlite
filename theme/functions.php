@@ -45,39 +45,29 @@ class GenLiteSite extends Site {
 
         add_action('upload_mimes', [ $this, 'add_svg_to_media_library' ] );
         add_action('mime_types', [ $this, 'extend_mime_types' ] );
-        add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
-           
         remove_action( 'wp_head', 'print_emoji_detection_script', 7);
         remove_action( 'wp_print_styles', 'print_emoji_styles');
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
-        //add_action( 'woocommerce_breadcrumb_defaults', 'woocommerce_show_page_title', 10, 2 );
-
-        // add_filter( 'timber/integrations', function ( array $integrations ): array {
-        //     $integrations[] = new \Timber\Integrations\WooCommerce\WooCommerceIntegration();
+        // add_filter('woocommerce_get_catalog_ordering_args', function ($args) {
+        //     $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
         
-        //     return $integrations;
-        // } );
-
-        add_filter('woocommerce_get_catalog_ordering_args', function ($args) {
-            $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+        //     if ('price' == $orderby_value) {
+        //         $args['orderby'] = 'meta_value_num';
+        //         $args['order'] = 'ASC';
+        //         $args['meta_key'] = '_price';
+        //     }
         
-            if ('price' == $orderby_value) {
-                $args['orderby'] = 'meta_value_num';
-                $args['order'] = 'ASC';
-                $args['meta_key'] = '_price';
-            }
+        //     if ('price-desc' == $orderby_value) {
+        //         $args['orderby'] = 'meta_value_num';
+        //         $args['order'] = 'DESC';
+        //         $args['meta_key'] = '_price';
+        //     }
         
-            if ('price-desc' == $orderby_value) {
-                $args['orderby'] = 'meta_value_num';
-                $args['order'] = 'DESC';
-                $args['meta_key'] = '_price';
-            }
-        
-            return $args;
-        });
+        //     return $args;
+        // });
 
         
         parent::__construct();
@@ -85,8 +75,6 @@ class GenLiteSite extends Site {
 
 
     }
-
-    
 
     function load_scripts_and_styles() {
 
@@ -100,14 +88,13 @@ class GenLiteSite extends Site {
                 'posts_per_page' => get_option('posts_per_page') ]);
 
 
+        // if ( !is_user_logged_in() ) {
 
-        if ( !is_user_logged_in() ) {
+        //     wp_dequeue_script( 'jquery' );
+        //     wp_deregister_script( 'jquery' ); 
+        //     wp_dequeue_style( 'classic-theme-styles' );
 
-            wp_dequeue_script( 'jquery' );
-            wp_deregister_script( 'jquery' ); 
-            wp_dequeue_style( 'classic-theme-styles' );
-
-        }
+        // }
         
 
     }
@@ -124,9 +111,7 @@ class GenLiteSite extends Site {
         // Options
         $option_fields = get_fields('options');
 
-        // var_dump($option_fields);
-
-        // exit;
+     
 
         if ( $option_fields != null ) {
             
@@ -137,20 +122,36 @@ class GenLiteSite extends Site {
 
         }
 
+        if ( class_exists( 'WooCommerce' ) ) {
+
+            $context['woo_currency'] = get_woocommerce_currency_symbol();
+
+        }
+
         return $context;
+
     }
 
     function theme_supports() {
 
         require_once get_template_directory() . '/includes/register-post-types.php';
         require_once get_template_directory() . '/includes/register-blocks.php';
-        require_once get_template_directory() . '/includes/admin-cleanup.php';
-    
     
         // Add Theme Support 
         add_theme_support( 'title-tag' );   
         add_theme_support( 'automatic-feed-links' );
-        add_theme_support( 'woocommerce' );
+
+        if (class_exists('Woocommerce')){
+        
+             add_theme_support( 'woocommerce' );
+        //     add_theme_support( 'wc-product-gallery-zoom' );
+        //     add_theme_support( 'wc-product-gallery-slider' );
+        //     add_theme_support( 'wc-product-gallery-lightbox' );
+
+
+        }
+
+        //add_theme_support( 'woocommerce' );
         add_theme_support( 'post-thumbnails' );
         add_theme_support( 'menus' );
         add_theme_support( 'html5', ['comment-form', 'comment-list', 'gallery',	'caption'] );

@@ -23,7 +23,6 @@ if ( is_singular('product') ) {
     $related_ids = wc_get_related_products( $context[ 'post' ]->id, $related_limit );
     $context[ 'related_products' ] = Timber::get_posts( $related_ids );
 
-    // Restore the context and loop back to the main query loop.
     wp_reset_postdata();
 
     Timber::render( [ 'woo/single-product.twig' ], $context );
@@ -35,10 +34,6 @@ if ( is_singular('product') ) {
     $context[ 'breadcrumb' ] = new Timber\FunctionWrapper('woocommerce_breadcrumb');
     $context[ 'result_count' ] = new Timber\FunctionWrapper('woocommerce_result_count');
     $context[ 'categories' ] = Timber::get_terms([ 'taxonomy' => 'product_cat' ]);
-
-    // $price = esc_attr(get_post_meta( get_the_ID(), '_regular_price', true));
-    // $sale = esc_attr(get_post_meta( get_the_ID(), '_sale_price', true));      
-    
 
     if ( is_product_category() ) {
 
