@@ -1,81 +1,190 @@
 {% block header %}
 
-    <header>
+    <header class="fund-page-header">
 
-        <div class="desktop-container">
+        <section class="fund-page-header__desktop">
 
-            {# <nav id="genlite-navbar" class="navbar" aria-label="Desktop Header Navigation Links"> #}
+            <div class="container">	
 
-                <div class="container-fluid">	
-                    <div class="row">
-{# offset-xxl-1 my-auto #}
-                        <div class="col-2 my-auto">
-                            <a class="navbar-logo" href="{{ site.url }}" aria-label="Go to homepage">
-                                <img src="{{ general.logo.url }}" alt="Desktop Header Logo">
-                            </a>                
+                <div class="row">
+
+                    <div class="col-12 col-md-2 my-auto">
+                        
+                        <a href="{{ site.url }}" aria-label="Go to the homepage">
+
+                            <img src="{{ general.logo.url }}" class="fund-page-header-logo" alt="Logo">
+
+                        </a>                
+                    
+                    </div>
+
+                    {% if header_menu.items is not empty %}
+
+                        <div class="col-12 col-md-10 my-auto text-right">
+
+                            <div class="topnav" id="myTopnav">
+
+                                <nav id="krest-header-desktop-menu" class="fundnav--desktop" id="krest-top-nav">
+
+                                    {% for item in header_menu.items %}
+
+                                      
+
+                                            {% if item.children %}
+
+                                                <div class="dropdown">
+
+                                                    <a {% if item.current %} class="dropbtn active" {% endif %} {% if item.current_item_parent %} class="dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}
+                                                    
+                                                        <img class="dropbtn-icon" src="{{ theme.link }}/dist/images/plus-solid.svg">
+                                                    
+                                                    </a>
+
+                                                    <div class="dropdown-content">
+
+                                                        {% for child in item.children %}
+
+                                                            <a {% if child.current %} class="active-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                                        {% endfor %}
+
+                                                    </div>
+
+                                                </div>
+
+                                            {% else %}
+
+                                                <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                            {% endif %}
+
+                                      
+                                    {% endfor %}
+
+                                </nav>
+
+                            </div>
+                          
+
                         </div>
-{# col-lg-8 offset-lg-1 offset-xl-1 offset-xxl-0 desktop-menu-container my-auto" #}
-                        <div class="col-10 text-right my-auto desktop-menu-container">
-                            <nav>
-                            {% for item in header_menu.items %}
-                                
-                                    <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu fade-in-right" {% else %} class="parent-menu fade-in-right" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-                            {% endfor %} 
 
-                            </nav>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="fund-page-header__mobile">
+
+            <div class="fundnav--mobile">
+
+                <div class="fund-page-header__mobile-header-container">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <div class="col-12">
+
+                                <div class="logo-icon-section">
+                                    <a href="{{ site.url }}" class="my-auto">
+                                        <img id="mobile-fund-logo" src="{{ general.logo.url }}" class="fund-page-header__mobile-logo" alt="Logo">
+                                    </a>
+                                </div>
+
+                                <div id="kseries-header-mobile-menu" class="logo-icon-section text-right">
+
+                                    <a id="fund-mobile-menu-link" href="{{ header_top_banner_link_1.url }}" class="" target="{{ header_top_banner_link_1.target }}">
+                                        <img src="{{ theme.link }}/dist/images/login-symbol.svg" class="fund-page-header__mobile-header-link-image fund-page-header-logo-white" alt="Login to Investor Portal">
+                                    </a>
+
+                                    <button class="logo-icon-button">
+
+                                        <img id="fund-mobile-menu-show" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
+                                        <img id="fund-mobile-menu-close" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
-                </div>
-
-            {# </nav> #}
-
-        </div>
-
-        <div class="mobile-container">
-
-            <nav class="topnav" aria-label="Mobile Header Navigation Links">
-
-                <div class="container">	
-
-                    <div class="row">
-
-                        <div class="col-12">
-
-                            <a class="navbar-logo--mobile" href="{{ site.url }}" aria-label="Go to homepage">
-                                <img class="menu-logo--mobile" src="{{ general.logo.url }}" alt="Mobile Header Logo">
-                            </a>      
-
-                            <a id="mobile-menu-button" class="icon">
-                                <img src="{{ theme.link }}/dist/images/bars-solid.svg" alt="Show Mobile Menu">
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div id="mobile-links">
                 
-                    <div class="mobile-links-wrapper">
+                </div>
 
-                        {% set subMenuIndex = 0 %}
+                <nav id="fund_mobile_page_links" class="page-links">
+                    
+                    <div class="fund-page-header__mobile-image" style="background-image: url('{{ theme.link }}/dist/images/menu-mobile.svg }}')">
 
-                        {% for item in header_menu.items %}
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
 
-                            <a id="{{ item.slug }}" {% if item.current %} class="parent-menu active-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-                                    
-                        {% endfor %} 
+                                    <div class="fund-page-header__mobile-menu-container">
 
+                                        <div class="mobile-header-text">{{ header_menu_description }}</div>
+
+                                        {% for item in header_menu.items %}
+
+                                            {% if loop.last %}
+
+                                                <div class="fund-page-header__mobile-contact-wrapper">
+
+                                                    <div class="kkr-button2--white">
+                                                        <a href="{{ item.link }}" class="kkr-button2__text--white" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                                    </div>
+
+                                                </div>
+
+                                            {% else %}
+
+                                                {% if item.children %}
+
+                                                    <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}&nbsp;<img class="fund-page-header__mobile-plus-icon" src="{{ theme.link }}/dist/images/plus-solid.svg"></a>
+
+                                                    <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="fund-page-header__mobile-subnav-container">
+
+                                                        <a class="mobile-submenu-back">
+                                                            <img src="{{ theme.link }}/dist/images/back-icon.svg" class="back-button-icon" alt="Sub Menu go back">
+                                                        </a>
+
+                                                        {% for child in item.children %}
+
+                                                            <a {% if child.current %} class="submenu active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                                        {% endfor %}
+
+
+                                                    </div>
+
+                                                {% else %}
+
+                                                    <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                                {% endif %}
+                                            
+                                            {% endif %}
+                                        
+                                        {% endfor %}
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    
                     </div>
 
-                </div>
-            
-            </nav>
+                </nav>
+                
+            </div>
 
-        </div>
-    
+        </section>
+      
     </header>
 
 {% endblock %}
