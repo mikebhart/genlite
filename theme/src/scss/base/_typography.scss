@@ -42,23 +42,28 @@
         line-height: 1.4;
         display: inline-block;
         margin-bottom: 15px;
-
     }
 
     h1::after {
-
         content: " ";
         display: block;
-        border-bottom: 1px solid #ff4d01;
-        border-top: 1px solid #ff4d01;
+        border-bottom: 1px solid $genlite-primary-color;
+        border-top: 1px solid $genlite-primary-color;
         height: 5px;
         background-color: white;
-        //width: 50%;
         margin-bottom: 2rem;
 
+    }
 
+    .title-wrapper {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
 
-
+        @include media-breakpoint-up(md) {
+            padding-left: 20%;
+            padding-right: 20%;
+        }
 
       }
 
