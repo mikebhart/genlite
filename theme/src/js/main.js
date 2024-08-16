@@ -13,6 +13,8 @@ import { handleContactUsForm } from './plugins/contact-us';
 //import { handleWooAjaxHandler } from './plugins/woo-ajax-handler';
 import { handleMobileMenu } from './plugins/mobile-menu';
 
+import { handleLighbox } from './plugins/lightbox';
+
 var app = function() {
 
     return {               
@@ -24,6 +26,7 @@ var app = function() {
             handleNavSections();
             handleContactUsForm();
             handleMobileMenu();
+            handleLighbox();
        //     handleWooAjaxHandler();
           
         }

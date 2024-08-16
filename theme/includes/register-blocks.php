@@ -55,6 +55,7 @@ class RegisterBlocks {
                 register_block('five-column-table');        
                 register_block('four-icon-boxes');
                 register_block('four-image');
+                register_block('gallery');
                 register_block('icons-left-image-right');
                 register_block('image-text');
                 register_block('nav-sections');
@@ -77,6 +78,7 @@ class RegisterBlocks {
                     'acf/three-icon-boxes',
                     'acf/banner',
                     'acf/four-image',
+                    'core/gallery',
                     'acf/three-image-boxes',
                     'acf/four-icon-boxes',
                     'acf/nav-sections',

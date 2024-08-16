@@ -1,4 +1,4 @@
-.fund-page-header {
+.genlite-page-header {
 
     &__desktop {
         
@@ -143,11 +143,11 @@
         }
 
 
-        .fundnav--mobile {
+        .genlitenav--mobile {
             position: relative;
         }
 
-        #fund-mobile-menu-link {
+        #genlite-mobile-menu-link {
             display: none;
             top: -4px;
             right: 15px;
@@ -217,7 +217,7 @@
             top: -20px;
 
             a.submenu,
-            a:not(:last-child) {
+            a {
                 display: block;
                 padding-top: 10px;
                 padding-bottom: 10px;
@@ -261,7 +261,7 @@
 
         }
         
-        #fund-mobile-menu-close {
+        #genlite-mobile-menu-close {
             display: none;
         }
 
