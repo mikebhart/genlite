@@ -22,6 +22,31 @@ if ( is_singular('product') ) {
     $context[ 'product' ] = $product;
     $context[ 'breadcrumb' ] = new Timber\FunctionWrapper('woocommerce_breadcrumb');
     $context[ 'related_products' ] = Timber::get_posts( $related_ids );
+    $context[ 'gallery_ids' ] = $product->get_gallery_image_ids();
+
+    $product_image_id = $product->get_image_id();
+    $context[ 'featured_image' ] = wp_get_attachment_image_src( $product_image_id, 'shop_single' )[0];  
+
+    $post_gallery_images = [];
+   
+    $attachment_ids = $product->get_gallery_image_ids();
+
+    foreach( $attachment_ids as $attachment_id ) 
+    { 
+        $shop_thumbnail_image_url = wp_get_attachment_image_src( $attachment_id, 'thumbnail' )[0];
+        $shop_full_image_url = wp_get_attachment_image_src( $attachment_id, 'full' )[0]; 	
+
+        $post_gallery_image = [];
+
+        $post_gallery_image['shop_thumbnail_image_url'] = $shop_thumbnail_image_url;
+        $post_gallery_image['shop_full_image_url'] = $shop_full_image_url;
+
+        $post_gallery_images[] = $post_gallery_image;
+
+
+    }
+
+    $context['post_gallery_images'] = $post_gallery_images;
 
     wp_reset_postdata();
 

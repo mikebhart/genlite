@@ -7,13 +7,17 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-12">
+                {% if post.genlite_show_page_heading == "1" %}
 
-                    <div class="title-wrapper">
-                        <h1 class="text-center2">{{ post.title }}</h1>
+                    <div class="col-12">
+
+                        <div class="title-wrapper">
+                            <h1>{{ post.title }}</h1>
+                        </div>
+
                     </div>
 
-                </div>
+                {% endif %}
 
                 <div class="col-12">
 

@@ -138,6 +138,7 @@ class GenLiteSite extends Site {
         if ( class_exists('Woocommerce') ) {
         
              add_theme_support( 'woocommerce' );
+             add_theme_support( 'woocommerce-blocks-patterns' );
         }
 
         //add_theme_support( 'woocommerce' );

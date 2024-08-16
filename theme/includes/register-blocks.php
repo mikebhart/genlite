@@ -9,7 +9,6 @@ class RegisterBlocks {
 	public function __construct() {
 
 		add_action( 'acf/init', [ $this, 'genlite_acf_init' ]);
-		add_filter( 'allowed_block_types_all', [ $this, 'genlite_filter_allowed_blocks' ], 10, 2 );
 		add_filter( 'block_categories_all', [ $this, 'genlite_blocks_category' ], 10, 2 );
 	
 	}
@@ -66,47 +65,6 @@ class RegisterBlocks {
                 register_block('wide-image');
                 register_block('what-you-see');
 
-	}
-
-	public function genlite_filter_allowed_blocks( $allowed_block_types, $editor_context ) {
-
-		if ( ! empty( $editor_context->post ) ) {
-			return [                  
-                    'acf/hero-image',
-                    'acf/image-text',
-                    'acf/text-left-image-right',
-                    'acf/three-icon-boxes',
-                    'acf/banner',
-                    'acf/four-image',
-                    'core/gallery',
-                    'acf/three-image-boxes',
-                    'acf/four-icon-boxes',
-                    'acf/nav-sections',
-                    'acf/text-left-background-image',
-                    'acf/icons-left-image-right',
-                    'acf/wide-image',
-                    'acf/what-you-see',
-                    'acf/contact-us',
-                    'acf/five-column-table',
-                    'core/heading',
-                    'core/paragraph',
-                    'core/image',
-                    'core/seperator',
-                    'core/columns',
-                    'core/spacer',
-                    'core/buttons',
-                    'core/code',
-                    'core/table',
-                    'core/cover',
-                    'core/list',
-                    'core/list-item',
-                    'core/archives',
-                    'core/latest-posts',
-                    'core/editor'
-                ];
-		}
-	
-		return $allowed_block_types;
 	}
 
 	public function genlite_blocks_category( $categories, $post ) {
