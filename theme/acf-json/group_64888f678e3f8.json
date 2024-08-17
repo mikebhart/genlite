@@ -1,7 +1,27 @@
 {
     "key": "group_64888f678e3f8",
-    "title": "SEO Description",
+    "title": "Page Settings",
     "fields": [
+        {
+            "key": "field_66bfe4b25337b",
+            "label": "Dont Show Page Heading",
+            "name": "genlite_dont_show_page_heading",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
         {
             "key": "field_64888f6817e52",
             "label": "SEO Description",
@@ -41,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687350569
+    "modified": 1723910900
 }

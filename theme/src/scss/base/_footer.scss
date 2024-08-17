@@ -1,5 +1,6 @@
-.footer {
+.footer-menu-links {
     background-color: $genlite-dark-green;
+    padding: 30px 0 30px 0;
 
     &__link {
         display: block;
@@ -75,6 +76,8 @@
 }
 
 .footer-footnote {
+
+        padding: 20px 0 20px 0;
 
     background-color: black;
 

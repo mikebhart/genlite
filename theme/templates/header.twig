@@ -1,170 +1,161 @@
 {% block header %}
 
-    <header class="genlite-page-header">
+    <header class="website-header">
 
-        <section class="genlite-page-header__desktop">
+        <section class="website-header__desktop">
 
-            <div class="container">	
+            <div class="website-header__desktop-wrapper">
 
-                <div class="row">
+                <div class="container">	
 
-                    <div class="col-12 col-md-2 my-auto">
+                    <div class="row">
+
+                        <div class="col-12 col-md-2 my-auto">
+
+                            <div class="website-header__desktop-logo">
+                                <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <img src="{{ general.logo.url }}" alt="Logo">
+                                </a>                
+                            </div>
                         
-                        <a href="{{ site.url }}" aria-label="Go to the homepage">
+                        </div>
 
-                            <img src="{{ general.logo.url }}" class="genlite-page-header-logo" alt="Logo">
+                        {% if header_menu.items is not empty %}
 
-                        </a>                
-                    
-                    </div>
+                            <div class="col-12 col-md-10 my-auto text-right">
 
-                    {% if header_menu.items is not empty %}
+                                <nav>
 
-                        <div class="col-12 col-md-10 my-auto text-right">
+                                    {% for item in header_menu.items %}                                    
 
-                            <div class="topnav" id="myTopnav">
+                                        {% if item.children %}
 
-                                <nav id="genlite-header-desktop-menu" class="genlitenav--desktop" id="krest-top-nav">
+                                            <div class="dropdown">
 
-                                    {% for item in header_menu.items %}
+                                                <a {% if item.current %} class="dropbtn active" {% endif %} {% if item.current_item_parent %} class="dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}
+                                                    <img class="dropbtn-icon" src="{{ theme.link }}/dist/images/chevron-down-solid.svg">
+                                                </a>
 
-                                      
+                                                <div class="dropdown-content">
 
-                                            {% if item.children %}
+                                                    {% for child in item.children %}
 
-                                                <div class="dropdown">
+                                                        <a {% if child.current %} class="active-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
 
-                                                    <a {% if item.current %} class="dropbtn active" {% endif %} {% if item.current_item_parent %} class="dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}
-                                                        <img class="dropbtn-icon" src="{{ theme.link }}/dist/images/chevron-down-solid.svg">
-                                                    </a>
-
-                                                    <div class="dropdown-content">
-
-                                                        {% for child in item.children %}
-
-                                                            <a {% if child.current %} class="active-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
-
-                                                        {% endfor %}
-
-                                                    </div>
+                                                    {% endfor %}
 
                                                 </div>
 
-                                            {% else %}
+                                            </div>
 
-                                                <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                        {% else %}
 
-                                            {% endif %}
+                                            <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
 
-                                      
+                                        {% endif %}
+                                        
                                     {% endfor %}
 
                                 </nav>
 
                             </div>
-                          
 
-                        </div>
+                        {% endif %}
 
-                    {% endif %}
+                    </div>
 
                 </div>
+
             </div>
 
         </section>
 
-        <section class="genlite-page-header__mobile">
+        <section class="website-header__mobile">
 
-            <div class="genlitenav--mobile">
+            <div class="website-header__mobile-wrapper">
 
-                <div class="genlite-page-header__mobile-header-container">
+                <div class="container">
 
+                    <div class="row">
+
+                        <div class="col-12 my-auto">
+
+                            <div class="logo-icon-section">
+                                <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <img src="{{ general.logo.url }}" alt="Logo">
+                                </a>
+                            </div>
+
+                            <div id="website-mobile-menu" class="logo-icon-section text-right">
+
+                                <a id="website-mobile-menu-link" href="{{ header_top_banner_link_1.url }}" class="" target="{{ header_top_banner_link_1.target }}">
+                                    <img src="{{ theme.link }}/dist/images/user-solid.svg" class="website-header__mobile-header-link-image website-header-logo-white" alt="Login">
+                                </a>
+
+                                <button class="logo-icon-button">
+
+                                    <img id="website-mobile-menu-show" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
+                                    <img id="website-mobile-menu-close" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <nav id="website_mobile_page_links" class="page-links">
+                    
                     <div class="container">
 
                         <div class="row">
 
                             <div class="col-12">
 
-                                <div class="logo-icon-section">
-                                    <a href="{{ site.url }}" class="my-auto">
-                                        <img id="mobile-genlite-logo" src="{{ general.logo.url }}" class="genlite-page-header__mobile-logo" alt="Logo">
-                                    </a>
-                                </div>
+                                <div class="website-header__mobile-menu-container">
 
-                                <div id="genlite-header-mobile-menu" class="logo-icon-section text-right">
+                                    {% for item in header_menu.items %}
 
-                                    <a id="genlite-mobile-menu-link" href="{{ header_top_banner_link_1.url }}" class="" target="{{ header_top_banner_link_1.target }}">
-                                        <img src="{{ theme.link }}/dist/images/user-solid.svg" class="genlite-page-header__mobile-header-link-image genlite-page-header-logo-white" alt="Login">
-                                    </a>
+                                        {% if item.children %}
 
-                                    <button class="logo-icon-button">
+                                            <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
+                                                data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}&nbsp;
+                                                <img class="website-header__mobile-plus-icon" src="{{ theme.link }}/dist/images/chevron-down-solid.svg">
+                                            </a>
 
-                                        <img id="genlite-mobile-menu-show" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
-                                        <img id="genlite-mobile-menu-close" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
+                                            <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="website-header__mobile-subnav-container">
 
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                
-                </div>
-
-                <nav id="genlite_mobile_page_links" class="page-links">
-                    
-                    <div class="genlite-page-header__mobile-image" style="background-image: url('{{ theme.link }}/dist/images/menu-mobile.svg }}')">
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-
-                                    <div class="genlite-page-header__mobile-menu-container">
-
-                                        <div class="mobile-header-text">{{ header_menu_description }}</div>
-
-                                        {% for item in header_menu.items %}
-
-                                            {% if item.children %}
-
-                                                <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
-                                                    data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}&nbsp;
-                                                    <img class="genlite-page-header__mobile-plus-icon" src="{{ theme.link }}/dist/images/chevron-down-solid.svg">
+                                                <a class="mobile-submenu-back">
+                                                    <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
                                                 </a>
 
-                                                <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="genlite-page-header__mobile-subnav-container">
+                                                {% for child in item.children %}
 
-                                                    <a class="mobile-submenu-back">
-                                                        <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
-                                                    </a>
+                                                    <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
 
-                                                    {% for child in item.children %}
-
-                                                        <a {% if child.current %} class="submenu active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
-
-                                                    {% endfor %}
+                                                {% endfor %}
 
 
-                                                </div>
+                                            </div>
 
-                                            {% else %}
+                                        {% else %}
 
-                                                <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                            <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
 
-                                            {% endif %}
-                                        
-                                        
-                                        {% endfor %}
-
-                                    </div>
+                                        {% endif %}
+                                    
+                                    
+                                    {% endfor %}
 
                                 </div>
+
                             </div>
+
                         </div>
-                    
+
                     </div>
 
                 </nav>

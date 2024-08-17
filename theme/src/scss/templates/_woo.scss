@@ -120,10 +120,14 @@
 //     box-shadow: none;
 // }
 
-// .woocommerce img, .woocommerce-page img {
-//     height: auto;
-//     max-width: 100%;
-// }
+.woocommerce img, .woocommerce-page img {
+    // height: auto;
+    // max-width: 100%;
+
+    height: inherit;
+    max-width: inherit;
+
+}
 
 .product .cart .quantity .input-text {
     width: 50px;
@@ -159,7 +163,7 @@
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
     background: #fff;
     color: #515151;
-    z-index: 2;
+    z-index: 1;
     border-bottom-color: #fff;
 }
 

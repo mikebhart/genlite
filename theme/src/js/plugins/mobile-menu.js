@@ -1,22 +1,23 @@
 export const handleMobileMenu = function () {
 
-    if ( document.querySelector('#genlite-header-mobile-menu') ) {
+    if ( document.querySelector('#website-mobile-menu') ) {
 
-        let mobile_menu_open =  document.getElementById("genlite-mobile-menu-show");
-        let mobile_menu_close =  document.getElementById("genlite-mobile-menu-close");
-        let mobile_genlite_logo = document.getElementById("mobile-genlite-logo"); 
-        let mobile_header_link =  document.getElementById("genlite-mobile-menu-link");
+        let mobile_menu_open =  document.getElementById("website-mobile-menu-show");
+        let mobile_menu_close =  document.getElementById("website-mobile-menu-close");
 
-        mobile_menu_open.addEventListener("click", showgenliteMenuLinks);
-        mobile_menu_close.addEventListener("click", showgenliteMenuLinks);
+        let mobile_website_logo = document.getElementById("mobile-website-logo"); 
+        let mobile_header_link =  document.getElementById("website-mobile-menu-link");
 
-        function showgenliteMenuLinks() {
+        mobile_menu_open.addEventListener("click", showwebsiteMenuLinks);
+        mobile_menu_close.addEventListener("click", showwebsiteMenuLinks);
 
-            let mobile_page_links = document.getElementById("genlite_mobile_page_links");
+        function showwebsiteMenuLinks() {
+
+            let mobile_page_links = document.getElementById("website_mobile_page_links");
             
             if ( mobile_page_links.style.display === "inline-block" ) {
 
-                mobile_genlite_logo.classList.remove("genlite-page-header__mobile-logo-white");
+           //     mobile_website_logo.classList.remove("website-header__mobile-logo-white");
                 mobile_page_links.style.display = "none";
                 mobile_menu_open.style.display = "inline-block";
                 mobile_menu_close.style.display = "none";
@@ -24,12 +25,12 @@ export const handleMobileMenu = function () {
             
             } else {
             
-                mobile_genlite_logo.classList.add("genlite-page-header__mobile-logo-white");
+              //  mobile_website_logo.classList.add("website-header__mobile-logo-white");
                 mobile_page_links.style.display = "inline-block";
                 mobile_menu_open.style.display = "none";
                 mobile_menu_close.style.display = "inline-block";
                 mobile_header_link.style.display = "inline-block";
-                mobile_header_link.classList.remove("genlite-page-header__mobile-logo-white");
+                mobile_header_link.classList.remove("website-header__mobile-logo-white");
             }
         }
 
@@ -42,7 +43,7 @@ export const handleMobileMenu = function () {
 
                 subMenuBackButtons[i].addEventListener("click", function() { 
 
-                    let mobileSubParentMenus = document.getElementsByClassName("genlite-page-header__mobile-subnav-container");
+                    let mobileSubParentMenus = document.getElementsByClassName("website-header__mobile-subnav-container");
 
                     for ( let i = 0; i < mobileSubParentMenus.length; i++ ) {
         

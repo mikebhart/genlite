@@ -21,7 +21,7 @@
                         <div class="archive-work-card__overlay-content">
                             
                             <h3 class="archive-work-title">{{ work.title }}</h3>
-                            <p class="white">{{ work.terms( { taxonomy: 'work_category' } ) | join(', ') }}</p>
+                            <p class="text-white">{{ work.terms( { taxonomy: 'work_category' } ) | join(', ') }}</p>
 
                             <div class="margin-top-1">
                                 <a href="{{ work.link }}" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>

@@ -116,15 +116,6 @@
     }
 
 
-    .white,
-    .white p,
-    .white a {
-        color: white;
-    }
-
-    .white a:hover {
-        opacity: 0.5;
-    }
 
     sup { 
         vertical-align: top; 
@@ -150,6 +141,10 @@
        
     }
 
+    .text-white {
+        color: white;
+    }
+    
     .text-gold {
         color: black;
     }

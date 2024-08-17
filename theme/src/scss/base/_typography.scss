@@ -19,7 +19,7 @@
         line-height: 1.2;
     }
   
-    
+    .wp-block-list,
     p {
         font-family: 'Karla', sans-serif;
         line-height: 1.625rem;
@@ -139,7 +139,21 @@
         font-size: 6.25rem;
     }
 
+   
+
     article {
+
+        a {
+            text-decoration: none;
+            color: $genlite-primary-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+
+        
      //   padding: 40px 0 50px 0;
     //     a {
     //        color: $genlite-primary-color;
@@ -186,9 +200,9 @@
         width: 100px;
     }
 
-    a {
-        text-decoration: none;
-    }
+    // a {
+    //     text-decoration: none;
+    // }
 
     
 
