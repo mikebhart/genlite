@@ -2,30 +2,48 @@
 
 {% block content %}
 
-    <article class="theme-page">
+    <article id="post-{{ post.id }}">
 
-        <div class="container">
-            <div class="row">
+        {% if post.genlite_page_heading_settings.value == 'default' or post.genlite_page_heading_settings == false %}
+            
+            <section class="page-title-wrapper">
+                <div class="container">
+                    <div class="row">
 
-                {% if post.genlite_dont_show_page_heading == "0" %}
+                        <div class="col-12">
 
-                    <div class="col-12">
+                            <div class="title-wrapper">
+                                <h1>{{ post.title }}</h1>
+                            </div>
 
-                        <div class="title-wrapper">
-                            <h1>{{ post.title }}</h1>
                         </div>
-
                     </div>
-
-                {% endif %}
-
-                <div class="col-12">
-
-                    {{ post.content }}
-
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            {{ post.content }}
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        {% elseif post.genlite_page_heading_settings.value == 'no-heading'  %}
+            
+            {% include '/parts/page-content.twig' %} 
+
+        {% elseif post.genlite_page_heading_settings.value == 'featured-hero'  %}
+
+            {% include '/parts/featured-hero.twig' %} 
+            {% include '/parts/page-content.twig' %} 
+
+        {% endif %}
 
     </article>
 

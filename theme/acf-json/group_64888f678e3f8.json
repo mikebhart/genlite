@@ -3,11 +3,11 @@
     "title": "Page Settings",
     "fields": [
         {
-            "key": "field_66bfe4b25337b",
-            "label": "Dont Show Page Heading",
-            "name": "genlite_dont_show_page_heading",
+            "key": "field_66c0f30ef65e3",
+            "label": "Page Heading Settings",
+            "name": "genlite_page_heading_settings",
             "aria-label": "",
-            "type": "true_false",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,18 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
+            "choices": {
+                "default": "Default",
+                "no-heading": "No Heading",
+                "featured-hero": "Featured Hero"
+            },
+            "default_value": false,
+            "return_format": "array",
+            "multiple": 0,
+            "allow_null": 0,
             "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_64888f6817e52",
@@ -46,9 +53,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "default"
+                "value": "page"
             }
         ]
     ],
@@ -61,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723910900
+    "modified": 1723928263
 }

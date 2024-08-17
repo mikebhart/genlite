@@ -32,11 +32,13 @@
 @import "blocks/five-column-table";
 @import "blocks/what-you-see";
 
+//parts
+@import "parts/featured-hero";
+
 
 // Templates
 @import "templates/404";
 @import "templates/page";
-@import "templates/single-work";
 @import "templates/archive-work";
 @import "templates/archive";
 @import "templates/woo";
