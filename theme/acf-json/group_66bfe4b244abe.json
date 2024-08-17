@@ -1,11 +1,11 @@
 {
     "key": "group_66bfe4b244abe",
-    "title": "Show Page Heading",
+    "title": "Dont Show Page Heading",
     "fields": [
         {
             "key": "field_66bfe4b25337b",
-            "label": "Show Page Heading",
-            "name": "genlite_show_page_heading",
+            "label": "Dont Show Page Heading",
+            "name": "genlite_dont_show_page_heading",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -17,7 +17,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723852131
+    "modified": 1723852976
 }
