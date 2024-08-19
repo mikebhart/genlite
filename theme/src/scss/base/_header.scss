@@ -175,10 +175,9 @@
         .page-links {
             background-color: white;
             display: none;
-            position: absolute;
+            position: relative;
             width: 100vw;
             height: 100vh;
-            top: -20px;
 
             a.submenu,
             a {
@@ -186,14 +185,13 @@
                 padding-top: 10px;
                 padding-bottom: 10px;
                 text-decoration: none;
-                text-align: left;
+                text-align: center;
                 color: $genlite-black;
                 font-size: 2.25rem;
                 line-height: 2.7rem;
                 font-weight: 300;
                 letter-spacing: 0.05rem;
 
-                
                 &.active {
                     color: $genlite-primary-color;
                 }
@@ -203,7 +201,10 @@
         }
 
         &-menu-container {
-            margin-top: 100px;
+            height: 100%;
+            position: relative;
+            margin: auto;
+            width: 50%;           
         }
 
         &-contact-wrapper {
@@ -234,7 +235,6 @@
         &-subnav-container {
 
             display: none;
-            height: 100vh;
             width: 100%;
 
         }
