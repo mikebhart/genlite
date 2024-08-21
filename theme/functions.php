@@ -119,6 +119,7 @@ class GenLiteSite extends Site {
             $context['footer'] = $option_fields['footer'];
             $context['contact_form'] = $option_fields['contact_form'];
             $context['script_code'] = $option_fields['script_code'];
+            $context['work_archive'] = $option_fields['work_archive'];
 
         }
 
@@ -180,7 +181,8 @@ class GenLiteSite extends Site {
         
         } else {
         
-            $title_parts['title'] = 'Freelance WordPress Developer | Mike Hart';
+            $general = get_field( 'general', 'options' );
+            $title_parts['title'] = $general['home_page_title'];
 
         }
         

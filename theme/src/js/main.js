@@ -10,7 +10,6 @@ import { handleBackToTopButton } from './plugins/back-to-top';
 import { handleHeaderMenu } from './plugins/header-menu';
 import { handleNavSections } from './plugins/nav-sections';
 import { handleContactUsForm } from './plugins/contact-us';
-//import { handleWooAjaxHandler } from './plugins/woo-ajax-handler';
 import { handleMobileMenu } from './plugins/mobile-menu';
 
 import { handleLighbox } from './plugins/lightbox';
@@ -27,7 +26,6 @@ var app = function() {
             handleContactUsForm();
             handleMobileMenu();
             handleLighbox();
-       //     handleWooAjaxHandler();
           
         }
     }

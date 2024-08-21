@@ -18,9 +18,18 @@
 
                             {{ post.content }}
 
-                        </div>						
-                    
-                        <p><i>Categories: {{ post.terms( { taxonomy: 'work_category' } ) | join(', ') }}</i></p>
+                        </div>	
+
+                        <h5>Categories</h5>			
+
+                        <p>	
+
+                        {% for term in post.terms( { taxonomy: 'work_category' } )  %}
+                            <a href="{{ term.link }}">{{ term.title }}</a>
+                        {% endfor %}
+
+                        </p>
+
 
                     </div>
 
@@ -36,7 +45,7 @@
                              
                     </div>
 
-                    <div class="col-12 margin-bottom-3">
+                    <div class="col-12 margin-top-1 margin-bottom-3">
 
                         {% if post.project_website is not empty %}
                             

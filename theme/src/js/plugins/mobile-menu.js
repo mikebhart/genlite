@@ -17,7 +17,6 @@ export const handleMobileMenu = function () {
             
             if ( mobile_page_links.style.display === "inline-block" ) {
 
-           //     mobile_website_logo.classList.remove("website-header__mobile-logo-white");
                 mobile_page_links.style.display = "none";
                 mobile_menu_open.style.display = "inline-block";
                 mobile_menu_close.style.display = "none";
@@ -25,12 +24,10 @@ export const handleMobileMenu = function () {
             
             } else {
             
-              //  mobile_website_logo.classList.add("website-header__mobile-logo-white");
                 mobile_page_links.style.display = "inline-block";
                 mobile_menu_open.style.display = "none";
                 mobile_menu_close.style.display = "inline-block";
                 mobile_header_link.style.display = "inline-block";
-                mobile_header_link.classList.remove("website-header__mobile-logo-white");
             }
         }
 
