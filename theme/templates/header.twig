@@ -32,7 +32,7 @@
                                         {% if loop.last %}
 
                                             <div class="wp-block-button">
-                                                <a class="wp-block-button__link has-text-align-center wp-element-button" href="{{ item.link }}">{{ item.title }}</a>
+                                                <a class="wp-block-button__link has-text-align-center wp-element-button  {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
                                             </div>
 
                                         {% else %}
@@ -125,7 +125,7 @@
                             {% if loop.last %}
 
                                 <div class="wp-block-button">
-                                    <a class="wp-block-button__link has-text-align-center wp-element-button" href="{{ item.link }}">{{ item.title }}</a>
+                                    <a class="wp-block-button__link has-text-align-center wp-element-button {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
                                 </div>
 
                             {% else %}

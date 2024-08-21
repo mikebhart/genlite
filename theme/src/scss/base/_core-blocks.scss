@@ -35,6 +35,11 @@
         }
     }
 
+    &__current {
+        color: white !important;
+        background: $genlite-primary-color;
+    }
+
 
 }
 
