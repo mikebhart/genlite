@@ -15,7 +15,7 @@ Timber\Timber::init();
 
 if ( !class_exists( 'Timber' ) ) {
 
-	echo 'Timber is not activated.';
+	echo 'Cannot find Timber in Vendor folder.';
     return;
 	
 }
@@ -50,25 +50,6 @@ class GenLiteSite extends Site {
         remove_action( 'wp_print_styles', 'print_emoji_styles');
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
-
-        // add_filter('woocommerce_get_catalog_ordering_args', function ($args) {
-        //     $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
-        
-        //     if ('price' == $orderby_value) {
-        //         $args['orderby'] = 'meta_value_num';
-        //         $args['order'] = 'ASC';
-        //         $args['meta_key'] = '_price';
-        //     }
-        
-        //     if ('price-desc' == $orderby_value) {
-        //         $args['orderby'] = 'meta_value_num';
-        //         $args['order'] = 'DESC';
-        //         $args['meta_key'] = '_price';
-        //     }
-        
-        //     return $args;
-        // });
-
         
         parent::__construct();
 
@@ -88,13 +69,13 @@ class GenLiteSite extends Site {
                 'posts_per_page' => get_option('posts_per_page') ]);
 
 
-        // if ( !is_user_logged_in() ) {
+        if ( !is_user_logged_in() ) {
 
-        //     wp_dequeue_script( 'jquery' );
-        //     wp_deregister_script( 'jquery' ); 
-        //     wp_dequeue_style( 'classic-theme-styles' );
+            wp_dequeue_script( 'jquery' );
+            wp_deregister_script( 'jquery' ); 
+            wp_dequeue_style( 'classic-theme-styles' );
 
-        // }
+        }
         
 
     }
@@ -105,22 +86,22 @@ class GenLiteSite extends Site {
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class());
         $context['header_menu'] = Timber::get_menu('header menu');
-
-      
    
         // Options
-        $option_fields = get_fields('options');
+        if ( class_exists( 'ACF' ) ) {
 
-     
+            $option_fields = get_fields('options');
 
-        if ( $option_fields != null ) {
-            
-            $context['general'] = $option_fields['general'];
-            $context['footer'] = $option_fields['footer'];
-            $context['contact_form'] = $option_fields['contact_form'];
-            $context['script_code'] = $option_fields['script_code'];
-            $context['work_archive'] = $option_fields['work_archive'];
+            if ( $option_fields != null ) {
+                
+                $context['general'] = $option_fields['general'];
+                $context['footer'] = $option_fields['footer'];
+                $context['contact_form'] = $option_fields['contact_form'];
+                $context['script_code'] = $option_fields['script_code'];
+                $context['work_archive'] = $option_fields['work_archive'];
 
+            }
+        
         }
 
         return $context;
@@ -142,7 +123,6 @@ class GenLiteSite extends Site {
              add_theme_support( 'woocommerce-blocks-patterns' );
         }
 
-        //add_theme_support( 'woocommerce' );
         add_theme_support( 'post-thumbnails' );
         add_theme_support( 'menus' );
         add_theme_support( 'html5', ['comment-form', 'comment-list', 'gallery',	'caption'] );
@@ -181,8 +161,7 @@ class GenLiteSite extends Site {
         
         } else {
         
-            $general = get_field( 'general', 'options' );
-            $title_parts['title'] = $general['home_page_title'];
+            $title_parts['title'] = get_the_title( get_option('page_on_front') );
 
         }
         
@@ -195,6 +174,10 @@ class GenLiteSite extends Site {
     }
 
     function admin_login_logo() { 
+
+        if ( !class_exists( 'ACF' ) ) {
+            return;
+        }
 
         $general = get_field( 'general', 'options' );
         $login_form_logo = $general['logo']['url'];

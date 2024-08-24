@@ -4,7 +4,9 @@
 
     <article id="post-{{ post.id }}">
 
-        {% if post.genlite_page_heading_settings.value == 'default' or post.genlite_page_heading_settings == false %}
+        {% if post.genlite_page_heading_settings.value == 'default' or 
+            post.genlite_page_heading_settings == false or 
+            post.genlite_page_heading_settings == 'default' %}
             
             <section class="page-title-wrapper">
                 <div class="container">
