@@ -27,7 +27,15 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-12 col-md-6 offset-md-3">
+                        {% set col_classes = 'col-12' %}
+
+                        {% if post.genlite_desktop_indent == '1' %}
+
+                            {% set col_classes = 'col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3' %}
+
+                        {% endif %}
+
+                        <div class="{{ col_classes }}">
 
                             {{ post.content }}
 
