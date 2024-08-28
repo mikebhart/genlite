@@ -27,6 +27,8 @@ use Timber\Site;
 
 class GenLiteSite extends Site {
 
+    var $option_fields = [];
+
     function __construct() {
 
         add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
@@ -80,6 +82,7 @@ class GenLiteSite extends Site {
 
     }
 
+    
 
     function add_to_context( $context ) {
 
@@ -161,7 +164,8 @@ class GenLiteSite extends Site {
         
         } else {
         
-            $title_parts['title'] = get_the_title( get_option('page_on_front') );
+            $home_title = get_field( 'general', 'options' );
+            $title_parts['title'] = $home_title['home_page_title'];
 
         }
         

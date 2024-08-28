@@ -105,6 +105,26 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_66cf25bef20b5",
+                    "label": "Home Page Title",
+                    "name": "home_page_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -513,5 +533,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724539375
+    "modified": 1724851668
 }
