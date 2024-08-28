@@ -2,89 +2,42 @@
 
 {% block content %}
 
-    <section class="woo-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
 
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-3">
-
-                    <div>{{ breadcrumb }}</div>
-                    <div>{{ categories }}</div>
-                    
-                </div>
-
-                <div class="col-md-9">
-                    
-                    <div class="row">
-
-                        <div class="col-12">
-                         
-                            {% include 'searchform.twig' %}
-                            {{ result_count }}
-                            {% include 'parts/pagination.twig' %} 
-
-                        </div>
-
-                        {% for item in products %}
-
-                            {% set sale_price = item.meta('_sale_price') %}
-                            {% set regular_price = item.meta('_regular_price') %}
-                            {% set price = item.meta('_price') %}
-
-                            <div class="col-12 col-md-6 col-lg-4">
-
-                                <a href="{{ item.link }}">
-
-                                    <div class="woo-archive__card">
-
-                                        <div class="woo-archive__image-wrapper">
-                                            <div class="woo-archive__tag">SALE</div>
-                                            <div class="woo-archive__image" style="background-image: url('{{ item.thumbnail.src }}');"></div>
-                                        </div>
-
-                                        <div class="woo-archive__text-holder">
-                                        
-                                            <div class="title">
-                                                <p>{{ item.title }}</p>
-
-                                            </div>
-
-                                            <h3>
-                                                {% if sale_price is not empty %}
-
-                                                    <del>{{ woo_currency }}{{ regular_price }}</del>&nbsp;{{ woo_currency }}{{ sale_price }}</h3>
-
-                                                {% else %}
-
-                                                    {{ woo_currency }}{{ price }}
-
-                                                    {# $product->get_price_html(); #}
-
-                                                {% endif %}
-                                            </h3>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </a>
-
-                            </div>
-                        
-                        {% endfor %}
-
-                    </div>
-
-                </div>
-
-
+                {% do action('woocommerce_before_main_content') %}
+                 {% do action('woocommerce_before_shop_loop') %}
+            
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            {# <div class="col-12">
+
+                {% do action('woocommerce_before_shop_loop') %}
+
+
+            </div> #}
+
+
+            {% for post in products %}
+            
+                <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+                
+                    {% include ["parts/tease-product.twig"] %}
+                
+                </div>
+            
+            {% endfor %}
 
         </div>
+    </div>
 
-    </section>
+    {% do action('woocommerce_after_shop_loop') %}
+    {% do action('woocommerce_after_main_content') %}
 
-{% endblock %}
+{% endblock  %}
