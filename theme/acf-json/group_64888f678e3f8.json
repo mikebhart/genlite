@@ -3,6 +3,27 @@
     "title": "Page Settings",
     "fields": [
         {
+            "key": "field_671c1f55faf5c",
+            "label": "Title Override",
+            "name": "genlite_title_override",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66c0f30ef65e3",
             "label": "Page Heading Settings",
             "name": "genlite_page_heading_settings",
@@ -88,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724850294
+    "modified": 1729896332
 }

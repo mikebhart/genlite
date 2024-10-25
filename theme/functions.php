@@ -149,6 +149,7 @@ class GenLiteSite extends Site {
 
     
     function setup_document_title_separator( $sep ) {
+        
         $sep = "|";
 
         return $sep;
@@ -157,23 +158,22 @@ class GenLiteSite extends Site {
 
     function modify_title_format( $title ) {
 
-        if ( !is_front_page() ) {
+        $title_override = get_field('genlite_title_override');
+
+        if ( $title_override ) {
+
+            $title_parts['title'] = $title_override;
+
+        } else if ( is_front_page() ) {
+
+            $title_parts['title'] = get_the_title( get_option('page_on_front') );
+            $title_parts['site'] = $title['title'];
+        
+
+        } else {
 
             $title_parts['site'] = $title['title'];
             $title_parts['title'] = $title['site'];
-        
-        } else {
-
-            $home_title = get_field( 'general', 'options' );
-
-            if ( !is_null( $home_title ) ) {
-
-                $title_parts['title'] = $home_title['home_page_title'];
-
-            } else {
-
-                $title_parts['title'] = get_the_title( get_option('page_on_front') );
-            }
 
         }
         
