@@ -12,8 +12,9 @@
                         <h1>{{ title }}</h1>
                         {{ description }}
                     </div>
-
+                    
                 </div>
+
             </div>
         </div>
     </section>
@@ -37,7 +38,9 @@
 
                                 </a>
 
-                                <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p>
+                                 <p>{{ post.terms( { taxonomy: 'category' } ) | join(', ') }}</p>
+
+                                {# <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p> #}
 
                             </article>
 

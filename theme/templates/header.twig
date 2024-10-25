@@ -12,12 +12,16 @@
 
                         <div class="col-12 col-md-2 my-auto">
 
-                            <div class="website-header__desktop-logo">
-                                <a href="{{ site.url }}" aria-label="Go to the homepage">
-                                    <img src="{{ general.logo.url }}" alt="Logo">
-                                </a>                
-                            </div>
-                        
+                            {% if general.logo is not empty %}
+
+                                <div class="website-header__desktop-logo">
+                                    <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                        <img src="{{ general.logo.url }}" alt="Logo">
+                                    </a>                
+                                </div>
+
+                            {% endif %}
+                            
                         </div>
 
                         {% if header_menu.items is not empty %}

@@ -163,9 +163,17 @@ class GenLiteSite extends Site {
             $title_parts['title'] = $title['site'];
         
         } else {
-        
+
             $home_title = get_field( 'general', 'options' );
-            $title_parts['title'] = $home_title['home_page_title'];
+
+            if ( !is_null( $home_title ) ) {
+
+                $title_parts['title'] = $home_title['home_page_title'];
+
+            } else {
+
+                $title_parts['title'] = get_the_title( get_option('page_on_front') );
+            }
 
         }
         
@@ -184,22 +192,28 @@ class GenLiteSite extends Site {
         }
 
         $general = get_field( 'general', 'options' );
-        $login_form_logo = $general['logo']['url'];
+        
+        if ( !is_null( $general ) ) {
 
-        ?>
+            $login_form_logo = $general['logo']['url'];
 
-        <style type="text/css">
-            #login h1 a, .login h1 a {
-                background: url(<?php echo $login_form_logo; ?>);
-                background-repeat: no-repeat;
-                background-size: 200px 80px;         
-                width: 100%;
-                background-position-x: center;
-                pointer-events: none;
-                cursor: default;
-            }
-        </style>
-    <?php }
+            ?>
+
+            <style type="text/css">
+                #login h1 a, .login h1 a {
+                    background: url(<?php echo $login_form_logo; ?>);
+                    background-repeat: no-repeat;
+                    background-size: 200px 80px;         
+                    width: 100%;
+                    background-position-x: center;
+                    pointer-events: none;
+                    cursor: default;
+                }
+            </style>
+            
+        <?php
+        }
+    }
 
     function mail_sender_name( $original_email_from ) {
         return strtoupper( get_bloginfo() );
