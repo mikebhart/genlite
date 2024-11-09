@@ -102,6 +102,7 @@
         line-height: normal;
         padding-top: 10px;
         padding-bottom: 10px;
+        display: inline-block;
 
         &.white {
             color: #fff;
@@ -109,6 +110,19 @@
 
 
     }
+
+    h4::after {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid $genlite-primary-color;
+        border-top: 1px solid $genlite-primary-color;
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 1rem;
+
+    }
+
 
     h5 {
         color: black;
@@ -145,6 +159,7 @@
     article {
 
         a {
+            font-family: 'Rubik', sans-serif;
             text-decoration: none;
             color: $genlite-primary-color;
 
