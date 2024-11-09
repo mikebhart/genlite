@@ -74,10 +74,24 @@
         line-height: 2.25rem;
         font-stretch: normal;
         font-style: normal;
+        display: inline-block;
 
         &.white {
             color: #fff;
         }
+    }
+
+    h2::after {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid $genlite-primary-color;
+        border-top: 1px solid $genlite-primary-color;
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 1rem;
+      
+
     }
     
     h3 {
