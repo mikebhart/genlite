@@ -1,8 +1,12 @@
-.page-content-wrapper {
+.page article {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 
-.page-title-wrapper {
-    padding-top: 30px;
+.page-featured-hero article {
+    padding-top: 0;
+}
+
+.single article {
+    padding-bottom: 60px;
 }
