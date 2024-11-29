@@ -21,6 +21,23 @@
  * @since    Timber 0.1
  */
 
+
+// $post_blocks = [];
+
+// if ( has_blocks( $post->post_content ) ) {
+     
+//     $blocks = parse_blocks( $post->post_content );
+             
+//     foreach( $blocks as $block ) {
+
+//         if ( !in_array( $block['blockName'], $post_blocks )) {
+//             $post_blocks[] = $block['blockName'];
+//         }
+
+//     }
+ 
+// }
+
 $context = Timber::context();
 
 $timber_post     = Timber::get_post();
