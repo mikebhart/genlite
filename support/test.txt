@@ -1,0 +1,13 @@
+ const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+
+const collection = document.querySelectorAll('article section');
+
+for (let i = 0; i < collection.length; i++) {
+
+  let block_name = collection[i].className.split(" ")[0]; 
+  let block_clean_name = block_name.substring( block_name.indexOf("-") + 1, block_name.length );
+    
+  console.log(block_clean_name);
+
+}
