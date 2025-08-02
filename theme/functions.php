@@ -45,6 +45,8 @@ class GenLiteSite extends Site {
         add_filter( 'wp_sitemaps_add_provider', [ $this, 'remove_users_from_sitemap'], 10, 2 );
         add_filter( 'wp_sitemaps_posts_query_args', [ $this, 'remove_pages_from_sitemap'], 11, 2);
 
+        add_filter( 'rest_api_init', [ $this, 'rest_only_for_authorized_users' ], 99 );
+
         add_action('upload_mimes', [ $this, 'add_svg_to_media_library' ] );
         add_action('mime_types', [ $this, 'extend_mime_types' ] );
 
@@ -58,6 +60,16 @@ class GenLiteSite extends Site {
         parent::__construct();
 
 
+
+    }
+
+    function rest_only_for_authorized_users( $wp_rest_server ) {
+
+        if ( !is_user_logged_in() ) {
+
+            wp_die('sorry you are not allowed to access this data', 'Forbidden', 403 );
+
+        }
 
     }
 
@@ -159,6 +171,10 @@ class GenLiteSite extends Site {
 
 
     function modify_title_format( $title ) {
+
+        if ( !class_exists( 'ACF' ) ) {
+            return;
+        }
 
         $title_override = get_field('genlite_title_override');
 

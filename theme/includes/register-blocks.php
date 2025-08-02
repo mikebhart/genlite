@@ -58,7 +58,7 @@ class RegisterBlocks {
 
 	public function genlite_blocks_category( $categories, $post ) {
 
-		return array_merge( $categories, [ [ 'slug' => 'genlite-blocks', 'title' => 'Theme' ] ] );
+		return array_merge( $categories, [ [ 'slug' => 'genlite-blocks', 'title' => 'Genlite' ] ] );
 		
 	}
 

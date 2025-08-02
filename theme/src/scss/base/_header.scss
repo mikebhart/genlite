@@ -18,6 +18,8 @@
             color: $genlite-black;
             padding: 5px 0;
             text-decoration: none;
+            display: inline-block;
+            min-height: 50px;
         }
 
         .dropdown-content {
@@ -57,9 +59,13 @@
             display: block;
         }
 
-        .menu-item-link:hover,
-        .active {
-            border-bottom: 2px solid $genlite-primary-color;
+        a.menu-item-link:hover::after,
+        a.menu-item-link.active::after {
+            content: " ";
+            display: block;
+            border-bottom: 1px solid $genlite-primary-color;
+            border-top: 1px solid $genlite-primary-color;
+            height: 5px;
         }
 
         .active-submenu {
@@ -177,11 +183,7 @@
             display: none;
             position: relative;
             width: 100vw;
-//            height: 100vh;
-
             height: calc(100vh - 80px);
-
-            
 
             a.submenu,
             a:not(:last-child) {
