@@ -10,7 +10,7 @@
 
                     <div class="title-wrapper">
                         <h1>{{ title }}</h1>
-                        {{ description }}
+                        <div>{{ description }}</div>
                     </div>
                     
                 </div>
@@ -28,15 +28,11 @@
 
                     {% if post.post_status == 'publish' and post.title is not empty %}
 
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-12 col-sm-6 col-md-4 mb-4">
 
                             <article>
 
                                 <a href="{{ post.link }}" aria-label="{{ post.title }}">{{ post.title }}</a>
-
-                                 <p>{{ post.terms( { taxonomy: 'category' } ) | join(', ') }}</p>
-
-                                {# <p>{{ post.modified_date('jS M, Y') }} &#8226; {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC'}} )|join(', ') }}</p> #}
 
                             </article>
 

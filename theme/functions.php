@@ -116,6 +116,7 @@ class GenLiteSite extends Site {
                 $context['contact_form'] = $option_fields['contact_form'];
                 $context['script_code'] = $option_fields['script_code'];
                 $context['work_archive'] = $option_fields['work_archive'];
+               // $context['blog_archive'] = $option_fields['blog_archive'];
 
             }
         

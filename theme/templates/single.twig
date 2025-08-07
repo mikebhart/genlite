@@ -16,9 +16,9 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 col-xl-6">
 
-                        <h1>{{ post.title }}</h1>
+                        <h1 class="mt-3">{{ post.title }}</h1>
 
                     </div>
                 </div>
@@ -36,9 +36,17 @@
 
                 <div id="post-{{ post.id }}">
 
-                        {{ post.content }}
+                    <h4>Categories</h4>
 
-                        <p><i>Categories: {{ post.terms('category') | join(', ') }}</i></p>
+                    <ul>
+
+                        {% for term in post.terms( { taxonomy: 'category' } )  %}
+                            <li><a href="{{ term.link }}">{{ term.title }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+
+                    {{ post.content }}
 
 
                 </div>						
