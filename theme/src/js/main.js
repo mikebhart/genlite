@@ -11,6 +11,7 @@ import { handleHeaderMenu } from './plugins/header-menu';
 import { handleNavSections } from './plugins/nav-sections';
 import { handleContactUsForm } from './plugins/contact-us';
 import { handleMobileMenu } from './plugins/mobile-menu';
+import { handlePerformanceSummaryBlock } from './plugins/performance-summary';
 
 import { handleLighbox } from './plugins/lightbox';
 
@@ -25,6 +26,7 @@ var app = function() {
             handleNavSections();
             handleContactUsForm();
             handleMobileMenu();
+            handlePerformanceSummaryBlock();
             handleLighbox();
           
         }

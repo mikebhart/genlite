@@ -1,8 +1,9 @@
 <?php
 
 $context = Timber::context();
-$context['post'] = Timber::get_posts();
 
+$timber_post     = Timber::get_post();
+$context['post'] = $timber_post;
 
 $title = single_cat_title( '', false );
 $cat_description = category_description();
@@ -19,5 +20,24 @@ if ( empty( $title ) ) {
 
 $context['title'] = $title;
 $context['description'] = $cat_description;
+
+$category_data = [];
+
+$categories = get_categories();
+
+foreach ( $categories as $category ) :
+    $category_link = get_category_link( $category->term_id );
+
+    $category_item = [];
+
+    $category_item["category"]['name'] = $category->name;
+    $category_item["category"]['category_link'] = $category_link;
+
+    $category_data[] = $category_item;
+
+ endforeach;
+
+
+$context['category_data'] = $category_data;
 
 Timber::render( [ 'archive.twig' ], $context );
