@@ -10,16 +10,20 @@
                     
                     <h1>{{ title }}</h1>
                     {{ description }}
-                    
+
                 </div>
 
-                <div class="col-12 offset-xl-3 col-xl-3 margin-top-2">
-                    
-                    <h4>Categories</h4>
-             
-                    <div id="ps-custom-select" class="ps-select">
+            </div>
+
+            <div class="row">
+
+                <div class="col-12 col-xl-4 text-left margin-top-2">
+
+                     <div id="ps-custom-select" class="ps-select">
 
                         <select id="literature-key-info-select">
+
+                            <option value="All Categories">All Categories</option>
 
                             {% for category_item in category_data %}
                                 <option value="{{ category_item.category.category_link }}">{{ category_item.category.name }}</option>
@@ -29,8 +33,9 @@
 
                     </div>
 
-                 </div>
 
+                    
+                </div>
 
             </div>
         </div>

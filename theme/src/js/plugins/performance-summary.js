@@ -63,8 +63,8 @@ export const handlePerformanceSummaryBlock = function () {
         x[i].appendChild(b);
 
         // make inital default option
-        // var defaultElement = document.getElementById('Class I');         
-        // defaultElement.classList.add("same-as-selected");
+        var defaultElement = document.getElementById('All Categories');         
+        defaultElement.classList.add("same-as-selected");
 
         a.addEventListener("click", function(e) {
 
