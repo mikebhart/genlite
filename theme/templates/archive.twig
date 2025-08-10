@@ -28,7 +28,7 @@
 
                             {% for category_item in category_data %}
 
-                                <option value="cat-slug-{{ category_item.category.slug }}" data-category-link="{{ category_item.category.category_link }}">{{ category_item.category.name }}</option>
+                                <option value="cat-slug-{{ category_item.category.slug }}" data-category-link="{{ category_item.category.category_link }}">{{ category_item.category.name }}&nbsp;({{ category_item.category.count }})</option>
 
                             {% endfor %}
                         

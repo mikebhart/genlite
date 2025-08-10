@@ -32,6 +32,7 @@ foreach ( $categories as $category ) :
 
     $category_item["category"]['name'] = $category->name;
     $category_item["category"]['slug'] = $category->slug;
+    $category_item["category"]['count'] = $category->count;
     $category_item["category"]['category_link'] = $category_link;
 
 
