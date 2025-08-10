@@ -22,8 +22,10 @@ export const handlePerformanceSummaryBlock = function () {
         for (j = 0; j < ll; j++) {
 
             c = document.createElement("DIV");
-            c.id =  selElmnt.options[j].innerHTML;
+
+            c.id =  selElmnt.options[j].value;
             c.innerHTML = selElmnt.options[j].innerHTML;
+
             c.addEventListener("click", function(e) {
 
                 var y, i, k, s, h, sl, yl;
@@ -63,7 +65,7 @@ export const handlePerformanceSummaryBlock = function () {
         x[i].appendChild(b);
 
         // make inital default option
-        var defaultElement = document.getElementById('All Categories');         
+        var defaultElement = document.getElementById('all-categories');         
         defaultElement.classList.add("same-as-selected");
 
         a.addEventListener("click", function(e) {
