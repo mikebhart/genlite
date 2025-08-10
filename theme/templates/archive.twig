@@ -20,7 +20,7 @@
                 <div class="col-12 col-xl-4 text-left margin-top-2">
                 
 
-                     <div id="ps-custom-select" class="ps-select">
+                     <div id="ps-custom-select" class="archive-categories-select">
 
                         <select id="literature-key-info-select">
 
@@ -28,7 +28,7 @@
 
                             {% for category_item in category_data %}
 
-                                <option value="{{ category_item.category.category_link }}">{{ category_item.category.name }}</option>
+                                <option value="cat-slug-{{ category_item.category.slug }}" data-category-link="{{ category_item.category.category_link }}">{{ category_item.category.name }}</option>
 
                             {% endfor %}
                         

@@ -31,7 +31,9 @@ foreach ( $categories as $category ) :
     $category_item = [];
 
     $category_item["category"]['name'] = $category->name;
+    $category_item["category"]['slug'] = $category->slug;
     $category_item["category"]['category_link'] = $category_link;
+
 
     $category_data[] = $category_item;
 

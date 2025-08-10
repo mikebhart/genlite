@@ -1,11 +1,11 @@
-export const handlePerformanceSummaryBlock = function () {
+export const handleArchiveCategories = function () {
 
     if ( !document.querySelector('.archive') ) { 
         return;
     }
 
     var x, i, j, l, ll, selElmnt, a, b, c;
-    x = document.getElementsByClassName("ps-select");
+    x = document.getElementsByClassName("archive-categories-select");
     l = x.length;
 
     for (i = 0; i < l; i++) {
@@ -48,7 +48,7 @@ export const handlePerformanceSummaryBlock = function () {
 
                         this.setAttribute("class", "same-as-selected");
 
-                        window.location.href = s.options[i].value;
+                      //  window.location.href = s.options[i].value;
 
                         break;
                 
@@ -64,9 +64,32 @@ export const handlePerformanceSummaryBlock = function () {
 
         x[i].appendChild(b);
 
+
+        const first_path = location.pathname.split('/')[1].toLowerCase();
+        const second_path = "cat-slug-" + location.pathname.split('/')[2];
+        
+        console.log(first_path);
+        console.log(second_path);
+
+        if ( first_path !== 'category' ) {
+        
+            // make inital default option
+            var defaultElement = document.getElementById('all-categories');         
+            defaultElement.classList.add("same-as-selected");
+
+        } else if ( first_path == 'category' ) {
+
+            console.log('in');
+
+            var defaultElement = document.getElementById(second_path);         
+            defaultElement.classList.add("same-as-selected");
+            
+
+        }
+
         // make inital default option
-        var defaultElement = document.getElementById('all-categories');         
-        defaultElement.classList.add("same-as-selected");
+        // var defaultElement = document.getElementById('all-categories');         
+        // defaultElement.classList.add("same-as-selected");
 
         a.addEventListener("click", function(e) {
 
