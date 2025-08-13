@@ -2,120 +2,104 @@
 
 {% block content %}
 
-    <section class="archive">
-        <div class="container">
-            <div class="row">
+    <article>
 
-                <div class="col-12 col-xl-6 text-left margin-top-2">
-                    
-                    <h1>{{ title }}</h1>
-                    {{ description }}
+        <section class="archive">
 
-                </div>
+            <div class="container">
+            
+                <div class="row">
 
-            </div>
-
-            <div class="row">
-
-                <div class="col-12 col-xl-4 text-left margin-top-2">
-                
-
-                     <div id="ps-custom-select" class="archive-categories-select">
-
-                        <select id="literature-key-info-select">
-
-                            <option value="all-categories">All Categories</option>
-
-                            {% for category_item in category_data %}
-
-                                <option value="cat-slug-{{ category_item.category.slug }}" data-category-link="{{ category_item.category.category_link }}">{{ category_item.category.name }}&nbsp;({{ category_item.category.count }})</option>
-
-                            {% endfor %}
+                    <div class="col-12 col-lg-7 text-left margin-top-2">
                         
-                        </select>
+                        <h1>{{ title }}</h1>
 
+                        {% for post in posts %}
+
+                            {% if post.post_status == 'publish' and post.title is not empty %}
+
+                                <article>
+
+                                    <a href="{{ post.link }}" aria-label="{{ post.title }}"><h2>{{ post.title }}</h2></a>
+                                    <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+                                    <p class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</p>
+
+                                </article>
+
+                            {% endif %}
+
+                        {% endfor %}
+    
                     </div>
 
+                    <div class="col-12 offset-lg-1 col-lg-4 text-left margin-top-2">
 
-                    
-                </div>
+                        <h2>About</h2>
 
-            </div>
-        </div>
-    </section>
+                        {{ description }}
 
-    <section class="archive">
+                        <div id="ps-custom-select" class="archive-categories-select">
 
-        <div class="container">
+                            <select id="literature-key-info-select">
 
-            <div class="row">
-    
-                {% for post in posts %}
+                                <option value="all-categories" data-category-link="{{ blog_url }}">All Categories</option>
 
-                    {% if post.post_status == 'publish' and post.title is not empty %}
+                                {% for category_item in category_data %}
 
-                        <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                    <option value="cat-slug-{{ category_item.category.slug }}" data-category-link="{{ category_item.category.category_link }}">{{ category_item.category.name }}&nbsp;({{ category_item.category.count }})</option>
 
-                            <article>
-
-                                <a href="{{ post.link }}" aria-label="{{ post.title }}">{{ post.title }}</a>
-
-                            </article>
+                                {% endfor %}
+                            
+                            </select>
 
                         </div>
 
-                    {% endif %}
+                        <div class="margin-top-3">
 
-                {% endfor %}
+                            {{ sidebar }}
 
-            </div>
+                        </div>
+                
+                    </div>
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-12">
+                    <div class="col-12 text-center">
 
-                    <div class="tool-pagination">
+                        <div class="pagination">
 
-                        {% if posts.pagination.prev %}
+                            {% if posts.pagination.prev %}
 
-                            <a href="{{ posts.pagination.prev.link }}" class="prev {{ posts.pagination.prev.link|length ? '' : 'invisible' }}">Previous</a>
+                                <a href="{{ posts.pagination.prev.link }}" class="prev {{ posts.pagination.prev.link|length ? '' : 'invisible' }}">Previous</a>
 
-                        {% endif %}
-
-                        <ul class="pages">
+                            {% endif %}
 
                             {% for page in posts.pagination.pages %}
 
-                                <li>
-                                    {% if page.link %}
+                                {% if page.link %}
 
-                                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
-
-                                    {% else %}
-
-                                        <span class="{{ page.class }}">{{ page.title }}</span>
-
-                                    {% endif %}
-
-                                </li>
+                                    <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                    
+                                {% endif %}
 
                             {% endfor %}
-                        
-                        </ul>
 
-                        {% if posts.pagination.next %}
+                            {% if posts.pagination.next %}
 
-                            <a href="{{ posts.pagination.next.link }}" class="next {{ posts.pagination.next.link|length ? '' : 'invisible' }}">Next</a>
+                                <a href="{{ posts.pagination.next.link }}" class="next {{ posts.pagination.next.link|length ? '' : 'invisible' }}">Next</a>
                         
-                        {% endif %}
-                    
+                            {% endif %}
+                            
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
-        </div>
 
-    </section>
+        </section>
+
+    </article>
 
 {% endblock %}

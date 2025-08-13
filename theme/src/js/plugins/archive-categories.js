@@ -48,7 +48,9 @@ export const handleArchiveCategories = function () {
 
                         this.setAttribute("class", "same-as-selected");
 
-                      //  window.location.href = s.options[i].value;
+                        var category_url = s.options[i].getAttribute("data-category-link");;
+
+                        window.location.href = category_url;
 
                         break;
                 
@@ -67,29 +69,22 @@ export const handleArchiveCategories = function () {
 
         const first_path = location.pathname.split('/')[1].toLowerCase();
         const second_path = "cat-slug-" + location.pathname.split('/')[2];
-        
-        console.log(first_path);
-        console.log(second_path);
 
-        if ( first_path !== 'category' ) {
-        
+        if ( first_path !== 'category' && first_path !== 'work-type'  ) {
+
             // make inital default option
-            var defaultElement = document.getElementById('all-categories');         
+            let defaultElement = document.getElementById('all-categories');         
             defaultElement.classList.add("same-as-selected");
 
-        } else if ( first_path == 'category' ) {
+        } else if ( first_path == 'category' ||  first_path == 'work-type' ) {
 
-            console.log('in');
-
-            var defaultElement = document.getElementById(second_path);         
+            let defaultElement = document.getElementById(second_path);         
             defaultElement.classList.add("same-as-selected");
-            
 
-        }
+            let catSelect = document.getElementsByClassName('select-selected')[0];
+            catSelect.innerText = defaultElement.outerText;
 
-        // make inital default option
-        // var defaultElement = document.getElementById('all-categories');         
-        // defaultElement.classList.add("same-as-selected");
+        } 
 
         a.addEventListener("click", function(e) {
 

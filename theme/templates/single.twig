@@ -48,6 +48,37 @@
 
                     {{ post.content }}
 
+                    <div class="pagination margin-top-3">
+
+                        <div class="col-6">
+
+                            <div class="text-left">
+                                {% if post.prev %}
+                            
+                                    <a href="{{ post.prev.link }}">Previous article</a>
+
+                                {% endif %}
+
+                            </div>
+                        
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="text-right">
+
+                                {% if post.next %}
+
+                                    <a href="{{ post.next.link }}">Next article</a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
 
                 </div>						
 			
