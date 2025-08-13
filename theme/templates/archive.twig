@@ -11,8 +11,14 @@
                 <div class="row">
 
                     <div class="col-12 col-lg-7 text-left margin-top-2">
-                        
-                        <h1>{{ title }}</h1>
+
+                        <div class="title-wrapper">
+                            <h1 class="text-center">{{ title }}</h1>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-lg-7 text-left margin-top-2 order-2 order-lg-1">
 
                         {% for post in posts %}
 
@@ -32,7 +38,7 @@
     
                     </div>
 
-                    <div class="col-12 offset-lg-1 col-lg-4 text-left margin-top-2">
+                    <div class="col-12 offset-lg-1 col-lg-4 text-left margin-top-2 order-1 order-lg-2">
 
                         <h2>About</h2>
 
@@ -61,6 +67,9 @@
                         </div>
                 
                     </div>
+                </div>
+
+            <div class="container">
 
                 <div class="row">
 
