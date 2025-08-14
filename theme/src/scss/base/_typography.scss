@@ -7,170 +7,165 @@
 }
 
 .app {
-
-    overflow-x: hidden; // cover block shunts over margin
-
+    
+  //  overflow-x: hidden; // cover block shunts over margin
     font-family: 'Karla', sans-serif;
 
-    h1,h2,h3,h4,h5,h6 {
-        color: black;
-        font-family: 'Rubik', sans-serif;
-        line-height: 1.2;
-        letter-spacing: 0.05rem;
-    }
-  
-    .wp-block-list,
-    p {
-        font-family: 'Karla', sans-serif;
-        line-height: 1.625rem;
-        font-size: 1.25rem;
-        padding-top: 7px;
-        color: black;
-        padding-bottom: 7px;
-        letter-spacing: 0.05rem;
-        
-        &.text-white {
-            color: white;
-        }
-
-    }
-
-    h1 {
-        text-align: left;
-        font-size: 2.5rem;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.4;
-        display: inline-block;
-        margin-bottom: 15px;
-    }
-
-    h1::after {
-        content: " ";
-        display: block;
-        border-bottom: 1px solid $genlite-primary-color;
-        border-top: 1px solid $genlite-primary-color;
-        height: 5px;
-        background-color: white;
-        margin-bottom: 1rem;
-
-    }
-
-    .title-wrapper {
-        text-align: center;
-        padding-left: 0;
-        padding-right: 0;
-
-        @include media-breakpoint-up(md) {
-            padding-left: 20%;
-            padding-right: 20%;
-        }
-
-      }
-
-       
-    h2 {
-        font-size: 1.375rem;
-        line-height: 2.25rem;
-        font-stretch: normal;
-        font-style: normal;
-        display: inline-block;
-
-        &.white {
-            color: #fff;
-        }
-    }
-
-    h2::after {
-        content: " ";
-        display: block;
-        border-bottom: 1px solid $genlite-primary-color;
-        border-top: 1px solid $genlite-primary-color;
-        height: 4px;
-        width: 100%;
-        background-color: white;
-        margin-bottom: 1rem;
-      
-
-    }
-    
-    h3 {
-        font-size: 1.375rem;
-        line-height: 2.25rem;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        &.white {
-            color: #fff;
-        }
-        
-    }
-
-
-    h4 {
-        font-size: 1.2rem;
-        line-height: 26px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        display: inline-block;
-
-        &.white {
-            color: #fff;
-        }
-
-
-    }
-
-    h4::after {
-        content: " ";
-        display: block;
-        border-bottom: 1px solid $genlite-primary-color;
-        border-top: 1px solid $genlite-primary-color;
-        height: 4px;
-        width: 100%;
-        background-color: white;
-        margin-bottom: 1rem;
-
-    }
-
-
-    h5 {
-        color: black;
-        font-size: 1rem;
-        line-height: 1.25rem;
-        letter-spacing: 0.016rem;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        padding-bottom: 5px;
-    }
-
-    h6 {
-        color: black;
-        font-size: 0.75rem;
-        font-weight: 400;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: 1.6px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        
-    }
-
-    .big-text {
-        letter-spacing: -0.02px;
-        line-height: 6.25rem;
-        font-size: 6.25rem;
-    }
-
-   
-
     article {
+
+        h1,h2,h3,h4,h5,h6 {
+            color: black;
+            font-family: 'Rubik', sans-serif;
+            line-height: 1.2;
+            letter-spacing: 0.05rem;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 2.5rem;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.4;
+            display: inline-block;
+
+            &:after {
+                content: " ";
+                display: block;
+                border-bottom: 1px solid $genlite-primary-color;
+                border-top: 1px solid $genlite-primary-color;
+                height: 5px;
+                background-color: white;
+                margin-bottom: 1rem;
+            }
+
+        }
+
+        .title-wrapper {
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+
+            @include media-breakpoint-up(md) {
+                padding-left: 20%;
+                padding-right: 20%;
+            }
+
+        }
+
+        
+        h2 {
+            font-size: 1.375rem;
+            line-height: 2.25rem;
+            font-stretch: normal;
+            font-style: normal;
+            display: inline-block;
+
+            &:after {
+                content: " ";
+                display: block;
+                border-bottom: 1px solid $genlite-primary-color;
+                border-top: 1px solid $genlite-primary-color;
+                height: 4px;
+                width: 100%;
+                background-color: white;
+            }
+        
+            &.white {
+                color: #fff;
+            }
+        }
+        
+        h3 {
+            font-size: 1.375rem;
+            line-height: 2.25rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            &.white {
+                color: #fff;
+            }
+            
+        }
+
+
+        h4 {
+            font-size: 1.2rem;
+            line-height: 26px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: inline-block;
+
+            &.white {
+                color: #fff;
+            }
+
+            &:after {
+                content: " ";
+                display: block;
+                border-bottom: 1px solid $genlite-primary-color;
+                border-top: 1px solid $genlite-primary-color;
+                height: 4px;
+                width: 100%;
+                background-color: white;
+                margin-bottom: 1rem;
+
+            }
+
+
+        }
+
+        h5 {
+            color: black;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.016rem;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            padding-bottom: 5px;
+        }
+
+        h6 {
+            color: black;
+            font-size: 0.75rem;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 1.6px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            
+        }
+
+        .big-text {
+            letter-spacing: -0.02px;
+            line-height: 6.25rem;
+            font-size: 6.25rem;
+        }
+
+        .wp-block-list,
+        p {
+            font-family: 'Karla', sans-serif;
+            line-height: 1.625rem;
+            font-size: 1.25rem;
+            padding-top: 7px;
+            color: black;
+            padding-bottom: 7px;
+            letter-spacing: 0.05rem;
+            margin-bottom: 0.5rem;
+            
+            &.text-white {
+                color: white;
+            }
+
+        }
+
+     
 
         a {
             font-family: 'Rubik', sans-serif;
@@ -190,23 +185,22 @@
         li::marker {
             color: $genlite-primary-color;
         }
+                            
+        hr {
+            border-top: 2px solid $genlite-primary-color;
+            margin: 10px 0 24px 0;
+            width: 100px;
+        }
 
+        .caption-text {
+            margin-top: -10px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            font-weight: bold;;
+            color: $genlite-dark-green;
+        }
 
 
     }
-                        
-    hr {
-        border-top: 2px solid $genlite-primary-color;
-        margin: 10px 0 24px 0;
-        width: 100px;
-    }
-
-    .caption-text {
-        margin-top: -20px;
-        margin-bottom: 20px;
-        font-size: 1rem;
-        font-weight: bold;;
-    }
-
 
 }

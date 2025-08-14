@@ -18,7 +18,7 @@
 
                     </div>
 
-                    <div class="col-12 col-lg-7 text-left margin-top-2 order-2 order-lg-1">
+                    <div class="col-12 col-lg-7 text-left margin-top-2 order-2 order-lg-1 blog-list-items">
 
                         {% for post in posts %}
 
@@ -26,9 +26,15 @@
 
                                 <article>
 
-                                    <a href="{{ post.link }}" aria-label="{{ post.title }}"><h2>{{ post.title }}</h2></a>
+                                    <a href="{{ post.link }}" aria-label="{{ post.title }}">
+                                        <h2>{{ post.title }}</h2>
+                                    </a>
+
                                     <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+                                    
                                     <p class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</p>
+
+                                    <hr>
 
                                 </article>
 

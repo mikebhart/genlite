@@ -1,9 +1,4 @@
-.archive {
-
-    h2:hover {
-        color: $genlite-primary-color;
-    }
-
+.archive {  
 
     .archive-categories-select {
         position: relative;
@@ -14,7 +9,6 @@
         @include media-breakpoint-up(md) {
             margin-bottom: 0;
         }
-
 
     }
  
@@ -82,5 +76,27 @@
         padding: 8px 16px;
         text-decoration: none;
     }
+
+    .blog-list-items {
+    
+        p {
+            opacity: 0.6;
+        }
+
+
+        h2 {
+
+            &:after {
+                content: unset !important;
+            }
+            
+            &:hover {
+                color: $genlite-primary-color;
+            }
+
+        }
+
+    }
+  
 
 }
