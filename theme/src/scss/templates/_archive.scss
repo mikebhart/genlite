@@ -78,23 +78,44 @@
     }
 
     .blog-list-items {
-    
-        p {
-            opacity: 0.6;
-        }
 
-
-        h2 {
-
-            &:after {
-                content: unset !important;
-            }
-            
+        .blog-list-item {
+         
             &:hover {
-                color: $genlite-primary-color;
+
+                h2 {
+                    color: $genlite-primary-color;
+                }
+
+                .caption-text {
+                    text-decoration: none!important;
+                }
+
             }
 
+
+            h2 {
+
+                width: 100%;
+
+                &:after {
+                    content: unset !important;
+                }
+
+            }
+
+
+            .excerpt {
+        
+                p {
+                    margin-top: -10px;
+                    opacity: 0.6;
+                    margin-bottom: 10px;
+                }
+            }            
+
         }
+           
 
     }
   

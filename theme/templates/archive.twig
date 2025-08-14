@@ -24,15 +24,21 @@
 
                             {% if post.post_status == 'publish' and post.title is not empty %}
 
-                                <article>
+                                <article class="blog-list-item">
 
                                     <a href="{{ post.link }}" aria-label="{{ post.title }}">
+        
                                         <h2>{{ post.title }}</h2>
-                                    </a>
 
-                                    <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+                                        <div class="excerpt">
                                     
-                                    <p class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</p>
+                                            <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+
+                                        </div>
+
+                                        <div class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</div>
+
+                                    </a>
 
                                     <hr>
 
