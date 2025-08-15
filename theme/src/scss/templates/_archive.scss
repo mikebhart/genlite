@@ -80,15 +80,12 @@
     .blog-list-items {
 
         .blog-list-item {
-         
+            position: relative;
+
             &:hover {
 
                 h2 {
                     color: $genlite-primary-color;
-                }
-
-                .caption-text {
-                    text-decoration: none!important;
                 }
 
             }
@@ -114,6 +111,17 @@
                 }
             }            
 
+        }
+
+        .hr-holder {
+            position: relative;
+
+            .hr-class {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+            }
         }
            
 
