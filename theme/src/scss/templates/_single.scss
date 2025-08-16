@@ -3,3 +3,16 @@
 .single-page {
     margin-bottom: 20px;
 }
+
+.single-post {
+
+   h1 {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 600px;
+        }
+
+   }
+
+}

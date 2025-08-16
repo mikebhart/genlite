@@ -9,7 +9,13 @@
         background-size: cover;
         background-attachment: fixed;
         position: relative;
-        height: 35vh; 
+        height: 55vh;
+        
+        @include media-breakpoint-up(sm) {
+             height: 35vh;
+        }
+
+
     }
  
     &__overlay {
@@ -25,6 +31,7 @@
 
     &__text {
         display: block;
+        margin-bottom: 30px;
 
         h1 {
             display: inline-block;

@@ -2,6 +2,71 @@
 
 {% block content %}
 
+    <article id="post-{{ post.id }}" class="single-post">
+
+        {% if post.genlite_page_heading_settings.value == 'default' or 
+            post.genlite_page_heading_settings == false or 
+            post.genlite_page_heading_settings == 'default' %}
+            
+            <section>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="title-wrapper">
+                                <h1 class="text-center">{{ post.title }}</h1>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+
+                        {% set col_classes = 'col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3' %}
+
+                        {% if post.genlite_full_width_container_desktop == 1 %}
+
+                            {% set col_classes = 'col-12' %}
+
+                        {% endif %}
+
+                        <div class="{{ col_classes }}">
+
+                            {{ post.content }}
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        {% elseif post.genlite_page_heading_settings.value == 'no-heading'  %}
+            
+            {% include '/parts/page-content.twig' %} 
+
+        {% elseif post.genlite_page_heading_settings.value == 'featured-hero'  %}
+
+            {% include '/parts/featured-hero.twig' %} 
+            {% include '/parts/page-content.twig' %} 
+
+        {% endif %}
+
+    </article>
+
+
+{% endblock %}
+
+
+{# 
+
+{% extends "base.twig" %}
+
+{% block content %}
+
 <article id="post-{{ post.id }}" class="single-post">
 
 	<div class="single-work__wrapper">
@@ -101,4 +166,4 @@
 </article>
 
 {% endblock %}
-
+ #}

@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
 
-           {% set col_classes = 'col-12' %}
+           {% set col_classes = 'col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3' %}
 
-            {% if post.genlite_desktop_indent == '1' %}
+            {% if post.genlite_full_width_container_desktop == 1 %}
 
-                {% set col_classes = 'col-12 col-md-8 offset-md-2 col-xl-6 offset-xl-3' %}
+                {% set col_classes = 'col-12' %}
 
             {% endif %}
 
@@ -14,8 +14,55 @@
 
                 {{ post.content }}
 
+                {% if  post.terms( { taxonomy: 'category' } ) is not empty %}
+
+                    <h4 class="mt-2">Categories</h4>
+
+                    <ul>
+
+                        {% for term in post.terms( { taxonomy: 'category' } )  %}
+                            <li><a href="{{ term.link }}">{{ term.title }}</a></li>
+                        {% endfor %}
+
+                    </ul>
+
+                    <div class="pagination margin-top-3">
+
+                        <div class="col-6">
+
+                            <div class="text-left">
+                                {% if post.prev %}
+                            
+                                    <a href="{{ post.prev.link }}">Previous article</a>
+
+                                {% endif %}
+
+                            </div>
+                        
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="text-right">
+
+                                {% if post.next %}
+
+                                    <a href="{{ post.next.link }}">Next article</a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                 {% endif %}
+
             </div>
             
         </div>
+
     </div>
+
 </section>
