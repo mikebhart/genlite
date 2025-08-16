@@ -1,6 +1,6 @@
 {% block html_head_container %}
 
-	{% include 'html-header.twig' %}
+	{% include '/base/html-header.twig' %}
 
 		{% block head %}
 		{% endblock %}
@@ -21,7 +21,7 @@
 
         {% block header %}
 
-            {% include 'header.twig' %} 
+            {% include '/base/header.twig' %} 
         
         {% endblock %}
 
@@ -35,7 +35,7 @@
 
         {% block footer %}
         
-            {% include 'footer.twig' %}
+            {% include '/base/footer.twig' %}
             {{ function('wp_footer') }}
             
         {% endblock %}

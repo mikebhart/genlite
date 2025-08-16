@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <article id="post-{{ post.id }}" class="single-page">
+
+        {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
+            
+            {% include '/parts/featured-hero.twig' %} 
+
+        {% else %}
+
+            {% include '/parts/page-title.twig' %}
+
+       {% endif %}
+
+       {% include '/parts/page-content.twig' %} 
+
+    </article>
+
+
+{% endblock %}
