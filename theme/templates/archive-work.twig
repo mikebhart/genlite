@@ -4,7 +4,7 @@
 
     <article>
 
-        <section>
+        <section class="archive-work__header">
         
             <div class="container">
                 <div class="row">
@@ -13,12 +13,13 @@
 
                         <div class="title-wrapper">
                             <h1>{{ work_archive.title }}</h1>
-                            <p>{{ work_archive.description }}</p>
+                            {{ work_archive.description }}
                         </div>
 
                     </div>
                 </div>
             </div>
+
         </section>
 
         <section>
@@ -48,7 +49,7 @@
 
             {% endfor %}
 
-            {# <div class="clearfix"></div> #}
+            <div class="clearfix"></div>
 
         </section>
 
