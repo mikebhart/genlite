@@ -2,47 +2,56 @@
 
 {% block content %}
 
-    <section>
-        <div class="container">
-            <div class="row">
+    <article>
 
-                <div class="col-12 text-center margin-bottom-2">
+        <section>
+        
+            <div class="container">
+                <div class="row">
 
-                    <div class="title-wrapper">
-                        <h1>{{ work_archive.title }}</h1>
-                        <p>{{ work_archive.description }}</p>
+                    <div class="col-12 text-center">
+
+                        <div class="title-wrapper">
+                            <h1>{{ work_archive.title }}</h1>
+                            <p>{{ work_archive.description }}</p>
+                        </div>
+
                     </div>
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    {% for work in posts %}
+        <section>
 
-        {% if work.post_status == 'publish' %}
+            {% for work in posts %}
 
-            <div class="archive-work-card__layout fade-in-up">
-                <article class="archive-work-card" style="background-image: url( {{ work.thumbnail.src }} );">
-                    <div class="archive-work-card__overlay">
-                        <div class="archive-work-card__overlay-content">
-                            
-                            <h3 class="archive-work-title">{{ work.title }}</h3>
-                            <p class="text-white">{{ work.terms( { taxonomy: 'work_category' } ) | join(', ') }}</p>
+                {% if work.post_status == 'publish' %}
 
-                            <div class="margin-top-1">
-                                <a href="{{ work.link }}" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
+                    <div class="archive-work-card__layout fade-in-up">
+                        <article class="archive-work-card" style="background-image: url( {{ work.thumbnail.src }} );">
+                            <div class="archive-work-card__overlay">
+                                <div class="archive-work-card__overlay-content">
+                                    
+                                    <h3 class="archive-work-title">{{ work.title }}</h3>
+                                    <p class="text-white">{{ work.terms( { taxonomy: 'work_category' } ) | join(', ') }}</p>
+
+                                    <div class="margin-top-1">
+                                        <a href="{{ work.link }}" aria-label="{{ work.title }}">VIEW PROJECT<img class="button-arrow" src="{{ theme.link }}/dist/images/arrow-right-solid.svg" alt="arrow right image"></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
-                </article>
-            </div>
 
-        {% endif %}
+                {% endif %}
 
 
-    {% endfor %}
+            {% endfor %}
 
-    <div class="clearfix"></div>
+            {# <div class="clearfix"></div> #}
+
+        </section>
+
+    </article>
 
 {% endblock %}
