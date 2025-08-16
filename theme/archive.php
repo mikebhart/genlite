@@ -64,4 +64,4 @@ foreach ( $categories as $category ) :
 
 $context['category_data'] = $category_data;
 
-Timber::render( [ '/base/archive.twig' ], $context );
+Timber::render( [ 'base/archive.twig' ], $context );

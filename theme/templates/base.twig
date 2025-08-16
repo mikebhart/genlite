@@ -1,6 +1,6 @@
 {% block html_head_container %}
 
-	{% include '/base/html-header.twig' %}
+	{% include 'base/html-header.twig' %}
 
 		{% block head %}
 		{% endblock %}
@@ -11,7 +11,7 @@
 
 {% block body_block %}
 
-	<body id="site-wrapper" class="{{ body_class }} app {% if post.genlite_page_heading_settings.value == 'featured-hero' %} page-featured-hero {% endif %}" data-template="base.twig">
+	<body id="site-wrapper" class="{{ body_class }} app" data-template="base.twig">
 
         {% if script_code.code_body is not empty %}
            
@@ -21,7 +21,7 @@
 
         {% block header %}
 
-            {% include '/base/header.twig' %} 
+            {% include 'base/header.twig' %} 
         
         {% endblock %}
 
@@ -35,7 +35,7 @@
 
         {% block footer %}
         
-            {% include '/base/footer.twig' %}
+            {% include 'base/footer.twig' %}
             {{ function('wp_footer') }}
             
         {% endblock %}

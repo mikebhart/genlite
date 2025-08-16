@@ -2,4 +2,4 @@
     
 $context = Timber::context();
 
-Timber::render( '/base/searchform.twig', $context );
+Timber::render( 'base/searchform.twig', $context );

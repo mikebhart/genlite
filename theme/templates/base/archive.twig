@@ -27,17 +27,21 @@
                                 <article class="blog-list-item">
 
                                     <a href="{{ post.link }}" aria-label="{{ post.title }}">
-        
-                                        <h2>{{ post.title }}</h2>
+                                       
+                                        <div class="blog-list-item__body">
+            
+                                            <h2>{{ post.title }}</h2>
 
-                                        <div class="excerpt">
-                                    
-                                            <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+                                            <div class="excerpt">
+                                        
+                                                <p>{{ post.excerpt({ words: 50, read_more: false, strip: true })}}</p>
+
+                                                <div class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</div>
+
+                                            </div>
 
                                         </div>
-
-                                        <div class="caption-text">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</div>
-
+                                        
                                     </a>
 
                                     <div class="hr-holder">
