@@ -210,11 +210,22 @@ class GenLiteSite extends Site {
     }
 
     function setup_robots_follow( $robots ) {
+
+        if ( get_option('blog_public') == true ) {
         
-        $robots['nofollow'] = false;
-        $robots['noindex'] = false;
-        $robots['index'] = true;
-        $robots['follow'] = true;
+            $robots['nofollow'] = false;
+            $robots['noindex'] = false;
+            $robots['index'] = true;
+            $robots['follow'] = true;
+
+        } else {
+
+            $robots['nofollow'] = true;
+            $robots['noindex'] = true;
+            $robots['index'] = false;
+            $robots['follow'] = false;
+
+        }
 
         return $robots;
 
