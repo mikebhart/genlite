@@ -68,15 +68,13 @@ class GenLiteSite extends Site {
         }
         
 
-    }
-
-    
+    }   
 
     function add_to_context( $context ) {
 
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class() );
-        $context['header_menu'] = Timber::get_menu('header menu');
+        $context['header_menu'] = Timber::get_menu( 'header menu' );
    
         // Options
         if ( class_exists( 'ACF' ) ) {
@@ -103,10 +101,14 @@ class GenLiteSite extends Site {
 
         require_once get_template_directory() . '/includes/register-post-types.php';
         require_once get_template_directory() . '/includes/register-blocks.php';
-    
-        // Add Theme Support 
+
         add_theme_support( 'title-tag' );   
-        add_theme_support( 'automatic-feed-links' );
+        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'menus' );
+        add_theme_support( 'html5', ['comment-form', 'comment-list', 'gallery',	'caption'] );
+        add_theme_support( 'post-formats', ['aside','image','video','quote','link',	'gallery','audio'] );
+        add_theme_support( 'editor-styles' );
+        add_theme_support( 'wp-block-styles' );
 
         if ( class_exists('Woocommerce') ) {
         
@@ -114,19 +116,11 @@ class GenLiteSite extends Site {
              add_theme_support( 'woocommerce-blocks-patterns' );
         }
 
-        add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'menus' );
-        add_theme_support( 'html5', ['comment-form', 'comment-list', 'gallery',	'caption'] );
-        add_theme_support( 'post-formats', ['aside','image','video','quote','link',	'gallery','audio'] );
-        add_theme_support( 'editor-styles' );
-        add_theme_support( 'wp-block-styles' );
-        
-
-        if( function_exists('acf_add_options_page') ) {
+        if ( function_exists('acf_add_options_page') ) {
 
             acf_add_options_page([
                 'page_title'    => 'Theme Settings',
-                'menu_title'    => 'Theme Settings',
+                'menu_title'    => 'GenLite',
                 'menu_slug'     => 'genlite-theme-settings',
                 'capability'    => 'edit_posts',
                 'redirect'      => false
@@ -174,7 +168,9 @@ class GenLiteSite extends Site {
     }
 
     function setup_block_editor_assets() {
+
         wp_enqueue_style( 'genlite_editor_style', get_template_directory_uri() . '/editor-styles.css' );
+
     }
 
     function admin_login_logo() { 
@@ -208,9 +204,10 @@ class GenLiteSite extends Site {
     }
 
     function mail_sender_name( $original_email_from ) {
-        return strtoupper( get_bloginfo() );
-    }
 
+        return strtoupper( get_bloginfo() );
+
+    }
 
     function setup_robots_follow( $robots ) {
         
@@ -222,7 +219,6 @@ class GenLiteSite extends Site {
         return $robots;
 
     }
-
 
     function add_svg_to_media_library( $file_types ) {
         
@@ -242,10 +238,8 @@ class GenLiteSite extends Site {
 
         }
 
-    }
-
+    }   
     
-
 }
 
 new GenLiteSite();
