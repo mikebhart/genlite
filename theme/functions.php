@@ -48,15 +48,14 @@ class GenLiteSite extends Site {
         add_filter( 'rest_api_init', [ $this, 'rest_only_for_authorized_users' ], 99 );
         add_filter( 'xmlrpc_enabled', '__return_false' );
 
-        add_action('upload_mimes', [ $this, 'add_svg_to_media_library' ] );
-        add_action('mime_types', [ $this, 'extend_mime_types' ] );
+        add_action( 'upload_mimes', [ $this, 'add_svg_to_media_library' ] );
+        add_action( 'mime_types', [ $this, 'extend_mime_types' ] );
 
         remove_action( 'wp_head', 'print_emoji_detection_script', 7);
         remove_action( 'wp_print_styles', 'print_emoji_styles');
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
-        remove_action( 'wp_head', 'rel_canonical' );
-
+       
         
         parent::__construct();
 
@@ -240,8 +239,14 @@ class GenLiteSite extends Site {
 
 
     function setup_robots_follow( $robots ) {
+        
+        $robots['nofollow'] = false;
+        $robots['noindex'] = false;
+        $robots['index'] = true;
         $robots['follow'] = true;
+
         return $robots;
+
     }
 
     function remove_users_from_sitemap( $provider, $name ) {
