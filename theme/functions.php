@@ -29,7 +29,6 @@ class GenLiteSite extends Site {
 
     function __construct() {
 
-        add_filter( 'rest_api_init', [ $this, 'rest_only_for_authorized_users' ] );    
         add_filter( 'timber/context', [ $this, 'add_to_context' ] );
         add_filter( 'document_title_parts', [ $this, 'modify_title_format'] );
         add_filter( 'wp_mail_from_name', [ $this, 'mail_sender_name' ] );
