@@ -1,15 +1,15 @@
-import { Fancybox } from "@fancyapps/ui";
+// import { Fancybox } from "@fancyapps/ui";
 
-export const handleLighbox = function () {
+// export const handleLighbox = function () {
 
-    if ( !document.querySelector('.wp-block-gallery') && 
-         !document.querySelector('.product') ) { 
+//     if ( !document.querySelector('.wp-block-gallery') && 
+//          !document.querySelector('.product') ) { 
         
-        return;
-    }
+//         return;
+//     }
 
-    $(".wp-block-gallery .wp-block-image a, .woocommerce-product-details__short-description a[href$='.jpeg'], .woocommerce-product-details__short-description a[href$='.jpg']").attr('data-fancybox', 'gallery' );
+//     $(".wp-block-gallery .wp-block-image a, .woocommerce-product-details__short-description a[href$='.jpeg'], .woocommerce-product-details__short-description a[href$='.jpg']").attr('data-fancybox', 'gallery' );
 
-    Fancybox.bind( '[data-fancybox]' );    
+//     Fancybox.bind( '[data-fancybox]' );    
     
-}
+// }
