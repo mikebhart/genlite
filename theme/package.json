@@ -1,7 +1,7 @@
 {
     "name": "genlite",
     "description": "Include Bootstrap's source Sass and individual JavaScript plugins with Webpack.",
-    "version": "1.0.0",
+    "version": "5.0.0",
     "private": true,
     "repository": "hartsoft/genlite",
     "license": "MIT",
