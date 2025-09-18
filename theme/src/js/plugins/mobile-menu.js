@@ -1,11 +1,26 @@
 export const handleMobileMenu = function () {
 
+    $('#mobile-menu-button').on('click', function (e) {
+
+        var x = document.getElementById("mobile-links");
+        
+        if ( x.style.display === "block" ) {
+
+            x.style.display = "none";
+
+        } else {
+            
+            x.style.display = "block";
+
+        }
+
+    });
+
+
     if ( document.querySelector('#website-mobile-menu') ) {
 
         let mobile_menu_open =  document.getElementById("website-mobile-menu-show");
         let mobile_menu_close =  document.getElementById("website-mobile-menu-close");
-
-        let mobile_website_logo = document.getElementById("mobile-website-logo"); 
         let mobile_header_link =  document.getElementById("website-mobile-menu-link");
 
         mobile_menu_open.addEventListener("click", showwebsiteMenuLinks);
