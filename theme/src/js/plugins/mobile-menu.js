@@ -1,22 +1,5 @@
 export const handleMobileMenu = function () {
 
-    $('#mobile-menu-button').on('click', function (e) {
-
-        var x = document.getElementById("mobile-links");
-        
-        if ( x.style.display === "block" ) {
-
-            x.style.display = "none";
-
-        } else {
-            
-            x.style.display = "block";
-
-        }
-
-    });
-
-
     if ( document.querySelector('#website-mobile-menu') ) {
 
         let mobile_menu_open =  document.getElementById("website-mobile-menu-show");
