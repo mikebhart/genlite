@@ -1,52 +1,8 @@
 
 export const handleNavSections = function () {
 
-    // Go to sticky navbar section links
-    $(".block-nav-sections a").on('click', function(event) {
-
-        if ( this.hash !== "" ) {
-
-            event.preventDefault();
-
-            var hash = this.hash;
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top -56
-            }, 800, function(){
-
-                window.location.hash = hash;
-
-            });
-
-        } 
-
-    });
-
-    // Mobile page hero image page down
-
-    $(".block-hero-image__mobile-button-container a").on('click', function(event) {
-
-        if ( this.hash !== "" ) {
-
-            event.preventDefault();
-
-            var hash = this.hash;
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
-
-                window.location.hash = hash;
-
-            });
-
-        } 
-
-    });
-
-
-    // // Go to document url section link
-    var hash_url = window.location.hash;
+     // Go to document url section link based on hash # anchor link on all pages
+    let hash_url = window.location.hash;
 
     if ( hash_url !== "" ) {
 
@@ -60,7 +16,6 @@ export const handleNavSections = function () {
         });
 
     }
-
  
     if ( document.querySelector('.block-nav-sections') ) { 
 
@@ -91,6 +46,31 @@ export const handleNavSections = function () {
             });
        };
 
+        // Go to sticky navbar section links
+        $(".block-nav-sections a").on('click', function(event) {
+
+            if ( this.hash !== "" ) {
+
+                event.preventDefault();
+
+                var hash = this.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top -56
+                }, 800, function(){
+
+                    window.location.hash = hash;
+
+                });
+
+            } 
+
+        });
+
+
     }
+
+
+
 
 }
