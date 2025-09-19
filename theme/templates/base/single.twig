@@ -4,19 +4,29 @@
 
     <article id="post-{{ post.id }}" class="single-post">
 
-        {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
-            
-            {% include 'parts/featured-hero.twig' %} 
+        <div class="scroll-indicator-header">
 
-        {% else %}
+            <div class="scroll-indicator-progress-container">
+                <div class="scroll-indicator-progress-bar" id="scrollIndicator"></div>
+            </div>  
+        </div>
 
-            {% include 'parts/post-title.twig' %}
+        <div class="scroll-indicator-content">
 
-       {% endif %}
+            {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
+                
+                {% include 'parts/featured-hero.twig' %} 
 
-       {% include 'parts/post-content.twig' %} 
+            {% else %}
 
+                {% include 'parts/post-title.twig' %}
+
+            {% endif %}
+
+            {% include 'parts/post-content.twig' %} 
+
+        </div>
+    
     </article>
-
 
 {% endblock %}
