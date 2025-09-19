@@ -9,23 +9,21 @@
             <div class="scroll-indicator-progress-container">
                 <div class="scroll-indicator-progress-bar" id="scrollIndicator"></div>
             </div>  
-        </div>
-
-        <div class="scroll-indicator-content">
-
-            {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
-                
-                {% include 'parts/featured-hero.twig' %} 
-
-            {% else %}
-
-                {% include 'parts/post-title.twig' %}
-
-            {% endif %}
-
-            {% include 'parts/post-content.twig' %} 
 
         </div>
+
+        {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
+            
+            {% include 'parts/featured-hero.twig' %} 
+
+        {% else %}
+
+            {% include 'parts/post-title.twig' %}
+
+        {% endif %}
+
+        {% include 'parts/post-content.twig' %} 
+
     
     </article>
 

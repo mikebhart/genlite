@@ -1,5 +1,7 @@
 export const handleScrollEvents = function () {
 
+    // Back to Top button on all pages
+
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 
@@ -10,7 +12,6 @@ export const handleScrollEvents = function () {
     
     };
 
-    // Show button when reaches y position
     function processBackToTop() {
 
         let showScrollTopPosition = 50;
@@ -26,7 +27,6 @@ export const handleScrollEvents = function () {
         }
     }
 
-    // Go Back to Top
     $('#genlite-back-to-top').on('click', function (e) {
 
         e.preventDefault();
@@ -36,7 +36,7 @@ export const handleScrollEvents = function () {
 
     });
 
-    // Scroll Indicators    
+    // Scroll Indicator on blog posts
 
     if ( !document.querySelector('.single-post') ) { 
         return;        
@@ -46,7 +46,7 @@ export const handleScrollEvents = function () {
 
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
+        let scrolled = ( winScroll / height ) * 100;
 
         document.getElementById("scrollIndicator").style.width = scrolled + "%";
 
