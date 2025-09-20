@@ -145,15 +145,20 @@
 
         .menu-wrapper {
             padding: 30px;
+            
         }
 
-        a.icon {
-           
-            position: relative;
-            height: 20px;
-            width: 20px;
-            display: inline-block;
-            text-align: right;
+        .iconBtnWrapper {
+            margin-top: 30px;
+
+            .iconBtn {
+                height: 20px;
+                width: 20px;
+                &:hover {
+                        cursor: pointer;
+                }
+            }
+
         }
 
         .logo-icon-section {
@@ -167,11 +172,16 @@
         .logo-icon-button {
             border: none;
             background-color: transparent;
-            vertical-align: super;
+            height: 20px;
+            width: 20px;
         }
 
+        .mobile-parent-menu.active,
         .active-mobile-submenu {
-            color: $genlite-primary-color !important;
+            color: white !important;
+            background-color: $genlite-primary-color;
+            padding: 10px;
+
         }
 
         .back-button-icon {
@@ -179,13 +189,16 @@
             margin-bottom: 30px;
         }
 
-
         .page-links {
-            background-color: white;
-            display: none;
-            position: relative;
-            width: 100vw;
-            height: calc(100vh - 80px);
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            background-color: $genlite-light-gray;
+            overflow-x: hidden;
+            transition: 0.5s;
 
             a.submenu,
             a:not(:last-child) {
@@ -202,6 +215,7 @@
 
                 &.active {
                     color: $genlite-primary-color;
+                    
                 }
 
             }
@@ -212,8 +226,6 @@
                 text-decoration: none;
             }
 
-            
-
         }
 
         .mobile-menu-wraapper {
@@ -221,13 +233,13 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
 
         .wp-block-button {
             text-align: center;
             width: 100%;
+            margin-top: 10px;
         }
 
         &-menu-container {
@@ -242,19 +254,6 @@
             padding-bottom: 15px;
         }
 
-        &-image {
-            background-position: bottom right;
-            background-repeat: no-repeat;
-            background-size: contain;
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-
-        }
-        
-        #website-mobile-menu-close {
-            display: none;
-        }
 
         &-header-container {
             margin-top: 20px;

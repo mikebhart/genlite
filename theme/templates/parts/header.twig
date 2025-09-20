@@ -103,10 +103,7 @@
                             <div id="website-mobile-menu" class="logo-icon-section text-right">
 
                                 <button class="logo-icon-button">
-
-                                    <img id="website-mobile-menu-show" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
-                                    <img id="website-mobile-menu-close" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
-
+                                    <img id="website-mobile-menu-show" class="iconBtn" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
                                 </button>
 
                             </div>
@@ -118,52 +115,68 @@
                 </div>
 
                 <nav id="website_mobile_page_links" class="page-links">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <div class="col-12 text-right">
+
+                                <div class="iconBtnWrapper">
+
+                                    <img id="website-mobile-menu-close" class="iconBtn" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
+                                
+                                </div>
                     
-                    <div class="mobile-menu-wraapper">
+                                <div class="mobile-menu-wraapper">
+                   
+                                    {% for item in header_menu.items %}
 
-                        {% for item in header_menu.items %}
+                                        
+                                        {% if loop.last %}
 
-                            
-                            {% if loop.last %}
+                                            <div class="wp-block-button">
+                                                <a class="wp-block-button__link has-text-align-center wp-element-button {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+                                            </div>
 
-                                <div class="wp-block-button">
-                                    <a class="wp-block-button__link has-text-align-center wp-element-button {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+                                        {% else %}
+
+
+                                            {% if item.children %}
+
+                                                <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
+                                                    data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                                <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="website-header__mobile-subnav-container">
+
+                                                    <a class="mobile-submenu-back">
+                                                        <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
+                                                    </a>
+
+                                                    {% for child in item.children %}
+
+                                                        <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                                    {% endfor %}
+
+
+                                                </div>
+
+                                            {% else %}
+
+                                                <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                            {% endif %}
+
+                                        {% endif %}
+                                    
+                                    {% endfor %}
+
                                 </div>
 
-                            {% else %}
+                            </div>
 
-
-                                {% if item.children %}
-
-                                    <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
-                                        data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}&nbsp;
-                                        <img class="website-header__mobile-plus-icon" src="{{ theme.link }}/dist/images/chevron-down-solid.svg">
-                                    </a>
-
-                                    <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="website-header__mobile-subnav-container">
-
-                                        <a class="mobile-submenu-back">
-                                            <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
-                                        </a>
-
-                                        {% for child in item.children %}
-
-                                            <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
-
-                                        {% endfor %}
-
-
-                                    </div>
-
-                                {% else %}
-
-                                    <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-
-                                {% endif %}
-
-                            {% endif %}
-                        
-                        {% endfor %}
+                        </div>
 
                     </div>
 

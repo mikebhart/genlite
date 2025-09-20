@@ -3,34 +3,24 @@ export const handleMobileMenu = function () {
     if ( !document.querySelector('#website-mobile-menu') ) {
         return;
     }
-
+   
     let mobile_menu_open =  document.getElementById("website-mobile-menu-show");
     let mobile_menu_close =  document.getElementById("website-mobile-menu-close");
-    let mobile_header_link =  document.getElementById("website-mobile-menu-link");
+    let mobile_page_links = document.getElementById("website_mobile_page_links");
 
-    mobile_menu_open.addEventListener("click", showwebsiteMenuLinks);
-    mobile_menu_close.addEventListener("click", showwebsiteMenuLinks);
+    mobile_menu_open.addEventListener("click", openMobileMenu );
+    mobile_menu_close.addEventListener("click", closeMobileMenu );
 
-    function showwebsiteMenuLinks() {
+    function openMobileMenu() {
+        mobile_page_links.style.width = "100%";
+    } 
 
-        let mobile_page_links = document.getElementById("website_mobile_page_links");
-        
-        if ( mobile_page_links.style.display === "inline-block" ) {
+    function closeMobileMenu() {
 
-            mobile_page_links.style.display = "none";
-            mobile_menu_open.style.display = "inline-block";
-            mobile_menu_close.style.display = "none";
-            mobile_header_link.style.display = "none";
-        
-        } else {
-        
-            mobile_page_links.style.display = "inline-block";
-            mobile_menu_open.style.display = "none";
-            mobile_menu_close.style.display = "inline-block";
-            mobile_header_link.style.display = "inline-block";
-        }
-    }
+        mobile_page_links.style.width = "0";
 
+    } 
+    
     // Back Button
     let subMenuBackButtons = document.getElementsByClassName("mobile-submenu-back");
 
@@ -98,5 +88,6 @@ export const handleMobileMenu = function () {
         mobile_submenu_open.style.display = "block";
 
     }
+
 
 }
