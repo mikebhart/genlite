@@ -76,6 +76,11 @@ class GenLiteSite extends Site {
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class() );
         $context['header_menu'] = Timber::get_menu( 'header menu' );
+
+        $excerpt = wp_strip_all_tags( get_the_excerpt() );
+        $excerpt = substr( $excerpt, 0, 140 );
+        $meta_description = substr( $excerpt, 0, strrpos( $excerpt, ' ') );
+        $context['auto_meta_description'] = $meta_description . '...';
    
         // Options
         if ( class_exists( 'ACF' ) ) {

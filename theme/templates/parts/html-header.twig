@@ -9,11 +9,17 @@
 
     {% endif %}
 
-    {% set description = site.title %}
+   
     {% set image_thumbnail_url = theme.link ~ '/dist/images/hs-socials-preview.png' %}
 
     {% if post.genlite_seo_description is not empty %}
+        
         {% set description = post.genlite_seo_description %}
+
+    {% else %}
+
+        {% set description = auto_meta_description %}
+
     {% endif %} 
 
     {% if post.thumbnail is not empty %}
@@ -21,8 +27,8 @@
     {% endif %}
 
     <meta charset="{{ site.charset }}">
+ 
     <meta name="description" content="{{ description }}">
-
     <!-- Google / Search Engine Tags -->
     <meta itemprop="name" content="{{ post.title }}">
     <meta itemprop="description" content="{{ description }}">
