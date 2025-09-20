@@ -42,6 +42,8 @@ class GenLiteSite extends Site {
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_action( 'upload_mimes', [ $this, 'add_svg_to_media_library' ] );
 
+        remove_action('wp_head', 'rel_canonical');
+
         parent::__construct();
 
     }
