@@ -11,7 +11,7 @@ import { handleContactUsForm } from './plugins/contact-us';
 import { handleMobileMenu } from './plugins/mobile-menu';
 import { handleArchiveCategories } from './plugins/archive-categories';
 import { handleScrollEvents } from './plugins/scroll-events';
-
+import { handleTest } from './plugins/test';
 
 var app = function() {
 
@@ -24,6 +24,7 @@ var app = function() {
             handleMobileMenu();
             handleArchiveCategories();
             handleScrollEvents();
+            handleTest();
           
         }
     }

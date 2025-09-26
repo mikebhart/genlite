@@ -54,6 +54,9 @@ class RegisterBlocks {
 		register_block('wide-image');
 		register_block('what-you-see');
 
+		register_block('test');
+
+
 	}
 
 	public function genlite_blocks_category( $categories, $post ) {
