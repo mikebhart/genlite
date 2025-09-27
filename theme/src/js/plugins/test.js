@@ -27,14 +27,14 @@ export const handleTest = function () {
 
     const chartBackgroundColors =  [ chartColors.purple, chartColors.gray1, chartColors.blue, chartColors.green1, chartColors.purple2,  chartColors.gray2,  chartColors.blue2,  chartColors.gold,  chartColors.purple3,  chartColors.green2, chartColors.green3, chartColors.purple4, chartColors.gray3, chartColors.silver, chartColors.white, chartColors.black, chartColors.blue3 ];
 
-    let allPortfolioChartBlocks = document.querySelectorAll('[id^="portfolio-chart-block_"]');
+    let allPortfolioChartsBlocks = document.querySelectorAll('[id^="portfolio-charts-block_"]');
     let chartCounter = 0;
 
     // loop through all portfolio chart blocks on the page
-    for ( let i = 0; i < allPortfolioChartBlocks.length; i++ ) {
+    for ( let i = 0; i < allPortfolioChartsBlocks.length; i++ ) {
 
-        let blockCharts = allPortfolioChartBlocks[i].getAttribute("data-portfolio-chart-data");
-        let blockChartsData = JSON.parse( blockCharts );
+        let blockChartsJson = allPortfolioChartsBlocks[i].getAttribute("data-portfolio-charts-json");
+        let blockChartsData = JSON.parse( blockChartsJson );
 
         // loop through eaach chart in the block
         for ( let j = 0; j < blockChartsData.length; j++ ) {
@@ -53,7 +53,7 @@ export const handleTest = function () {
 
             // Generate a chart.js chart
             let blockChartObj = prepareChartData( chartCounter, dataChartLabels,  dataChartValues, dataChartValueLabelOverrides )
-            showChart( blockChartObj );
+            generateChart( blockChartObj );
 
             chartCounter++;
           
@@ -62,7 +62,7 @@ export const handleTest = function () {
     }
 
 
-   function showChart( chartData ) {
+   function generateChart( chartData ) {
         
     //   let chartId = chartData[0].id;
 
@@ -103,7 +103,7 @@ export const handleTest = function () {
         //     },
         // });
 
-   }
+    }
 
     function prepareChartData( chartCounter, chartLabels, chartValues, chartValueOverrides ) {
 
