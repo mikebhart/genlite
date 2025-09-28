@@ -5,12 +5,13 @@ export const handleScrollEvents = function () {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 
-    window.onscroll = function() { 
+    window.addEventListener("scroll", processBackToTop );
 
-        processBackToTop(); 
-        processScrollIndicatorProgress();
-    
-    };
+    if ( document.querySelector('.single-post') ) { 
+
+        window.addEventListener("scroll", processScrollIndicatorProgress );
+
+    }
 
     function processBackToTop() {
 
@@ -37,11 +38,6 @@ export const handleScrollEvents = function () {
     });
 
     // Scroll Indicator on blog posts
-
-    if ( !document.querySelector('.single-post') ) { 
-        return;        
-    }
-
     function processScrollIndicatorProgress() {
 
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;

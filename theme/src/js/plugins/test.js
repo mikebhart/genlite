@@ -5,6 +5,8 @@ export const handleTest = function () {
         return;
     }
 
+    
+
     const chartColors = {
         purple:        "#490E5A",
         gray1:         "#878785",
@@ -62,13 +64,34 @@ export const handleTest = function () {
     }
 
 
+
+    function displayEntry(entry) {
+        console.log(entry);
+    }
+
+    let callback = function (entries, observer) {
+    entries.forEach(entry => {
+        displayEntry(entry);
+    });
+    };
+
+    let observer = new IntersectionObserver(callback);
+
+    let target = document.querySelector("#testa");
+
+    observer.observe(target);
+
+
+//console.log(Object.keys(obj));
+
+
    function generateChart( chartData ) {
         
     //   let chartId = chartData[0].id;
 
         
 
-       console.log( chartData );
+      // console.log( chartData );
 
         // let show_tooltip = true;
         // let is_override_exists = chartData[0].data.datasets[0].data_overrides[0];
@@ -104,6 +127,8 @@ export const handleTest = function () {
         // });
 
     }
+
+
 
     function prepareChartData( chartCounter, chartLabels, chartValues, chartValueOverrides ) {
 
