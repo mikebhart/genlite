@@ -11,7 +11,7 @@
 
 {% block body_block %}
 
-	<body id="site-wrapper" class="{{ body_class }} app" data-template="base.twig">
+	<body id="site-wrapper" class="{{ body_class }} app {{ has_test }}" data-template="base.twig">
 
         {% if script_code.code_body is not empty %}
            

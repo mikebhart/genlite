@@ -75,6 +75,22 @@ class GenLiteSite extends Site {
 
     function add_to_context( $context ) {
 
+        $post_id = get_the_ID();
+        $post_content = get_post_field( 'post_content', $post_id );
+        $blocks = parse_blocks( $post_content );
+
+        $context['has_test']  = '';
+
+        foreach ( $blocks as $block ) {
+
+            if ( 'acf/test' === $block['blockName'] ) {
+
+                $context['has_test']  = 'has-test';
+
+                break;
+            }
+        }
+
         $context['site']  = $this;
         $context['body_class'] = implode(' ', get_body_class() );
         $context['header_menu'] = Timber::get_menu( 'header menu' );
