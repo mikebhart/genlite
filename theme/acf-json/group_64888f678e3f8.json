@@ -116,7 +116,7 @@
             "taxonomy": "",
             "allow_archives": 0,
             "multiple": 0,
-            "allow_null": 0,
+            "allow_null": 1,
             "allow_in_bindings": 0
         }
     ],
@@ -152,5 +152,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758380694
+    "modified": 1763845226
 }

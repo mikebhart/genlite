@@ -56,8 +56,6 @@
 
     {% if post.genlite_canonical is not empty %}
         <link rel="canonical" href="{{ post.genlite_canonical }}">
-    {% else %}
-        <link rel="canonical" href="{{ post.link }}">
     {% endif %} 
 
     {{ function('wp_head') }}
