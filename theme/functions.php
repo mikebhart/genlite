@@ -46,6 +46,17 @@ class GenLiteSite extends Site {
         remove_action('wp_print_styles', 'print_emoji_styles');
         remove_action('wp_head', 'rel_canonical');
 
+        add_action('do_feed', [ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_rdf', [ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_rss', [ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_rss2',[ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_atom', [ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_rss2_comments', [ $this, 'website_disable_feed' ], 1);
+        add_action('do_feed_atom_comments', [ $this, 'website_disable_feed'], 1);
+
+        remove_action( 'wp_head', 'feed_links_extra', 3 );
+        remove_action( 'wp_head', 'feed_links', 2 );
+
         parent::__construct();
 
     }
@@ -256,6 +267,14 @@ class GenLiteSite extends Site {
         return $robots;
 
     }
+
+    function website_disable_feed() {
+
+        echo('No feed available');
+        exit;
+       
+    }
+
 
     function add_svg_to_media_library( $file_types ) {
         

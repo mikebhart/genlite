@@ -54,11 +54,14 @@
     <link rel="preload" href="{{ theme.link }}/dist/86197d6f93b1eea220d0.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ theme.link }}/dist/e4ef6444d015c395ba55.woff2" as="font" type="font/woff2" crossorigin>
 
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ theme.link }}/dist/images/hs-logo-black-48x48.png">  
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ theme.link }}/dist/images/hs-logo-black-48x48.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ theme.link }}/dist/images/hs-logo-white-48x48.png" media="(prefers-color-scheme: dark)">
+
     {% if post.genlite_canonical is not empty %}
         <link rel="canonical" href="{{ post.genlite_canonical }}">
     {% endif %} 
 
     {{ function('wp_head') }}
-
 
 
