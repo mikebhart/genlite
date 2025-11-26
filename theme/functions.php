@@ -54,6 +54,8 @@ class GenLiteSite extends Site {
         add_action('do_feed_rss2_comments', [ $this, 'website_disable_feed' ], 1);
         add_action('do_feed_atom_comments', [ $this, 'website_disable_feed'], 1);
 
+        add_filter('template_include', [ $this, 'get_password_protected_template' ] );
+
         remove_action( 'wp_head', 'feed_links_extra', 3 );
         remove_action( 'wp_head', 'feed_links', 2 );
 
@@ -164,16 +166,27 @@ class GenLiteSite extends Site {
 
     }
 
-    
+    function get_password_protected_template( $template ) {
+
+        global $post;
+
+        if ( !empty( $post ) && post_password_required( $post->ID ) ) {
+
+            $template = locate_template([
+                'password-protected.php',
+                "password-protected-{$post->post_type}.php",
+            ]) ?: $template;
+        }
+
+        return $template;
+    }
+   
     function setup_document_title_separator( $sep ) {
         
         $sep = "|";
 
         return $sep;
     }
-
-
-
 
     function modify_title_format( $title ) {
 
