@@ -4,5 +4,7 @@
     <meta itemprop="image" content="{{ post.thumbnail.src }}" />
 {% endif %}
 
-<meta itemprop="datePublished" content="{{ post.date|date('c') }}" />
-<meta itemprop="dateModified" content="{{ post.modified_date|date('c') }}" />
+{% set dateTime = date( post.date ) %}
+
+<meta itemprop="datePublished" content="{{ dateTime | date("Y-m-d h:m:s", "Europe/London") }}" />
+<meta itemprop="dateModified" content="{{ post.modified_time | date("Y-m-d h:m:s", "Europe/London") }}" />
