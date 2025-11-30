@@ -14,6 +14,12 @@
 
                 {{ post.content }}
 
+                {% if post.post_type == 'post' %}
+                
+                    <h6 class="margin-top-2">Published on {{ post.date('jS F Y') }}, Last modified on {{ post.modified_date('jS F Y') }}</h6>
+
+                {% endif %}
+
                 {% if  post.terms( { taxonomy: 'category' } ) is not empty %}
 
                     <h4 class="mt-2">Categories</h4>
