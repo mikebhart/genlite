@@ -1,17 +1,11 @@
-export const handleScrollEvents = function () {
-
+export const handleBackToTop = function () {
+    
     // Back to Top button on all pages
 
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 
     window.addEventListener("scroll", processBackToTop );
-
-    if ( document.querySelector('.single-post') ) { 
-
-        window.addEventListener("scroll", processScrollIndicatorProgress );
-
-    }
 
     function processBackToTop() {
 
@@ -37,15 +31,8 @@ export const handleScrollEvents = function () {
 
     });
 
-    // Scroll Indicator on blog posts
-    function processScrollIndicatorProgress() {
 
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = ( winScroll / height ) * 100;
 
-        document.getElementById("scrollIndicator").style.width = scrolled + "%";
 
-    }
 
 }

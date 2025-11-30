@@ -2,7 +2,9 @@
 
 {% block content %}
 
-    <article id="post-{{ post.id }}" class="single-post">
+    <article id="post-{{ post.id }}" class="single-post" itemscope itemtype="https://schema.org/NewsArticle">
+
+        {% include 'parts/meta-article.twig' %} 
 
         <div class="scroll-indicator-header">
 

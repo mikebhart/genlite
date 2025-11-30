@@ -2,7 +2,9 @@
 
 {% block content %}
 
-    <article id="post-{{ post.id }}" class="single-page">
+    <article id="post-{{ post.id }}" class="single-page" itemscope itemtype="https://schema.org/NewsArticle">
+
+        {% include 'parts/meta-article.twig' %} 
 
         {% if post.genlite_page_heading_settings.value == 'featured-hero'  %}
             

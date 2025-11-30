@@ -6,12 +6,12 @@ window.$ = window.jQuery = $;
 
 import "bootstrap/js/dist/modal";
 
-import { handleNavSections } from './plugins/nav-sections';
 import { handleContactUsForm } from './plugins/contact-us';
-import { handleMobileMenu } from './plugins/mobile-menu';
 import { handleArchiveCategories } from './plugins/archive-categories';
-import { handleScrollEvents } from './plugins/scroll-events';
-import { handleTest } from './plugins/test';
+import { handleScrollIndicator } from './plugins/scroll-indicator';
+import { handleMobileMenu } from './plugins/mobile-menu';
+import { handleBackToTop } from './plugins/back-to-top';
+
 
 var app = function() {
 
@@ -19,12 +19,11 @@ var app = function() {
 
         init: function() {
 
-            handleNavSections();
             handleContactUsForm();
             handleMobileMenu();
             handleArchiveCategories();
-            handleScrollEvents();
-            handleTest();
+            handleScrollIndicator();
+            handleBackToTop();
           
         }
     }
