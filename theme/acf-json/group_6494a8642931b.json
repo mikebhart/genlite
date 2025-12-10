@@ -201,6 +201,27 @@
                     "step": 1,
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_693a03213d4f8",
+                    "label": "Footnote Text",
+                    "name": "footnote_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -611,5 +632,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1765406584
+    "modified": 1765409625
 }

@@ -32,8 +32,11 @@
 
                 <div class="col-12 margin-top-3 margin-bottom-3 my-auto text-center">
 
-                    {{ footer.footnote }}
-                    <p class="text-white"><span>Copyright &copy;&nbsp;{{ footer.start_year }}-{{ now|date('Y') }}&nbsp;{{ general.company_name }}</span></p>
+                    {% if footer.footnote is not empty %}
+                        {{ footer.footnote }}
+                    {% endif %}
+                    
+                    <p class="text-white"><span>&copy;&nbsp;{{ footer.start_year }}-{{ now|date('Y') }}&nbsp;{{ footer.footnote_text }}</span></p>
 
                 </div>
 
