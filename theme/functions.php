@@ -38,7 +38,6 @@ class GenLiteSite extends Site {
 
         add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
         add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
-        add_action( 'login_enqueue_scripts', [ $this, 'admin_login_logo' ] );
         add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
         add_action( 'upload_mimes', [ $this, 'add_svg_to_media_library' ] );
 
@@ -221,36 +220,6 @@ class GenLiteSite extends Site {
 
         wp_enqueue_style( 'genlite_editor_style', get_template_directory_uri() . '/editor-styles.css' );
 
-    }
-
-    function admin_login_logo() { 
-
-        if ( !class_exists( 'ACF' ) ) {
-            return;
-        }
-
-        $general = get_field( 'general', 'options' );
-        
-        if ( !is_null( $general ) ) {
-
-            $login_form_logo = $general['logo']['url'];
-
-            ?>
-
-            <style type="text/css">
-                #login h1 a, .login h1 a {
-                    background: url(<?php echo $login_form_logo; ?>);
-                    background-repeat: no-repeat;
-                    background-size: 200px 80px;         
-                    width: 100%;
-                    background-position-x: center;
-                    pointer-events: none;
-                    cursor: default;
-                }
-            </style>
-            
-        <?php
-        }
     }
 
     function mail_sender_name( $original_email_from ) {

@@ -58,7 +58,7 @@
                 },
                 {
                     "key": "field_6492b8c0836cf",
-                    "label": "Logo",
+                    "label": "Logo Image",
                     "name": "logo",
                     "aria-label": "",
                     "type": "image",
@@ -79,7 +79,50 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
+                    "allow_in_bindings": 1,
                     "preview_size": "medium"
+                },
+                {
+                    "key": "field_6939f6627a862",
+                    "label": "Logo Text",
+                    "name": "logo_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6939f6fce6790",
+                    "label": "Logo Sub Text",
+                    "name": "logo_sub_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -568,5 +611,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755083534
+    "modified": 1765406584
 }
