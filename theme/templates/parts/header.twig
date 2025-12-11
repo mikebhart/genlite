@@ -12,11 +12,11 @@
 
                         <div class="col-12 col-md-3 my-auto">
 
-                            {% if general.logo is not empty %}
+                            {% if header.logo is not empty %}
 
                                 <div class="website-header__desktop-logo">
                                     <a href="{{ site.url }}" aria-label="Go to the homepage">
-                                        <img src="{{ general.logo.url }}" alt="Logo">
+                                        <img src="{{ header.logo.url }}" alt="Logo">
                                     </a>                
                                 </div>
 
@@ -24,8 +24,8 @@
 
                                 <div class="website-header__desktop-logo-text-wrapper">
                                     <a href="{{ site.url }}" aria-label="Go to the homepage">
-                                        <h3>{{ general.logo_text }}</h3>
-                                        <h6>{{ general.logo_sub_text }}</h6>
+                                        <h3>{{ header.logo_text }}</h3>
+                                        <h6>{{ header.logo_sub_text }}</h6>
                                     </a>                
                                 </div>
 
@@ -103,11 +103,11 @@
 
                         <div class="col-9 text-left my-auto">
 
-                           {% if general.logo is not empty %}
+                           {% if header.logo is not empty %}
 
                                 <div class="logo-icon-section">
                                     <a href="{{ site.url }}" aria-label="Go to the homepage">
-                                        <img src="{{ general.logo.url }}" alt="Logo">
+                                        <img src="{{ header.logo.url }}" alt="Logo">
                                     </a>
                                 </div>
 
@@ -115,8 +115,8 @@
 
                                 <div class="website-header__desktop-logo-text-wrapper">
                                     <a href="{{ site.url }}" aria-label="Go to the homepage">
-                                        <h3>{{ general.logo_text }}</h3>
-                                        <h6>{{ general.logo_sub_text }}</h6>
+                                        <h3>{{ header.logo_text }}</h3>
+                                        <h6>{{ header.logo_sub_text }}</h6>
                                     </a>                
                                 </div>
 

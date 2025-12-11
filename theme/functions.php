@@ -119,7 +119,7 @@ class GenLiteSite extends Site {
 
             if ( $option_fields != null ) {
                 
-                $context['general'] = $option_fields['general'];
+                $context['header'] = $option_fields['header'];
                 $context['footer'] = $option_fields['footer'];
                 $context['contact_form'] = $option_fields['contact_form'];
                 $context['script_code'] = $option_fields['script_code'];
