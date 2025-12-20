@@ -4,23 +4,23 @@
 * Add custom ACF Pro Gutenberg blocks
 */
 
-class RegisterBlocks {
+class ThemeRegisterBlocks {
 
 	public function __construct() {
 
-		add_action( 'acf/init', [ $this, 'genlite_acf_init' ]);
-		add_filter( 'block_categories_all', [ $this, 'genlite_blocks_category' ], 10, 2 );
+		add_action( 'acf/init', [ $this, 'theme_acf_init' ]);
+		add_filter( 'block_categories_all', [ $this, 'theme_blocks_category' ], 10, 2 );
 	
 	}
 
-	public function genlite_acf_init() {
+	public function theme_acf_init() {
 	
 		function register_block( $name ) {
 	
 			acf_register_block( array(
 				'name'            => str_replace('-', ' ', $name),
-				'title'           => __( str_replace('-', ' ', ucwords( $name, '-' )), 'genlite' ),
-				'description'     => __( str_replace('-', ' ', ucwords( $name, '-' )) . ' block.', 'genlite' ),
+				'title'           => __( str_replace('-', ' ', ucwords( $name, '-' )), 'theme' ),
+				'description'     => __( str_replace('-', ' ', ucwords( $name, '-' )) . ' block.', 'theme' ),
 				'render_callback' => function( $block, $content = '', $is_preview = false ) {
 
 					$context = Timber::context();
@@ -30,7 +30,7 @@ class RegisterBlocks {
 
 					Timber::render( 'templates/blocks/' . str_replace(' ', '-', strtolower( $block['title'] )) . '.twig', $context );
 				},
-				'category'        => 'genlite-blocks',
+				'category'        => 'theme-blocks',
 				'icon'            => '',
 				'keywords'        => [ $name ],
 				'mode' 			  => 'edit'
@@ -59,13 +59,13 @@ class RegisterBlocks {
 
 	}
 
-	public function genlite_blocks_category( $categories, $post ) {
+	public function theme_blocks_category( $categories, $post ) {
 
-		return array_merge( $categories, [ [ 'slug' => 'genlite-blocks', 'title' => 'Genlite' ] ] );
+		return array_merge( $categories, [ [ 'slug' => 'theme-blocks', 'title' => 'GenLite' ] ] );
 		
 	}
 
 	
 }
 
-new RegisterBlocks();
+new ThemeRegisterBlocks();
