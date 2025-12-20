@@ -55,6 +55,7 @@ class GenLiteSite extends Site {
         add_action('do_feed_atom_comments', [ $this, 'website_disable_feed'], 1);
 
         add_filter('template_include', [ $this, 'get_password_protected_template' ] );
+        add_filter( 'wp_sitemaps_add_provider', [ $this, 'genlite_remove_users_from_sitemap' ], 10, 2 );
 
         remove_action( 'wp_head', 'feed_links_extra', 3 );
         remove_action( 'wp_head', 'feed_links', 2 );
@@ -67,6 +68,16 @@ class GenLiteSite extends Site {
         parent::__construct();
 
     }
+
+	function genlite_remove_users_from_sitemap( $provider, $name ) {
+		
+        if ( 'users' === $name ) {
+
+            return false;
+        }
+        
+        return $provider;
+	}
 
     function genlite_add_custom_admin_pages() {
        
