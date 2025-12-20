@@ -35,6 +35,7 @@ class GenLiteSite extends Site {
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
         add_filter( 'xmlrpc_enabled', '__return_false' );
+        add_action( 'login_enqueue_scripts', [ $this, 'genlite_add_custom_login_logo' ] );
 
         add_action( 'wp_enqueue_scripts', [$this, 'load_scripts_and_styles'] );
         add_action( 'after_setup_theme', [ $this, 'theme_supports' ] );
@@ -58,8 +59,81 @@ class GenLiteSite extends Site {
         remove_action( 'wp_head', 'feed_links_extra', 3 );
         remove_action( 'wp_head', 'feed_links', 2 );
 
+
+        add_action( 'admin_bar_menu', [ $this, 'genlite_add_menu_bar' ], 100 );
+        add_action( 'admin_menu', [ $this, 'genlite_add_custom_admin_pages'], 101 );
+
+
         parent::__construct();
 
+    }
+
+    function genlite_add_custom_admin_pages() {
+       
+        add_submenu_page(
+            ' ',             
+            'Custom Admin Page Clear Cache Form',  
+            'Custom Admin Page Clear Cache Form',
+            'editor',   
+            'custom-admin-page-cache-form',   
+            [ $this, 'genlite_custom_page_clear_cache_form']     
+        );
+
+        add_submenu_page(
+            ' ',             
+            'Custom Admin Page Clear Cache Run',  
+            'Custom Admin Page Clear Cache Run',
+            'editor',   
+            'custom-admin-page-cache-run',   
+            [ $this, 'genlite_custom_page_clear_cache_run']     
+        );
+
+
+    }
+
+    function genlite_custom_page_clear_cache_form() {
+
+        Timber::render('admin/clear-cache-form.twig' );
+	    die();
+
+    }
+
+    function genlite_custom_page_clear_cache_run() {
+
+        $result = "";
+
+        try {
+
+            // clear cache code
+
+            $result = "Cache cleared Successfully";
+
+        } catch ( Exception $e ) {
+
+            $result = $e->getMessage();
+        
+        }
+
+        $context['result'] = $result;
+
+        Timber::render('admin/clear-cache-result.twig', $context );
+	    die();
+
+    }
+
+
+   
+    function genlite_add_menu_bar ( WP_Admin_Bar $admin_bar ) {
+
+        $admin_bar->add_menu( array(
+            'id'    => 'clear-cache-admin-page',
+            'parent' => null,
+            'group'  => null,
+            'title' => '<span class="ab-icon dashicons dashicons-update"></span>Clear Cache',
+            'href'  => admin_url('admin.php?page=custom-admin-page-cache-form'),
+            'meta' => [ 'title' => 'Clear the Cache' ]
+        ) );
+    
     }
 
     function load_scripts_and_styles() {
@@ -83,7 +157,7 @@ class GenLiteSite extends Site {
         }
         
 
-    }   
+    }
 
     function add_to_context( $context ) {
 
@@ -276,8 +350,16 @@ class GenLiteSite extends Site {
 
         }
 
-    }   
-    
+    } 
+
+    function genlite_add_custom_login_logo() { 
+
+        $context['custom_login_logo'] = get_template_directory_uri() . '/dist/images/hs-logo.webp';
+        Timber::render('admin/admin-logo.twig', $context );
+
+    }
+
+         
 }
 
 new GenLiteSite();
