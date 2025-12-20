@@ -1,7 +1,7 @@
 <?php 
 
 
-class ThemeLoadResources {
+class MainResources {
 
 	public function __construct() {
 
@@ -33,7 +33,6 @@ class ThemeLoadResources {
     }
 
 
-
 }
 
-new ThemeLoadResources();
+new MainResources();

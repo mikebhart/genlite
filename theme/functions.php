@@ -29,10 +29,10 @@ class GenLiteSite extends Site {
 
     function __construct() {
 
-        require_once get_template_directory() . '/includes/theme-setup.php';
-        require_once get_template_directory() . '/includes/context-store.php';
-        require_once get_template_directory() . '/includes/load-resources.php';
-        require_once get_template_directory() . '/includes/common-functions.php';
+        require_once get_template_directory() . '/includes/main-resources.php';
+        require_once get_template_directory() . '/includes/main-functions.php';
+        require_once get_template_directory() . '/includes/main-context.php';
+        require_once get_template_directory() . '/includes/main-setup.php';
 
         parent::__construct();
 

@@ -1,13 +1,18 @@
 <?php 
 
 
-class CommonFunctions {
+class MainFunctions {
 
 	public function __construct() {
 
-        add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
-        add_action( 'upload_mimes', [ $this, 'add_svg_to_media_library' ] );
-      	add_action( 'login_enqueue_scripts', [ $this, 'add_custom_login_logo' ], 101 );
+        remove_action( 'wp_head', 'feed_links_extra', 3 );
+        remove_action( 'wp_head', 'feed_links', 2 );
+        remove_action( 'wp_head', 'print_emoji_detection_script', 7);
+        remove_action( 'wp_print_styles', 'print_emoji_styles');
+        remove_action( 'wp_head', 'rel_canonical');
+
+        add_filter( 'xmlrpc_enabled', '__return_false' );
+
         add_action( 'do_feed', [ $this, 'website_disable_feed' ], 1);
         add_action( 'do_feed_rdf', [ $this, 'website_disable_feed' ], 1);
         add_action( 'do_feed_rss', [ $this, 'website_disable_feed' ], 1);
@@ -16,19 +21,35 @@ class CommonFunctions {
         add_action( 'do_feed_rss2_comments', [ $this, 'website_disable_feed' ], 1);
         add_action( 'do_feed_atom_comments', [ $this, 'website_disable_feed'], 1);
 
-        remove_action( 'wp_head', 'feed_links_extra', 3 );
-        remove_action( 'wp_head', 'feed_links', 2 );
-        remove_action( 'wp_head', 'print_emoji_detection_script', 7);
-        remove_action( 'wp_print_styles', 'print_emoji_styles');
-        remove_action( 'wp_head', 'rel_canonical');
+        add_action( 'enqueue_block_editor_assets', [ $this, 'setup_block_editor_assets' ] );
+        add_action( 'upload_mimes', [ $this, 'add_svg_to_media_library' ] );
+      	add_action( 'login_enqueue_scripts', [ $this, 'add_custom_login_logo' ], 101 );
 
         add_filter( 'wp_sitemaps_add_provider', [ $this, 'remove_users_from_sitemap' ], 10, 2 );
         add_filter( 'template_include', [ $this, 'get_password_protected_template' ] );
         add_filter( 'document_title_parts', [ $this, 'modify_title_format'] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
-        add_filter( 'xmlrpc_enabled', '__return_false' );
 
+    }
+
+    function website_disable_feed() {
+        echo('No feed available');
+        exit;
+    }
+
+    function setup_block_editor_assets() {
+        wp_enqueue_style( 'theme_editor_style', get_template_directory_uri() . '/editor-styles.css' );
+    }
+
+    function add_svg_to_media_library( $file_types ) {
+
+        $new_filetypes = [];
+        $new_filetypes['svg'] = 'image/svg+xml';
+        $file_types = array_merge($file_types, $new_filetypes);
+
+        return $file_types;
+        
     }
 
     function add_custom_login_logo() { 
@@ -63,12 +84,7 @@ class CommonFunctions {
         return $template;
     }
    
-    function setup_document_title_separator( $sep ) {
-        
-        $sep = "|";
-
-        return $sep;
-    }
+  
 
     function modify_title_format( $title ) {
 
@@ -99,13 +115,11 @@ class CommonFunctions {
 
     }
 
-    function setup_block_editor_assets() {
+    function setup_document_title_separator( $sep ) {
+        $sep = "|";
 
-        wp_enqueue_style( 'theme_editor_style', get_template_directory_uri() . '/editor-styles.css' );
-
+        return $sep;
     }
-
-   
 
     function setup_robots_follow( $robots ) {
 
@@ -129,30 +143,7 @@ class CommonFunctions {
 
     }
 
-    function website_disable_feed() {
-
-        echo('No feed available');
-        exit;
-       
-    }
-
-
-    function add_svg_to_media_library( $file_types ) {
-        
-        $new_filetypes = [];
-        $new_filetypes['svg'] = 'image/svg+xml';
-        $file_types = array_merge($file_types, $new_filetypes);
-
-        return $file_types;
-
-    }
-
-
-
-
-
-
 }
 
-new CommonFunctions();
+new MainFunctions();
 

@@ -1,7 +1,6 @@
 <?php
 
-class ThemeSetup {
-	
+class MainSetup {
 
 	public function __construct() {
 		
@@ -49,4 +48,4 @@ class ThemeSetup {
 
 }
 
-new ThemeSetup();
+new MainSetup();

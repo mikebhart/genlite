@@ -7,7 +7,6 @@ class AdminFunctions {
 		
 		add_action( 'admin_bar_menu', [ $this, 'theme_add_menu_bar' ], 100 );
         add_action( 'admin_menu', [ $this, 'theme_add_custom_admin_pages'] );
-	  
 
 	}
 

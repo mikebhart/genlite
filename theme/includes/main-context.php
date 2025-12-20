@@ -1,15 +1,15 @@
 <?php
 
-class ThemeContext {
+class MainContext {
 	
 
 	public function __construct() {
 		
-		add_filter( 'timber/context', [ $this, 'theme_add_to_context' ] );
+		add_filter( 'timber/context', [ $this, 'add_to_context' ] );
 
 	}
 
-    function theme_add_to_context( $context ) {
+    function add_to_context( $context ) {
 
         $post_id = get_the_ID();
         $post_content = get_post_field( 'post_content', $post_id );
@@ -48,4 +48,4 @@ class ThemeContext {
 
 }
 
-new ThemeContext();
+new MainContext();
