@@ -136,14 +136,18 @@ class GenLiteSite extends Site {
    
     function genlite_add_menu_bar ( WP_Admin_Bar $admin_bar ) {
 
-        $admin_bar->add_menu( array(
-            'id'    => 'clear-cache-admin-page',
-            'parent' => null,
-            'group'  => null,
-            'title' => '<span class="ab-icon dashicons dashicons-update"></span>Clear Cache',
-            'href'  => admin_url('admin.php?page=custom-admin-page-cache-form'),
-            'meta' => [ 'title' => 'Clear the Cache' ]
-        ) );
+        if ( current_user_can('editor') ) {
+
+            $admin_bar->add_menu( array(
+                'id'    => 'clear-cache-admin-page',
+                'parent' => null,
+                'group'  => null,
+                'title' => '<span class="ab-icon dashicons dashicons-update"></span>Clear Cache',
+                'href'  => admin_url('admin.php?page=custom-admin-page-cache-form'),
+                'meta' => [ 'title' => 'Clear the Cache' ]
+            ) );
+
+        }
     
     }
 
