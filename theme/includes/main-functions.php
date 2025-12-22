@@ -92,7 +92,7 @@ class MainFunctions {
             return;
         }
 
-        $title_override = get_field('theme_title_override');
+        $title_override = get_field('genlite_title_override');
 
         if ( $title_override ) {
 
