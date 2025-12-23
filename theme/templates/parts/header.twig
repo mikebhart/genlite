@@ -15,7 +15,7 @@
                             {% if header.logo is not empty %}
 
                                 <div class="website-header__desktop-logo">
-                                    <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <a href="{{ home_url }}" aria-label="Go to the homepage">
                                         <img src="{{ header.logo.url }}" alt="Logo">
                                     </a>                
                                 </div>
@@ -23,7 +23,7 @@
                             {% else %}
 
                                 <div class="website-header__desktop-logo-text-wrapper">
-                                    <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <a href="{{ home_url }}" aria-label="Go to the homepage">
                                         <h3>{{ header.logo_text }}</h3>
                                         <h6>{{ header.logo_sub_text }}</h6>
                                     </a>                
@@ -106,7 +106,7 @@
                            {% if header.logo is not empty %}
 
                                 <div class="logo-icon-section">
-                                    <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <a href="{{ home_url }}" aria-label="Go to the homepage">
                                         <img src="{{ header.logo.url }}" alt="Logo">
                                     </a>
                                 </div>
@@ -114,7 +114,7 @@
                               {% else %}
 
                                 <div class="website-header__desktop-logo-text-wrapper">
-                                    <a href="{{ site.url }}" aria-label="Go to the homepage">
+                                    <a href="{{ home_url }}" aria-label="Go to the homepage">
                                         <h3>{{ header.logo_text }}</h3>
                                         <h6>{{ header.logo_sub_text }}</h6>
                                     </a>                

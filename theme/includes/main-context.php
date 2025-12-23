@@ -15,7 +15,7 @@ class MainContext {
         $post_content = get_post_field( 'post_content', $post_id );
         $blocks = parse_blocks( $post_content );
 
-        $context['site']  = $this;
+        $context['home_url']  = home_url();
         $context['body_class'] = implode(' ', get_body_class() );
         $context['header_menu'] = Timber::get_menu( 'header menu' );
 
@@ -24,7 +24,6 @@ class MainContext {
         $meta_description = substr( $excerpt, 0, strrpos( $excerpt, ' ') );
         $context['auto_meta_description'] = $meta_description . '...';
 
-        // Options
         if ( class_exists( 'ACF' ) ) {
 
             $option_fields = get_fields('options');
