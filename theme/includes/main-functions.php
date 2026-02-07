@@ -98,12 +98,6 @@ class MainFunctions {
 
             $title_parts['title'] = $title_override;
 
-        } else if ( is_front_page() ) {
-
-            $title_parts['title'] = get_the_title( get_option('page_on_front') );
-            $title_parts['site'] = $title['title'];
-        
-
         } else {
 
             $title_parts['site'] = $title['title'];
