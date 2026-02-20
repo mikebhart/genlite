@@ -30,7 +30,33 @@ class MainFunctions {
         add_filter( 'document_title_parts', [ $this, 'modify_title_format'] );
         add_filter( 'document_title_separator', [ $this, 'setup_document_title_separator' ] );
         add_filter( 'wp_robots', [ $this, 'setup_robots_follow'] );
+        add_filter( 'wp_sitemaps_posts_query_args', [ $this, 'remove_page_from_sitemap' ], 10,2 );
 
+    }
+
+    
+
+    
+    function remove_page_from_sitemap( $args, $post_type ) {
+
+        if ( 'page' !== $post_type ) {
+
+            return $args;
+        }
+
+        if ( class_exists( 'ACF' ) ) {
+
+            $option_fields = get_fields('options');
+
+            if ( $option_fields != null ) {
+                
+                $args['post__not_in'][] = $option_fields['contact_form']['contact_response_page'];
+
+            }
+
+        }
+
+        return $args;
     }
 
     function website_disable_feed() {
@@ -101,7 +127,10 @@ class MainFunctions {
         } else {
 
             $title_parts['site'] = $title['title'];
-            $title_parts['title'] = $title['site'];
+
+            if ( isset( $title['site'] ) )  {
+                $title_parts['title'] = $title['site'];
+            }
 
         }
         
