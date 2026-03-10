@@ -14,10 +14,8 @@
 
     nav a {
         color: $genlite-black;
-        padding: 5px 0;
         text-decoration: none;
         display: inline-block;
-        min-height: 50px;
 
         &.wp-block-button__link {
             padding: 0.8rem 1rem !important;
@@ -25,9 +23,9 @@
     }
 
     .dropdown-content {
+        margin-top: -3px;
         margin-left: -15px;
         text-align: left;
-//        padding-top: 10px;
         display: none;
         position: fixed;
         background-color: #f9f9f9;
@@ -61,17 +59,22 @@
         display: block;
     }
 
-    .dropbtn.active::after,
-    a.menu-item-link:hover::after,
-    a.menu-item-link.active::after {
-        content: " ";
-        display: block;
-        border-bottom: 1px solid $genlite-primary-color;
-        border-top: 1px solid $genlite-primary-color;
-        height: 5px;
-    }
+    // .dropbtn.active::after,
+    // a.menu-item-link:hover::after,
+    // a.menu-item-link.active::after {
+    //     content: " ";
+    //     display: block;
+    //     border-bottom: 1px solid $genlite-primary-color;
+    //     border-top: 1px solid $genlite-primary-color;
+    //     height: 5px;
+    // }
 
-    
+    .dropbtn.active,
+     a.menu-item-link:hover,
+     a.menu-item-link.active {
+        border-bottom: 3px solid $genlite-primary-color;
+        padding-bottom: 5px;
+    }
 
     .active-submenu {
         background-color: $genlite-primary-color;
