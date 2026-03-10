@@ -12,6 +12,24 @@
         padding: 5px 0 5px 0;
     }
 
+    &-logo-text-wrapper {
+        width: fit-content;
+    
+        a {
+            color: black;
+            text-decoration: none;
+
+            h3, h6 {
+                margin-bottom: 0;
+                font-family: 'Rubik', sans-serif;
+                line-height: 1.2;
+                letter-spacing: 0.05rem;
+            }
+
+        }
+
+    }
+
     nav a {
         color: $genlite-black;
         text-decoration: none;
@@ -22,6 +40,7 @@
         }
     }
 
+    // Level 1 Menu - Single Menu
     .dropdown-content {
         margin-top: -3px;
         margin-left: -15px;
@@ -69,6 +88,7 @@
     //     height: 5px;
     // }
 
+    .mega-dropdown.active,
     .dropbtn.active,
      a.menu-item-link:hover,
      a.menu-item-link.active {
@@ -111,85 +131,47 @@
         margin: 0;
     }
 
-    &-logo-text-wrapper {
-        width: fit-content;
-    
-        a {
-            color: black;
-            text-decoration: none;
-
-            h3, h6 {
-                margin-bottom: 0;
-                font-family: 'Rubik', sans-serif;
-                line-height: 1.2;
-                letter-spacing: 0.05rem;
-            }
-
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Level 2 Menu - Mega Menu
 
     .mega-dropdown {
-        float: left;
-        overflow: hidden;
+        display: inline-block;
+        float: none;
+        margin-right: 30px;
     }
 
     .mega-dropdown .mega-dropbtn {
         font-size: 16px;  
         border: none;
         outline: none;
-   //     color: white;
         padding: 14px 16px;
         background-color: inherit;
         font: inherit;
         margin: 0;
     }
-
-    // .navbar a:hover, .dropdown:hover .dropbtn {
-    //     background-color: red;
-    // }
-
     .mega-dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f9f9f9;
         width: 100%;
+        height: 100%;
         left: 0;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
-    }
-
-    .mega-dropdown-content .header {
-        background: red;
-        padding: 16px;
-      //  color: white;
+        
     }
 
     .mega-dropdown:hover .mega-dropdown-content {
         display: block;
     }
 
-    /* Create three equal columns that floats next to each other */
+    .mega-card {
+        background-color: white;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
     .mega-column {
         float: left;
         width: 33.33%;
         padding: 10px;
-        background-color: #ccc;
-        height: 250px;
+        background-color: white;
     }
 
     .mega-column a {
@@ -202,23 +184,23 @@
     }
 
     .mega-column a:hover {
-        background-color: #ddd;
+        background-color: $genlite-primary-color;
+        color: white;
     }
 
-    /* Clear floats after the columns */
     .row:after {
         content: "";
         display: table;
         clear: both;
     }
 
-    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-        .mega-column {
-            width: 100%;
-            height: auto;
-        }
-    }
+    // /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    // @media screen and (max-width: 600px) {
+    //     .mega-column {
+    //         width: 100%;
+    //         height: auto;
+    //     }
+    // }
 
 
 

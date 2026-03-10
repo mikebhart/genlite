@@ -40,6 +40,7 @@
                                 {% if item.children %}
 
                                     {% set count_level = 0 %}
+                                    {% set menu_active = 0 %}
 
                                     {% for item_child in item.children %}
 
@@ -49,6 +50,12 @@
 
                                                 {% set count_level = count_level + 1 %}
 
+                                                {# {% if item_level2_child.link  %} #}
+
+                                                    {% set menu_active = item_level2_child %}
+
+                                                {# {% endif %} #}
+
                                             {% endfor %}
 
                                         {% endif %}
@@ -57,7 +64,12 @@
 
                                     {% if count_level > 0 %} 
 
-                                        <div class="mega-dropdown">
+                                    {# {% if item.current_item_parent %} active" {% endif %} #}
+                                        
+                                        
+                                        <div class="mega-dropdown  {{ menu_active }}  {{ item.path }}  ----   {{post.path}}">
+
+                                           
 
                                             <a {% if item.current %} class="mega-dropbtn active" {% endif %} {% if item.current_item_parent %} class="mega-dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
                                         
@@ -67,7 +79,7 @@
 
                                                 <div class="row">
 
-                                                <div class="col-12">
+                                                <div class="col-12 mega-card">
 
                                                     {% for item_child in item.children %}
 
