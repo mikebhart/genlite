@@ -1,0 +1,176 @@
+.website-header-mobile {
+
+    z-index: 2;
+    position: relative;
+    display: block;
+
+    // &-wrapper {
+     
+    //     padding: 5px 0 5px 0;
+    // }
+    
+    @include media-breakpoint-up(xl) {
+        display: none;
+    }
+
+    // .genlitenav--mobile {
+    //     position: relative;
+    // }
+
+    // #genlite-mobile-menu-link {
+    //     display: none;
+    //     top: -4px;
+    //     right: 15px;
+    //     position: relative;
+    // }
+
+    // &-plus-icon {
+    //     height: 24px;
+    //     width: 24px;
+    // }
+
+    // &-header-link-image {
+    //     width: 24px;
+    //     height: 24px;
+    // }
+
+    // .menu-wrapper {
+    //     padding: 30px;
+        
+    // }
+
+    .icon-btn {
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &__button-wrapper {
+        border: 0;
+        background-color: white;
+    }
+
+
+    &__button-wrapper--open {
+        margin-top: 30px;
+
+    }
+
+    &__button-wrapper--open-user {
+        margin-top: 60px;
+    }
+
+
+    .logo-icon-section {
+        width: 49%;
+        display: inline-block;
+        border: none;
+        z-index: 1;
+        position: relative;
+    }
+
+    .logo-icon-button {
+        border: none;
+        background-color: transparent;
+        height: 20px;
+        width: 20px;
+    }
+
+    .mobile-parent-menu.active,
+    .active-mobile-submenu {
+        color: white !important;
+        background-color: $genlite-primary-color;
+        padding: 10px;
+
+    }
+
+    .back-button-icon {
+        height: 30px;
+        margin-bottom: 30px;
+    }
+
+    .page-links {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+
+        a.submenu,
+        a:not(:last-child) {
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-decoration: none;
+            text-align: center;
+            color: $genlite-black;
+            font-size: 2.25rem;
+            line-height: 2.7rem;
+            font-weight: 300;
+            letter-spacing: 0.05rem;
+
+            &.active {
+                color: $genlite-primary-color;
+                
+            }
+
+        }
+
+        a:last-child {
+            margin-top: 10px;
+            font-size: 2.25rem;
+            text-decoration: none;
+        }
+
+    }
+
+    .mobile-menu-wraapper {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .wp-block-button {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    // &-menu-container {
+    //     height: 100%;
+    //     position: relative;
+    //     margin: auto;
+    //     width: 50%;           
+    // }
+
+    // &-contact-wrapper {
+    //     padding-top: 20px;
+    //     padding-bottom: 15px;
+    // }
+
+
+    // &-header-container {
+    //     margin-top: 20px;
+    //     position: relative;
+    // }
+
+
+    &-subnav-container {
+
+        display: none;
+        width: 100%;
+
+    }
+
+}
+
+

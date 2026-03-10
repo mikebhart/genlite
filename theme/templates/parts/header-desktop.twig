@@ -1,0 +1,114 @@
+<section class="website-header-desktop">
+
+    <div class="website-header-desktop-wrapper">
+
+        <div class="container">	
+
+            <div class="row">
+
+                <div class="col-12 col-md-3 my-auto">
+
+                    {% if header.logo is not empty %}
+
+                        <div class="website-header-desktop-logo">
+                            <a href="{{ home_url }}" aria-label="Go to the homepage">
+                                <img src="{{ header.logo.url }}" alt="Logo">
+                            </a>                
+                        </div>
+
+                    {% else %}
+
+                        <div class="website-header-desktop-logo-text-wrapper">
+                            <a href="{{ home_url }}" aria-label="Go to the homepage">
+                                <h3>{{ header.logo_text }}</h3>
+                                <h6>{{ header.logo_sub_text }}</h6>
+                            </a>                
+                        </div>
+
+                    {% endif %}
+                    
+                </div>
+
+                {% if header_menu.items is not empty %}
+
+                    <div class="col-12 col-md-9 my-auto text-right">
+
+                        <nav>
+
+                            {% for item in header_menu.items %}         
+
+                            
+                                {% if loop.last %}
+
+                                    <div class="wp-block-button">
+                                        <a class="wp-block-button__link has-text-align-center wp-element-button  {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+                                    </div>
+
+                                {% else %}
+
+
+                                    {% if item.children %}
+
+                                        {% set count_children = 0 %}
+                                        {% set count_level = 0 %}
+
+                                        {% for item_child in item.children %}
+
+                                            {% set count_children = count_children + 1 %}
+
+                                            {% if item_child.children %}
+
+                                                {% for item_level2_child in item_child.children %}
+
+                                                    {% set count_level = count_level + 1 %}
+
+                                                        {# {{ item_level2_child.title }} #}
+
+                                                {% endfor %}
+
+                                            {% endif %}
+
+                                        {% endfor %}
+
+                                        {{ count_children }}
+                                        {{ count_level }}
+
+                                        <div class="dropdown">
+
+                                            <a {% if item.current %} class="dropbtn active" {% endif %} {% if item.current_item_parent %} class="dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                            <div class="dropdown-content">
+
+                                                {% for child in item.children %}
+
+                                                    <a {% if child.current %} class="active-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                                {% endfor %}
+
+                                            </div>
+
+                                        </div>
+
+                                    {% else %}
+
+                                        <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                    {% endif %}
+
+                                {% endif %}
+                                
+                            {% endfor %}
+
+                        </nav>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

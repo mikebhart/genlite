@@ -1,0 +1,117 @@
+<section class="website-header-mobile">
+
+    <div class="website-header-mobile-wrapper">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-9 text-left my-auto">
+
+                    {% if header.logo is not empty %}
+
+                        <div class="logo-icon-section">
+                            <a href="{{ home_url }}" aria-label="Go to the homepage">
+                                <img src="{{ header.logo.url }}" alt="Logo">
+                            </a>
+                        </div>
+
+                        {% else %}
+
+                        <div class="website-header__desktop-logo-text-wrapper">
+                            <a href="{{ home_url }}" aria-label="Go to the homepage">
+                                <h3>{{ header.logo_text }}</h3>
+                                <h6>{{ header.logo_sub_text }}</h6>
+                            </a>                
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+                <div class="col-3 text-right my-auto">
+
+                    <div id="website-mobile-menu" class="logo-icon-section text-right">
+
+                        <button class="website-header-mobile__button-wrapper">
+                            <img id="website-mobile-menu-show" class="icon-btn" src="{{ theme.link }}/dist/images/menu-hamberger.svg" alt="Mobile Menu Open">
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav id="website_mobile_page_links" class="page-links">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12 text-right">
+
+                        <button class="website-header-mobile__button-wrapper">
+                            <img id="website-mobile-menu-close" class="icon-btn {% if user %} website-header-mobile__button-wrapper--open-user {% else %} website-header-mobile__button-wrapper--open {% endif %}" src="{{ theme.link }}/dist/images/menu-window-close.svg" alt="Mobile Menu Close">
+                        </button>
+
+            
+                        <div class="mobile-menu-wraapper">
+            
+                            {% for item in header_menu.items %}
+
+                                
+                                {% if loop.last %}
+
+                                    <div class="wp-block-button">
+                                        <a class="wp-block-button__link has-text-align-center wp-element-button {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+                                    </div>
+
+                                {% else %}
+
+
+                                    {% if item.children %}
+
+                                        <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
+                                            data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                        <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="website-header-mobile-subnav-container">
+
+                                            <a class="mobile-submenu-back">
+                                                <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
+                                            </a>
+
+                                            {% for child in item.children %}
+
+                                                <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                            {% endfor %}
+
+
+                                        </div>
+
+                                    {% else %}
+
+                                        <a id="{{ item.slug }}" {% if item.current %} class="mobile-parent-menu active" {% else %} class="mobile-parent-menu" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
+                                    {% endif %}
+
+                                {% endif %}
+                            
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+        
+    </div>
+
+</section>
