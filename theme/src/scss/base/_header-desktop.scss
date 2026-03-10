@@ -73,7 +73,6 @@
      a.menu-item-link:hover,
      a.menu-item-link.active {
         border-bottom: 3px solid $genlite-primary-color;
-        padding-bottom: 5px;
     }
 
     .active-submenu {
@@ -129,5 +128,98 @@
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .mega-dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .mega-dropdown .mega-dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+   //     color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font: inherit;
+        margin: 0;
+    }
+
+    // .navbar a:hover, .dropdown:hover .dropbtn {
+    //     background-color: red;
+    // }
+
+    .mega-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 100%;
+        left: 0;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .mega-dropdown-content .header {
+        background: red;
+        padding: 16px;
+      //  color: white;
+    }
+
+    .mega-dropdown:hover .mega-dropdown-content {
+        display: block;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .mega-column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+        background-color: #ccc;
+        height: 250px;
+    }
+
+    .mega-column a {
+        float: none;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .mega-column a:hover {
+        background-color: #ddd;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .mega-column {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
 
 }

@@ -37,41 +37,68 @@
 
                             {% for item in header_menu.items %}         
 
-                            
-                                {% if loop.last %}
+                                {% if item.children %}
 
-                                    <div class="wp-block-button">
-                                        <a class="wp-block-button__link has-text-align-center wp-element-button  {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
-                                    </div>
+                                    {% set count_level = 0 %}
 
-                                {% else %}
+                                    {% for item_child in item.children %}
 
+                                        {% if item_child.children %}
 
-                                    {% if item.children %}
+                                            {% for item_level2_child in item_child.children %}
 
-                                        {% set count_children = 0 %}
-                                        {% set count_level = 0 %}
+                                                {% set count_level = count_level + 1 %}
 
-                                        {% for item_child in item.children %}
+                                            {% endfor %}
 
-                                            {% set count_children = count_children + 1 %}
+                                        {% endif %}
 
-                                            {% if item_child.children %}
+                                    {% endfor %}
 
-                                                {% for item_level2_child in item_child.children %}
+                                    {% if count_level > 0 %} 
 
-                                                    {% set count_level = count_level + 1 %}
+                                        <div class="mega-dropdown">
 
-                                                        {# {{ item_level2_child.title }} #}
+                                            <a {% if item.current %} class="mega-dropbtn active" {% endif %} {% if item.current_item_parent %} class="mega-dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                        
+                                            <div class="mega-dropdown-content">
 
-                                                {% endfor %}
+                                                <div class="container">
 
-                                            {% endif %}
+                                                <div class="row">
 
-                                        {% endfor %}
+                                                <div class="col-12">
 
-                                        {{ count_children }}
-                                        {{ count_level }}
+                                                    {% for item_child in item.children %}
+
+                                                        {% if item_child.children %}
+
+                                                            <div class="mega-column">
+
+                                                                <h3 class="text-center">{{ item_child.title }}</h3>
+
+                                                                {% for item_level2_child in item_child.children %}
+
+                                                                    <a href="{{ item_level2_child.link }}">{{ item_level2_child.title }}</a>
+                                                        
+                                                                {% endfor %}
+
+                                                            </div>
+
+                                                        {% endif %}
+
+                                                    {% endfor %}
+
+                                                    </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div> 
+                                   
+                                    {% else %}
 
                                         <div class="dropdown">
 
@@ -89,13 +116,20 @@
 
                                         </div>
 
-                                    {% else %}
-
-                                        <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-
                                     {% endif %}
 
+                                {% elseif loop.last %}
+
+                                    <div class="wp-block-button">
+                                        <a class="wp-block-button__link has-text-align-center wp-element-button  {% if item.current %} wp-block-button__current {% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+                                    </div>
+
+                                {% else %}
+
+                                    <a {% if item.current %} class="menu-item-link active" {% else %} class="menu-item-link" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+
                                 {% endif %}
+
                                 
                             {% endfor %}
 
