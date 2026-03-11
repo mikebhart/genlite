@@ -78,21 +78,11 @@
         display: block;
     }
 
-    // .dropbtn.active::after,
-    // a.menu-item-link:hover::after,
-    // a.menu-item-link.active::after {
-    //     content: " ";
-    //     display: block;
-    //     border-bottom: 1px solid $genlite-primary-color;
-    //     border-top: 1px solid $genlite-primary-color;
-    //     height: 5px;
-    // }
-
     .mega-dropdown.active,
     .dropbtn.active,
      a.menu-item-link:hover,
      a.menu-item-link.active {
-        border-bottom: 3px solid $genlite-primary-color;
+        border-bottom: 2px solid $genlite-primary-color;
     }
 
     .active-submenu {
@@ -188,20 +178,10 @@
         color: white;
     }
 
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
+    .mega-item-selected {
+        background-color: $genlite-primary-color;
+        color: white !important;
     }
-
-    // /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-    // @media screen and (max-width: 600px) {
-    //     .mega-column {
-    //         width: 100%;
-    //         height: auto;
-    //     }
-    // }
-
 
 
 }

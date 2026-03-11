@@ -50,12 +50,6 @@
 
                                                 {% set count_level = count_level + 1 %}
 
-                                                {# {% if item_level2_child.link  %} #}
-
-                                                    {% set menu_active = item_level2_child %}
-
-                                                {# {% endif %} #}
-
                                             {% endfor %}
 
                                         {% endif %}
@@ -64,44 +58,40 @@
 
                                     {% if count_level > 0 %} 
 
-                                    {# {% if item.current_item_parent %} active" {% endif %} #}
-                                        
-                                        
-                                        <div class="mega-dropdown  {{ menu_active }}  {{ item.path }}  ----   {{post.path}}">
+                                        <div class="mega-dropdown {% if item.current %} mega-dropbtn active {% endif %} {% if item.current_item_parent %} mega-dropbtn active {% endif %} {% if item.path in post.path %} mega-dropbtn active {% endif %}">
 
-                                           
-
-                                            <a {% if item.current %} class="mega-dropbtn active" {% endif %} {% if item.current_item_parent %} class="mega-dropbtn active" {% endif %} href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
+                                            <a href="{{ item.link }}" aria-label="{{ item.title }}">{{ item.title }}</a>
                                         
                                             <div class="mega-dropdown-content">
 
                                                 <div class="container">
 
-                                                <div class="row">
+                                                    <div class="row">
 
-                                                <div class="col-12 mega-card">
+                                                        <div class="col-12 mega-card">
 
-                                                    {% for item_child in item.children %}
+                                                            {% for item_child in item.children %}
 
-                                                        {% if item_child.children %}
+                                                                {% if item_child.children %}
 
-                                                            <div class="mega-column">
+                                                                    <div class="mega-column">
 
-                                                                <h3 class="text-center">{{ item_child.title }}</h3>
+                                                                        <h3 class="text-center">{{ item_child.title }}</h3>
 
-                                                                {% for item_level2_child in item_child.children %}
+                                                                        {% for item_level2_child in item_child.children %}
 
-                                                                    <a href="{{ item_level2_child.link }}">{{ item_level2_child.title }}</a>
+                                                                            <a href="{{ item_level2_child.link }}" class="{% if item_level2_child.current %} mega-item-selected {% endif %} {% if item_level2_child.current_item_parent %} mega-item-selected {% endif %}">{{ item_level2_child.title }}</a>
+                                                                
+                                                                        {% endfor %}
+
+                                                                    </div>
+
+                                                                {% endif %}
+
+                                                            {% endfor %}
                                                         
-                                                                {% endfor %}
+                                                        </div>
 
-                                                            </div>
-
-                                                        {% endif %}
-
-                                                    {% endfor %}
-
-                                                    </div>
                                                     </div>
 
                                                 </div>
