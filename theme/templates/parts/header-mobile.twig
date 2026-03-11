@@ -74,18 +74,105 @@
 
                                     {% if item.children %}
 
-                                        <a id="{{ item.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
+                                                {% set count_level = 0 %}
+ 
+                                                {% for item_child in item.children %}
+
+                                                    {% if item_child.children %}
+
+                                                        {% for item_level2_child in item_child.children %}
+
+                                                            {% set count_level = count_level + 1 %}
+
+                                                        {% endfor %}
+
+                                                    {% endif %}
+
+                                                {% endfor %}
+
+                                                {% set sub_menu_id = 'mobile-submenu-' ~  item.slug ~ '-' ~ loop.index %}
+                                                {% set sub_menu_class_container = 'level1-subnav-container' %}
+                                                {% set sub_menu_class_back = 'mobile-submenu-back' %}
+                                                {% set sub_menu_parent_link = 'mobile-parent-menu mobile-parent-submenu' %}
+
+                                                {% if count_level > 0 %} 
+
+                                                    {% set sub_menu_id = "level2-mobile-submenu-" ~ item.slug ~ '-' ~ loop.index %}
+                                                    {% set sub_menu_class_container = 'level2-subnav-container' %}
+                                                    {% set sub_menu_class_back = 'level2-mobile-submenu-back' %}
+                                                    {% set sub_menu_parent_link = 'level2-mobile-parent-menu level2-mobile-parent-submenu' %}
+
+                                                {% endif %}
+
+
+                                        <a id="{{ item.slug }}-{{ loop.index }}" class="{{ sub_menu_parent_link }} {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
                                             data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}</a>
 
-                                        <div id="mobile-submenu-{{ item.slug }}-{{ loop.index }}" class="website-header-mobile-subnav-container">
+                                              
 
-                                            <a class="mobile-submenu-back">
+
+                                        <div id="{{ sub_menu_id }}" class="{{ sub_menu_class_container }}">
+
+                                            {# Go Back #}
+                                            <a class="{{ sub_menu_class_back }}">
                                                 <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
                                             </a>
 
                                             {% for child in item.children %}
 
-                                                <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+                                                {# {% set count_level = 0 %}
+ 
+                                                {% for item_child in item.children %}
+
+                                                    {% if item_child.children %}
+
+                                                        {% for item_level2_child in item_child.children %}
+
+                                                            {% set count_level = count_level + 1 %}
+
+                                                        {% endfor %}
+
+                                                    {% endif %}
+
+                                                {% endfor %} #}
+
+                                                {% if count_level == 0 %} 
+
+                                                    <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+
+                                                {% else %}
+
+                                                    <div id="{{ child.slug }}-{{ loop.index }}" class="level2-mobile-parent-menu" aria-label="{{ child.title }}">{{ child.title }}</div>
+
+                                                      {% for child_level2 in child.children %}
+
+                                                            <a href="{{ child_level2.link }}">{{ child_level2.title }}</a>
+
+                                                        {% endfor %}
+                                                        
+
+                                                    
+
+                                                    {# <a id="{{ child.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if child.current_item_parent %} active-mobile-submenu {% endif %}" data-submenu-link="{{ child.slug }}-{{ loop.index }}" aria-label="{{ child.title }}">{{ child.title }}</a> #}
+                                            
+                                                    {# {% for child_level2 in item.children %}
+
+                                                        <a id="mobile-submenu-level2-{{ child_level2.slug }}-{{ loop.index }}" class="level2-mobile-submenu" aria-label="{{ child_level2.title }}">{{ child_level2.title }}</a>
+
+                                                    {% endfor %} #}
+
+                                                   
+
+                                                        {# <a id="mobile-submenu-level2-{{ item.child.slug }}-{{ loop.index }}" class="level2-mobile-submenu" aria-label="{{ item.child.title }}">{{ item.child.title }}</a> #}
+
+                                                      
+                                                                                                       
+
+
+                                                     
+
+
+                                                {% endif %}
 
                                             {% endfor %}
 
