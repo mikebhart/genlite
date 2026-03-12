@@ -74,42 +74,30 @@
 
                                     {% if item.children %}
 
-                                                {% set count_level = 0 %}
- 
-                                                {% for item_child in item.children %}
+                                        {% set count_level = 0 %}
 
-                                                    {% if item_child.children %}
+                                        {% for item_child in item.children %}
 
-                                                        {% for item_level2_child in item_child.children %}
+                                            {% if item_child.children %}
 
-                                                            {% set count_level = count_level + 1 %}
+                                                {% for item_level2_child in item_child.children %}
 
-                                                        {% endfor %}
-
-                                                    {% endif %}
+                                                    {% set count_level = count_level + 1 %}
 
                                                 {% endfor %}
 
-                                                {% set sub_menu_id = 'mobile-submenu-' ~  item.slug ~ '-' ~ loop.index %}
-                                                {% set sub_menu_class_container = 'level1-subnav-container' %}
-                                                {% set sub_menu_class_back = 'mobile-submenu-back' %}
-                                                {% set sub_menu_parent_link = 'mobile-parent-menu mobile-parent-submenu' %}
+                                            {% endif %}
 
-                                                {% if count_level > 0 %} 
+                                        {% endfor %}
 
-                                                    {% set sub_menu_id = "level2-mobile-submenu-" ~ item.slug ~ '-' ~ loop.index %}
-                                                    {% set sub_menu_class_container = 'level2-subnav-container' %}
-                                                    {% set sub_menu_class_back = 'level2-mobile-submenu-back' %}
-                                                    {% set sub_menu_parent_link = 'level2-mobile-parent-menu level2-mobile-parent-submenu' %}
-
-                                                {% endif %}
+                                        {% set sub_menu_id = 'mobile-submenu-' ~  item.slug ~ '-' ~ loop.index %}
+                                        {% set sub_menu_class_container = 'level1-subnav-container' %}
+                                        {% set sub_menu_class_back = 'mobile-submenu-back' %}
+                                        {% set sub_menu_parent_link = 'mobile-parent-menu mobile-parent-submenu' %}
 
 
                                         <a id="{{ item.slug }}-{{ loop.index }}" class="{{ sub_menu_parent_link }} {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
                                             data-submenu-link="{{ item.slug }}-{{ loop.index }}" aria-label="{{ item.title }}">{{ item.title }}</a>
-
-                                              
-
 
                                         <div id="{{ sub_menu_id }}" class="{{ sub_menu_class_container }}">
 
@@ -120,57 +108,19 @@
 
                                             {% for child in item.children %}
 
-                                                {# {% set count_level = 0 %}
- 
-                                                {% for item_child in item.children %}
+                                                {% if count_level > 0 %} 
 
-                                                    {% if item_child.children %}
+                                                 <a id="{{ child.slug }}-{{ loop.index }}" class="level2-mobile-parent-menu" aria-label="{{ child.title }}">{{ child.title }}</a>
 
-                                                        {% for item_level2_child in item_child.children %}
+                                                    {% for child_level2 in child.children %}
 
-                                                            {% set count_level = count_level + 1 %}
+                                                        <div id="{{ child_level2.slug }}-{{ loop.index }}" class="level2-mobile-parent-submenu" href="{{ child_level2.link }}">{{ child_level2.title }}</div>
 
-                                                        {% endfor %}
-
-                                                    {% endif %}
-
-                                                {% endfor %} #}
-
-                                                {% if count_level == 0 %} 
-
-                                                    <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
+                                                    {% endfor %}
 
                                                 {% else %}
 
-                                                    <div id="{{ child.slug }}-{{ loop.index }}" class="level2-mobile-parent-menu" aria-label="{{ child.title }}">{{ child.title }}</div>
-
-                                                      {% for child_level2 in child.children %}
-
-                                                            <a href="{{ child_level2.link }}">{{ child_level2.title }}</a>
-
-                                                        {% endfor %}
-                                                        
-
-                                                    
-
-                                                    {# <a id="{{ child.slug }}-{{ loop.index }}" class="mobile-parent-menu mobile-parent-submenu {% if child.current_item_parent %} active-mobile-submenu {% endif %}" data-submenu-link="{{ child.slug }}-{{ loop.index }}" aria-label="{{ child.title }}">{{ child.title }}</a> #}
-                                            
-                                                    {# {% for child_level2 in item.children %}
-
-                                                        <a id="mobile-submenu-level2-{{ child_level2.slug }}-{{ loop.index }}" class="level2-mobile-submenu" aria-label="{{ child_level2.title }}">{{ child_level2.title }}</a>
-
-                                                    {% endfor %} #}
-
-                                                   
-
-                                                        {# <a id="mobile-submenu-level2-{{ item.child.slug }}-{{ loop.index }}" class="level2-mobile-submenu" aria-label="{{ item.child.title }}">{{ item.child.title }}</a> #}
-
-                                                      
-                                                                                                       
-
-
-                                                     
-
+                                                      <a {% if child.current %} class="active-mobile-submenu" {% else %} class="submenu" {% endif %} href="{{ child.link }}" aria-label="{{ child.title }}">{{ child.title }}</a>
 
                                                 {% endif %}
 

@@ -89,58 +89,25 @@ export const handleMobileMenu = function () {
 
     }
 
+    // Level 2
 
-    // // Level 2
+    let level2ParentSubMenus = document.getElementsByClassName("level2-mobile-parent-submenu");
 
-     // Back Button
-    let subMenuBackButtonsLevel2 = document.getElementsByClassName("level2-mobile-submenu-back");
+      for ( let i = 0; i < level2ParentSubMenus.length; i++ ) {
 
-    for (let i = 0; i < subMenuBackButtonsLevel2.length; i++) {
+            level2ParentSubMenus[i].style.display = "none";
+
+        }
+
+        
+
+    for (let i = 0; i < level2ParentSubMenus.length; i++) {
         
         (function () {
 
-            subMenuBackButtonsLevel2[i].addEventListener("click", function() { 
+            let subMenuId = 'level2-mobile-submenu-' + level2ParentSubMenus[i].id;
 
-                let mobileSubParentMenus = document.getElementsByClassName("level2-subnav-container");
-
-                for ( let i = 0; i < mobileSubParentMenus.length; i++ ) {
-    
-                 
-                    mobileSubParentMenus[i].style.display = "none";
-    
-                }
-
-
-                let mobileParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
-
-                for ( let i = 0; i < mobileParentMenus.length; i++ ) {
-
-                                       
-
-
-                    mobileParentMenus[i].style.display = "block";
-    
-                }
-
-            }, false);
-
-        }()); 
-
-
-    }
-
-
-    let parentSubMenusLevel2 = document.getElementsByClassName("level2-mobile-parent-submenu");
-
-    for (let i = 0; i < parentSubMenusLevel2.length; i++) {
-        
-        (function () {
-
-            let subMenuId = 'level2-mobile-submenu-' + parentSubMenusLevel2[i].id;
-
-            parentSubMenusLevel2[i].addEventListener("click", function() { 
-
-                console.log('a=' + subMenuId);
+            level2ParentSubMenus[i].addEventListener("click", function() { 
 
                 showMobileSubMenuLevel2( subMenuId );
 
@@ -151,34 +118,20 @@ export const handleMobileMenu = function () {
 
     }
 
-    function showMobileSubMenuLevel2( subMenuId ) {
 
-        let mobileParentMenusLevel1 = document.getElementsByClassName("mobile-parent-menu");
+     function showMobileSubMenuLevel2( subMenuId ) {
 
-      //  let mobileParentMenusLevel2 = document.getElementsByClassName("level2-mobile-parent-menu");
+        let mobileParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
 
+        for ( let i = 0; i < mobileParentMenus.length; i++ ) {
 
-        for ( let i = 0; i < mobileParentMenusLevel1.length; i++ ) {
-
-            mobileParentMenusLevel1[i].style.display = "none";
+            mobileParentMenus[i].style.display = "none";
 
         }
-
-
-        // for ( let i = 0; i < mobileParentMenusLevel2.length; i++ ) {
-
-        //     mobileParentMenusLevel2[i].style.display = "block";
-            
-
-        // }
 
         let mobile_submenu_open =  document.getElementById( subMenuId );
         mobile_submenu_open.style.display = "block";
 
     }
-
-
-    
-
 
 }
