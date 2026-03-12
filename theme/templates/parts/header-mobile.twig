@@ -75,10 +75,13 @@
                                     {% if item.children %}
 
                                         {% set count_level = 0 %}
+                                        {% set level_count = 0 %}
 
                                         {% for item_child in item.children %}
 
                                             {% if item_child.children %}
+
+                                                {% set level_count = level_count + 1 %}
 
                                                 {% for item_level2_child in item_child.children %}
 
@@ -94,6 +97,13 @@
                                         {% set sub_menu_class_container = 'level1-subnav-container' %}
                                         {% set sub_menu_class_back = 'mobile-submenu-back' %}
                                         {% set sub_menu_parent_link = 'mobile-parent-menu mobile-parent-submenu' %}
+{# 
+                                        {% if count_level > 0 %}
+
+                                               {% set sub_menu_class_back = 'level2-mobile-submenu-back' %}
+                                            
+
+                                        {% endif %} #}
 
 
                                         <a id="{{ item.slug }}-{{ loop.index }}" class="{{ sub_menu_parent_link }} {% if item.current_item_parent %} active-mobile-submenu {% endif %}" 
@@ -101,22 +111,30 @@
 
                                         <div id="{{ sub_menu_id }}" class="{{ sub_menu_class_container }}">
 
-                                            {# Go Back #}
-                                            <a class="{{ sub_menu_class_back }}">
+                                          
+
+                                            <a class="mobile-submenu-back">
                                                 <img src="{{ theme.link }}/dist/images/arrow-left-solid.svg" class="back-button-icon" alt="Sub Menu go back">
                                             </a>
+
+                                        
 
                                             {% for child in item.children %}
 
                                                 {% if count_level > 0 %} 
 
-                                                 <a id="{{ child.slug }}-{{ loop.index }}" class="level2-mobile-parent-menu" aria-label="{{ child.title }}">{{ child.title }}</a>
+                                                    <a id="{{ child.slug }}-{{ loop.index }}" class="level2-mobile-parent-menu" aria-label="{{ child.title }}">{{ child.title }}</a>
 
-                                                    {% for child_level2 in child.children %}
+                                                    <div id="level2-mobile-submenu-container-{{ child.slug }}-{{ loop.index }}" class="level2-subnav-container">
 
-                                                        <div id="{{ child_level2.slug }}-{{ loop.index }}" class="level2-mobile-parent-submenu" href="{{ child_level2.link }}">{{ child_level2.title }}</div>
 
-                                                    {% endfor %}
+                                                        {% for child_level2 in child.children %}
+
+                                                            <a class="level2-mobile-parent-submenu" href="{{ child_level2.link }}">{{ child_level2.title }}</a>
+
+                                                        {% endfor %}
+
+                                                    </div>
 
                                                 {% else %}
 

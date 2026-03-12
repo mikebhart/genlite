@@ -38,6 +38,14 @@ export const handleMobileMenu = function () {
     
                 }
 
+                let level2MobileSubParentMenus = document.getElementsByClassName("level2-subnav-container");
+
+                for ( let i = 0; i < level2MobileSubParentMenus.length; i++ ) {
+    
+                    level2MobileSubParentMenus[i].style.display = "none";
+    
+                }
+
 
                 let mobileParentMenus = document.getElementsByClassName("mobile-parent-menu");
 
@@ -46,6 +54,17 @@ export const handleMobileMenu = function () {
                     mobileParentMenus[i].style.display = "block";
     
                 }
+
+                let level2MobileParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
+
+                for ( let i = 0; i < level2MobileParentMenus.length; i++ ) {
+
+                    level2MobileParentMenus[i].style.display = "block";
+    
+                }
+
+
+
 
             }, false);
 
@@ -91,23 +110,27 @@ export const handleMobileMenu = function () {
 
     // Level 2
 
+    // Clear submenus
+
     let level2ParentSubMenus = document.getElementsByClassName("level2-mobile-parent-submenu");
 
-      for ( let i = 0; i < level2ParentSubMenus.length; i++ ) {
+    for ( let i = 0; i < level2ParentSubMenus.length; i++ ) {
 
-            level2ParentSubMenus[i].style.display = "none";
+        level2ParentSubMenus[i].style.display = "none";
 
-        }
+    }
 
-        
+    // add event listner to level2 parent nodes
 
-    for (let i = 0; i < level2ParentSubMenus.length; i++) {
+    let level2ParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
+
+    for (let i = 0; i < level2ParentMenus.length; i++) {
         
         (function () {
 
-            let subMenuId = 'level2-mobile-submenu-' + level2ParentSubMenus[i].id;
+            let subMenuId = 'level2-mobile-submenu-container-' + level2ParentMenus[i].id;
 
-            level2ParentSubMenus[i].addEventListener("click", function() { 
+            level2ParentMenus[i].addEventListener("click", function() { 
 
                 showMobileSubMenuLevel2( subMenuId );
 
@@ -117,6 +140,7 @@ export const handleMobileMenu = function () {
 
 
     }
+
 
 
      function showMobileSubMenuLevel2( subMenuId ) {
@@ -133,5 +157,19 @@ export const handleMobileMenu = function () {
         mobile_submenu_open.style.display = "block";
 
     }
+
+    // Clear submenus
+
+    let level2SubMenus = document.getElementsByClassName("level2-mobile-parent-submenu");
+
+    for ( let i = 0; i < level2SubMenus.length; i++ ) {
+
+        level2SubMenus[i].style.display = "block";
+
+    }
+
+
+   
+
 
 }
