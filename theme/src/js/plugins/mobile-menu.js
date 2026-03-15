@@ -30,6 +30,11 @@ export const handleMobileMenu = function () {
 
             subMenuBackButtons[i].addEventListener("click", function() { 
 
+            //    mobileMenuPath.pop();
+
+                 mobileMenuPath = [];
+                 console.log(mobileMenuPath);
+
                 let mobileSubParentMenus = document.getElementsByClassName("level1-subnav-container");
 
                 for ( let i = 0; i < mobileSubParentMenus.length; i++ ) {
@@ -38,14 +43,7 @@ export const handleMobileMenu = function () {
     
                 }
 
-                let level2MobileSubParentMenus = document.getElementsByClassName("level2-subnav-container");
-
-                for ( let i = 0; i < level2MobileSubParentMenus.length; i++ ) {
-    
-                    level2MobileSubParentMenus[i].style.display = "none";
-    
-                }
-
+         
 
                 let mobileParentMenus = document.getElementsByClassName("mobile-parent-menu");
 
@@ -55,13 +53,23 @@ export const handleMobileMenu = function () {
     
                 }
 
-                let level2MobileParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
+           //     let level2MobileParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
+             //   let level2MobileParentLevel2Menus = document.getElementsByClassName("level2-mobile-parent-menu level2");
 
-                for ( let i = 0; i < level2MobileParentMenus.length; i++ ) {
 
-                    level2MobileParentMenus[i].style.display = "block";
-    
-                }
+
+                // if ( level2MobileParentLevel2Menus.length > 0 ) {
+
+                //     alert('level2');
+                
+                // }
+
+// [                    for ( let i = 0; i < level2MobileParentMenus.length; i++ ) {
+
+//                         level2MobileParentMenus[i].style.display = "block";
+//                     }
+// ]                    
+//                 }
 
 
 
@@ -73,8 +81,88 @@ export const handleMobileMenu = function () {
 
     }
 
+
+
+
+    let level2SubMenuBackButtons = document.getElementsByClassName("mobile-submenu-back.level2");
+    
+
+    console.log(level2SubMenuBackButtons);
+
+    for ( let j = 0; j < level2SubMenuBackButtons.length; j++ ) {
+        
+        (function () {
+
+            level2SubMenuBackButtons[j].addEventListener("click", function() { 
+
+              //  mobileMenuPath.pop(level2SubMenuBackButtons[j].innerText);
+
+                mobileMenuPath = [];
+
+                console.log(mobileMenuPath);
+
+                let level2MobileSubParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
+
+                for ( let i = 0; i < level2MobileSubParentMenus.length; i++ ) {
+    
+                    level2MobileSubParentMenus[i].style.display = "true";
+    
+                }
+
+                // let level3MobileSubParentMenus = document.getElementsByClassName("level2-mobile-parent-submenu-level3");
+                // console.log(level3MobileSubParentMenus);
+
+                // for ( let i = 0; i < level3MobileSubParentMenus.length; i++ ) {
+    
+                //     level3MobileSubParentMenus[i].style.display = "false";
+    
+                // }
+
+
+                // let mobileSubParentMenus = document.getElementsByClassName("level1-subnav-container");
+
+                // for ( let i = 0; i < mobileSubParentMenus.length; i++ ) {
+    
+                //     mobileSubParentMenus[i].style.display = "block";
+    
+                // }
+
+
+
+
+
+           //     alert(level2SubMenuBackButtons[j].id);
+
+                // let level2MobileSubParentMenus = document.getElementsByClassName("level2-mobile-parent-submenu");
+                // for ( let i = 0; i < level2MobileSubParentMenus.length; i++ ) {
+    
+                //     level2MobileSubParentMenus[i].style.display = "none";
+    
+                // }
+
+               
+
+                // let level2MobileSubParentMenus2 = document.getElementsByClassName("level2-mobile-parent-menu");
+                // for ( let i = 0; i < level2MobileSubParentMenus2.length; i++ ) {
+    
+                //     level2MobileSubParentMenus2[i].style.display = "block";
+    
+                // }
+
+            }, false);
+
+        }()); 
+
+
+    }
+
+    const mobileMenuPath = [];
+
+
+
     // Parent Sub Menus
     let parentSubMenus = document.getElementsByClassName("mobile-parent-submenu");
+    console.log(parentSubMenus);
 
     for (let i = 0; i < parentSubMenus.length; i++) {
         
@@ -84,7 +172,11 @@ export const handleMobileMenu = function () {
 
             parentSubMenus[i].addEventListener("click", function() { 
 
+                mobileMenuPath.push(parentSubMenus[i].innerText);
+
                 showMobileSubMenu( subMenuId );
+
+                console.log(mobileMenuPath);
 
             }, false);
 
@@ -132,7 +224,11 @@ export const handleMobileMenu = function () {
 
             level2ParentMenus[i].addEventListener("click", function() { 
 
+                mobileMenuPath.push(level2ParentMenus[i].innerText);
+
                 showMobileSubMenuLevel2( subMenuId );
+
+                console.log(mobileMenuPath);
 
             }, false);
 

@@ -4,40 +4,9 @@
     position: relative;
     display: block;
 
-    // &-wrapper {
-     
-    //     padding: 5px 0 5px 0;
-    // }
-    
     @include media-breakpoint-up(xl) {
         display: none;
     }
-
-    // .genlitenav--mobile {
-    //     position: relative;
-    // }
-
-    // #genlite-mobile-menu-link {
-    //     display: none;
-    //     top: -4px;
-    //     right: 15px;
-    //     position: relative;
-    // }
-
-    // &-plus-icon {
-    //     height: 24px;
-    //     width: 24px;
-    // }
-
-    // &-header-link-image {
-    //     width: 24px;
-    //     height: 24px;
-    // }
-
-    // .menu-wrapper {
-    //     padding: 30px;
-        
-    // }
 
     .icon-btn {
         height: 20px;
@@ -60,7 +29,7 @@
     }
 
     &__button-wrapper--open-user {
-        margin-top: 60px;
+        margin-top: 80px;
     }
 
 
@@ -144,24 +113,6 @@
         width: 100%;
         margin-top: 10px;
     }
-
-    // &-menu-container {
-    //     height: 100%;
-    //     position: relative;
-    //     margin: auto;
-    //     width: 50%;           
-    // }
-
-    // &-contact-wrapper {
-    //     padding-top: 20px;
-    //     padding-bottom: 15px;
-    // }
-
-
-    // &-header-container {
-    //     margin-top: 20px;
-    //     position: relative;
-    // }
 
     .level1-subnav-container,
     .level2-subnav-container {
