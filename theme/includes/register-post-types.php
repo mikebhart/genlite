@@ -13,21 +13,21 @@ class RegisterPostTypes {
     function wesbsite_register_work() {
 
         $labels = [
-            'name'                  => __( 'Projects', 'genlite' ),
-            'singular_name'         => __( 'Project', 'genlite' ),
-            'menu_name'             => __( 'Projects','genlite' ),
-            'name_admin_bar'        => __( 'Project', 'genlite' ),
-            'add_new'               => __( 'Add New', 'genlite' ),
-            'add_new_item'          => __( 'Add New Project', 'genlite' ),
-            'new_item'              => __( 'New Project', 'genlite' ),
-            'edit_item'             => __( 'Edit Project', 'genlite' ),
-            'view_item'             => __( 'View Project', 'genlite' ),
-            'all_items'             => __( 'All Projects', 'genlite' ),
-            'search_items'          => __( 'Search Projects', 'genlite' ),
-            'parent_item_colon'     => __( 'Parent Projects:', 'genlite' ),
-            'not_found'             => __( 'No Projects found.', 'genlite' ),
-            'not_found_in_trash'    => __( 'No Projects found in Trash.', 'genlite' ),
-            'featured_image'        => __( 'Project Cover Image', 'genlite' )
+            'name'                  => 'Projects',
+            'singular_name'         => 'Project',
+            'menu_name'             => 'Projects',
+            'name_admin_bar'        => 'Project',
+            'add_new'               => 'Add New',
+            'add_new_item'          => 'Add New Project',
+            'new_item'              => 'New Project',
+            'edit_item'             => 'Edit Project',
+            'view_item'             => 'View Project',
+            'all_items'             => 'All Projects',
+            'search_items'          => 'Search Projects',
+            'parent_item_colon'     => 'Parent Projects:',
+            'not_found'             => 'No Projects found.',
+            'not_found_in_trash'    => 'No Projects found in Trash.',
+            'featured_image'        => 'Project Cover Image'
         ];
 
 
@@ -57,23 +57,22 @@ class RegisterPostTypes {
     function wesbsite_register_work_category() {
 
         $labels = [
-            'name'                  => __( 'Work Categories', 'genlite' ),
-            'singular_name'         => __( 'Work Category', 'genlite' ),
-            'menu_name'             => __( 'Work Categories','genlite' ),
-            'name_admin_bar'        => __( 'Work Category', 'genlite' ),
-            'add_new'               => __( 'Add New', 'genlite' ),
-            'add_new_item'          => __( 'Add New Work Category', 'genlite' ),
-            'new_item'              => __( 'New Work Category', 'genlite' ),
-            'edit_item'             => __( 'Edit Work Category', 'genlite' ),
-            'view_item'             => __( 'View Work Category', 'genlite' ),
-            'all_items'             => __( 'All Work Categories', 'genlite' ),
-            'search_items'          => __( 'Search Project Work Categories', 'genlite' ),
-            'parent_item_colon'     => __( 'Parent Work Categories:', 'genlite' ),
-            'not_found'             => __( 'No Work Categories found.', 'genlite' ),
-            'not_found_in_trash'    => __( 'No Work Categories found in Trash.', 'genlite' ),
-            'featured_image'        => __( 'Work Category Cover Image', 'genlite' )
+            'name'                  => 'Work Categories',
+            'singular_name'         => 'Work Category',
+            'menu_name'             => 'Work Categories',
+            'name_admin_bar'        => 'Work Category',
+            'add_new'               => 'Add New',
+            'add_new_item'          => 'Add New Work Category',
+            'new_item'              => 'New Work Category',
+            'edit_item'             => 'Edit Work Category',
+            'view_item'             => 'View Work Category',
+            'all_items'             => 'All Work Categories',
+            'search_items'          => 'Search Project Work Categories',
+            'parent_item_colon'     => 'Parent Work Categories:',
+            'not_found'             => 'No Work Categories found.', 
+            'not_found_in_trash'    => 'No Work Categories found in Trash.',
+            'featured_image'        => 'Work Category Cover Image'
         ];
-
 
         $args = [
             'labels' => $labels,
@@ -89,6 +88,7 @@ class RegisterPostTypes {
             'rest_base' => '',
             'show_in_quick_edit' => false
         ];
+        
         register_taxonomy( 'work_category', ['work'], $args );
     }
 
