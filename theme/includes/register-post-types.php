@@ -5,146 +5,94 @@ class RegisterPostTypes {
 
 	public function __construct() {
 
-       add_action( 'init', [ $this, 'cptui_register_my_cpts' ] );
-       add_action( 'init', [ $this, 'cptui_register_my_cpts_work' ] );
-       add_action( 'init', [ $this, 'cptui_register_my_taxes' ] );
-       add_action( 'init', [ $this, 'cptui_register_my_taxes_work_category' ] );
+       add_action( 'init', [ $this, 'wesbsite_register_work' ] );
+       add_action( 'init', [ $this, 'wesbsite_register_work_category' ] );
 
     }
 
-    // Work Post Type
-    function cptui_register_my_cpts() {
+    function wesbsite_register_work() {
 
-        
-        /**
-         * Post Type: Projects.
-         */
+        $labels = [
+            'name'                  => __( 'Projects', 'genlite' ),
+            'singular_name'         => __( 'Project', 'genlite' ),
+            'menu_name'             => __( 'Projects','genlite' ),
+            'name_admin_bar'        => __( 'Project', 'genlite' ),
+            'add_new'               => __( 'Add New', 'genlite' ),
+            'add_new_item'          => __( 'Add New Project', 'genlite' ),
+            'new_item'              => __( 'New Project', 'genlite' ),
+            'edit_item'             => __( 'Edit Project', 'genlite' ),
+            'view_item'             => __( 'View Project', 'genlite' ),
+            'all_items'             => __( 'All Projects', 'genlite' ),
+            'search_items'          => __( 'Search Projects', 'genlite' ),
+            'parent_item_colon'     => __( 'Parent Projects:', 'genlite' ),
+            'not_found'             => __( 'No Projects found.', 'genlite' ),
+            'not_found_in_trash'    => __( 'No Projects found in Trash.', 'genlite' ),
+            'featured_image'        => __( 'Project Cover Image', 'genlite' )
+        ];
 
-        $labels = array(
-            "name" => __( "Projects", "genlite" ),
-            "singular_name" => __( "Project", "genlite" ),
-        );
 
-        $args = array(
-            "label" => __( "Projects", "genlite" ),
-            "labels" => $labels,
-            "description" => "",
-            "public" => true,
-            "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_rest" => true,
-            "rest_base" => "",
-            "has_archive" => true,
-            "show_in_menu" => true,
-            "exclude_from_search" => false,
-            "capability_type" => "post",
-            "map_meta_cap" => true,
-            "hierarchical" => false,
-            "rewrite" => array( "slug" => "work", "with_front" => true ),
-            "query_var" => true,
-            "supports" => array( "title", "editor", "thumbnail", "custom-fields" ),
-            "taxonomies" => array( "work_category" ),
-        );
+        $args = [
+            'labels' => $labels,
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_rest' => true,
+            'rest_base' => '',
+            'has_archive' => true,
+            'show_in_menu' => true,
+            'exclude_from_search' => false,
+            'capability_type' => 'post',
+            'map_meta_cap' => true,
+            'hierarchical' => false,
+            'rewrite' => [ 'slug' => 'work', 'with_front' => true ],
+            'query_var' => true,
+            'supports' => [ 'title', 'editor', 'thumbnail', 'custom-fields' ],
+            'taxonomies' => [ 'work_category' ]
+        ];
 
-        register_post_type( "work", $args );
+        register_post_type( 'work', $args );
     }
 
-    function cptui_register_my_cpts_work() {
 
-        /**
-         * Post Type: Projects.
-         */
+    function wesbsite_register_work_category() {
 
-        $labels = array(
-            "name" => __( "Projects", "genlite" ),
-            "singular_name" => __( "Project", "genlite" ),
-        );
+        $labels = [
+            'name'                  => __( 'Work Categories', 'genlite' ),
+            'singular_name'         => __( 'Work Category', 'genlite' ),
+            'menu_name'             => __( 'Work Categories','genlite' ),
+            'name_admin_bar'        => __( 'Work Category', 'genlite' ),
+            'add_new'               => __( 'Add New', 'genlite' ),
+            'add_new_item'          => __( 'Add New Work Category', 'genlite' ),
+            'new_item'              => __( 'New Work Category', 'genlite' ),
+            'edit_item'             => __( 'Edit Work Category', 'genlite' ),
+            'view_item'             => __( 'View Work Category', 'genlite' ),
+            'all_items'             => __( 'All Work Categories', 'genlite' ),
+            'search_items'          => __( 'Search Project Work Categories', 'genlite' ),
+            'parent_item_colon'     => __( 'Parent Work Categories:', 'genlite' ),
+            'not_found'             => __( 'No Work Categories found.', 'genlite' ),
+            'not_found_in_trash'    => __( 'No Work Categories found in Trash.', 'genlite' ),
+            'featured_image'        => __( 'Work Category Cover Image', 'genlite' )
+        ];
 
-        $args = array(
-            "label" => __( "Projects", "genlite" ),
-            "labels" => $labels,
-            "description" => "",
-            "public" => true,
-            "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_rest" => true,
-            "rest_base" => "",
-            "has_archive" => true,
-            "show_in_menu" => true,
-            "exclude_from_search" => false,
-            "capability_type" => "post",
-            "map_meta_cap" => true,
-            "hierarchical" => false,
-            "rewrite" => array( "slug" => "work", "with_front" => true ),
-            "query_var" => true,
-            "supports" => array( "title", "editor", "thumbnail", "custom-fields" ),
-            "taxonomies" => array( "work_category" ),
-        );
 
-        register_post_type( "work", $args );
+        $args = [
+            'labels' => $labels,
+            'public' => true,
+            'hierarchical' => false,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'show_in_nav_menus' => true,
+            'query_var' => true,
+            'rewrite' => [ 'slug' => 'work-type', 'with_front' => true ],
+            'show_admin_column' => false,
+            'show_in_rest' => true,
+            'rest_base' => '',
+            'show_in_quick_edit' => false
+        ];
+        register_taxonomy( 'work_category', ['work'], $args );
     }
 
-    function cptui_register_my_taxes() {
-
-        /**
-         * Taxonomy: Work Categories.
-         */
-
-        $labels = array(
-            "name" => __( "Work Categories", "genlite" ),
-            "singular_name" => __( "Work Category", "genlite" ),
-        );
-
-        $args = array(
-            "label" => __( "Work Categories", "genlite" ),
-            "labels" => $labels,
-            "public" => true,
-            "hierarchical" => false,
-            "label" => "Work Categories",
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "show_in_nav_menus" => true,
-            "query_var" => true,
-            "rewrite" => array( 'slug' => 'work-type', 'with_front' => true, ),
-            "show_admin_column" => false,
-            "show_in_rest" => true,
-            "rest_base" => "",
-            "show_in_quick_edit" => false,
-        );
-        register_taxonomy( "work_category", array( "work" ), $args );
-    }
-
-    function cptui_register_my_taxes_work_category() {
-
-        /**
-         * Taxonomy: Work Categories.
-         */
-
-        $labels = array(
-            "name" => __( "Work Categories", "genlite" ),
-            "singular_name" => __( "Work Category", "genlite" ),
-        );
-
-        $args = array(
-            "label" => __( "Work Categories", "genlite" ),
-            "labels" => $labels,
-            "public" => true,
-            "hierarchical" => false,
-            "label" => "Work Categories",
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "show_in_nav_menus" => true,
-            "query_var" => true,
-            "rewrite" => array( 'slug' => 'work-type', 'with_front' => true, ),
-            "show_admin_column" => false,
-            "show_in_rest" => true,
-            "rest_base" => "",
-            "show_in_quick_edit" => false,
-        );
-        register_taxonomy( "work_category", array( "work" ), $args );
-    }
    
-
 }
 
 new RegisterPostTypes();
