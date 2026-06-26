@@ -33,7 +33,7 @@ export const handleMobileMenu = function () {
             //    mobileMenuPath.pop();
 
                  mobileMenuPath = [];
-                 console.log(mobileMenuPath);
+                //  console.log(mobileMenuPath);
 
                 let mobileSubParentMenus = document.getElementsByClassName("level1-subnav-container");
 
@@ -87,7 +87,7 @@ export const handleMobileMenu = function () {
     let level2SubMenuBackButtons = document.getElementsByClassName("mobile-submenu-back.level2");
     
 
-    console.log(level2SubMenuBackButtons);
+  //  console.log(level2SubMenuBackButtons);
 
     for ( let j = 0; j < level2SubMenuBackButtons.length; j++ ) {
         
@@ -99,7 +99,7 @@ export const handleMobileMenu = function () {
 
                 mobileMenuPath = [];
 
-                console.log(mobileMenuPath);
+             //   console.log(mobileMenuPath);
 
                 let level2MobileSubParentMenus = document.getElementsByClassName("level2-mobile-parent-menu");
 
@@ -162,7 +162,7 @@ export const handleMobileMenu = function () {
 
     // Parent Sub Menus
     let parentSubMenus = document.getElementsByClassName("mobile-parent-submenu");
-    console.log(parentSubMenus);
+ //   console.log(parentSubMenus);
 
     for (let i = 0; i < parentSubMenus.length; i++) {
         
@@ -176,7 +176,7 @@ export const handleMobileMenu = function () {
 
                 showMobileSubMenu( subMenuId );
 
-                console.log(mobileMenuPath);
+               // console.log(mobileMenuPath);
 
             }, false);
 
@@ -228,7 +228,7 @@ export const handleMobileMenu = function () {
 
                 showMobileSubMenuLevel2( subMenuId );
 
-                console.log(mobileMenuPath);
+            //    console.log(mobileMenuPath);
 
             }, false);
 
